@@ -1,10 +1,10 @@
 from flask import Flask, render_template, url_for
+from forms import RegisterForm, LoginForm, AddNoteForm, AddLinkForm
 import os
+
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
-
-
 
 
 @app.route("/")
@@ -13,14 +13,16 @@ def index():
     return render_template('index.html')
 
 
-@app.route("/login")
-def login():
-    return render_template('login.html')
-
-
 @app.route("/register")
 def register():
-    return render_template('register.html')
+    form = RegisterForm()
+    return render_template('register.html', form=form)
+
+
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template('login.html', form=form )
 
 
 @app.route("/notes")
@@ -30,7 +32,8 @@ def notes():
 
 @app.route("/addnote")
 def addnote():
-    return render_template('addnote.html')
+    form = AddNoteForm()
+    return render_template('addnote.html', form=form)
 
 
 @app.route("/editnote")
@@ -45,7 +48,8 @@ def links():
 
 @app.route("/addlink")
 def addlink():
-    return render_template('addlink.html') 
+    form = AddLinkForm()
+    return render_template('addlink.html', form=form) 
 
 
 if __name__ == '__main__':
