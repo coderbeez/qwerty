@@ -15,19 +15,34 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <!--MAIN COLUMN-->
+    <!--WHY: Bootstrap whole page container as navbar does not occupy 100% width on all screen sizes.-->
+            <div class="row">
+
+            <!--LEFT COLUMN-->
             <div class="col-12 col-md-8">
-                <nav class="d-flex justify-content-between r">
-                    <a class="ml-3 mr-3" href="{{ url_for('index') }}">-HOME-</a>
-                    <a class="mr-3" href="{{ url_for('notes') }}">-NOTES-</a>
-                    <a class="mr-3" href="{{ url_for('links') }}">-LINKS-</a>
-                </nav>
-                {% block content %}
-                {% endblock content %}
+                                
+                <!--NAVBAR-->
+                <div class="row">
+                    <nav class="col-12 d-flex justify-content-between r">
+                        <a class="ml-3 mr-3" href="{{ url_for('index') }}">-HOME-</a>
+                        <a class="mr-3" href="{{ url_for('notes') }}">-NOTES-</a>
+                        <a class="mr-3" href="{{ url_for('links') }}">-LINKS-</a>
+                    </nav>
+                </div>
+
+                <!--MAIN CONTENT-->
+                <div class="row">
+                    <main class="col-12">
+                        {% block content %}
+                        {% endblock content %}
+                    </main>
+                </div>
+
             </div>
-            <!--SIDEBAR-->
+
+            <!--RIGHT COLUMN-->
             <div class="d-none d-md-block col-md-4">
+
                 <h2>Why QWERTY</h2>
                 <ul class="list-group-flush shadows p-0">
                     <!--<li class="list-group-item"><h3 class="text-right m-0">about us</h3></li>-->
@@ -55,12 +70,13 @@
                     <li class="list-group-item"><i class="fas fa-lightbulb mr-2"></i>inspire<br>
                         <a href="https://www.awwwards.com/sites/lafaurie-paris">awwards site of the day</a></li>
                     <li class="list-group-item"><i class="fas fa-link mr-2"></i></i>newbie links<br>
-                        <a href="https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/">HTML- semantic cheat sheet</a><br>
+                        <a href="https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/">HTML-
+                            semantic cheat sheet</a><br>
                         <a href="https://www.mycolorspace.com">CSS- my color space</a><br>
                         <a href="https://www.practicepython.org/">JavaScript- js bin</a><br>
                         <a href="https://www.practicepython.org/">Python- practice python</a></li>
                 </ul>
-                
+
             </div>
 
 
