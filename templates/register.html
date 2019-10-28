@@ -1,5 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>test register</p>
+
+<div class="row">
+    <div class="col-12 col-md-8">
+
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+
+            <!--INPUT FIELDS FIELDSET-->
+            <fieldset class="form-group">
+                <h1 class="">REGISTER</h1>
+                <!--?Can I use h1 instead of legend-->
+                <h2 class="">Sign Up For Notes</h2>
+                <!--INPUT NAME-->
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    {{ form.name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.confirm.label(class="form-control-label") }}
+                    {{ form.confirm(class="form-control") }}
+                </div>
+            </fieldset>
+            <!--WHAT: Bootstrap class form-group-->
+            <!--WHAT: Fieldset element groups data in a form-->
+            <!--WHAT: Legend element label for fieldset-->
+            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+
+            <div class="form-group">
+                {{ form.submit(class="btn button-style") }}
+            </div>
+
+        </form>
+<div class>Already registered? <a href="{{ url_for('login') }}">login</a></div>
+    </div>
+</div>
+
 {% endblock content%}
