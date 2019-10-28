@@ -3,12 +3,16 @@
 /*----------FONTS----------*/
 
 body {
-        font-family: 'Abel', sans-serif;
+    font-family: 'Abel', sans-serif;
     color: #2f4858;
     background-color: #F4F4F4;
 }
 
-h1, h3, legend, a, nav {
+h1,
+h3,
+legend,
+a,
+nav {
     font-family: 'Cutive Mono', monospace;
 }
 
@@ -20,16 +24,17 @@ h1 {
 h2 {
     font-size: 1.5rem;
     font-family: 'Permanent Marker', cursive;
-    }
+}
 
-h3, legend {
+h3,
+legend {
     font-size: 1.8rem;
 }
 
 .tagline {
     font-size: 2rem;
     font-family: 'Cutive Mono', monospace;
-   }
+}
 
 nav a {
     font-size: 1.1rem;
@@ -85,9 +90,9 @@ nav a {
 
 .shadows {
     box-shadow: 0 3px 6px rgba(32, 82, 123, 0.16), 0 3px 6px rgba(32, 82, 123, 0.23);
-  }
+}
 
-  .vh--5 {
+.vh--5 {
     min-height: 5vh;
 }
 
@@ -133,7 +138,7 @@ nav a {
 
 .vh--85 {
     min-height: 85vh;
-} 
+}
 
 
 /*----------MEDIA QUERIES----------*/
