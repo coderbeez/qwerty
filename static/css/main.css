@@ -24,6 +24,7 @@ h1 {
 h2 {
     font-size: 1.5rem;
     font-family: 'Permanent Marker', cursive;
+    margin-top: 2rem;
 }
 
 h3,
@@ -34,6 +35,8 @@ legend {
 .tagline {
     font-size: 2rem;
     font-family: 'Cutive Mono', monospace;
+    line-height: .5;
+    
 }
 
 nav a {
@@ -45,23 +48,7 @@ nav a {
 
 /*----------MEDIA QUERIES----------*/
 
-@media (min-width: 768px) and (max-width: 991px) {
-    h1 {
-        font-size: 3rem;
-    }
 
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.6rem;
-    }
-
-    .tagline {
-        font-size: 3rem;
-    }
-}
 
 /*----------BUTTONS----------*/
 
@@ -81,7 +68,7 @@ nav a {
 /*----------BACKGROUNDS----------*/
 
 .hero {
-    background: url("images/typewriter.jpg");
+    background: url("../images/typewriter.jpg");
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: contain;
@@ -90,6 +77,10 @@ nav a {
 
 .shadows {
     box-shadow: 0 3px 6px rgba(32, 82, 123, 0.16), 0 3px 6px rgba(32, 82, 123, 0.23);
+}
+
+.vw--100{
+    min-width: 100%;
 }
 
 .vh--5 {
@@ -136,6 +127,14 @@ nav a {
     min-height: 70vh;
 }
 
+.vh--75 {
+    min-height: 75vh;
+}
+
+.vh--80 {
+    min-height: 80vh;
+}
+
 .vh--85 {
     min-height: 85vh;
 }
@@ -143,13 +142,32 @@ nav a {
 
 /*----------MEDIA QUERIES----------*/
 
+@media (min-width: 768px) and (max-width: 991px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    .tagline {
+        font-size: 3rem;
+    }
+}
+
+
 @media (min-width: 992px) {
     h1 {
         font-size: 4rem;
     }
 
     h2 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     h3 {
@@ -157,6 +175,12 @@ nav a {
     }
 
     .tagline {
-        font-size: 2.95rem;
+        font-size: 3rem;
     }
 }
+
+/*----------TESTING----------*/
+
+.r  {
+    border: 1px solid red;
+  }
