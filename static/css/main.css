@@ -73,6 +73,69 @@ nav a {
 
 }
 
+/*----------BACKGROUNDS----------*/
+
+.hero {
+    background: url("images/typewriter.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+}
+
+.shadows {
+    box-shadow: 0 3px 6px rgba(32, 82, 123, 0.16), 0 3px 6px rgba(32, 82, 123, 0.23);
+  }
+
+  .vh--5 {
+    min-height: 5vh;
+}
+
+.vh--10 {
+    min-height: 10vh;
+}
+
+.vh--15 {
+    min-height: 15vh;
+}
+
+.vh--20 {
+    min-height: 20vh;
+}
+
+.vh--50 {
+    min-height: 50vh;
+}
+
+.vh--55 {
+    min-height: 55vh;
+}
+
+.vh--30 {
+    min-height: 30vh;
+}
+
+.vh--35 {
+    min-height: 35vh;
+}
+
+.vh--40 {
+    min-height: 40vh;
+}
+
+.vh--45 {
+    min-height: 45vh;
+}
+
+.vh--70 {
+    min-height: 70vh;
+}
+
+.vh--85 {
+    min-height: 85vh;
+} 
+
+
 /*----------MEDIA QUERIES----------*/
 
 @media (min-width: 992px) {
