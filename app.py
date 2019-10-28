@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, url_for
 
 
 app = Flask(__name__)
@@ -7,42 +7,42 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/index")
 def index():
-    return "Home Page"
+    return render_template('index.html')
 
 
 @app.route("/login")
 def login():
-    return "Login Page"
+    return render_template('login.html')
 
 
 @app.route("/register")
 def register():
-    return "Register Page"
+    return render_template('register.html')
 
 
 @app.route("/notes")
 def notes():
-    return "Notes Page"
+    return render_template('notes.html')
 
 
 @app.route("/addnote")
 def addnote():
-    return "Add Note Page"
+    return render_template('addnote.html')
 
 
 @app.route("/editnote")
 def editnote():
-    return "Edit Note Page"
+    return render_template('editnote.html')
 
 
 @app.route("/links")
 def links():
-    return "Links Page"
+    return render_template('links.html')
 
 
 @app.route("/addlink")
 def addlink():
-    return "Add Link Page"   
+    return render_template('addlink.html') 
 
 
 if __name__ == '__main__':
