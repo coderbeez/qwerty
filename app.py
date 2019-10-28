@@ -1,7 +1,10 @@
 from flask import Flask, render_template, url_for
-
+import os
 
 app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY')
+
+
 
 
 @app.route("/")
