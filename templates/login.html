@@ -1,5 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>test login</p>
+<div class="row">
+    <div class="col-12 col-md-8">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+            <fieldset class="form-group">
+                <h1 class="">LOGIN</h1>
+                <!--?Can I use h1 instead of legend-->
+                <h2 class="">Login For Your Notes</h2>
+
+                <!--INPUT EMAIL-->
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <!--INPUT PASSWORD-->
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password(class="form-control") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <!--WHAT: Bootstrap class form-group-->
+            <!--WHAT: Fieldset element groups data in a form-->
+            <!--WHAT: Legend element label for fieldset-->
+            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+
+            <!--SUBMIT BUTTON-->
+            <div class="form-group">
+                {{ form.submit(class="btn button-style") }}
+            </div>
+
+        </form>
+        <div class>Forgot password? <a href="#">reset</a></div>
+        <div class>Not registered? <a href="{{ url_for('register') }}">register</a></div>
+    </div>
+</div>
+
 {% endblock content%}
