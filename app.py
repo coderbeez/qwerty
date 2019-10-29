@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegisterForm, LoginForm, AddNoteForm, AddLinkForm
 import os
 
@@ -16,12 +16,18 @@ def index():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
+    if form.validate_on_submit():
+        flash("Perfect - you can create notes!")
+        return redirect(url_for("addnote"))
     return render_template("register.html", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        flash("Perfect - your notes!")
+        return redirect(url_for("notes"))
     return render_template("login.html", form=form )
 
 
@@ -33,6 +39,9 @@ def notes():
 @app.route("/addnote", methods=["GET", "POST"])
 def addnote():
     form = AddNoteForm()
+    if form.validate_on_submit():
+        flash("Perfect - note added!")
+        return redirect(url_for("notes"))
     return render_template("addnote.html", form=form)
 
 
@@ -49,6 +58,9 @@ def links():
 @app.route("/addlink", methods=["GET", "POST"])
 def addlink():
     form = AddLinkForm()
+    if form.validate_on_submit():
+        flash("Perfect - link added!")
+        return redirect(url_for("links"))
     return render_template("addlink.html", form=form) 
 
 
