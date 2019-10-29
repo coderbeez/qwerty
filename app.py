@@ -26,8 +26,12 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        flash("Perfect - your notes!")
-        return redirect(url_for("notes"))
+        if form.email.data == "edel@test.com" and form.password.data == "123456789":
+            #temp till authentication setup
+            flash("Perfect - your notes!")
+            return redirect(url_for("notes"))
+        else:
+            flash("Oops - try again", "oops")    
     return render_template("login.html", form=form )
 
 
