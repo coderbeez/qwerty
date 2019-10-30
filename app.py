@@ -63,8 +63,10 @@ def links():
 def addlink():
     form = AddLinkForm()
     if form.validate_on_submit():
-        flash("Perfect - link added!")
+        #flash("Perfect - link added!")
         return redirect(url_for("links"))
+    else:
+        flash("Oops - try again")
     return render_template("addlink.html", form=form) 
 
 
