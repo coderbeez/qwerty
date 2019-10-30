@@ -50,7 +50,18 @@
             <!--SUBMIT BUTTON-->
             <div class="form-group">
                 {{ form.submit(class="btn button-style") }}
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <h2 class="message">{{ message }}</h2>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
             </div>
+
+            <!--WHAT: Facility to print flash messages on all pages-->
+
+
 
         </form>
         <div class>Forgot password? <a href="#">reset</a></div>

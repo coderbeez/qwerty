@@ -33,15 +33,6 @@
                 <!--MAIN CONTENT-->
                 <div class="row">
                     <main class="col-12">
-                        <!--WHAT: Facility to print flash messages on all pages-->
-                        {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                        {% for message in messages %}
-                        <h2 class="message">{{ message }}</h2>
-                        {% endfor %}
-                        {% endif %}
-                        {% endwith %}
-
                         {% block content %}
                         {% endblock content %}
                     </main>
