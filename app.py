@@ -31,7 +31,7 @@ def login():
             flash("Perfect - your notes!")
             return redirect(url_for("notes"))
         else:
-            flash("Oops - try again", "oops")    
+            flash("Oops - try again")    
     return render_template("login.html", form=form )
 
 

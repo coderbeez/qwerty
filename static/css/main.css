@@ -38,6 +38,10 @@ legend {
     
 }
 
+.message--oops {
+    color: #DC0703;
+}
+
 nav a {
     font-size: 1.1rem;
     text-decoration: none;
