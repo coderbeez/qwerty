@@ -42,11 +42,19 @@ legend {
     color: #DC0703;
 }
 
+.oops {
+    color: #DC0703;
+}
+
 nav a {
     font-size: 1.1rem;
     text-decoration: none;
     color: #DC0703 !important;
 
+}
+
+ul {
+    list-style:none;
 }
 
 /*----------MEDIA QUERIES----------*/
