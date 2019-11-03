@@ -1,28 +1,15 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegisterForm, LoginForm, AddNoteForm, AddLinkForm
 import os
-import pymongo
+from flask import Flask, render_template, url_for, flash, redirect
+from flask_pymongo import PyMongo
+from forms import RegisterForm, LoginForm, AddNoteForm, AddLinkForm
 
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
-MONGODB_URI = os.getenv("MONGO_URI")
-DB = "qwerty"
-COLL_USER = "user"
-COLL_LANGUAGE = "language"
-COLL_NOTE = "note"
-COLL_LINK = "link"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+mongo = PyMongo(app)
 
-def mongo_connect(uri):
-    try:
-        connect = pymongo.MongoClient(uri)
-        print("Mongo is connected!")
-        return connect
-    except pymongo.errors.ConnectionFailure as e:
-        print(f"Could not connect to MongoDB: {e}") 
-
-mongo_connect(MONGODB_URI)
 
 
 @app.route("/")
@@ -74,7 +61,8 @@ def editnote():
 
 @app.route("/links", methods=["GET", "POST"])
 def links():
-    return render_template("links.html")
+    links = mongo.db.links.find()
+    return render_template("links.html", links=links)
 
 
 @app.route("/addlink", methods=["GET", "POST"])
