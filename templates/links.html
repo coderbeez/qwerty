@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>test links</p>
-{% endblock content%}
+
+{% for group_topic in group_topics %}
+
+<p>{{ group_topic._id}}</p>
+
+{% for link in links %}
+{% if link.topic == group_topic._id %}
+<h2>{{ link.language }}</h2>
+<h3>{{ link.topic }}  </h3>
+{% if link.link_type == "instruct" %}
+<i class="fas fa-chalkboard-teacher"></i>
+{% elif link.link_type == "practice" %}
+<i class="fas fa-pencil-alt"></i>
+{% elif link.link_type == "resource" %}
+<i class="fas fa-tools"></i>
+{% endif %}
+<p><a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a>
+<p>ratings sum {{ link.ratings|sum }}</p>  
+<p>ratings count {{ link.ratings|count }}</p>  
+<p>ratings average {{ (link.ratings|sum)/(link.ratings|count) }}</p>
+{% for rating in link.ratings%}
+<span>{{ rating }}</span>
+{% endfor %}</p>
+<p>{{ link.description }}</p>
+<p>flag {{ link.flag }}</p>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+
+
+
+{% endblock content %}

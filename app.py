@@ -61,8 +61,12 @@ def editnote():
 
 @app.route("/links", methods=["GET", "POST"])
 def links():
-    links = mongo.db.links.find()
-    return render_template("links.html", links=links)
+    links = list(mongo.db.links.find())
+    #create array from cursor returned
+    group_topics = mongo.db.links.aggregate([{"$group":{"_id" :"$topic"}}])
+    group_topics = list(group_topics)
+    #change from cursor to array
+    return render_template("links.html", links=links, group_topics=group_topics)
 
 
 @app.route("/addlink", methods=["GET", "POST"])
