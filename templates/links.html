@@ -18,12 +18,20 @@
 <i class="fas fa-tools"></i>
 {% endif %}
 <p><a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a>
-<p>ratings sum {{ link.ratings|sum }}</p>  
-<p>ratings count {{ link.ratings|count }}</p>  
-<p>ratings average {{ (link.ratings|sum)/(link.ratings|count) }}</p>
-{% for rating in link.ratings%}
-<span>{{ rating }}</span>
-{% endfor %}</p>
+{% if (link.ratings|sum)//(link.ratings|count) == 1 %}
+<span><i class="fas fa-star"></i></span>
+{% elif (link.ratings|sum)//(link.ratings|count) == 2 %}
+<span><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+{% elif (link.ratings|sum)//(link.ratings|count) == 3 %}
+<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+{% elif (link.ratings|sum)//(link.ratings|count) == 4 %}
+<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+{% elif (link.ratings|sum)//(link.ratings|count) == 5 %}</p>
+<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+{% endif %}
+<small>{{ link.ratings|count }} ratings</small>  
+</p>
+
 <p>{{ link.description }}</p>
 <p>flag {{ link.flag }}</p>
 
