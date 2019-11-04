@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Cutive+Mono|Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Basic|Carme|Fira+Code|Love+Ya+Like+A+Sister|Noto+Sans+KR|Orbitron|Roboto+Mono|Yeon+Sung&display=swap');
+
 
 /*----------FONTS----------*/
 
@@ -11,7 +13,6 @@ body {
 h1,
 h3,
 legend,
-a,
 nav {
     font-family: 'Cutive Mono', monospace;
 }
@@ -36,6 +37,23 @@ legend {
     font-family: 'Cutive Mono', monospace;
     line-height: .5;
     
+}
+
+.star {
+  font-size: 1.2rem;
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Cutive Mono', monospace;
+  font-family: 'Yeon Sung', cursive;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Architects Daughter', cursive;
+font-family: 'Basic', sans-serif;
+font-family: 'Fira Code', monospace;
+font-family: 'Carme', sans-serif;
+font-family: 'Love Ya Like A Sister', cursive;
+  
+
 }
 
 .message--oops {
