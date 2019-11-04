@@ -15,7 +15,7 @@
       </button>
       {{ note.note_name }}</p>
 <div class="collapse" id="id{{note._id}}">
-      <ul class="list-group-flush">
+      <ul class="list-group-flush p-0">
             {% for point in note.points|sort(attribute="point_type") %}
             <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</li>
             {% endfor %}
