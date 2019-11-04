@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content%}
+<h1>Links - Python</h1>
 
 {% for group_topic in group_topics %}
 <h2>{{ group_topic._id}}</h2>
@@ -13,7 +14,7 @@
 {% elif loop.previtem.link_type != link.link_type %}
 <h3>{{link.link_type}}</h3>
 {% endif %}
-<p>
+
 <!--{% if link.link_type == "instruct" %}
 <i class="fas fa-chalkboard-teacher"></i>
 {% elif link.link_type == "practice" %}
@@ -21,6 +22,13 @@
 {% elif link.link_type == "resource" %}
 <i class="fas fa-tools"></i>
 {% endif %}-->
+
+<p class="m-1">
+        <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}" aria-expanded="false"
+              aria-controls="collapsePoints">
+              <i class="fas fa-chevron-down"></i>
+        </button>
+     
 
 <a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a>
 
@@ -41,8 +49,16 @@
     <small>{{ link.ratings|count }} ratings</small>
 </p>
 
-<p>{{ link.description }}</p>
-<p>flag {{ link.flag }}</p>
+<div class="collapse" id="id{{link._id}}">
+        <ul class="list-group-flush p-0">
+              <li class="list-group-item">{{ link.description }}</li>
+                       <li class="list-group-item">
+                               <span class="mr-5">rate <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
+                        class="far fa-star"></i></span>
+                        <button class="button-style m-0">problem</button></li>
+        </ul>
+  </div>
+
 
 {% endif %}
 {% endfor %}
