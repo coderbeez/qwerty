@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>test notes</p>
+
+{% for group_topic in group_topics %}
+<h2>{{ group_topic._id}}</h2>
+
+{% for note in notes %}
+{% if note.topic == group_topic._id %}
+<p>{{ note.note_name }}</p>
+<p>{{ note.user_id }}</p>
+{% for point in note.points|sort(attribute="point_type") %}
+<p>{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</p>
+{% endfor %}
+
+
+{% endif %}
+{% endfor %}
+{% endfor %}
 {% endblock content%}
