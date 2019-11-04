@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson.son import SON
 from forms import RegisterForm, LoginForm, AddNoteForm, AddLinkForm
 
 
@@ -43,7 +44,12 @@ def login():
 
 @app.route("/notes")
 def notes():
-    return render_template("notes.html")
+    notes = list(mongo.db.notes.find({"language": "Python"}).sort([("topic", 1),("note_name", 1)]))
+    #create array from cursor returned
+    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": "Python"}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}, ])
+    group_topics = list(group_topics)
+    #change from cursor to array
+    return render_template("notes.html", notes=notes, group_topics=group_topics )
 
 
 @app.route("/addnote", methods=["GET", "POST"])
@@ -64,7 +70,7 @@ def editnote():
 def links():
     links = list(mongo.db.links.find({"language": "Python"}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     #create array from cursor returned
-    group_topics = mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$group":{"_id" :"$topic"}}])
+    group_topics = mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}])
     group_topics = list(group_topics)
     #change from cursor to array
     return render_template("links.html", links=links, group_topics=group_topics)
