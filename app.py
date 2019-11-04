@@ -61,7 +61,7 @@ def editnote():
 
 @app.route("/links", methods=["GET", "POST"])
 def links():
-    links = list(mongo.db.links.find({"language": "Python"}).sort("link_type"))
+    links = list(mongo.db.links.find({"language": "Python"}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     #create array from cursor returned
     group_topics = mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$group":{"_id" :"$topic"}}])
     group_topics = list(group_topics)
