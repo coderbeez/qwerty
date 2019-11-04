@@ -8,13 +8,22 @@
 {% for note in notes %}
 {% if note.topic == group_topic._id %}
 <p>{{ note.note_name }}</p>
-<p>{{ note.user_id }}</p>
-{% for point in note.points|sort(attribute="point_type") %}
-<p>{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</p>
-{% endfor %}
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false" aria-controls="collapseExample">
+        points
+      </button>
+<div class="collapse" id="id{{note._id}}">
+        <div class="card card-body">
+                {% for point in note.points|sort(attribute="point_type") %}
+                <p>{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</p>
+                {% endfor %}
+            </div>
+      </div>
 
 
 {% endif %}
 {% endfor %}
 {% endfor %}
+
+
 {% endblock content%}
