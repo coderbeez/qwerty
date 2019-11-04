@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<h1>Notes - Python</h1>
 
 {% for group_topic in group_topics %}
 <h2>{{ group_topic._id}}</h2>
 
 {% for note in notes %}
 {% if note.topic == group_topic._id %}
-<p>{{ note.note_name }}</p>
-
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false" aria-controls="collapseExample">
-        points
+<p class="m-1">
+      <button class="btn" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false"
+            aria-controls="collapsePoints">
+            <i class="fas fa-chevron-down"></i>
       </button>
+      {{ note.note_name }}</p>
 <div class="collapse" id="id{{note._id}}">
-        <div class="card card-body">
-                {% for point in note.points|sort(attribute="point_type") %}
-                <p>{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</p>
-                {% endfor %}
-            </div>
-      </div>
+      <ul class="list-group-flush">
+            {% for point in note.points|sort(attribute="point_type") %}
+            <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</li>
+            {% endfor %}
+      </ul>
+</div>
 
 
 {% endif %}
