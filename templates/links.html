@@ -7,14 +7,20 @@
 {% for link in links %}
 {% if link.topic == group_topic._id %}
 
+
+{% if loop.previtem is undefined %}
+<h3>{{link.link_type}}</h3>
+{% elif loop.previtem.link_type != link.link_type %}
+<h3>{{link.link_type}}</h3>
+{% endif %}
 <p>
-{% if link.link_type == "instruct" %}
+<!--{% if link.link_type == "instruct" %}
 <i class="fas fa-chalkboard-teacher"></i>
 {% elif link.link_type == "practice" %}
 <i class="fas fa-pencil-alt"></i>
 {% elif link.link_type == "resource" %}
 <i class="fas fa-tools"></i>
-{% endif %}
+{% endif %}-->
 
 <a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a>
 
