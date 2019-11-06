@@ -13,26 +13,27 @@
 </head>
 
 <body>
-
+    
+    <!--NAVBAR-->
     <div class="container">
-    <!--WHY: Bootstrap whole page container as navbar does not occupy 100% width on all screen sizes.-->
-            <div class="row">
+        <div class="row">
+            <nav class="col-12 d-flex p-3">
+                <div class="align-self-center">
+                    <a class="mr-4" href="{{ url_for('index') }}">*home</a>
+                    <a class="mr-4" href="{{ url_for('notes') }}">*notes</a>
+                    <a class="" href="{{ url_for('links') }}">*links</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!--MAIN CONTENT-->
+    <div class="container">
+        <div class="row">
 
             <!--LEFT COLUMN-->
             <div class="col-12 col-md-8">
-                                
-                <!--NAVBAR-->
-                <div class="row">
-                    <nav class="col-12 d-flex vh--10 pl-3 border-bottom">
-                        <div class="align-self-center">
-                        <a class="mr-4" href="{{ url_for('index') }}">*home</a>
-                        <a class="mr-4" href="{{ url_for('notes') }}">*notes</a>
-                        <a class="" href="{{ url_for('links') }}">*links</a>
-                    </div>
-                    </nav>
-                </div>
 
-                <!--MAIN CONTENT-->
                 <div class="row">
                     <main class="col-12">
                         {% block content %}
