@@ -10,9 +10,9 @@
 
 
 {% if loop.previtem is undefined %}
-<h2>{{ group_topic._id}} - {{link.link_type}}</h2>
+<h3>{{ group_topic._id}} - {{link.link_type}}</h3>
 {% elif loop.previtem.link_type != link.link_type %}
-<h2>{{ group_topic._id}} - {{link.link_type}}</h2>
+<h3>{{ group_topic._id}} - {{link.link_type}}</h3>
 {% endif %}
 
 <!--{% if link.link_type == "instruct" %}

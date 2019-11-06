@@ -4,7 +4,7 @@
 <h1>NOTES Python</h1>
 
 {% for group_topic in group_topics %}
-<h2>{{ group_topic._id}}</h2>
+<h3>{{ group_topic._id}}</h3>
 
 {% for note in notes %}
 {% if note.topic == group_topic._id %}
