@@ -23,10 +23,12 @@
                                 
                 <!--NAVBAR-->
                 <div class="row">
-                    <nav class="col-12 d-flex justify-content-between r">
-                        <a class="ml-3 mr-3" href="{{ url_for('index') }}">-HOME-</a>
-                        <a class="mr-3" href="{{ url_for('notes') }}">-NOTES-</a>
-                        <a class="mr-3" href="{{ url_for('links') }}">-LINKS-</a>
+                    <nav class="col-12 d-flex vh--10 pl-3 border-bottom">
+                        <div class="align-self-center">
+                        <a class="mr-4" href="{{ url_for('index') }}">*home</a>
+                        <a class="mr-4" href="{{ url_for('notes') }}">*notes</a>
+                        <a class="" href="{{ url_for('links') }}">*links</a>
+                    </div>
                     </nav>
                 </div>
 
@@ -43,8 +45,8 @@
             <!--RIGHT COLUMN-->
             <div class="d-none d-md-block col-md-4">
 
-                <h2>Why QWERTY</h2>
-                <ul class="list-group-flush shadows p-0">
+                <h2>Why Qwerty</h2>
+                <ul class="list-group-flush p-0">
                     <!--<li class="list-group-item"><h3 class="text-right m-0">about us</h3></li>-->
                     <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
                         nam, modi sed animi accusantium aliquid, ullam assumenda voluptatem aliquam quam ad tenetur.
@@ -57,7 +59,7 @@
                 </ul>
 
                 <h2>Break Time</h2>
-                <ul class="list-group-flush shadows p-0">
+                <ul class="list-group-flush p-0">
                     <!--<li class="list-group-item"><h3 class="text-right m-0">distract me</h3></li>-->
                     <li class="list-group-item"><i class="fas fa-music mr-2"></i>music
                         <div class="embed-responsive embed-responsive-21by9"><iframe
