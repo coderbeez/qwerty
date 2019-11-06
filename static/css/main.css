@@ -1,61 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Abel|Cutive+Mono|Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Basic|Carme|Fira+Code|Love+Ya+Like+A+Sister|Noto+Sans+KR|Orbitron|Roboto+Mono|Yeon+Sung&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Cedarville+Cursive|Love+Ya+Like+A+Sister|Trocchi&display=swap');
 /*----------FONTS----------*/
 
 body {
-    font-family: 'Abel', sans-serif;
-    color: #2f4858;
-    background-color: #F4F4F4;
+ font-family: 'Cabin Condensed', sans-serif;
+color: #4C4C4C;
+      background-color: #F8F8F8;
 }
 
-h1,
-h3,
-legend,
-nav {
-    font-family: 'Cutive Mono', monospace;
+p {
+    line-height: 1;
 }
+
 
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  font-family: 'Trocchi', serif;
 }
 
 h2 {
-    font-size: 1.5rem;
-    font-family: 'Permanent Marker', cursive;
+    font-size: 1rem;
+    font-family: 'Trocchi', serif;
 }
 
-h3,
+
 legend {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
+
+h3 {
+    font-size: 1.25rem;
+        font-family: 'Trocchi', serif;
+}
+
 
 .tagline {
-    font-size: 2rem;
-    font-family: 'Cutive Mono', monospace;
-    line-height: .5;
+    font-size: 1.5rem;
+                   font-family: 'Cedarville Cursive', cursive;
+  line-height: .6;
     
 }
 
 .star {
-  font-size: 1.2rem;
-  font-family: 'Permanent Marker', cursive;
-  font-family: 'Cutive Mono', monospace;
-  font-family: 'Yeon Sung', cursive;
-font-family: 'Roboto Mono', monospace;
-font-family: 'Noto Sans KR', sans-serif;
-font-family: 'Orbitron', sans-serif;
-font-family: 'Architects Daughter', cursive;
-font-family: 'Basic', sans-serif;
-font-family: 'Fira Code', monospace;
-font-family: 'Carme', sans-serif;
+font-size: 1.5rem;
 font-family: 'Love Ya Like A Sister', cursive;
+  }
+
   
-
-}
-
 .message--oops {
     color: #DC0703;
 }
@@ -64,16 +55,23 @@ font-family: 'Love Ya Like A Sister', cursive;
     color: #DC0703;
 }
 
-nav a {
-    font-size: 1.1rem;
+nav, a {
+ 
     text-decoration: none;
-    color: #DC0703 !important;
+    color: #ED2124 !important;
 
+}
+
+nav {
+    font-size: 1.6rem;
+       font-family: 'Cedarville Cursive', cursive;
 }
 
 ul {
     list-style:none;
 }
+
+
 
 /*----------MEDIA QUERIES----------*/
 
@@ -97,8 +95,8 @@ ul {
 /*----------BACKGROUNDS----------*/
 
 .hero {
-    background: url("../images/typewriter.jpg");
-    background-position: bottom;
+    background: url("../images/typewriter.svg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     background-color: white;
@@ -168,12 +166,15 @@ ul {
     min-height: 85vh;
 }
 
+.vh--90 {
+    min-height: 90vh;
+}
 
 /*----------MEDIA QUERIES----------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     h2 {
@@ -187,12 +188,15 @@ ul {
     .tagline {
         font-size: 3rem;
     }
+    nav {
+        font-size: 2rem;
+    }
 }
 
 
 @media (min-width: 992px) {
     h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     h2 {
@@ -205,6 +209,9 @@ ul {
 
     .tagline {
         font-size: 3rem;
+    }
+    nav {
+        font-size: 2rem;
     }
 }
 
