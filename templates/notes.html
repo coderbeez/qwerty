@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<h1>Notes - Python</h1>
+<h1>NOTES Python</h1>
 
 {% for group_topic in group_topics %}
 <h2>{{ group_topic._id}}</h2>
@@ -15,7 +15,7 @@
       </button>
       {{ note.note_name }}</p>
 <div class="collapse" id="id{{note._id}}">
-      <ul class="list-group-flush p-0">
+      <ul class="list-group p-0">
             {% for point in note.points|sort(attribute="point_type") %}
             <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</li>
             {% endfor %}
