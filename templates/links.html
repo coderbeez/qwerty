@@ -3,68 +3,66 @@
 <h1>LINKS Python</h1>
 
 {% for group_topic in group_topics %}
-
-
-{% for link in links %}
-{% if link.topic == group_topic._id %}
-
-
-{% if loop.previtem is undefined %}
-<h3>{{ group_topic._id}} - {{link.link_type}}</h3>
-{% elif loop.previtem.link_type != link.link_type %}
-<h3>{{ group_topic._id}} - {{link.link_type}}</h3>
-{% endif %}
-
-<!--{% if link.link_type == "instruct" %}
-<i class="fas fa-chalkboard-teacher"></i>
-{% elif link.link_type == "practice" %}
-<i class="fas fa-pencil-alt"></i>
-{% elif link.link_type == "resource" %}
-<i class="fas fa-tools"></i>
-{% endif %}-->
-
-<p class="mb-1">
-      <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}" aria-expanded="false"
-            aria-controls="collapsePoints">
+<!--WHAT: Level 1 Collapse - TOPIC-->
+<h3> <button class="btn" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
+            aria-expanded="false" aria-controls="collapsePoints">
             <i class="fas fa-chevron-down"></i>
-      </button>
+      </button>{{ group_topic._id}}</h3>
 
-      <span class="">{{(link.ratings|sum)//(link.ratings|count)}}</span>
-      <span class="star mr-1">*</span>
+<!--WHY: Content want to collapse wrapped in div.-->
+<div id="id{{ group_topic._id}}" class="collapse">
 
-      <a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a><br>
+      {% for link in links %}
+      {% if link.topic == group_topic._id %}
 
+      {% if loop.previtem is undefined %}
 
+      <h3><button class="btn" type="button" data-toggle="collapse"
+                  data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
+                  aria-controls="collapsePoints">
+                  <i class="fas fa-chevron-down"></i>
+            </button>{{ group_topic._id}} - {{link.link_type}}</h3>
+      {% elif loop.previtem.link_type != link.link_type %}
 
-      <!--{% if (link.ratings|sum)//(link.ratings|count) == 1 %}
-    <span class="ml-5"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-    {% elif (link.ratings|sum)//(link.ratings|count) == 2 %}
-    <span class="ml-5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-    {% elif (link.ratings|sum)//(link.ratings|count) == 3 %}
-    <span class="ml-5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-    {% elif (link.ratings|sum)//(link.ratings|count) == 4 %}
-    <span class="ml-5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
-    {% elif (link.ratings|sum)//(link.ratings|count) == 5 %}
-    <span class="ml-5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-    {% endif %}-->
+      <h3><button class="btn" type="button" data-toggle="collapse"
+                  data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
+                  aria-controls="collapsePoints">
+                  <i class="fas fa-chevron-down"></i>
+            </button>{{ group_topic._id}} - {{link.link_type}}</h3>
+      {% endif %}
 
+      <!--WHAT: Level 2 Collapse - LINK TYPE-->
+      <div id="id{{ group_topic._id}}-{{link.link_type}}" class="collapse">
+            <p class="mb-1">
+                  <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}"
+                        aria-expanded="false" aria-controls="collapsePoints">
+                        <i class="fas fa-chevron-down"></i>
+                  </button>
 
-</p>
+                  <span class="">{{(link.ratings|sum)//(link.ratings|count)}}</span>
+                  <span class="star mr-1">*</span>
 
-<div class="collapse" id="id{{link._id}}">
-      <ul class="list-group p-0">
-            <li class="list-group-item">{{ link.description }}</li>
+                  <a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a><br>
+            </p>
 
-            <li class="list-group-item">
-                  <span class="mr-3">{{ link.ratings|count }} ratings</span>
-                  <button class="button-style m-0">rate</button>
-                  <button class="button-style m-0">problem</button></li>
-      </ul>
+            <!--WHAT: LEVEL 3 COLLAPSE - LINK ID-->
+            <div class="collapse" id="id{{link._id}}">
+                  <ul class="list-group p-0">
+                        <li class="list-group-item">{{ link.description }}</li>
+
+                        <li class="list-group-item">
+                              <span class="mr-3">{{ link.ratings|count }} ratings</span>
+                              <button class="button-style m-0">rate</button>
+                              <button class="button-style m-0">problem</button></li>
+                  </ul>
+            </div>
+      </div>
+
+      {% endif %}
+      {% endfor %}
+
 </div>
-
-
-{% endif %}
-{% endfor %}
+<!--END TOPIC GROUP-->
 {% endfor %}
 
 

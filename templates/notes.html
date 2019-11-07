@@ -4,28 +4,37 @@
 <h1>NOTES Python</h1>
 
 {% for group_topic in group_topics %}
-<h3>{{ group_topic._id}}</h3>
-
-{% for note in notes %}
-{% if note.topic == group_topic._id %}
-<p class="m-1">
-      <button class="btn" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false"
+<!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
+<h3><button class="btn" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}" aria-expanded="false"
             aria-controls="collapsePoints">
             <i class="fas fa-chevron-down"></i>
-      </button>
-      {{ note.note_name }}</p>
-<div class="collapse" id="id{{note._id}}">
-      <ul class="list-group p-0">
-            {% for point in note.points|sort(attribute="point_type") %}
-            <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} -- {{ point.point_content }}</li>
-            {% endfor %}
-      </ul>
+      </button>{{ group_topic._id}}</h3>
+
+<!--WHY: Content want to collapse wrapped in div.-->
+<div id="id{{ group_topic._id}}" class="collapse">
+      {% for note in notes %}
+      {% if note.topic == group_topic._id %}
+
+      <!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
+      <p class="m-1">
+            <button class="btn" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false"
+                  aria-controls="collapsePoints">
+                  <i class="fas fa-chevron-down"></i>
+            </button>
+            {{ note.note_name }}</p>
+      <div class="collapse" id="id{{note._id}}">
+            <ul class="list-group p-0">
+                  {% for point in note.points|sort(attribute="point_type") %}
+                  <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} --
+                        {{ point.point_content }}</li>
+                  {% endfor %}
+            </ul>
+      </div>
+
+      {% endif %}
+      {% endfor %}
 </div>
 
-
-{% endif %}
 {% endfor %}
-{% endfor %}
-
 
 {% endblock content%}
