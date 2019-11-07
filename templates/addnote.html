@@ -1,5 +1,121 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>test add note</p>
+
+
+<div class="row">
+    <div class="col-12 col-md-8">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+            <fieldset class="form-group">
+                <h1 class="">NOTES</h1>
+                <!--?Can I use h1 instead of legend-->
+                <h2 class="">Add A Note</h2>
+
+                <!--INPUT LANGUAGE-->
+                <div class="form-group">
+                    {{ form.language.label(class="") }}
+                    {% if form.language.errors %}
+                    {{ form.language(class="") }}
+                    {% for error in form.language.errors %}
+                    <span class="oops">{{ error }}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.language(class="") }}
+                    {% endif %}
+                </div>
+                <!--? BOOTSTRAP WITH RADIO-->
+
+                <!--INPUT TOPIC-->
+                <div class="form-group">
+                    {{ form.topic.label(class="form-control-label") }}
+                    {% if form.topic.errors %}
+                    {{ form.topic(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.topic.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.topic(class="form-control") }}
+                    {% endif %}
+                </div>
+
+
+                <!--INPUT NAME-->
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                    {{ form.name(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.name.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.name(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <!--INPUT POINT TYPE-->
+                <div class="form-group">
+                    {{ form.point_type.label(class="") }}
+                    {% if form.point_type.errors %}
+                    {{ form.point_type(class="") }}
+                    {% for error in form.point_type.errors %}
+                    <span class="oops">{{ error }}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.point_type(class="") }}
+                    {% endif %}
+                </div>
+                <!--? BOOTSTRAP WITH RADIO-->
+
+                <!--INPUT POINT CONTENT-->
+                <div class="form-group">
+                    {{ form.point_content.label(class="form-control-label") }}
+                    {% if form.point_content.errors %}
+                    {{ form.point_content(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.point_content.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.point_content(class="form-control") }}
+                    {% endif %}
+                </div>
+
+
+
+
+            </fieldset>
+            <!--WHAT: Bootstrap class form-group-->
+            <!--WHAT: Fieldset element groups data in a form-->
+            <!--WHAT: Legend element label for fieldset-->
+            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+
+            <!--SUBMIT BUTTON-->
+            <div class="form-group">
+                {{ form.submit(class="btn button-style") }}
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <h2 class="message--oops">{{ message }}</h2>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <!--WHAT: Facility to print flash messages on all pages-->
+
+
+
+        </form>
+
+    </div>
+</div>
+
+
 {% endblock content%}
