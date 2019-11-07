@@ -5,10 +5,10 @@
 
 {% for group_topic in group_topics %}
 <!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
-<h3><button class="btn" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}" aria-expanded="false"
+<h2><button class="btn" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}" aria-expanded="false"
             aria-controls="collapsePoints">
             <i class="fas fa-chevron-down"></i>
-      </button>{{ group_topic._id}}</h3>
+      </button>{{ group_topic._id}}</h2>
 
 <!--WHY: Content want to collapse wrapped in div.-->
 <div id="id{{ group_topic._id}}" class="collapse">
@@ -19,7 +19,7 @@
       <p class="m-1">
             <button class="btn" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false"
                   aria-controls="collapsePoints">
-                  <i class="fas fa-chevron-down"></i>
+                  <i class="fas fa-angle-down"></i>
             </button>
             {{ note.note_name }}</p>
       <div class="collapse" id="id{{note._id}}">

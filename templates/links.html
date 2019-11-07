@@ -4,10 +4,10 @@
 
 {% for group_topic in group_topics %}
 <!--WHAT: Level 1 Collapse - TOPIC-->
-<h3> <button class="btn" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
+<h2> <button class="btn" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
             aria-expanded="false" aria-controls="collapsePoints">
             <i class="fas fa-chevron-down"></i>
-      </button>{{ group_topic._id}}</h3>
+      </button>{{ group_topic._id}}</h2>
 
 <!--WHY: Content want to collapse wrapped in div.-->
 <div id="id{{ group_topic._id}}" class="collapse">
@@ -17,18 +17,18 @@
 
       {% if loop.previtem is undefined %}
 
-      <h3><button class="btn" type="button" data-toggle="collapse"
+      <h3 class="ml-3"><button class="btn" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
                   <i class="fas fa-chevron-down"></i>
-            </button>{{ group_topic._id}} - {{link.link_type}}</h3>
+            </button>{{link.link_type}}</h3>
       {% elif loop.previtem.link_type != link.link_type %}
 
-      <h3><button class="btn" type="button" data-toggle="collapse"
+      <h3 class="ml-3"><button class="btn" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
                   <i class="fas fa-chevron-down"></i>
-            </button>{{ group_topic._id}} - {{link.link_type}}</h3>
+            </button>{{link.link_type}}</h3>
       {% endif %}
 
       <!--WHAT: Level 2 Collapse - LINK TYPE-->
@@ -36,13 +36,13 @@
             <p class="mb-1">
                   <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}"
                         aria-expanded="false" aria-controls="collapsePoints">
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-angle-down"></i>
                   </button>
 
-                  <span class="">{{(link.ratings|sum)//(link.ratings|count)}}</span>
-                  <span class="star mr-1">*</span>
+                  
 
-                  <a href="{{ link.url }}" target="_blank">{{ link.link_name }}</a><br>
+                  <a href="{{ link.url }}" target="_blank"><span class="">{{(link.ratings|sum)//(link.ratings|count)}}</span>
+                        <span class="star mr-1">*</span>{{ link.link_name }}</a><br>
             </p>
 
             <!--WHAT: LEVEL 3 COLLAPSE - LINK ID-->
