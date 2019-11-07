@@ -23,9 +23,26 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: 'Trocchi', serif;
+    
+ }
 
+
+h2, h2 i {
+    /*color: purple;*/
+    color: #41989f;
+    color: #497c80;
+    color: #41989f;
+    color: #00a9bd;
+
+}
+
+ section h2 {
+    font-size: 1.5rem;
+    color: #4C4C4C;
+    
+    
  }
 
 
@@ -36,6 +53,14 @@ legend {
 h3 {
     font-size: 1.25rem;
         font-family: 'Trocchi', serif;
+      }
+
+h3 i, h3 {
+    color:#7acfd6;
+    color: #6dbac0;
+    color: #00a9bd;
+    color: #00a9bd;
+
 }
 
 
@@ -54,11 +79,11 @@ font-family: 'Love Ya Like A Sister', cursive;
 
   
 .message--oops {
-    color: #DC0703;
+    color: #ED5023;
 }
 
 .oops {
-    color: #DC0703;
+    color: #ED5023;
 }
 
 
@@ -107,7 +132,7 @@ ul {
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 500;
-    background-color: #2F4858;
+    background-color: #4C4C4C;
     box-shadow: 1px 1px 1px rgba(49, 49, 80, 0.3);
 
 }
@@ -201,6 +226,10 @@ ul {
         font-size: 1.5rem;
     }
 
+    section h2 {
+        font-size: 1.75rem;
+    }
+
     h3 {
         font-size: 1.25rem;
     }
@@ -223,6 +252,10 @@ ul {
 
     h2 {
         font-size: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.75rem;
     }
 
     h3 {
