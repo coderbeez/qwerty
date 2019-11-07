@@ -15,11 +15,11 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class AddNoteForm(FlaskForm):
-    language = SelectField('Language', validators=[DataRequired()], choices=[('html', 'HTML'), ('css', 'CSS'), ('js', 'JavaScript'), ('python', 'Python')])
-    topic = SelectField('Topic', validators=[DataRequired()], choices=[('topic1', 'Topic1'), ('topic2', 'Topic2'), ('topic3', 'Topic3')])
-    name = StringField('Note Name', validators=[DataRequired()])   
-    point_type = SelectField('Point Type', validators=[DataRequired()], choices=[('description', 'Description'), ('syntax', 'Syntax'), ('know', 'Know'), ('code', 'Code')])
-    point_content= StringField('Point Content', validators=[DataRequired()])
+    language = RadioField('Language', validators=[InputRequired()], choices=[('html', 'HTML'), ('css', 'CSS'), ('js', 'JavaScript'), ('python', 'Python')]) 
+    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'),('topic1', 'Topic1'), ('topic2', 'Topic2'), ('topic3', 'Topic3')])
+    name = StringField('Note Name', validators=[InputRequired()])   
+    point_type = SelectField('Point Type', validators=[InputRequired()], choices=[('description', 'Description'), ('syntax', 'Syntax'), ('know', 'Know'), ('code', 'Code')])
+    point_content= TextAreaField('Point Content', validators=[InputRequired()])
     submit = SubmitField('Save')
 
 class AddLinkForm(FlaskForm):
