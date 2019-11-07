@@ -42,6 +42,16 @@ def login():
     return render_template("login.html", form=form )
 
 
+@app.route("/links", methods=["GET", "POST"])
+def links():
+    links = list(mongo.db.links.find({"language": "Python"}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
+    #create array from cursor returned
+    group_topics = mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}])
+    group_topics = list(group_topics)
+    #change from cursor to array
+    return render_template("links.html", links=links, group_topics=group_topics)
+
+
 @app.route("/notes")
 def notes():
     notes = list(mongo.db.notes.find({"language": "Python"}).sort([("topic", 1),("note_name", 1)]))
@@ -50,6 +60,17 @@ def notes():
     group_topics = list(group_topics)
     #change from cursor to array
     return render_template("notes.html", notes=notes, group_topics=group_topics )
+
+
+@app.route("/addlink", methods=["GET", "POST"])
+def addlink():
+    form = AddLinkForm()
+    if form.validate_on_submit():
+        #flash("Perfect - link added!")
+        return redirect(url_for("links"))
+    else:
+        flash("Oops - try again")
+    return render_template("addlink.html", form=form) 
 
 
 @app.route("/addnote", methods=["GET", "POST"])
@@ -66,25 +87,10 @@ def editnote():
     return render_template("editnote.html")
 
 
-@app.route("/links", methods=["GET", "POST"])
-def links():
-    links = list(mongo.db.links.find({"language": "Python"}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
-    #create array from cursor returned
-    group_topics = mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}])
-    group_topics = list(group_topics)
-    #change from cursor to array
-    return render_template("links.html", links=links, group_topics=group_topics)
 
 
-@app.route("/addlink", methods=["GET", "POST"])
-def addlink():
-    form = AddLinkForm()
-    if form.validate_on_submit():
-        #flash("Perfect - link added!")
-        return redirect(url_for("links"))
-    else:
-        flash("Oops - try again")
-    return render_template("addlink.html", form=form) 
+
+
 
 
 if __name__ == '__main__':
