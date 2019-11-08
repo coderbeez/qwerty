@@ -67,9 +67,10 @@ def addlink():
     form = AddLinkForm()
     if form.validate_on_submit():
         #flash("Perfect - link added!")
+        mongo.db.links.insert_one({"language": form.language.data, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.name.data, "description": form.description.data, "ratings": [form.rate.data] })
         return redirect(url_for("links"))
-    else:
-        flash("Oops - try again")
+    #else:
+        #flash("Oops - try again")
     return render_template("addlink.html", form=form) 
 
 
@@ -79,8 +80,11 @@ def addnote():
     if form.validate_on_submit():
         flash("Perfect - note added!")
         return redirect(url_for("notes"))
+        
+    else:
+        flash("Oops - try again")
     return render_template("addnote.html", form=form)
-
+#flash try again showing 
 
 @app.route("/editnote", methods=["GET", "POST"])
 def editnote():
