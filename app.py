@@ -79,6 +79,7 @@ def addnote():
     form = AddNoteForm()
     if form.validate_on_submit():
         flash("Perfect - note added!")
+        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data })
         return redirect(url_for("notes"))
         
     else:
