@@ -22,6 +22,11 @@ class AddNoteForm(FlaskForm):
     point_content= TextAreaField('Point Content', validators=[InputRequired()])
     submit = SubmitField('Save')
 
+class AddPointForm(FlaskForm):
+    point_type = RadioField('Point Type', validators=[InputRequired()], choices=[('description', 'Description'), ('syntax', 'Syntax'), ('know', 'Know'), ('code', 'Code')])
+    point_content= TextAreaField('Point Content', validators=[InputRequired()])
+    submit = SubmitField('Save')    
+
 class AddLinkForm(FlaskForm):
     language = RadioField('Language', validators=[InputRequired()], choices=[('html', 'HTML'), ('css', 'CSS'), ('js', 'JavaScript'), ('python', 'Python')]) 
     topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), ('topic1', 'Topic1'), ('topic2', 'Topic2'), ('topic3', 'Topic3')])

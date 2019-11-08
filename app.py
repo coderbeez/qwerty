@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.son import SON
-from forms import RegisterForm, LoginForm, AddNoteForm, AddLinkForm
+from forms import RegisterForm, LoginForm, AddNoteForm, AddPointForm, AddLinkForm
 
 
 app = Flask(__name__)
