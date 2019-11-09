@@ -15,24 +15,24 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class AddNoteForm(FlaskForm):
-    language = RadioField('Language', validators=[InputRequired()], choices=[('html', 'HTML'), ('css', 'CSS'), ('js', 'JavaScript'), ('python', 'Python')]) 
-    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'),('topic1', 'Topic1'), ('topic2', 'Topic2'), ('topic3', 'Topic3')])
+    language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
+    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'),(' Fundamentals', ' Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     name = StringField('Note Name', validators=[InputRequired()])   
-    point_type = RadioField('Point Type', validators=[InputRequired()], choices=[('description', 'Description'), ('syntax', 'Syntax'), ('know', 'Know'), ('code', 'Code')])
+    point_type = RadioField('Point Type', validators=[InputRequired()], choices=[('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
     point_content= TextAreaField('Point Content', validators=[InputRequired()])
     submit = SubmitField('Save')
 
 class AddPointForm(FlaskForm):
-    point_type = RadioField('Point Type', validators=[InputRequired()], choices=[('description', 'Description'), ('syntax', 'Syntax'), ('know', 'Know'), ('code', 'Code')])
+    point_type = RadioField('Point Type', validators=[InputRequired()], choices=[('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
     point_content= TextAreaField('Point Content', validators=[InputRequired()])
     submit = SubmitField('Save')    
 
 class AddLinkForm(FlaskForm):
-    language = RadioField('Language', validators=[InputRequired()], choices=[('html', 'HTML'), ('css', 'CSS'), ('js', 'JavaScript'), ('python', 'Python')]) 
-    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), ('topic1', 'Topic1'), ('topic2', 'Topic2'), ('topic3', 'Topic3')])
+    language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
+    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), (' Fundamentals', ' Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
-    link_type = RadioField('Type', validators=[InputRequired()], choices=[('instruct', 'Instruct'), ('practice', 'Practice'), ('resource', 'Resource'), ('other', 'Other')])
+    link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
     rate = RadioField('Rate', validators=[InputRequired()], choices=[('1', '*'), ('2', '**'), ('3', '***'),('4', '****'), ('5', '*****')])
     description = TextAreaField('Description')
     submit = SubmitField('Save')    
