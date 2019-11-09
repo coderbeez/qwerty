@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>test edit note</p>
+<h1>Edit NOTES Python</h1>
+
+<h2>{{ note.topic }}</h2>
+<h3>{{ note.note_name }}</h3>
+<p>{{ note._id}}</p>
+<ul class="list-group p-0">
+    {% for point in note.points|sort(attribute="point_type") %}
+    <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} --
+        {{ point.point_content }} --{{ point._id}}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
 {% endblock content%}
