@@ -3,19 +3,66 @@
 {% block content%}
 <h1>Edit NOTES Python</h1>
 
-<h2>{{ note.topic }}</h2>
-<h3>{{ note.note_name }}</h3>
-<p>{{ note._id}}</p>
-<ul class="list-group p-0">
-    {% for point in note.points|sort(attribute="point_type") %}
-    <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} --
-        {{ point.point_content }} --{{ point._id}}</li>
-    {% endfor %}
-</ul>
 
+<form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+        <fieldset class="form-group">
+            <h1 class="">NOTES</h1>
+            <!--?Can I use h1 instead of legend-->
+            <h2 class="">Edit A Note</h2>
 
+            <!--INPUT LANGUAGE-->
+            <div class="form-group">
+                {{ form.language.label(class="") }}
+                {% if form.language.errors %}
+                {{ form.language(class="") }}
+                {% for error in form.language.errors %}
+                <span class="oops">{{ error }}</span>
+                {% endfor %}
+                {% else %}
+                {{ form.language(class="") }}
+                {% endif %}
+            </div>
 
+ <!--INPUT TOPIC-->
+ <div class="form-group">
+        {{ form.topic.label(class="form-control-label") }}
+        {% if form.topic.errors %}
+        {{ form.topic(class="form-control is-invalid")}}
+        <div class="invalid-feedback">
+            {% for error in form.topic.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.topic(class="form-control") }}
+        {% endif %}
+    </div>
 
+    <!--INPUT NAME-->
+    <div class="form-group">
+            {{ form.name.label(class="form-control-label") }}
+            {% if form.name.errors %}
+            {{ form.name(class="form-control is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.name.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.name(class="form-control") }}
+            {% endif %}
+        </div>
 
+            </fieldset>
+        </form>
+
+        <ul class="list-group p-0">
+                {% for point in note.points|sort(attribute="point_type") %}
+                <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} --
+                    {{ point.point_content }} --{{ point._id}}</li>
+                {% endfor %}
+            </ul>
 
 {% endblock content%}
