@@ -91,7 +91,14 @@ def addnote():
 def editnote(noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
-    return render_template("editnote.html", note=note )
+    form = AddNoteForm()
+    if form.validate_on_submit():
+        pass
+    elif request.method == "GET":
+        form.language.data = note["language"]
+        form.topic.data = note["topic"]
+        form.name.data = note["note_name"]
+    return render_template("editnote.html", form=form, note=note)
 
 
 
