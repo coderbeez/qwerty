@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.son import SON
-from forms import RegisterForm, LoginForm, AddNoteForm, AddPointForm, AddLinkForm
+from forms import RegisterForm, LoginForm, NoteForm, PointForm, LinkForm
 
 
 app = Flask(__name__)
@@ -64,7 +64,7 @@ def notes():
 
 @app.route("/addlink", methods=["GET", "POST"])
 def addlink():
-    form = AddLinkForm()
+    form = LinkForm()
     if form.validate_on_submit():
         #flash("Perfect - link added!")
         mongo.db.links.insert_one({"language": form.language.data, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.name.data, "description": form.description.data, "ratings": [form.rate.data] })
@@ -76,7 +76,7 @@ def addlink():
 
 @app.route("/addnote", methods=["GET", "POST"])
 def addnote():
-    form = AddNoteForm()
+    form = NoteForm()
     if form.validate_on_submit():
         flash("Perfect - note added!")
         mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "points": [{"point_id": 0, "point_type": form.point_type.data, "point_content": form.point_content.data, "_id":  ObjectId() }] })
@@ -91,7 +91,7 @@ def addnote():
 def editnote(noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
-    form = AddNoteForm()
+    form = NoteForm()
     if form.validate_on_submit():
         pass
     elif request.method == "GET":
