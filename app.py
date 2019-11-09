@@ -87,12 +87,11 @@ def addnote():
     return render_template("addnote.html", form=form)
 #flash try again showing 
 
-@app.route("/editnote", methods=["GET", "POST"])
-def editnote():
-    return render_template("editnote.html")
-
-
-
+@app.route("/editnote/<noteid>", methods=["GET", "POST"])
+def editnote(noteid):
+    note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
+    #no list as want to return single object
+    return render_template("editnote.html", note=note )
 
 
 
