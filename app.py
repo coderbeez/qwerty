@@ -101,6 +101,20 @@ def editnote(noteid):
         form.language.data = note["language"]
         form.topic.data = note["topic"]
         form.name.data = note["note_name"]
+        for point in note["points"]:
+            subform = PointForm()
+            subform.ppoint_type.data = point["point_type"]
+            subform.ppoint_content.data = point["point_content"]
+            form.points.append_entry(subform)
+
+            
+        #for entry in form.points.entries:
+            #entry.ppoint_type.data = note.points["point_type"]
+            #entry.ppoint_content.data = note.points["point_content"]
+
+
+            #WHERE: https://stackoverflow.com/questions/30121763/how-to-use-a-wtforms-fieldlist-of-formfields
+       
     return render_template("editnote.html", form=form, note=note)
 
 
