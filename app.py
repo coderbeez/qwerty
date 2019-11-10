@@ -97,6 +97,7 @@ def editnote(noteid):
         print("valid")
         mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"language": form.language.data, "topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
         #using note.update_one throws an error???
+        flash("Perfect - note updated!")
         return redirect(url_for("notes"))
     elif request.method == "GET":
         form.language.data = note["language"]
