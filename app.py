@@ -77,7 +77,8 @@ def addlink():
 @app.route("/addnote", methods=["GET", "POST"])
 def addnote():
     form = NoteForm()
-    print(form.points)
+    form.points.append_entry(PointForm())
+    #print(form.points)
     if form.validate_on_submit():
         flash("Perfect - note added!")
         mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "points": [{"point_type": form.points.entries[0].ppoint_type.data, "point_content": form.points.entries[0].ppoint_content.data, "_id":  ObjectId() }] })
