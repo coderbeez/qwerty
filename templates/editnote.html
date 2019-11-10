@@ -63,7 +63,7 @@
                 {% for subform in form.points %}
                 <ul>
                     {% for subfield in subform %}
-                    <li>{{ subfield.label }} {{ subfield }}</li>
+                    <li>{{ subfield.label }} {{ subfield.data }}</li>
                     {% endfor %}
                 </ul>
                 {% endfor %}
