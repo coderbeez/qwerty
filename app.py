@@ -125,6 +125,15 @@ def flaglink(linkid):
     flash("Link flagged") 
     return redirect(url_for("links"))
 
+
+@app.route("/ratelink/<linkid>/<rating>", methods=["POST"])
+def ratelink(linkid, rating):
+    link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
+    #no list as want to return single object
+    mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
+    flash("Link rated") 
+    return redirect(url_for("links"))  
+
     
        
 
