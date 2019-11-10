@@ -95,7 +95,8 @@ def editnote(noteid):
     #no list as want to return single object
     form = NoteForm()
     if form.validate_on_submit():
-        pass
+        mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"language": form.language.data, "topic": form.topic.data, "note_name": form.name.data}})
+        
     elif request.method == "GET":
         form.language.data = note["language"]
         form.topic.data = note["topic"]
