@@ -39,25 +39,55 @@
                         <i class="fas fa-angle-down"></i>
                   </button>
 
-                  
 
-                  <a href="{{ link.url }}" target="_blank"><span class="">{{(link.ratings|sum)//(link.ratings|count)}}</span>
-                        <span class="star mr-1">*</span>{{ link.link_name }}</a><br>
+
+                  <a href="{{ link.url }}" target="_blank">
+                        <span class="star mr-1">{{(link.ratings|sum)//(link.ratings|count)}}*</span>
+                        {{ link.link_name }}</a><br>
             </p>
 
             <!--WHAT: LEVEL 3 COLLAPSE - LINK ID-->
             <div class="collapse" id="id{{link._id}}">
                   <ul class="list-group p-0">
                         <li class="list-group-item">{{ link.description }}</li>
-
                         <li class="list-group-item">
-                              <span class="mr-3">{{ link.ratings|count }} ratings</span>
-                              <button class="button-style m-0">rate</button>
-                              <button class="button-style m-0">problem</button></li>
-                              <form action="{{url_for('flaglink', linkid=link._id)}}" method="POST">
-                                          <input type="submit" class="btn button-style" value="Flag link">
-                                    </form>
+                              <span class="mr-3">{{ link.ratings|count }} ratings to-date.  Add yours!</span>
+                              <br class="d-block d-md-none">
+                              <form class="d-inline-block mr-2" action="{{url_for('ratelink', linkid=link._id, rating=5)}}"
+                                    method="POST">
+                                    <input type="submit" class="btn button-style star m-0" value="5*">
+                              </form>
+                              <form class="d-inline-block mr-2" action="{{url_for('ratelink', linkid=link._id, rating=4)}}"
+                                    method="POST">
+                                    <input type="submit" class="btn button-style star m-0" value="4*">
+                              </form>
+                              <form class="d-inline-block mr-2" action="{{url_for('ratelink', linkid=link._id, rating=3)}}"
+                                    method="POST">
+                                    <input type="submit" class="btn button-style star m-0" value="3*">
+                              </form>
+                              <form class="d-inline-block mr-2" action="{{url_for('ratelink', linkid=link._id, rating=2)}}"
+                                    method="POST">
+                                    <input type="submit" class="btn button-style star m-0" value="2*">
+                              </form>
+                              <form class="d-inline-block" action="{{url_for('ratelink', linkid=link._id, rating=1)}}"
+                                    method="POST">
+                                    <input type="submit" class="btn button-style star m-0" value="1*">
+                              </form>
+
+
+
+
+                        </li>
+                        <li class="list-group-item">
+                              <span class="mr-2">Problem with link?</span>
+                              <form class="d-inline-block" action="{{url_for('flaglink', linkid=link._id)}}"
+                                    method="POST">
+                                    <input type="submit" class="btn button-style m-0" value="Report">
+                              </form>
+                        </li>
                   </ul>
+
+
             </div>
       </div>
 
