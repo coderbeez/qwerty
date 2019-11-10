@@ -21,7 +21,7 @@ class PointForm(FlaskForm):
 
 class NoteForm(FlaskForm):
     language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
-    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'),(' Fundamentals', ' Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
+    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'),('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     name = StringField('Note Name', validators=[InputRequired()])   
     points = FieldList(FormField(PointForm), min_entries=1)
     #point_type = RadioField('Point Type', validators=[], choices=[('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
@@ -30,7 +30,7 @@ class NoteForm(FlaskForm):
 
 class LinkForm(FlaskForm):
     language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
-    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), (' Fundamentals', ' Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
+    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), ('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
     link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
