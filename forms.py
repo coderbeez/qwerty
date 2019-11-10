@@ -23,7 +23,7 @@ class NoteForm(FlaskForm):
     language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
     topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'),('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     name = StringField('Note Name', validators=[InputRequired()])   
-    points = FieldList(FormField(PointForm), min_entries=1)
+    points = FieldList(FormField(PointForm), min_entries=0)
     #point_type = RadioField('Point Type', validators=[], choices=[('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
     #point_content= TextAreaField('Point Content', validators=[])
     submit = SubmitField('Save')
