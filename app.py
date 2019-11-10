@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.son import SON
-from forms import RegisterForm, LoginForm, NoteForm, PointForm, LinkForm
+from forms import RegisterForm, LoginForm, NoteForm, LinkForm
 
 
 app = Flask(__name__)
@@ -77,18 +77,16 @@ def addlink():
 @app.route("/addnote", methods=["GET", "POST"])
 def addnote():
     form = NoteForm()
-    form.points.append_entry(PointForm())
-    #print(form.points)
     if form.validate_on_submit():
         flash("Perfect - note added!")
-        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "points": [{"point_type": form.points.entries[0].ppoint_type.data, "point_content": form.points.entries[0].ppoint_content.data, "_id":  ObjectId() }] })
+        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
         return redirect(url_for("notes"))
     elif request.method == "GET":
         pass    
     else:
         flash("Oops - try again")
     return render_template("addnote.html", form=form)
-#flash try again showing 
+
 
 @app.route("/editnote/<noteid>", methods=["GET", "POST"])
 def editnote(noteid):
@@ -96,26 +94,16 @@ def editnote(noteid):
     #no list as want to return single object
     form = NoteForm()
     if form.validate_on_submit():
-        mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"language": form.language.data, "topic": form.topic.data, "note_name": form.name.data}})
-        
+        print("valid")
+        mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"language": form.language.data, "topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
+        return redirect(url_for("notes"))
     elif request.method == "GET":
         form.language.data = note["language"]
         form.topic.data = note["topic"]
         form.name.data = note["note_name"]
-        for point in note["points"]:
-            subform = PointForm()
-            subform.ppoint_type.data = point["point_type"]
-            subform.ppoint_content.data = point["point_content"]
-            form.points.append_entry(subform)
-
-            
-        #for entry in form.points.entries:
-            #entry.ppoint_type.data = note.points["point_type"]
-            #entry.ppoint_content.data = note.points["point_content"]
-
-
-            #WHERE: https://stackoverflow.com/questions/30121763/how-to-use-a-wtforms-fieldlist-of-formfields
-       
+        form.content.data = note["content"]
+    else:
+        flash("Oops - try again") 
     return render_template("editnote.html", form=form, note=note)
 
 
