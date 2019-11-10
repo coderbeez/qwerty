@@ -23,8 +23,18 @@
             </button>
             {{ note.note_name }}</p>
       <div class="collapse" id="id{{note._id}}">
+            
+            <textarea rows="4" cols="50">{{note.content}}</textarea><br>
             <a href="{{url_for('editnote', noteid=note._id)}}">edit note</a>
-            <textarea rows="4" cols="50">{{note.content}}</textarea>
+            <button class="btn" type="button" data-toggle="collapse" data-target="#delete{{note._id}}" aria-expanded="false"
+                  aria-controls="collapsePoints">
+                  <i class="far fa-trash-alt"></i>
+            </button>
+            <div class="collapse" id="delete{{note._id}}">
+                  <form action="{{url_for('deletenote', noteid=note._id)}}" method="POST">
+                        <input type="submit" class="btn button-style" value="I'm sure - delete this note">
+                  </form>
+            </div>
       </div>
 
       {% endif %}
