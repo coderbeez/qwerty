@@ -58,35 +58,18 @@
                     {% endif %}
                 </div>
 
-                <!--INPUT POINT TYPE-->
-                <div class="form-group">
-                    {{ form.point_type.label(class="") }}
-                    {% if form.point_type.errors %}
-                    {{ form.point_type(class="") }}
-                    {% for error in form.point_type.errors %}
-                    <span class="oops">{{ error }}</span>
+
+
+                {% for subform in form.points %}
+                <ul>
+                    {% for subfield in subform %}
+                    <li>{{ subfield.label }} {{ subfield }}</li>
                     {% endfor %}
-                    {% else %}
-                    {{ form.point_type(class="") }}
-                    {% endif %}
-                </div>
-                <!--? BOOTSTRAP WITH RADIO-->
+                </ul>
+                {% endfor %}
 
-                <!--INPUT POINT CONTENT-->
-                <div class="form-group">
-                    {{ form.point_content.label(class="form-control-label") }}
-                    {% if form.point_content.errors %}
-                    {{ form.point_content(class="form-control is-invalid")}}
-                    <div class="invalid-feedback">
-                        {% for error in form.point_content.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.point_content(class="form-control") }}
-                    {% endif %}
-                </div>
 
+<!--WHERE: https://stackoverflow.com/questions/17202644/how-to-iterate-wtforms-fieldlist-with-jinja2-->
 
 
 
