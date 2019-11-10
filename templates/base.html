@@ -34,6 +34,22 @@
             <!--LEFT COLUMN-->
             <div class="col-12 col-md-8">
 
+
+
+<!--FLASH MESSAGE-->
+{% with messages = get_flashed_messages() %}
+<!--WHAT: With statement-->
+<!--WHAT: get_flashed_messages function-->
+{% if messages %}
+<!--WHAT: if messages exist-->
+{% for message in messages %}
+<!--WHAT: going to get 2 values from the messages, category & message-->
+<div class="">{{ message }}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
                 <div class="row">
                     <main class="col-12">
                         {% block content %}
