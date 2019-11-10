@@ -96,6 +96,7 @@ def editnote(noteid):
     if form.validate_on_submit():
         print("valid")
         mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"language": form.language.data, "topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
+        #using note.update_one throws an error???
         return redirect(url_for("notes"))
     elif request.method == "GET":
         form.language.data = note["language"]
@@ -107,6 +108,15 @@ def editnote(noteid):
     return render_template("editnote.html", form=form, note=note)
 
 
+@app.route("/deletenote/<noteid>", methods=["POST"])
+def deletenote(noteid):
+    note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
+    #no list as want to return single object
+    mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
+    flash("Post deleted") 
+    return redirect(url_for("notes"))
+    
+   
 
 
 
