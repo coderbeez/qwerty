@@ -15,7 +15,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class PointForm(FlaskForm):
-    ppoint_type = RadioField('Point Type', validators=[InputRequired()], choices=[('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
+    ppoint_type = SelectField('Point Type', validators=[InputRequired()], choices=[('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
     ppoint_content= TextAreaField('Point Content', validators=[InputRequired()])
     #psubmit = SubmitField('Save')   
 
