@@ -117,7 +117,16 @@ def deletenote(noteid):
     flash("Post deleted") 
     return redirect(url_for("notes"))
     
-   
+@app.route("/flaglink/<linkid>", methods=["POST"])
+def flaglink(linkid):
+    link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
+    #no list as want to return single object
+    mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
+    flash("Link flagged") 
+    return redirect(url_for("links"))
+
+    
+       
 
 
 
