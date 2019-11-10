@@ -11,7 +11,7 @@
             <fieldset class="form-group">
                 <h1 class="">NOTES</h1>
                 <!--?Can I use h1 instead of legend-->
-                <h2 class="">EDIT Note</h2>
+                <h2 class="">Edit A Note</h2>
 
                 <!--INPUT LANGUAGE-->
                 <div class="form-group">
@@ -58,18 +58,33 @@
                     {% endif %}
                 </div>
 
+                
+                
+                
 
 
-                {% for subform in form.points %}
-                <ul>
-                    {% for subfield in subform %}
-                    <li>{{ subfield.label }} {{ subfield.data }}</li>
-                    {% endfor %}
-                </ul>
-                {% endfor %}
+                     
+    
+                    <!--INPUT CONTENT-->
+                    <div class="form-group">
+                        {{ form.content.label(class="form-control-label") }}
+                        {% if form.content.errors %}
+                        {{ form.content(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.content(class="form-control") }}
+                        {% endif %}
+                    </div>
+               
 
 
-<!--WHERE: https://stackoverflow.com/questions/17202644/how-to-iterate-wtforms-fieldlist-with-jinja2-->
+
+              
+
 
 
 
@@ -100,15 +115,5 @@
     </div>
 </div>
 
-
-
-
-
-        <ul class="list-group p-0">
-                {% for point in note.points|sort(attribute="point_type") %}
-                <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} --
-                    {{ point.point_content }} --{{ point._id}}</li>
-                {% endfor %}
-            </ul>
 
 {% endblock content%}
