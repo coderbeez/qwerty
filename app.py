@@ -77,11 +77,13 @@ def addlink():
 @app.route("/addnote", methods=["GET", "POST"])
 def addnote():
     form = NoteForm()
+    print(form.points)
     if form.validate_on_submit():
         flash("Perfect - note added!")
-        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "points": [{"point_id": 0, "point_type": form.point_type.data, "point_content": form.point_content.data, "_id":  ObjectId() }] })
+        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "points": [{"point_type": form.points.entries[0].ppoint_type.data, "point_content": form.points.entries[0].ppoint_content.data, "_id":  ObjectId() }] })
         return redirect(url_for("notes"))
-        
+    elif request.method == "GET":
+        pass    
     else:
         flash("Oops - try again")
     return render_template("addnote.html", form=form)
