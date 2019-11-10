@@ -24,7 +24,7 @@
             {{ note.note_name }}</p>
       <div class="collapse" id="id{{note._id}}">
             
-            <textarea rows="4" cols="50">{{note.content}}</textarea><br>
+            <textarea readonly rows="4" cols="50">{{note.content}}</textarea><br>
             <a class="btn" href="{{url_for('editnote', noteid=note._id)}}"><i class="far fa-edit"></i></a>
             <button class="btn" type="button" data-toggle="collapse" data-target="#delete{{note._id}}" aria-expanded="false"
                   aria-controls="collapsePoints">
