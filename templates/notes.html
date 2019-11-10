@@ -24,12 +24,7 @@
             {{ note.note_name }}</p>
       <div class="collapse" id="id{{note._id}}">
             <a href="{{url_for('editnote', noteid=note._id)}}">edit note</a>
-            <ul class="list-group p-0">
-                  {% for point in note.points|sort(attribute="point_type") %}
-                  <li class="list-group-item">{{ point.point_id }} -- {{ point.point_type }} --
-                        {{ point.point_content }}</li>
-                  {% endfor %}
-            </ul>
+            <textarea rows="4" cols="50">{{note.content}}</textarea>
       </div>
 
       {% endif %}
