@@ -13,16 +13,45 @@
 </head>
 
 <body>
-    
+
     <!--NAVBAR-->
     <div class="container">
         <div class="row">
             <nav class="col-12 d-flex p-3">
                 <div class="align-self-center">
+
+                    <!--HOME LINK-->
                     <a class="mr-4" href="{{ url_for('index') }}">*home</a>
-                    <a class="mr-4" href="{{ url_for('notes') }}">*notes</a>
-                    <a class="" href="{{ url_for('links') }}">*links</a>
-                </div>
+
+                    <!--NOTES DROPDOWN-->
+                    <div class="dropdown d-inline-block">
+                        <a class="mr-4" href="#" id="note-dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            *notes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="note-dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ url_for('notes', language='HTML')}}">HTML</a>
+                            <a class="dropdown-item" href="{{ url_for('notes', language='CSS')}}">CSS</a>
+                            <a class="dropdown-item" href="{{ url_for('notes', language='JavaScript')}}">JavaScript</a>
+                            <a class="dropdown-item" href="{{ url_for('notes', language='Python')}}">Python</a>
+                        </div>
+                    </div>
+                    <!--WHERE: Bootstrap dropdown.-->
+
+                    <!--LINKS DROPDOWN-->
+                    <div class="dropdown d-inline-block">
+                        <a class="mr-4" href="#" id="link-dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            *links
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="link-dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ url_for('links', language='HTML')}}">HTML</a>
+                            <a class="dropdown-item" href="{{ url_for('links', language='CSS')}}">CSS</a>
+                            <a class="dropdown-item" href="{{ url_for('links', language='JavaScript')}}">JavaScript</a>
+                            <a class="dropdown-item" href="{{ url_for('links', language='Python')}}">Python</a>
+                        </div>
+                    </div>
+                    <!--WHERE: Bootstrap dropdown.-->
             </nav>
         </div>
     </div>
@@ -36,18 +65,18 @@
 
 
 
-<!--FLASH MESSAGE-->
-{% with messages = get_flashed_messages() %}
-<!--WHAT: With statement-->
-<!--WHAT: get_flashed_messages function-->
-{% if messages %}
-<!--WHAT: if messages exist-->
-{% for message in messages %}
-<!--WHAT: going to get 2 values from the messages, category & message-->
-<div class="">{{ message }}</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
+                <!--FLASH MESSAGE-->
+                {% with messages = get_flashed_messages() %}
+                <!--WHAT: With statement-->
+                <!--WHAT: get_flashed_messages function-->
+                {% if messages %}
+                <!--WHAT: if messages exist-->
+                {% for message in messages %}
+                <!--WHAT: going to get 2 values from the messages, category & message-->
+                <div class="">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
 
 
                 <div class="row">
@@ -71,7 +100,7 @@
                     <li class="list-group-item">
                         <span class="handwrite">dark mode </span><input type="checkbox" data-toggle="toggle">
                         <span class="ml-5">by coderbeez</span>
-                        </li>
+                    </li>
                 </ul>
 
                 <h2 class="mt-5">Break Time</h2>
@@ -83,11 +112,14 @@
                                 height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         </div>
                     </li>
-                    <li class="list-group-item"><i class="fas fa-quote-left mr-2"></i><span class="handwrite">quote</span><br> “Don’t let yesterday
+                    <li class="list-group-item"><i class="fas fa-quote-left mr-2"></i><span
+                            class="handwrite">quote</span><br> “Don’t let yesterday
                         take up too much of today.” – Will Rogers</li>
-                    <li class="list-group-item"><i class="fas fa-lightbulb mr-2"></i> <span class="handwrite">inspire</span><br>
+                    <li class="list-group-item"><i class="fas fa-lightbulb mr-2"></i> <span
+                            class="handwrite">inspire</span><br>
                         <a href="https://www.awwwards.com/sites/lafaurie-paris">awwards site of the day</a></li>
-                    <li class="list-group-item"><i class="fas fa-link mr-2"></i></i> <span class="handwrite">new links</span><br>
+                    <li class="list-group-item"><i class="fas fa-link mr-2"></i></i> <span class="handwrite">new
+                            links</span><br>
                         <a href="https://learn-the-web.algonquindesign.ca/topics/html-semantics-cheat-sheet/">HTML-
                             semantic cheat sheet</a><br>
                         <a href="https://www.mycolorspace.com">CSS- my color space</a><br>
