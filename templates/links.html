@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content%}
 <h1>LINKS {{ language }}</h1>
-
+<a href="{{ url_for('addlink', language=language) }}">add {{ language }} link</a>
 {% for group_topic in group_topics %}
 <!--WHAT: Level 1 Collapse - TOPIC-->
 <h2> <button class="btn" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
