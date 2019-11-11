@@ -64,11 +64,12 @@ def notes(language):
 
 @app.route("/addlink", methods=["GET", "POST"])
 def addlink():
+    language = "Python"
     form = LinkForm()
     if form.validate_on_submit():
         #flash("Perfect - link added!")
-        mongo.db.links.insert_one({"language": form.language.data, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.name.data, "description": form.description.data, "ratings": [form.rate.data] })
-        return redirect(url_for("links"))
+        mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
+        return redirect(url_for("links", language=language))
     #else:
         #flash("Oops - try again")
     return render_template("addlink.html", form=form) 
