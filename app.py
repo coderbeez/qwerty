@@ -74,18 +74,18 @@ def addlink(language):
     return render_template("addlink.html", form=form, language=language) 
 
 
-@app.route("/addnote", methods=["GET", "POST"])
-def addnote():
+@app.route("/addnote/<language>", methods=["GET", "POST"])
+def addnote(language):
     form = NoteForm()
     if form.validate_on_submit():
+        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": language, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
         flash("Perfect - note added!")
-        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": form.language.data, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
-        return redirect(url_for("notes"))
+        return redirect(url_for("notes", language=language))
     elif request.method == "GET":
         pass    
     else:
         flash("Oops - try again")
-    return render_template("addnote.html", form=form)
+    return render_template("addnote.html", form=form, language=language)
 
 
 @app.route("/editnote/<noteid>", methods=["GET", "POST"])
