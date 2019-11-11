@@ -13,19 +13,7 @@
                 <!--?Can I use h1 instead of legend-->
                 <h2 class="">Add A Note</h2>
 
-                <!--INPUT LANGUAGE-->
-                <div class="form-group">
-                    {{ form.language.label(class="") }}
-                    {% if form.language.errors %}
-                    {{ form.language(class="") }}
-                    {% for error in form.language.errors %}
-                    <span class="oops">{{ error }}</span>
-                    {% endfor %}
-                    {% else %}
-                    {{ form.language(class="") }}
-                    {% endif %}
-                </div>
-                <!--? BOOTSTRAP WITH RADIO-->
+                
 
                 <!--INPUT TOPIC-->
                 <div class="form-group">

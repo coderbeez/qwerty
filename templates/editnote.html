@@ -9,23 +9,11 @@
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
             <fieldset class="form-group">
-                <h1 class="">NOTES</h1>
+                <h1 class="">NOTES {{ language }} </h1>
                 <!--?Can I use h1 instead of legend-->
                 <h2 class="">Edit A Note</h2>
 
-                <!--INPUT LANGUAGE-->
-                <div class="form-group">
-                    {{ form.language.label(class="") }}
-                    {% if form.language.errors %}
-                    {{ form.language(class="") }}
-                    {% for error in form.language.errors %}
-                    <span class="oops">{{ error }}</span>
-                    {% endfor %}
-                    {% else %}
-                    {{ form.language(class="") }}
-                    {% endif %}
-                </div>
-                <!--? BOOTSTRAP WITH RADIO-->
+                
 
                 <!--INPUT TOPIC-->
                 <div class="form-group">
