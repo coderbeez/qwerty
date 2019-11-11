@@ -42,24 +42,24 @@ def login():
     return render_template("login.html", form=form )
 
 
-@app.route("/links", methods=["GET", "POST"])
-def links():
-    links = list(mongo.db.links.find({"language": "Python"}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
+@app.route("/links/<language>", methods=["GET", "POST"])
+def links(language):
+    links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     #create array from cursor returned
-    group_topics = mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}])
+    group_topics = mongo.db.links.aggregate([{"$match": {"language": language}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}])
     group_topics = list(group_topics)
     #change from cursor to array
-    return render_template("links.html", links=links, group_topics=group_topics)
+    return render_template("links.html", links=links, group_topics=group_topics, language=language)
 
 
-@app.route("/notes")
-def notes():
-    notes = list(mongo.db.notes.find({"language": "Python"}).sort([("topic", 1),("note_name", 1)]))
+@app.route("/notes/<language>")
+def notes(language):
+    notes = list(mongo.db.notes.find({"language": language }).sort([("topic", 1),("note_name", 1)]))
     #create array from cursor returned
-    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": "Python"}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}, ])
+    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language }}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}, ])
     group_topics = list(group_topics)
     #change from cursor to array
-    return render_template("notes.html", notes=notes, group_topics=group_topics )
+    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language)
 
 
 @app.route("/addlink", methods=["GET", "POST"])
