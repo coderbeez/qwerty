@@ -20,7 +20,7 @@ class LoginForm(FlaskForm):
     #psubmit = SubmitField('Save')   
 
 class NoteForm(FlaskForm):
-    language = RadioField('Language', validators=[DataRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
+    #language = RadioField('Language', validators=[DataRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
     topic = SelectField('Topic', validators=[DataRequired()], choices=[('', '--select--'),('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     name = StringField('Title', validators=[DataRequired()])
     content= TextAreaField('Content', validators=[DataRequired()])   
@@ -30,7 +30,7 @@ class NoteForm(FlaskForm):
     submit = SubmitField('Save')
 
 class LinkForm(FlaskForm):
-    language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
+    #language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
     topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), ('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
