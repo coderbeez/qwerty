@@ -68,6 +68,7 @@ def addlink(language):
     if form.validate_on_submit():
         #flash("Perfect - link added!")
         mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
+        flash("Perfect - link added!")
         return redirect(url_for("links", language=language))
     #else:
         #flash("Oops - try again")
@@ -88,51 +89,51 @@ def addnote(language):
     return render_template("addnote.html", form=form, language=language)
 
 
-@app.route("/editnote/<noteid>", methods=["GET", "POST"])
-def editnote(noteid):
+@app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
+def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
     form = NoteForm()
     if form.validate_on_submit():
         print("valid")
-        mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"language": form.language.data, "topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
+        mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
         #using note.update_one throws an error???
         flash("Perfect - note updated!")
-        return redirect(url_for("notes"))
+        return redirect(url_for("notes", language=language))
     elif request.method == "GET":
-        form.language.data = note["language"]
+        #form.language.data = note["language"]
         form.topic.data = note["topic"]
         form.name.data = note["note_name"]
         form.content.data = note["content"]
     else:
         flash("Oops - try again") 
-    return render_template("editnote.html", form=form, note=note)
+    return render_template("editnote.html", form=form, note=note, language=language)
 
 
-@app.route("/deletenote/<noteid>", methods=["POST"])
-def deletenote(noteid):
+@app.route("/deletenote/<language>/<noteid>", methods=["GET","POST"]) #just post???
+def deletenote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
     flash("Post deleted") 
-    return redirect(url_for("notes"))
+    return redirect(url_for("notes", language=language))
     
-@app.route("/flaglink/<linkid>", methods=["POST"])
-def flaglink(linkid):
+@app.route("/flaglink/<language>/<linkid>", methods=["POST"])
+def flaglink(language, linkid):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
     flash("Link flagged") 
-    return redirect(url_for("links"))
+    return redirect(url_for("links", language=language))
 
 
-@app.route("/ratelink/<linkid>/<rating>", methods=["POST"])
-def ratelink(linkid, rating):
+@app.route("/ratelink/<language>/<linkid>/<rating>", methods=["POST"])
+def ratelink(language, linkid, rating):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
     flash("Link rated") 
-    return redirect(url_for("links"))  
+    return redirect(url_for("links", language=language))  
 
     
        
