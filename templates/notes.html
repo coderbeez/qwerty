@@ -2,7 +2,7 @@
 
 {% block content%}
 <h1>NOTES {{language}}</h1>
-<a href="{{ url_for('addnote', language=language) }}">add {{ language }} link</a>
+<a href="{{ url_for('addnote', language=language) }}">add {{ language }} note</a>
 {% for group_topic in group_topics %}
 <!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
 <h2><button class="btn" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}" aria-expanded="false"
@@ -25,14 +25,14 @@
       <div class="collapse" id="id{{note._id}}">
 
             <textarea readonly rows="4" cols="50">{{note.content}}</textarea><br>
-            <a class="btn" href="{{url_for('editnote', noteid=note._id)}}"><i class="far fa-edit"></i></a>
+            <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}"><i class="far fa-edit"></i></a>
             <button class="btn" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
                   aria-expanded="false" aria-controls="collapsePoints">
                   <i class="far fa-trash-alt"></i>
             </button>
             <!--DELETE COLLAPSE-->
             <div class="collapse" id="delete{{note._id}}">
-                  <form action="{{url_for('deletenote', noteid=note._id)}}" method="POST">
+                  <form action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST">
                         <input type="submit" class="btn button-style" value="I'm sure - delete this note">
                   </form>
             </div>
