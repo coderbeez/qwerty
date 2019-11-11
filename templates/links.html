@@ -54,26 +54,30 @@
                         <li class="list-group-item">
                               <span class="">Rate</span>
                               <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', linkid=link._id, rating=5)}}" method="POST">
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
+                                    method="POST">
                                     <button type="submit" class="button-style--i p-0">
                                           <i class="far fa-star"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', linkid=link._id, rating=4)}}" method="POST">
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}"
+                                    method="POST">
                                     <button type="submit" class="button-style--i p-0">
                                           <i class="far fa-star"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', linkid=link._id, rating=3)}}" method="POST">
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}"
+                                    method="POST">
                                     <button type="submit" class="button-style--i p-0">
                                           <i class="far fa-star"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', linkid=link._id, rating=2)}}" method="POST">
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}"
+                                    method="POST">
                                     <button type="submit" class="button-style--i p-0">
                                           <i class="far fa-star"></i></button>
                               </form>
-                              <form class="d-inline-block" action="{{url_for('ratelink', linkid=link._id, rating=1)}}"
+                              <form class="d-inline-block" action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
                                     method="POST">
                                     <button type="submit" class="button-style--i p-0">
                                           <i class="far fa-star"></i></button>
@@ -81,7 +85,7 @@
                               <br class="d-block d-md-none">
 
                               <span class="ml-md-5">Report problem</span>
-                              <form class="d-inline-block" action="{{url_for('flaglink', linkid=link._id)}}"
+                              <form class="d-inline-block" action="{{url_for('flaglink', language=language, linkid=link._id)}}"
                                     method="POST">
                                     <button type="submit" class="button-style--i p-0">
                                           <i class="fas fa-tools"></i></button>
