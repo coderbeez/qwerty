@@ -62,9 +62,8 @@ def notes(language):
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language)
 
 
-@app.route("/addlink", methods=["GET", "POST"])
-def addlink():
-    language = "Python"
+@app.route("/addlink/<language>", methods=["GET", "POST"])
+def addlink(language):
     form = LinkForm()
     if form.validate_on_submit():
         #flash("Perfect - link added!")
@@ -72,7 +71,7 @@ def addlink():
         return redirect(url_for("links", language=language))
     #else:
         #flash("Oops - try again")
-    return render_template("addlink.html", form=form) 
+    return render_template("addlink.html", form=form, language=language) 
 
 
 @app.route("/addnote", methods=["GET", "POST"])
