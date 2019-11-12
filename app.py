@@ -104,9 +104,11 @@ def addnote(language):
 @app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
 def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
-    print(note)
     #no list as want to return single object
     form = NoteForm()
+    document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+    topics = document_language["topics"]
+    form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
     if form.validate_on_submit():
         print("valid")
         mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
@@ -120,6 +122,7 @@ def editnote(language, noteid):
         form.content.data = note["content"]
     else:
         flash("Oops - try again") 
+    print(note)    
     return render_template("editnote.html", form=form, note=note, language=language)
 
 
