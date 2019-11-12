@@ -65,6 +65,11 @@ def notes(language):
 @app.route("/addlink/<language>", methods=["GET", "POST"])
 def addlink(language):
     form = LinkForm()
+    document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+    topics = document_language["topics"]
+    form.topic.choices = [(topic, topic) for topic in topics] #slugify?
+    print(topics)
+    print(form.topic.choices)
     if form.validate_on_submit():
         #flash("Perfect - link added!")
         mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
@@ -92,6 +97,7 @@ def addnote(language):
 @app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
 def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
+    print(note)
     #no list as want to return single object
     form = NoteForm()
     if form.validate_on_submit():
