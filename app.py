@@ -67,7 +67,9 @@ def addlink(language):
     form = LinkForm()
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
     topics = document_language["topics"]
-    form.topic.choices = [(topic, topic) for topic in topics] #slugify?
+    form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics] #slugify?
+    #WHERE: https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
+    #WHERE: https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
     print(topics)
     print(form.topic.choices)
     if form.validate_on_submit():
@@ -85,8 +87,7 @@ def addnote(language):
     form = NoteForm()
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
     topics = document_language["topics"]
-    form.topic.choices = [(topic, topic) for topic in topics] #slugify?
-    ##WHERE: https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
+    form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics] #slugify?
     print(topics)
     print(form.topic.choices)
     if form.validate_on_submit():
