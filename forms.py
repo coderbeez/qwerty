@@ -31,7 +31,7 @@ class NoteForm(FlaskForm):
 
 class LinkForm(FlaskForm):
     #language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
-    topic = SelectField('Topic', validators=[InputRequired()], choices=[('', '--select--'), ('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
+    topic = SelectField('Topic', validators=[InputRequired()])
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
     link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
