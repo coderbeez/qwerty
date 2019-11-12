@@ -83,6 +83,12 @@ def addlink(language):
 @app.route("/addnote/<language>", methods=["GET", "POST"])
 def addnote(language):
     form = NoteForm()
+    document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+    topics = document_language["topics"]
+    form.topic.choices = [(topic, topic) for topic in topics] #slugify?
+    ##WHERE: https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
+    print(topics)
+    print(form.topic.choices)
     if form.validate_on_submit():
         mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": language, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
         flash("Perfect - note added!")
