@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content%}
-<h1>NOTES {{language}}</h1>
-<a href="{{ url_for('addnote', language=language) }}">add {{ language }} note</a>
+
+<!--HEADING-->
+<div class="row">
+      <div class="col-12 col-md-9 col-lg-6">
+            <h1 class="d-inline-block">{{ language }} Notes </h1>
+      </div>
+      <div class="col-12 col-md-3 col-lg-6 d-flex align-items-center justify-content-end justify-content-md-start">
+            <a href="{{ url_for('addnote', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
+      </div>
+</div>
+
 {% for group_topic in group_topics %}
 <!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
 <h2><button class="btn" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}" aria-expanded="false"
@@ -25,7 +33,8 @@
       <div class="collapse" id="id{{note._id}}">
 
             <textarea readonly rows="4" cols="50">{{note.content}}</textarea><br>
-            <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}"><i class="far fa-edit"></i></a>
+            <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}"><i
+                        class="far fa-edit"></i></a>
             <button class="btn" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
                   aria-expanded="false" aria-controls="collapsePoints">
                   <i class="far fa-trash-alt"></i>

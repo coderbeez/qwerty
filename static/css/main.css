@@ -13,8 +13,8 @@ p {
 
 
 
-h1 {
-    font-size: 2rem;
+h1, legend {
+    font-size: 1.7rem;
   font-family: 'Trocchi', serif;
 }
 
@@ -46,9 +46,7 @@ h2, h2 i {
  }
 
 
-legend {
-    font-size: 1.5rem;
-}
+
 
 h3 {
     font-size: 1.25rem;
@@ -230,7 +228,7 @@ ul {
 /*----------MEDIA QUERIES----------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
-    h1 {
+    h1, legend {
         font-size: 2rem;
     }
 
@@ -258,7 +256,7 @@ ul {
 
 
 @media (min-width: 992px) {
-    h1 {
+    h1, legend {
         font-size: 2rem;
     }
 
