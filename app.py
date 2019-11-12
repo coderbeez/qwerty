@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from bson.son import SON
 from forms import RegisterForm, LoginForm, NoteForm, LinkForm
 
 
@@ -46,7 +45,7 @@ def login():
 def links(language):
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     #create array from cursor returned
-    group_topics = mongo.db.links.aggregate([{"$match": {"language": language}}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}])
+    group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
     #change from cursor to array
     return render_template("links.html", links=links, group_topics=group_topics, language=language)
@@ -56,8 +55,9 @@ def links(language):
 def notes(language):
     notes = list(mongo.db.notes.find({"language": language }).sort([("topic", 1),("note_name", 1)]))
     #create array from cursor returned
-    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language }}, {"$sort": SON([("topic", -1)])},{"$group":{"_id" :"$topic"}}, ])
+    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
+    print(group_topics)
     #change from cursor to array
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language)
 
