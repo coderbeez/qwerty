@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, PasswordField, SubmitField, SelectField, RadioField, FieldList, FormField
+from wtforms import StringField, TextAreaField, PasswordField, SubmitField, SelectField, RadioField, IntegerField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, InputRequired, URL
 
 class RegisterForm(FlaskForm):
@@ -35,7 +35,8 @@ class LinkForm(FlaskForm):
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
     link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
-    rate = RadioField('Rate', validators=[InputRequired()], choices=[('1', '*'), ('2', '**'), ('3', '***'),('4', '****'), ('5', '*****')])
+    #rate = RadioField('Rate', validators=[InputRequired()], choices=[('1', '*'), ('2', '**'), ('3', '***'),('4', '****'), ('5', '*****')])
+    rate = IntegerField('Rate', validators=[])
     description = TextAreaField('Description')
     submit = SubmitField('Save')    
 
