@@ -290,3 +290,29 @@ ul {
 .r  {
     border: 1px solid red;
   }
+
+  /*----------BUG FIXES----------*/
+
+input,
+label {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+/*WHERE: https://www.daretothink.co.uk/stop-ios-styling-your-input-fields-and-buttons/*/
+
+input[type="radio"] {
+  -webkit-appearance: none;
+}
+
+[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/*WHERE: https://www.sitepoint.com/replacing-radio-buttons-without-replacing-radio-buttons/*/
+/*WHY: Used to stop iOS styling labels and radios.*/
