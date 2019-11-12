@@ -21,9 +21,9 @@ class LoginForm(FlaskForm):
 
 class NoteForm(FlaskForm):
     #language = RadioField('Language', validators=[DataRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
-    topic = SelectField('Topic', validators=[DataRequired()])
-    name = StringField('Title', validators=[DataRequired()])
-    content= TextAreaField('Content', validators=[DataRequired()])   
+    topic = SelectField('Topic', validators=[InputRequired()])
+    name = StringField('Title', validators=[InputRequired()])
+    content= TextAreaField('Content', validators=[InputRequired()])   
     #points = FieldList(FormField(PointForm), min_entries=0)
     #point_type = SelectField('Point Type', validators=[], choices=[('', '--select--'),('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
     #point_content= TextAreaField('Point Content', validators=[])
@@ -31,7 +31,7 @@ class NoteForm(FlaskForm):
 
 class LinkForm(FlaskForm):
     #language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
-    topic = SelectField('Topic', validators=[InputRequired()])
+    topic = SelectField('Topic', validators=[InputRequired()]) #Input or Data Required?
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
     link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
