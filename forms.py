@@ -21,7 +21,7 @@ class LoginForm(FlaskForm):
 
 class NoteForm(FlaskForm):
     #language = RadioField('Language', validators=[DataRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
-    topic = SelectField('Topic', validators=[DataRequired()], choices=[('', '--select--'),('Fundamentals', 'Fundamentals'), ('Topic2', 'Topic2'), ('Topic3', 'Topic3')])
+    topic = SelectField('Topic', validators=[DataRequired()])
     name = StringField('Title', validators=[DataRequired()])
     content= TextAreaField('Content', validators=[DataRequired()])   
     #points = FieldList(FormField(PointForm), min_entries=0)
