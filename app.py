@@ -76,7 +76,8 @@ def addlink(language):
     #print(topics)
     #print(form.topic.choices)
     if form.validate_on_submit():
-        existing_link = mongo.db.links.find_one({"language": language}, {"url": form.url.data})
+        existing_link = mongo.db.links.find_one({"language": language, "url": form.url.data})
+        #in case its vaid to have the link in multiple languages... want to only search current language
 
         if existing_link is None:
             mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
@@ -84,6 +85,7 @@ def addlink(language):
             return redirect(url_for("links", language=language))
 
         else:
+            print(existing_link)
             flash('That link has already been added! Why not add a rating')
             return redirect(url_for("links", language=language))              
     #else:
