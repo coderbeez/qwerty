@@ -41,6 +41,7 @@ def login():
     return render_template("login.html", form=form )
 
 
+#VIEW LINKS
 @app.route("/links/<language>", methods=["GET", "POST"])
 def links(language):
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
@@ -51,6 +52,7 @@ def links(language):
     return render_template("links.html", links=links, group_topics=group_topics, language=language)
 
 
+#VIEW NOTES
 @app.route("/notes/<language>")
 def notes(language):
     notes = list(mongo.db.notes.find({"language": language }).sort([("topic", 1),("note_name", 1)]))
@@ -62,6 +64,7 @@ def notes(language):
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language)
 
 
+#ADD LINK
 @app.route("/addlink/<language>", methods=["GET", "POST"])
 def addlink(language):
     form = LinkForm()
@@ -70,18 +73,25 @@ def addlink(language):
     form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics] #slugify?
     #WHERE: https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
     #WHERE: https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
-    print(topics)
-    print(form.topic.choices)
+    #print(topics)
+    #print(form.topic.choices)
     if form.validate_on_submit():
-        #flash("Perfect - link added!")
-        mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
-        flash("Perfect - link added!")
-        return redirect(url_for("links", language=language))
+        existing_link = mongo.db.links.find_one({"language": language}, {"url": form.url.data})
+
+        if existing_link is None:
+            mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
+            flash("Perfect - link added!")
+            return redirect(url_for("links", language=language))
+
+        else:
+            flash('That link has already been added! Why not add a rating')
+            return redirect(url_for("links", language=language))              
     #else:
         #flash("Oops - try again")
     return render_template("addlink.html", form=form, language=language) 
 
 
+#ADD_NOTE
 @app.route("/addnote/<language>", methods=["GET", "POST"])
 def addnote(language):
     form = NoteForm()
@@ -101,6 +111,7 @@ def addnote(language):
     return render_template("addnote.html", form=form, language=language)
 
 
+#EDIT_NOTE
 @app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
 def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
@@ -126,6 +137,7 @@ def editnote(language, noteid):
     return render_template("editnote.html", form=form, note=note, language=language)
 
 
+#DELETE_NOTE
 @app.route("/deletenote/<language>/<noteid>", methods=["GET","POST"]) #just post???
 def deletenote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
@@ -133,7 +145,9 @@ def deletenote(language, noteid):
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
     flash("Post deleted") 
     return redirect(url_for("notes", language=language))
-    
+
+
+#FLAG LINK    
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
 def flaglink(language, linkid):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
@@ -143,6 +157,7 @@ def flaglink(language, linkid):
     return redirect(url_for("links", language=language))
 
 
+#RATE LINK
 @app.route("/ratelink/<language>/<linkid>/<rating>", methods=["POST"])
 def ratelink(language, linkid, rating):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
