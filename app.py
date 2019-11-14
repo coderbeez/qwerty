@@ -2,15 +2,14 @@ import os
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_bcrypt import Bcrypt
 from forms import RegisterForm, LoginForm, NoteForm, LinkForm
-
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
-
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
-
+bcrypt = Bcrypt(app)
 
 
 @app.route("/")
@@ -18,13 +17,16 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-
+#REGISTER
 @app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        flash("Perfect - you can create notes!")
-        return redirect(url_for("addnote"))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
+        mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
+        flash("Account created, please log in.")
+        return redirect(url_for("login"))
     return render_template("register.html", form=form)
 
 
