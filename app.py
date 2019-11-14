@@ -23,17 +23,16 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         existing_email = mongo.db.users.find_one({"email": form.email.data})
+        #WHERE: Pretty Printed 
+        if existing_email:
+            flash("Existing email")
 
-        if existing_email is None:
+        else: 
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
             #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
             mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
             flash("Account created, please log in.")
-            return redirect(url_for("login"))
-
-        else:
-            flash("Existing email")
-            #return redirect(url_for("links", language=language))     
+            return redirect(url_for("login")) 
 
     return render_template("register.html", form=form)
 
@@ -88,16 +87,17 @@ def addlink(language):
     if form.validate_on_submit():
         existing_link = mongo.db.links.find_one({"language": language, "url": form.url.data})
         #in case its vaid to have the link in multiple languages... want to only search current language
+        #WHERE: Pretty Printed
 
-        if existing_link is None:
+        if existing_link:
+            
+            flash(f'A link for {existing_link["link_name"]} in {existing_link["topic"]} -  {existing_link["link_type"]}! \n Why not rate!')
+            return redirect(url_for("links", language=language))
+        else:    
             mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
             flash("Perfect - link added!")
             return redirect(url_for("links", language=language))
-
-        else:
-            print(existing_link["topic"])
-            flash(f'A link for {existing_link["link_name"]} in {existing_link["topic"]} -  {existing_link["link_type"]}! \n Why not rate!')
-            return redirect(url_for("links", language=language))              
+                       
     #else:
         #flash("Oops - try again")
     return render_template("addlink.html", form=form, language=language) 
