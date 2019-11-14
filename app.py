@@ -90,8 +90,9 @@ def addlink(language):
         #WHERE: Pretty Printed
 
         if existing_link:
-            
-            flash(f'A link for {existing_link["link_name"]} in {existing_link["topic"]} -  {existing_link["link_type"]}! \n Why not rate!')
+            print(existing_link["_id"])
+            mongo.db.links.update_one({"_id": ObjectId(existing_link["_id"])},{"$push": {"ratings": int(form.rate.data)}})
+            flash(f'Link exists: {existing_link["topic"]} - {existing_link["link_type"]} - {existing_link["link_name"]}. Your rating was added!')
             return redirect(url_for("links", language=language))
         else:    
             mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "ratings": [int(form.rate.data)] })
