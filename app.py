@@ -85,8 +85,8 @@ def addlink(language):
             return redirect(url_for("links", language=language))
 
         else:
-            print(existing_link)
-            flash('That link has already been added! Why not add a rating')
+            print(existing_link["topic"])
+            flash(f'A link for {existing_link["link_name"]} in {existing_link["topic"]} -  {existing_link["link_type"]}! \n Why not rate!')
             return redirect(url_for("links", language=language))              
     #else:
         #flash("Oops - try again")
@@ -129,7 +129,6 @@ def editnote(language, noteid):
         flash("Perfect - note updated!")
         return redirect(url_for("notes", language=language))
     elif request.method == "GET":
-        #form.language.data = note["language"]
         form.topic.data = note["topic"]
         form.name.data = note["note_name"]
         form.content.data = note["content"]
