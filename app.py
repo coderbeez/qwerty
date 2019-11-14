@@ -22,11 +22,19 @@ def index():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
-        mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
-        flash("Account created, please log in.")
-        return redirect(url_for("login"))
+        existing_email = mongo.db.users.find_one({"email": form.email.data})
+
+        if existing_email is None:
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+            #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
+            mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
+            flash("Account created, please log in.")
+            return redirect(url_for("login"))
+
+        else:
+            flash("Existing email")
+            #return redirect(url_for("links", language=language))     
+
     return render_template("register.html", form=form)
 
 
