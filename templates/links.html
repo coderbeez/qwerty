@@ -48,7 +48,7 @@
                         aria-expanded="false" aria-controls="collapsePoints">
                         <i class="fas fa-info-circle"></i>
                   </button>
-                  <a href="{{ link.url }}" target="_blank">
+                  <a href="{{ link.url }}" target="_blank" rel="noopener">
                         {{ link.link_name }}
                         <span class="ml-1">{{(link.ratings|sum)//(link.ratings|count)}}
                               <i class="fas fa-star"></i></span></a><br>
