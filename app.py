@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager, UserMixin, login_user, current_user, login_required
 from forms import RegisterForm, LoginForm, NoteForm, LinkForm
 
 app = Flask(__name__)
@@ -10,7 +11,45 @@ app.secret_key = os.getenv('SECRET_KEY')
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
 
+
+class User(UserMixin):
+    def __init__(self, username, password, email, id):
+        self.username = username
+        self.password = password
+        self.email = email
+        self.id = id
+
+    @staticmethod
+    def get_user(email):
+        user = mongo.db.users.find_one({"email": email})
+        return User(user['user_name'], user['password'], user['email'], user['_id'])
+
+    @staticmethod
+    def get_user_by_id(id):
+        user = mongo.db.users.find_one({"_id": ObjectId(id)})
+        return User(user['user_name'], user['password'], user['email'], user['_id'])
+
+
+@login_manager.user_loader
+def load_user(id):
+    u = User.get_user_by_id(id)
+    if not u:
+        return None
+    return u
+    #WHERE: How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/ & Corey
+
+
+
+'''@login_manager.user_loader
+    def load_user(user_id):
+        u = mongo.db.users.find_one({"_id": user_id})
+        if not u:
+            return None
+        return User(u['_id'])
+        #WHERE: How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/ & Corey
+'''
 
 @app.route("/")
 @app.route("/index")
@@ -40,11 +79,16 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
+    language = "Python"
     if form.validate_on_submit():
-        if form.email.data == "edel@test.com" and form.password.data == "123456789":
+        user = User.get_user(form.email.data)
+        print(user.username)
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+        #if form.email.data == "edel@test.com" and form.password.data == "123456789":
+            login_user(user)
             #temp till authentication setup
             flash("Perfect - your notes!")
-            return redirect(url_for("notes"))
+            return redirect(url_for("notes", language=language))
         else:
             flash("Oops - try again")    
     return render_template("login.html", form=form )
@@ -63,12 +107,15 @@ def links(language):
 
 #VIEW NOTES
 @app.route("/notes/<language>")
+#@login_required
 def notes(language):
-    notes = list(mongo.db.notes.find({"language": language }).sort([("topic", 1),("note_name", 1)]))
+    print(current_user.id)
+    notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     #create array from cursor returned
-    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
+    print(len(notes))
+    group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id) }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
-    print(group_topics)
+    #print(group_topics)
     #change from cursor to array
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language)
 
