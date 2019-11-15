@@ -3,6 +3,7 @@
 {% block content%}
 <div class="row">
     <div class="col-12 col-md-8">
+            <span>{{ language }}</span>
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
@@ -10,6 +11,7 @@
                 <h1 class="">REGISTER</h1>
                 <!--?Can I use h1 instead of legend-->
                 <h2 class="">Sign Up For Notes</h2>
+                
 
                 <!--INPUT NAME-->
                 <div class="form-group">
@@ -92,7 +94,7 @@
             </div>
 
         </form>
-        <div class>Already registered? <a href="{{ url_for('login') }}">login</a></div>
+        <div class>Already registered? <a href="{{ url_for('login', language=language)}}">login</a></div>
     </div>
 </div>
 

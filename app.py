@@ -41,24 +41,14 @@ def load_user(id):
     #WHERE: How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/ & Corey
 
 
-
-'''@login_manager.user_loader
-    def load_user(user_id):
-        u = mongo.db.users.find_one({"_id": user_id})
-        if not u:
-            return None
-        return User(u['_id'])
-        #WHERE: How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/ & Corey
-'''
-
 @app.route("/")
 @app.route("/index")
 def index():
     return render_template("index.html")
 
 #REGISTER
-@app.route("/register", methods=["GET", "POST"])
-def register():
+@app.route("/register/<language>", methods=["GET", "POST"])
+def register(language):
     form = RegisterForm()
     if form.validate_on_submit():
         existing_email = mongo.db.users.find_one({"email": form.email.data})
@@ -71,27 +61,24 @@ def register():
             #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
             mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
             flash("Account created, please log in.")
-            return redirect(url_for("login")) 
+            return redirect(url_for("login", language=language)) 
 
-    return render_template("register.html", form=form)
+    return render_template("register.html", form=form, language=language)
 
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
+#LOGIN
+@app.route("/login/<language>", methods=["GET", "POST"])
+def login(language):
     form = LoginForm()
-    language = "Python"
     if form.validate_on_submit():
         user = User.get_user(form.email.data)
         print(user.username)
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-        #if form.email.data == "edel@test.com" and form.password.data == "123456789":
             login_user(user)
-            #temp till authentication setup
             flash("Perfect - your notes!")
             return redirect(url_for("notes", language=language))
         else:
             flash("Oops - try again")    
-    return render_template("login.html", form=form )
+    return render_template("login.html", form=form, language=language)
 
 
 #VIEW LINKS
