@@ -68,8 +68,10 @@ def register():
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
             #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
             mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
-            flash("Account created, please log in.")
-            return redirect(url_for("login")) 
+            user = User.get_user(form.email.data)
+            login_user(user)
+            flash("Registration successful - Select a note language")
+            return redirect(url_for('index'))
 
     return render_template("register.html", form=form)
 
