@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager, UserMixin, login_user, current_user, login_required
+from flask_login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user
 from forms import RegisterForm, LoginForm, NoteForm, LinkForm
 
 app = Flask(__name__)
@@ -211,6 +211,15 @@ def ratelink(language, linkid, rating):
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
     flash("Link rated") 
     return redirect(url_for("links", language=language))  
+
+
+#LOGOUT
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("index")) 
+    #WHERE: Flask Login documentation https://flask-login.readthedocs.io/en/latest/
 
     
        
