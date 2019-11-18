@@ -3,7 +3,7 @@
 {% block content%}
 <div class="row">
     <div class="col-12 col-md-8">
-            <span>{{ language }}</span>
+            
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
@@ -67,7 +67,7 @@
 
         </form>
         <div class>Forgot password? <a href="#">reset</a></div>
-        <div class>Not registered? <a href="{{ url_for('register', language=language) }}">register</a></div>
+        <div class>Not registered? <a href="{{ url_for('register') }}">register</a></div>
     </div>
 </div>
 

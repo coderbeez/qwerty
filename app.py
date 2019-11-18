@@ -12,6 +12,14 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
+login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authentication
+login_manager.login_message = u"Please login to access your notes." #Flask Login documentation
+
+def is_safe_url(next):
+    if next.startswith("/notes/"):
+        return True
+    else:
+        return False    
 
 
 class User(UserMixin):
@@ -47,8 +55,8 @@ def index():
     return render_template("index.html")
 
 #REGISTER
-@app.route("/register/<language>", methods=["GET", "POST"])
-def register(language):
+@app.route("/register", methods=["GET", "POST"])
+def register():
     form = RegisterForm()
     if form.validate_on_submit():
         existing_email = mongo.db.users.find_one({"email": form.email.data})
@@ -61,24 +69,29 @@ def register(language):
             #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
             mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
             flash("Account created, please log in.")
-            return redirect(url_for("login", language=language)) 
+            return redirect(url_for("login")) 
 
-    return render_template("register.html", form=form, language=language)
+    return render_template("register.html", form=form)
 
 #LOGIN
-@app.route("/login/<language>", methods=["GET", "POST"])
-def login(language):
+@app.route("/login", methods=["GET", "POST"])
+def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.get_user(form.email.data)
         print(user.username)
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
-            flash("Perfect - your notes!")
-            return redirect(url_for("notes", language=language))
+            flash("Login successful")
+            next = request.args.get("next") #WHAT: getting the argument from the url
+            print(f'next text {next}')
+            if not is_safe_url(next): #WHAT: making sure the checking the redirect is safe
+                return abort(400)
+            return redirect(next or url_for('index'))
+            #WHERE: Flask Login documentation  
         else:
             flash("Oops - try again")    
-    return render_template("login.html", form=form, language=language)
+    return render_template("login.html", form=form)
 
 
 #VIEW LINKS
@@ -94,7 +107,7 @@ def links(language):
 
 #VIEW NOTES
 @app.route("/notes/<language>")
-#@login_required
+@login_required
 def notes(language):
     print(current_user.id)
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
@@ -140,6 +153,7 @@ def addlink(language):
 
 #ADD_NOTE
 @app.route("/addnote/<language>", methods=["GET", "POST"])
+@login_required
 def addnote(language):
     form = NoteForm()
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
@@ -160,6 +174,7 @@ def addnote(language):
 
 #EDIT_NOTE
 @app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
+@login_required
 def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
@@ -185,6 +200,7 @@ def editnote(language, noteid):
 
 #DELETE_NOTE
 @app.route("/deletenote/<language>/<noteid>", methods=["GET","POST"]) #just post???
+@login_required
 def deletenote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
