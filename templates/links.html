@@ -3,13 +3,13 @@
 
 <!--HEADING-->
 <div class="row">
-            <div class="col-12 col-md-9 col-lg-6">
-                  <h1 class="d-inline-block">{{ language }} Links </h1>
-            </div>
-            <div class="col-12 col-md-3 col-lg-6 d-flex align-items-center justify-content-end justify-content-md-start">
-                  <a href="{{ url_for('addlink', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
-            </div>
+      <div class="col-12 col-md-9 col-lg-6">
+            <h1 class="d-inline-block">{{ language }} Links </h1>
       </div>
+      <div class="col-12 col-md-3 col-lg-6 d-flex align-items-center justify-content-end justify-content-md-start">
+            <a href="{{ url_for('addlink', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
+      </div>
+</div>
 
 
 {% for group_topic in group_topics %}
@@ -64,34 +64,34 @@
                         <li class="list-group-item">
                               <span class="">Rate</span>
                               <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
                                     method="POST">
                                     <button type="submit" class="button-style--i p-0">
-                                          <i class="far fa-star"></i></button>
-                              </form>
-                              <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
-                                          <i class="far fa-star"></i></button>
-                              </form>
-                              <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
-                                          <i class="far fa-star"></i></button>
+                                          <i class="fas fa-star rate-star" data-star="1"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
                                     action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}"
                                     method="POST">
                                     <button type="submit" class="button-style--i p-0">
-                                          <i class="far fa-star"></i></button>
+                                          <i class="fas fa-star rate-star" data-star="2"></i></button>
                               </form>
-                              <form class="d-inline-block"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
+                              <form class="d-inline-block mr-2"
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}"
                                     method="POST">
                                     <button type="submit" class="button-style--i p-0">
-                                          <i class="far fa-star"></i></button>
+                                          <i class="fas fa-star rate-star" data-star="3"></i></button>
+                              </form>
+                              <form class="d-inline-block mr-2"
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}"
+                                    method="POST">
+                                    <button type="submit" class="button-style--i p-0">
+                                          <i class="fas fa-star rate-star" data-star="4"></i></button>
+                              </form>
+                              <form class="d-inline-block"
+                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
+                                    method="POST">
+                                    <button type="submit" class="button-style--i p-0">
+                                          <i class="fas fa-star rate-star" data-star="5"></i></button>
                               </form>
                               <br class="d-block d-md-none">
 
