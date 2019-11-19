@@ -8,7 +8,7 @@
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
             <fieldset class="form-group">
-                <h1 class="">LOGIN</h1>
+                <h1 class="">Login</h1>
                 <!--?Can I use h1 instead of legend-->
                 
                 <!--INPUT EMAIL-->
@@ -48,7 +48,7 @@
             <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
 
             <!--SUBMIT BUTTON & FLASH MESSAGE-->
-            <div class="form-group">
+            <div class="form-group m-0">
                 {{ form.submit(class="btn button-style") }}
                 {% with errors = get_flashed_messages(category_filter=["error"]) %}
                 <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
@@ -64,8 +64,8 @@
 
 
         </form>
-        <div class>Forgot password? <a href="#">reset</a></div>
-        <div class>Not registered? <a href="{{ url_for('register') }}">register</a></div>
+        <p class="mb-2">Forgot password? <a href="#">reset</a></p>
+        <p class="">Not registered? <a href="{{ url_for('register') }}">register</a></p>
     </div>
 </div>
 

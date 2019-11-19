@@ -3,15 +3,17 @@
 {% block content%}
 <div class="row">
     <div class="col-12 col-md-8">
-        <span>{{ language }}</span>
+            <div class="mb-2">
+                    <strong class="message">Sign-up for notes!</strong>
+                </div>
+       
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
             <fieldset class="form-group">
-                <h1 class="">REGISTER</h1>
+                <h1 class="">Register</h1>
                 <!--?Can I use h1 instead of legend-->
-                <h2 class="">Sign Up For Notes</h2>
-
+                
 
                 <!--INPUT NAME-->
                 <div class="form-group">
@@ -81,7 +83,7 @@
             <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
 
             <!--SUBMIT BUTTON & FLASH MESSAGE-->
-            <div class="form-group">
+            <div class="form-group m-0">
                 {{ form.submit(class="btn button-style") }}
                 {% with errors = get_flashed_messages(category_filter=["error"]) %}
                 <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
@@ -95,7 +97,7 @@
             <!--WHY: Error message displayed next to button verses top of page to improve visibilty after submitting.-->
 
         </form>
-        <div class>Already registered? <a href="{{ url_for('login', language=language)}}">login</a></div>
+        <p>Already registered - select note language to login!</p>
     </div>
 </div>
 
