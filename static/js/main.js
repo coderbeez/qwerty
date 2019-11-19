@@ -12,10 +12,10 @@ $(document).ready(function () {
 
     star1.click(function () {
         star1.css("color", "#00a9bd");
-        star2.css("color", "#4C4C4C");
-        star3.css("color", "#4C4C4C");
-        star4.css("color", "#4C4C4C");
-        star5.css("color", "#4C4C4C");
+        star2.css("color", "#c9c9c9");
+        star3.css("color", "#c9c9c9");
+        star4.css("color", "#c9c9c9");
+        star5.css("color", "#c9c9c9");
         rate.val("1");
        
     })
@@ -23,9 +23,9 @@ $(document).ready(function () {
     star2.click(function () {
         star1.css("color", "#00a9bd");
         star2.css("color", "#00a9bd");
-        star3.css("color", "#4C4C4C");
-        star4.css("color", "#4C4C4C");
-        star5.css("color", "#4C4C4C");
+        star3.css("color", "#c9c9c9");
+        star4.css("color", "#c9c9c9");
+        star5.css("color", "#c9c9c9");
         rate.val("2");
     })
 
@@ -34,8 +34,8 @@ $(document).ready(function () {
         star1.css("color", "#00a9bd");
         star2.css("color", "#00a9bd");
         star3.css("color", "#00a9bd");
-        star4.css("color", "#4C4C4C");
-        star5.css("color", "#4C4C4C");
+        star4.css("color", "#c9c9c9");
+        star5.css("color", "#c9c9c9");
         rate.val("3");
 
     })
@@ -45,7 +45,7 @@ $(document).ready(function () {
         star2.css("color", "#00a9bd");
         star3.css("color", "#00a9bd");
         star4.css("color", "#00a9bd");
-        star5.css("color", "#4C4C4C");
+        star5.css("color", "#c9c9c9");
         rate.val("4");
     })
 

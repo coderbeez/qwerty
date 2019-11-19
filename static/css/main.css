@@ -69,10 +69,12 @@ h3 i, h3 {
     
 }
 
+.fa-star {
+color: #ED5023;
+}
 
-.star {
-/*font-size: 1.5rem;*/
-font-family: 'Love Ya Like A Sister', cursive;
+.rate-star {
+color: #c9c9c9;
   }
 
   
