@@ -217,7 +217,7 @@ def flaglink(language, linkid):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
-    flash("Perfect - link flagged!") 
+    flash("Perfect - problem reported!") 
     return redirect(url_for("links", language=language))
 
 
