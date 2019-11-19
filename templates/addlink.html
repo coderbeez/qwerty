@@ -7,10 +7,10 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
-            
+
             <fieldset class="form-group">
                 <legend class="">{{ language }} Links - <br class="d-md-none">Add New </legend>
-                             
+
                 <!--INPUT TOPIC-->
                 <div class="form-group">
                     {{ form.topic.label(class="form-control-label") }}
@@ -106,19 +106,19 @@
             <!--WHAT: Legend element label for fieldset-->
             <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
 
-            <!--SUBMIT BUTTON-->
+            <!--SUBMIT BUTTON & FLASH MESSAGE-->
             <div class="form-group">
                 {{ form.submit(class="btn button-style") }}
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                {% for message in messages %}
-                <h2 class="message--oops">{{ message }}</h2>
+                {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                {% if errors %}
+                {% for error in errors %}
+                <strong class="error"><br>{{ error }}</strong>
                 {% endfor %}
                 {% endif %}
                 {% endwith %}
             </div>
-
-            <!--WHAT: Facility to print flash messages on all pages-->
+            <!--WHY: Error message displayed next to button verses top of page to improve visibilty after submitting.-->
 
 
 

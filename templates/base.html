@@ -74,14 +74,14 @@
 
 
                 <!--FLASH MESSAGE-->
-                {% with messages = get_flashed_messages() %}
-                <!--WHAT: With statement-->
-                <!--WHAT: get_flashed_messages function-->
+                {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                <!--WHY: As message is default category used to show all but error messages.-->
+                <!--WHERE: Flask Flash documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
                 {% if messages %}
-                <!--WHAT: if messages exist-->
                 {% for message in messages %}
-                <!--WHAT: going to get 2 values from the messages, category & message-->
-                <div class="">{{ message }}</div>
+                <div class="mb-2">
+                <strong class="message">{{ message }}</strong>
+            </div>
                 {% endfor %}
                 {% endif %}
                 {% endwith %}

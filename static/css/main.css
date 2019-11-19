@@ -76,11 +76,17 @@ font-family: 'Love Ya Like A Sister', cursive;
   }
 
   
-.message--oops {
-    color: #ED5023;
+
+
+.message {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.25rem;
+    color:   #00a9bd;
 }
 
-.oops {
+.error {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.25rem;
     color: #ED5023;
 }
 

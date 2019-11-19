@@ -13,7 +13,7 @@ mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authentication
-login_manager.login_message = u"Please login to access your notes." #Flask Login documentation
+login_manager.login_message = u"Login for your notes!" #Flask Login documentation
 
 def is_safe_url(next):
     if next.startswith("/notes/"):
@@ -62,7 +62,7 @@ def register():
         existing_email = mongo.db.users.find_one({"email": form.email.data})
         #WHERE: Pretty Printed 
         if existing_email:
-            flash("Existing email")
+            flash("Oops email exists - check email or select note language to login!", "error")
 
         else: 
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -70,7 +70,7 @@ def register():
             mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
             user = User.get_user(form.email.data)
             login_user(user)
-            flash("Registration successful - Select a note language")
+            flash("Perfect - select note language!")
             return redirect(url_for('index'))
 
     return render_template("register.html", form=form)
@@ -84,7 +84,7 @@ def login():
         print(user.username)
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
-            flash("Login successful")
+            flash("Perfect - your notes!")
             next = request.args.get("next") #WHAT: getting the argument from the url
             print(f'next text {next}')
             if not is_safe_url(next): #WHAT: making sure the checking the redirect is safe
@@ -92,7 +92,7 @@ def login():
             return redirect(next or url_for('index'))
             #WHERE: Flask Login documentation  
         else:
-            flash("Oops - try again")    
+            flash("Oops - check email & password!", "error")    
     return render_template("login.html", form=form)
 
 
@@ -149,7 +149,7 @@ def addlink(language):
             return redirect(url_for("links", language=language))
                        
     #else:
-        #flash("Oops - try again")
+        #flash("Oops - check fields!", "error")
     return render_template("addlink.html", form=form, language=language) 
 
 
@@ -170,7 +170,7 @@ def addnote(language):
     elif request.method == "GET":
         pass    
     else:
-        flash("Oops - try again")
+        flash("Oops - check fields!", "error")
     return render_template("addnote.html", form=form, language=language)
 
 
@@ -195,7 +195,7 @@ def editnote(language, noteid):
         form.name.data = note["note_name"]
         form.content.data = note["content"]
     else:
-        flash("Oops - try again") 
+        flash("Oops - check fields!", "error") 
     print(note)    
     return render_template("editnote.html", form=form, note=note, language=language)
 
@@ -207,7 +207,7 @@ def deletenote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
     #no list as want to return single object
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
-    flash("Post deleted") 
+    flash("Perfect - note deleted!") 
     return redirect(url_for("notes", language=language))
 
 
@@ -217,7 +217,7 @@ def flaglink(language, linkid):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
-    flash("Link flagged") 
+    flash("Perfect - link flagged!") 
     return redirect(url_for("links", language=language))
 
 
@@ -227,7 +227,7 @@ def ratelink(language, linkid, rating):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
-    flash("Link rated") 
+    flash("Perfect - link rated!") 
     return redirect(url_for("links", language=language))  
 
 
@@ -236,6 +236,7 @@ def ratelink(language, linkid, rating):
 @login_required
 def logout():
     logout_user()
+    flash("Perfect - logged out!") 
     return redirect(url_for("index")) 
     #WHERE: Flask Login documentation https://flask-login.readthedocs.io/en/latest/
 
