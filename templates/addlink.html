@@ -87,8 +87,11 @@
 
                 <!--INPUT RATE-->
                 {{ form.rate.label }}
-                {{ form.rate }}
-
+                {{ form.rate (data_star="rate", type="hidden")}}
+                <!--WHERE: https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field-->
+<!--WHERE: https://www.w3schools.com/tags/att_input_type_hidden.asp-->
+                
+                
                 <button type="" class="button-style--i p-0">
                     <i class="far fa-star" data-star="1"></i></button>
                 <button type="" class="button-style--i p-0">
