@@ -65,40 +65,41 @@
                               <span class="">Rate</span>
                               <form class="d-inline-block mr-2"
                                     action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
+                                    method="POST" data-star="form">
+                                    <button type="button" class="button-style--i p-0" data-star="submit">
                                           <i class="fas fa-star rate-star" data-star="1"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
                                     action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
+                                    method="POST" data-star="form">
+                                    <button type="button" class="button-style--i p-0" data-star="submit">
                                           <i class="fas fa-star rate-star" data-star="2"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
                                     action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
+                                    method="POST" data-star="form">
+                                    <button type="button" class="button-style--i p-0" data-star="submit">
                                           <i class="fas fa-star rate-star" data-star="3"></i></button>
                               </form>
                               <form class="d-inline-block mr-2"
                                     action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
+                                    method="POST" data-star="form">
+                                    <button type="button" class="button-style--i p-0" data-star="submit">
                                           <i class="fas fa-star rate-star" data-star="4"></i></button>
                               </form>
                               <form class="d-inline-block"
                                     action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
-                                    method="POST">
-                                    <button type="submit" class="button-style--i p-0">
+                                    method="POST" data-star="form">
+                                    <button type="button" class="button-style--i p-0" data-star="submit">
                                           <i class="fas fa-star rate-star" data-star="5"></i></button>
                               </form>
                               <br class="d-block d-md-none">
 
                               <span class="ml-md-5">Report problem</span>
                               <form class="d-inline-block"
-                                    action="{{url_for('flaglink', language=language, linkid=link._id)}}" method="POST">
-                                    <button type="submit" class="button-style--i p-0">
+                                    action="{{url_for('flaglink', language=language, linkid=link._id)}}"
+                                    method="POST" data-star="form">
+                                    <button type="button" class="button-style--i p-0" data-star="submit">
                                           <i class="fas fa-tools"></i></button>
                               </form>
                   </ul>

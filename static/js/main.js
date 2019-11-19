@@ -7,6 +7,8 @@ $(document).ready(function () {
     const star4 = $("[data-star=4]");
     const star5 = $("[data-star=5]");
     const rate = $("[data-star=rate]");
+    const submit = $("[data-star=submit]");
+    const form = $("[data-star=form]");
     
 
 
@@ -59,9 +61,17 @@ $(document).ready(function () {
     })
 
 
+submit.click(function() {
+    setTimeout(function() {
+        form.submit();
+  },1000);     
+});
+//WHERE: https://forum.jquery.com/topic/settimeout-before-form-submit
+
 
 
 
 
 
 });
+
