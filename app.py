@@ -19,6 +19,7 @@ sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML"}}, {"$sa
 sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS"}}, {"$sample": {"size": 1}}]))[0]
 sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript"}}, {"$sample": {"size": 1}}]))[0]
 sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sample": {"size": 1}}]))[0]
+quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
 
 def is_safe_url(next):
     if next.startswith("/notes/"):
@@ -58,7 +59,7 @@ def load_user(id):
 @app.route("/index")
 def index():
        
-    return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 #REGISTER
 @app.route("/register", methods=["GET", "POST"])
@@ -79,7 +80,7 @@ def register():
             flash("Perfect - select note language!")
             return redirect(url_for('index'))
 
-    return render_template("register.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("register.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 #LOGIN
 @app.route("/login", methods=["GET", "POST"])
@@ -99,7 +100,7 @@ def login():
             #WHERE: Flask Login documentation  
         else:
             flash("Oops - check email & password!", "error")    
-    return render_template("login.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("login.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
 #VIEW LINKS
@@ -110,7 +111,7 @@ def links(language):
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
     #change from cursor to array
-    return render_template("links.html", links=links, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("links.html", links=links, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
 #VIEW NOTES
@@ -125,7 +126,7 @@ def notes(language):
     group_topics = list(group_topics)
     #print(group_topics)
     #change from cursor to array
-    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
 #ADD LINK
@@ -156,7 +157,7 @@ def addlink(language):
                        
     #else:
         #flash("Oops - check fields!", "error")
-    return render_template("addlink.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4) 
+    return render_template("addlink.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote) 
 
 
 #ADD_NOTE
@@ -177,7 +178,7 @@ def addnote(language):
         pass    
     else:
         flash("Oops - check fields!", "error")
-    return render_template("addnote.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("addnote.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
 #EDIT_NOTE
@@ -203,7 +204,7 @@ def editnote(language, noteid):
     else:
         flash("Oops - check fields!", "error") 
     print(note)    
-    return render_template("editnote.html", form=form, note=note, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
+    return render_template("editnote.html", form=form, note=note, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
 #DELETE_NOTE
