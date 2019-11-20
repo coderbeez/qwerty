@@ -52,9 +52,12 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():
-    samples = list(mongo.db.links.aggregate([{"$sample": {"size": 4  }}]))
-    print(samples)
-    return render_template("index.html", samples=samples)
+    sample_html = list(mongo.db.links.aggregate([{"$match": {"language": "HTML"}}, {"$sample": {"size": 1}}]))[0]
+    sample_css = list(mongo.db.links.aggregate([{"$match": {"language": "CSS"}}, {"$sample": {"size": 1}}]))[0]
+    sample_js = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript"}}, {"$sample": {"size": 1}}]))[0]
+    sample_python = list(mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sample": {"size": 1}}]))[0]
+    print(sample_python)
+    return render_template("index.html", sample_html=sample_html, sample_css=sample_css, sample_js=sample_js, sample_python=sample_python)
 
 #REGISTER
 @app.route("/register", methods=["GET", "POST"])
