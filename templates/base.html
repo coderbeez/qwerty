@@ -80,8 +80,8 @@
                 {% if messages %}
                 {% for message in messages %}
                 <div class="mb-2">
-                <strong class="message">{{ message }}</strong>
-            </div>
+                    <strong class="message">{{ message }}</strong>
+                </div>
                 {% endfor %}
                 {% endif %}
                 {% endwith %}
@@ -125,15 +125,20 @@
                         take up too much of today.” – Will Rogers</li>
                     <li class="list-group-item"><i class="fas fa-lightbulb mr-2"></i> <span
                             class="handwrite">inspire</span><br>
-                        <a href="https://www.awwwards.com/sites/lafaurie-paris">awwards site of the day</a></li>
+                        <div class="d-flex justify-content-between">
+                            <a href="https://www.awwwards.com/sites/lafaurie-paris">awwwards</a>
+                            <a href="https://cssdesignawards.com/">cssda</a>
+                            <a href="https://www.csswinner.com/">csswinner</a>
+                            <a href="https://thefwa.com/">fwa</a>
+                    </li>
 
                     <li class="list-group-item"><i class="fas fa-link mr-2"></i></i> <span class="handwrite">sample
                             links</span><br>
-                        
+
                         <a class="d-block" href="{{ sample1.url }}">{{ sample1.language}} - {{ sample1.link_name }}</a>
                         <a class="d-block" href="{{ sample2.url }}">{{ sample2.language}} - {{ sample2.link_name }}</a>
                         <a class="d-block" href="{{ sample3.url }}">{{ sample3.language}} - {{ sample3.link_name }}</a>
-                        <a class="d-block" href="{{ sample4.url }}">{{ sample4.language}} - {{ sample4.link_name }}</a>        
+                        <a class="d-block" href="{{ sample4.url }}">{{ sample4.language}} - {{ sample4.link_name }}</a>
                     </li>
 
 
