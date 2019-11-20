@@ -52,9 +52,9 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():
-    sample = list(mongo.db.links.aggregate([{"$sample": {"size": 4  }}]))
-    print(sample)
-    return render_template("index.html", sample=sample)
+    samples = list(mongo.db.links.aggregate([{"$sample": {"size": 4  }}]))
+    print(samples)
+    return render_template("index.html", samples=samples)
 
 #REGISTER
 @app.route("/register", methods=["GET", "POST"])
