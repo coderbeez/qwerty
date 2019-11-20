@@ -15,6 +15,11 @@ login_manager = LoginManager(app)
 login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authentication
 login_manager.login_message = u"Login for your notes!" #Flask Login documentation
 
+sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML"}}, {"$sample": {"size": 1}}]))[0]
+sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS"}}, {"$sample": {"size": 1}}]))[0]
+sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript"}}, {"$sample": {"size": 1}}]))[0]
+sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sample": {"size": 1}}]))[0]
+
 def is_safe_url(next):
     if next.startswith("/notes/"):
         return True
@@ -52,12 +57,8 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():
-    sample_html = list(mongo.db.links.aggregate([{"$match": {"language": "HTML"}}, {"$sample": {"size": 1}}]))[0]
-    sample_css = list(mongo.db.links.aggregate([{"$match": {"language": "CSS"}}, {"$sample": {"size": 1}}]))[0]
-    sample_js = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript"}}, {"$sample": {"size": 1}}]))[0]
-    sample_python = list(mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sample": {"size": 1}}]))[0]
-    print(sample_python)
-    return render_template("index.html", sample_html=sample_html, sample_css=sample_css, sample_js=sample_js, sample_python=sample_python)
+       
+    return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 #REGISTER
 @app.route("/register", methods=["GET", "POST"])
@@ -78,7 +79,7 @@ def register():
             flash("Perfect - select note language!")
             return redirect(url_for('index'))
 
-    return render_template("register.html", form=form)
+    return render_template("register.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 #LOGIN
 @app.route("/login", methods=["GET", "POST"])
@@ -98,7 +99,7 @@ def login():
             #WHERE: Flask Login documentation  
         else:
             flash("Oops - check email & password!", "error")    
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 
 #VIEW LINKS
@@ -109,7 +110,7 @@ def links(language):
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
     #change from cursor to array
-    return render_template("links.html", links=links, group_topics=group_topics, language=language)
+    return render_template("links.html", links=links, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 
 #VIEW NOTES
@@ -124,7 +125,7 @@ def notes(language):
     group_topics = list(group_topics)
     #print(group_topics)
     #change from cursor to array
-    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language)
+    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 
 #ADD LINK
@@ -155,7 +156,7 @@ def addlink(language):
                        
     #else:
         #flash("Oops - check fields!", "error")
-    return render_template("addlink.html", form=form, language=language) 
+    return render_template("addlink.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4) 
 
 
 #ADD_NOTE
@@ -176,7 +177,7 @@ def addnote(language):
         pass    
     else:
         flash("Oops - check fields!", "error")
-    return render_template("addnote.html", form=form, language=language)
+    return render_template("addnote.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 
 #EDIT_NOTE
@@ -202,7 +203,7 @@ def editnote(language, noteid):
     else:
         flash("Oops - check fields!", "error") 
     print(note)    
-    return render_template("editnote.html", form=form, note=note, language=language)
+    return render_template("editnote.html", form=form, note=note, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4)
 
 
 #DELETE_NOTE
