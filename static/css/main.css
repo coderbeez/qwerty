@@ -296,3 +296,9 @@ ul {
 .r  {
     border: 1px solid red;
   }
+
+ /*----------TESTING----------*/
+.dark {
+  background-color: #4C4C4C;  
+  color: #F8F8F8;
+} 
