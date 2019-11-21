@@ -16,10 +16,10 @@ login_manager = LoginManager(app)
 login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authentication
 login_manager.login_message = u"Login for your notes!" #Flask Login documentation
 
-sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML"}}, {"$sample": {"size": 1}}]))[0]
-sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS"}}, {"$sample": {"size": 1}}]))[0]
-sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript"}}, {"$sample": {"size": 1}}]))[0]
-sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python"}}, {"$sample": {"size": 1}}]))[0]
+sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
 quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
 
 def is_safe_url(next):
