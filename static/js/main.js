@@ -17,19 +17,22 @@ $(document).ready(function () {
     //CHECK FOR DARK MODE
     function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
+            dark.prop( "checked", true );
             $('body').addClass("dark");
-            //$('ul').addClass("dark");
             $('li').addClass("dark");
             $('li').css('border', '1px solid white');
 
         }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
+    //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
 
     //SET DARK MODE
     dark.change(function () {
         if (this.checked) {
             $('body').addClass("dark");
+            $('li').addClass("dark");
+            $('li').css('border', '1px solid white');
             localStorage.setItem("mode", "dark")
         } else {
             $('body').removeClass("dark");
