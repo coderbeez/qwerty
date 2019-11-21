@@ -9,37 +9,45 @@ $(document).ready(function () {
     const star4 = $("[data-star=4]");
     const star5 = $("[data-star=5]");
     const rate = $("[data-star=rate]");
+    const flag = $("[data-submit=flag]");
     const dark = $("[data-dark=switch]");
 
     checkStorage();
 
-//CHECK FOR DARK MODE
-    function checkStorage(){
+    //CHECK FOR DARK MODE
+    function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
-    $('body').addClass("dark");  
-        } 
+            $('body').addClass("dark");
+            //$('ul').addClass("dark");
+            $('li').addClass("dark");
+            $('li').css('border', '1px solid white');
+
+        }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
 
-//SET DARK MODE
+    //SET DARK MODE
     dark.change(function () {
-        if(this.checked) {
+        if (this.checked) {
             $('body').addClass("dark");
             localStorage.setItem("mode", "dark")
-        }
-        else{
+        } else {
             $('body').removeClass("dark");
+            $('li').removeClass("dark");
+            $('li').css('border', '');
             localStorage.clear();
         }
-        })
+    })
+    //WHERE:https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
 
-        //localStorage.getItem("mode") == "dark"
+
+    //localStorage.getItem("mode") == "dark"
 
     // Store
-//localStorage.setItem("lastname", "Smith");
-// Retrieve
-//document.getElementById("result").innerHTML = localStorage.getItem("lastname"); 
-    
+    //localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    //document.getElementById("result").innerHTML = localStorage.getItem("lastname"); 
+
 
     flag.click(function () {
         flag.css("color", "#ED5023");

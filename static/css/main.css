@@ -299,6 +299,6 @@ ul {
 
  /*----------TESTING----------*/
 .dark {
-  background-color: #4C4C4C;  
-  color: #F8F8F8;
+  background-color: #4C4C4C!important;  
+  color: #F8F8F8!important;
 } 
