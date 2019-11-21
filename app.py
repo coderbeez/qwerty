@@ -5,6 +5,7 @@ from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user
 from forms import RegisterForm, LoginForm, NoteForm, LinkForm
+from time import sleep
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
@@ -224,7 +225,10 @@ def flaglink(language, linkid):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
-    flash("Perfect - problem reported!") 
+    flash("Perfect - problem reported!")
+    sleep(2)
+    #WHERE: https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
+    #WHY: Allow user to see star color change before redirect.
     return redirect(url_for("links", language=language))
 
 
@@ -234,7 +238,8 @@ def ratelink(language, linkid, rating):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
-    flash("Perfect - link rated!") 
+    flash("Perfect - link rated!")
+    sleep(2)
     return redirect(url_for("links", language=language))  
 
 
