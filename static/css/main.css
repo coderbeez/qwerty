@@ -183,10 +183,9 @@ input:checked+.slider:before {
     background-size: cover;
 }
 
-.shadows {
-    box-shadow: 0 3px 6px rgba(32, 82, 123, 0.16), 0 3px 6px rgba(32, 82, 123, 0.23);
+ul {
+    box-shadow: 0 1.5px 3px rgba(53, 69, 80, 0.16), 0 1.5px 3px rgba(53, 69, 80, 0.23);
 }
-
 
 .vh--10 {
     min-height: 10vh;
