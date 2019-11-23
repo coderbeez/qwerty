@@ -23,29 +23,30 @@ p {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: 'Trocchi', serif;
     color: #354550;
 }
 
 .tagline {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 font-family: 'Cedarville Cursive', cursive;
   line-height: .6; 
   color: #354550;
 }
+/*WHY: Color added to prevent overwriting from dark class.*/
 
 h1, legend {
     font-size: 1.7rem;
 }
 
 h2 {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
 }
 
-section h2 {
-    font-size: 1.5rem;    
- }
+/*section h2 {
+    font-size: 1.4rem;    
+ }*/
 
 h3 {
     font-size: 1.25rem; 
@@ -57,11 +58,12 @@ font-family: 'Roboto', sans-serif;*/
 }
 
 nav {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
 }
 
 nav a{
     font-family: 'Cedarville Cursive', cursive;
+
 }
 
 .rate-star {
@@ -211,6 +213,14 @@ ul {
 /*----------MEDIA QUERIES----------*/
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .hero h1 {
+        font-size: 4.25rem;
+    }
+
+    .tagline {
+        font-size: 2.5rem;
+    }
+        
     h1, legend {
         font-size: 2rem;
     }
@@ -219,19 +229,10 @@ ul {
         font-size: 1.5rem;
     }
 
-    section h2 {
-        font-size: 1.75rem;
-    }
-
     h3 {
         font-size: 1.25rem;
     }
-    .hero h1 {
-        font-size: 3rem;
-    }
-    .tagline {
-        font-size: 3rem;
-    }
+    
     nav {
         font-size: 2rem;
     }
@@ -239,6 +240,15 @@ ul {
 
 
 @media (min-width: 992px) {
+    .hero h1 {
+        font-size: 4.25rem;
+    }
+
+    .tagline {
+        font-size: 3rem;
+    }
+
+
     h1, legend {
         font-size: 2rem;
     }
@@ -247,20 +257,11 @@ ul {
         font-size: 1.5rem;
     }
 
-    section h2 {
-        font-size: 1.75rem;
-    }
-
+   
     h3 {
         font-size: 1.25rem;
     }
-    .hero h1 {
-        font-size: 4rem;
-    }
-
-    .tagline {
-        font-size: 3rem;
-    }
+   
     nav {
         font-size: 2rem;
     }
