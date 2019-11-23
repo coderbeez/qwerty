@@ -24,6 +24,10 @@ $(document).ready(function () {
             $('a').css('color', '#eda33e');
             $('.btn').css('color', '#eda33e');
             $('.border-bottom').css('color', '#eda33e');
+            $('.button-style').css('color', '#354550');
+            $('.button-style').css('background-color', '#ECECEC');
+
+            
         }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
@@ -37,7 +41,9 @@ $(document).ready(function () {
             $('li').css('border', '1px solid black');
             $('a').css('color', '#eda33e');
             $('.btn').css('color', '#eda33e');
-            $('.border-bottom').css('color', '#eda33e');
+            $('.border-bottom').css('color', '');
+            $('.button-style').css('color', '#354550');
+            $('.button-style').css('background-color', '#ECECEC');
             localStorage.setItem("mode", "dark")
         } else {
             $('body').removeClass("dark");
@@ -47,6 +53,8 @@ $(document).ready(function () {
             $('a').css('color', '');
             $('.btn').css('color', '');
             $('.border-bottom').css('color', '');
+            $('.button-style').css('color', '');
+            $('.button-style').css('background-color', '');
             localStorage.clear();
         }
     })
