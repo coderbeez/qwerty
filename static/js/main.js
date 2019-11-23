@@ -18,10 +18,12 @@ $(document).ready(function () {
     function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
             dark.prop( "checked", true );
-            $('body').addClass("dark");
-            $('li').addClass("dark");
-            $('li').css('border', '1px solid white');
-
+            $('body').addClass('dark');
+            $('li').addClass('dark');
+            $('li').css('border', '1px solid black');
+            $('a').css('color', '#eda33e');
+            $('.btn').css('color', '#eda33e');
+            $('.border-bottom').css('color', '#eda33e');
         }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
@@ -30,14 +32,21 @@ $(document).ready(function () {
     //SET DARK MODE
     dark.change(function () {
         if (this.checked) {
-            $('body').addClass("dark");
-            $('li').addClass("dark");
-            $('li').css('border', '1px solid white');
+            $('body').addClass('dark');
+            $('li').addClass('dark');
+            $('li').css('border', '1px solid black');
+            $('a').css('color', '#eda33e');
+            $('.btn').css('color', '#eda33e');
+            $('.border-bottom').css('color', '#eda33e');
             localStorage.setItem("mode", "dark")
         } else {
             $('body').removeClass("dark");
             $('li').removeClass("dark");
             $('li').css('border', '');
+            $('li').css('border', '');
+            $('a').css('color', '');
+            $('.btn').css('color', '');
+            $('.border-bottom').css('color', '');
             localStorage.clear();
         }
     })
