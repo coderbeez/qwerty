@@ -8,7 +8,9 @@ body {
     font-family: 'Cabin Condensed', sans-serif;
     color: #354550;
     background-color: #ECECEC;
+
 }
+
 
 p {
     line-height: 1;
@@ -34,6 +36,7 @@ p {
     color: #889197;
 }
 
+
 h1,
 legend {
     font-size: 1.7rem;
@@ -55,9 +58,9 @@ nav a {
     font-family: 'Cedarville Cursive', cursive;
 }
 
-.rate-star {
-    color: #c9c9c9;
-}
+/*.rate-star {
+    color: #ECECEC;
+}*/
 
 
 .message {
@@ -71,9 +74,9 @@ nav a {
 }
 
 
-a {
+a, .btn {
     text-decoration: none;
-    color: #fe5e51;
+    color: #cb4b40;
 }
 
 
@@ -164,16 +167,7 @@ input:checked+.slider:before {
 
 }
 
-.button-style--i {
-    margin-top: .5rem;
-    margin-bottom: 1.5rem;
-    padding: 6px;
-    font-size: 1rem;
-    font-weight: 500;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
+
 
 /*----------BACKGROUNDS----------*/
 
@@ -270,3 +264,4 @@ input:checked+.slider:before {
     background-color: #354550;
     color: #ECECEC;
 }
+
