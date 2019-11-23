@@ -5,10 +5,9 @@
 /*----------FONTS----------*/
 
 body {
-font-family: 'Cabin Condensed', sans-serif;
-color: #354550;
-/*background-color: #ededed;*/
-background-color:#ECECEC;
+    font-family: 'Cabin Condensed', sans-serif;
+    color: #354550;
+    background-color: #ECECEC;
 }
 
 p {
@@ -23,20 +22,20 @@ p {
 
 .tagline {
     font-size: 1.75rem;
-font-family: 'Cedarville Cursive', cursive;
-  line-height: .6; 
-  color: #354550;
- 
+    font-family: 'Cedarville Cursive', cursive;
+    line-height: .6;
+    color: #354550;
 }
 /*WHY: Color added to prevent overwriting from dark class.*/
 
 .tagline--codes {
-    letter-spacing:.05rem;
-    color:#979fa4;
-    color:#889197;
+    letter-spacing: .05rem;
+    color: #979fa4;
+    color: #889197;
 }
 
-h1, legend {
+h1,
+legend {
     font-size: 1.7rem;
 }
 
@@ -44,43 +43,29 @@ h2 {
     font-size: 1.4rem;
 }
 
-/*section h2 {
-    font-size: 1.4rem;    
- }*/
-
 h3 {
-    font-size: 1.25rem; 
-      }
-
-h2, h3, h4 {   
-/*font-weight: 700;
-font-family: 'Roboto', sans-serif;*/
+    font-size: 1.25rem;
 }
 
 nav {
     font-size: 1.7rem;
 }
 
-nav a{
+nav a {
     font-family: 'Cedarville Cursive', cursive;
-
 }
 
 .rate-star {
-color: #c9c9c9;
-  }
-
-  
+    color: #c9c9c9;
+}
 
 
 .message {
-    /*font-family: 'Covered By Your Grace', cursive;*/
     font-size: 1.25rem;
     color: #36abb5;
 }
 
 .error {
-    /*font-family: 'Cedarville Cursive', cursive;*/
     font-size: 1.25rem;
     color: #fe5e51;
 }
@@ -89,17 +74,11 @@ color: #c9c9c9;
 a {
     text-decoration: none;
     color: #fe5e51;
-   
 }
 
 
 ul {
-    list-style:none;
-}
-
-
-.handwrite {
-   
+    list-style: none;
 }
 
 /*----------TOGGLE----------*/
@@ -110,14 +89,14 @@ ul {
     display: inline-block;
     width: 44px;
     height: 24px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
+}
+
+/* Hide default HTML checkbox */
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
 
 /* The slider */
 .slider {
@@ -130,44 +109,44 @@ ul {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
 
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 20px;
     width: 20px;
     left: 2px;
     bottom: 2px;
-    background-color:white;
+    background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
     background-color: #fe5e51;
-  }
-  
-  input:focus + .slider {
+}
+
+input:focus+.slider {
     box-shadow: 0 0 1px #fe5e51;
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked+.slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 24px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+}
 
-  /*WHERE: https://www.w3schools.com/howto/howto_css_switch.asp*/
+/* Rounded sliders */
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/*WHERE: https://www.w3schools.com/howto/howto_css_switch.asp*/
 
 
 /*----------BUTTONS----------*/
@@ -175,12 +154,12 @@ ul {
 .button-style {
     margin-top: .5rem;
     margin-bottom: 1.5rem;
-    color:#ededed;
+    color: #ececec;
     padding: 6px;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: 500;
-    background-color: #4C4C4C;
+    background-color: #354550;
     box-shadow: 1px 1px 1px rgba(49, 49, 80, 0.3);
 
 }
@@ -188,16 +167,12 @@ ul {
 .button-style--i {
     margin-top: .5rem;
     margin-bottom: 1.5rem;
-    
     padding: 6px;
-   
     font-size: 1rem;
     font-weight: 500;
     background-color: transparent;
     border: none;
     box-shadow: none;
-   
-
 }
 
 /*----------BACKGROUNDS----------*/
@@ -209,71 +184,15 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
- }
+}
 
 .shadows {
     box-shadow: 0 3px 6px rgba(32, 82, 123, 0.16), 0 3px 6px rgba(32, 82, 123, 0.23);
 }
 
-.vw--100{
-    min-width: 100%;
-}
-
-.vh--5 {
-    min-height: 5vh;
-}
 
 .vh--10 {
     min-height: 10vh;
-}
-
-.vh--15 {
-    min-height: 15vh;
-}
-
-.vh--20 {
-    min-height: 20vh;
-}
-
-.vh--50 {
-    min-height: 50vh;
-}
-
-.vh--55 {
-    min-height: 55vh;
-}
-
-.vh--30 {
-    min-height: 30vh;
-}
-
-.vh--35 {
-    min-height: 35vh;
-}
-
-.vh--40 {
-    min-height: 40vh;
-}
-
-.vh--45 {
-    min-height: 45vh;
-}
-
-.vh--70 {
-    min-height: 70vh;
-}
-
-.vh--75 {
-    min-height: 75vh;
-}
-
-.vh--80 {
-    min-height: 80vh;
-}
-
-.vh--85 {
-    min-height: 85vh;
 }
 
 .vh--90 {
@@ -290,8 +209,9 @@ ul {
     .tagline {
         font-size: 2.5rem;
     }
-        
-    h1, legend {
+
+    h1,
+    legend {
         font-size: 2rem;
     }
 
@@ -302,7 +222,7 @@ ul {
     h3 {
         font-size: 1.25rem;
     }
-    
+
     nav {
         font-size: 2rem;
     }
@@ -319,7 +239,8 @@ ul {
     }
 
 
-    h1, legend {
+    h1,
+    legend {
         font-size: 2rem;
     }
 
@@ -327,11 +248,11 @@ ul {
         font-size: 1.5rem;
     }
 
-   
+
     h3 {
         font-size: 1.25rem;
     }
-   
+
     nav {
         font-size: 2rem;
     }
@@ -339,17 +260,13 @@ ul {
 
 /*----------TESTING----------*/
 
-.r  {
+.r {
     border: 1px solid red;
-  }
+}
 
- li {
-     /*background-color: #ededed!important;*/
 
-    
- } 
- /*----------TESTING----------*/
+/*----------TESTING----------*/
 .dark {
-background-color: #354550;
+    background-color: #354550;
     color: #ECECEC;
-} 
+}
