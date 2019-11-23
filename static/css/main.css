@@ -8,6 +8,7 @@ body {
 font-family: 'Cabin Condensed', sans-serif;
 color: #354550;
 /*background-color: #ededed;*/
+background-color:#ECECEC;
 }
 
 p {
@@ -201,11 +202,14 @@ ul {
 
 /*----------BACKGROUNDS----------*/
 
+
+
 .hero {
     background: url("../images/pencil.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
  }
 
 .shadows {
@@ -339,8 +343,13 @@ ul {
     border: 1px solid red;
   }
 
+ li {
+     /*background-color: #ededed!important;*/
+
+    
+ } 
  /*----------TESTING----------*/
 .dark {
 background-color: #354550;
-  color: #ededed;
+    color: #ECECEC;
 } 
