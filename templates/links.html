@@ -16,7 +16,7 @@
 <!--WHAT: Level 1 Collapse - TOPIC-->
 <h2> <button class="btn" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
             aria-expanded="false" aria-controls="collapsePoints">
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-angle-double-down"></i>
       </button>{{ group_topic._id}}</h2>
 
 <!--WHY: Content want to collapse wrapped in div.-->
@@ -27,17 +27,17 @@
 
       {% if loop.previtem is undefined %}
 
-      <h3 class="ml-3"><button class="btn" type="button" data-toggle="collapse"
+      <h3 class="ml-2 border-top"><button class="btn" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
-                  <i class="fas fa-chevron-down"></i>
+                  <i class="fas fa-angle-down"></i>
             </button>{{link.link_type}}</h3>
       {% elif loop.previtem.link_type != link.link_type %}
 
-      <h3 class="ml-3"><button class="btn" type="button" data-toggle="collapse"
+      <h3 class="ml-2 border-top"><button class="btn" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
-                  <i class="fas fa-chevron-down"></i>
+                  <i class="fas fa-angle-down"></i>
             </button>{{link.link_type}}</h3>
       {% endif %}
 

@@ -15,7 +15,7 @@
 <!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
 <h2><button class="btn" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}" aria-expanded="false"
             aria-controls="collapsePoints">
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-angle-double-down"></i>
       </button>{{ group_topic._id}}</h2>
 
 <!--WHY: Content want to collapse wrapped in div.-->
@@ -24,7 +24,7 @@
       {% if note.topic == group_topic._id %}
 
       <!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
-      <p class="m-1">
+      <p class="m-1 border-top">
             <button class="btn" type="button" data-toggle="collapse" data-target="#id{{note._id}}" aria-expanded="false"
                   aria-controls="collapsePoints">
                   <i class="fas fa-angle-down"></i>
