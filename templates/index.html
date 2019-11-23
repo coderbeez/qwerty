@@ -23,34 +23,42 @@
 
         
 
-    <h2 class="mt-5">Break Time</h2>
-    <ul class="list-group p-0">
-        <!--<li class="list-group-item"><h3 class="text-right m-0">distract me</h3></li>-->
-        <li class="list-group-item"><i class="fas fa-music mr-2"></i> <span class="handwrite">music</span>
-            <div class="embed-responsive embed-responsive-1by1">
-                    <iframe src="https://open.spotify.com/embed/playlist/1x7knVnmdkheR1SlWq0cil" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            </div>
+             <h2 class="mt-5">Distraction</h2>
+             <ul class="list-group p-0">
+                
+                 <li class="list-group-item">
+                     <h3><i class="fas fa-quote-left mr-2"></i>Quote</h3>
+                     <span class="italics"> "{{quote.quote}}"</span><br>
+                     <span>{{quote.author}}</span>
+                 </li>
 
+                 <li class="list-group-item">
+                     <h3><i class="fas fa-link mr-2"></i></i>Sample Links</h3>
+                     <a class="d-block" href="{{ sample1.url }}">{{ sample1.language}} - {{ sample1.link_name }}</a>
+                     <a class="d-block" href="{{ sample2.url }}">{{ sample2.language}} - {{ sample2.link_name }}</a>
+                     <a class="d-block" href="{{ sample3.url }}">{{ sample3.language}} - {{ sample3.link_name }}</a>
+                     <a class="d-block" href="{{ sample4.url }}">{{ sample4.language}} - {{ sample4.link_name }}</a>
+                 </li>
 
-            <!--WHERE: Bootstrap responsive iframe https://getbootstrap.com/docs/4.3/utilities/embed/#aspect-ratios-->
-        </li>
-        <li class="list-group-item"><i class="fas fa-quote-left mr-2"></i><span class="handwrite">quote</span><br>
-            "{{quote.quote}}"<br><strong>{{quote.author}}</strong></li>
-        <li class="list-group-item "><i class="fas fa-lightbulb mr-2"></i> <span class="handwrite">inspire</span><br>
-            <div class="d-flex justify-content-between">
-            <a href="https://www.awwwards.com/sites/lafaurie-paris">awwwards</a>
-            <a href="https://cssdesignawards.com/">cssda</a>
-            <a href="https://www.csswinner.com/">csswinner</a>
-            <a href="https://thefwa.com/">fwa</a>
-        </div>
-        </li>
-        <li class="list-group-item"><i class="fas fa-link mr-2"></i></i> <span class="handwrite">sample links</span><br>
-            <a class="d-block" href="{{ sample1.url }}">{{ sample1.language}} - {{ sample1.link_name }}</a>
-                        <a class="d-block" href="{{ sample2.url }}">{{ sample2.language}} - {{ sample2.link_name }}</a>
-                        <a class="d-block" href="{{ sample3.url }}">{{ sample3.language}} - {{ sample3.link_name }}</a>
-                        <a class="d-block" href="{{ sample4.url }}">{{ sample4.language}} - {{ sample4.link_name }}</a>
-                    </li>
-    </ul>
+                 <li class="list-group-item">
+                     <h3><i class="fas fa-lightbulb mr-2"></i>Inspiration</h3>
+                     <div class="d-flex justify-content-between">
+                         <a href="https://www.awwwards.com/sites/lafaurie-paris">awwwards</a>
+                         <a href="https://cssdesignawards.com/">cssda</a>
+                         <a href="https://www.csswinner.com/">csswinner</a>
+                         <a href="https://thefwa.com/">fwa</a>
+                 </li>
+
+                 <li class="list-group-item">
+                     <h3><i class="fas fa-music mr-2"></i>music</h3>
+                     <div class="embed-responsive embed-responsive-1by1">
+                         <iframe src="https://open.spotify.com/embed/playlist/1x7knVnmdkheR1SlWq0cil" width="300"
+                             height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                     </div>
+                 </li>
+                 
+             </ul>
+
 
 </section>
 {% endblock content%}

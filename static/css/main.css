@@ -43,11 +43,11 @@ legend {
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
 nav {
@@ -84,6 +84,9 @@ ul {
     list-style: none;
 }
 
+.italics {
+    font-style: italic;
+}
 /*----------TOGGLE----------*/
 
 /* The switch - the box around the slider */
@@ -210,11 +213,11 @@ input:checked+.slider:before {
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     nav {
@@ -239,12 +242,12 @@ input:checked+.slider:before {
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
 
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     nav {
