@@ -1,76 +1,67 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Cedarville+Cursive|Love+Ya+Like+A+Sister|Trocchi&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Cedarville+Cursive|Trocchi&display=swap');
+
+
+
 /*----------FONTS----------*/
 
 body {
- font-family: 'Cabin Condensed', sans-serif;
-color: #4C4C4C;
-      background-color: #F8F8F8;
+font-family: 'Cabin Condensed', sans-serif;
+color: #354550;
+/*background-color: #ededed;*/
 }
+
+h2, h2 i {
+    
+  }
+  
+  h3, h3 i {
+     
+  }
 
 p {
     line-height: 1;
 }
 
+.hero h1 {
+    font-size: 3rem;
+    font-family: 'Trocchi', serif;
+    color: #354550;
+}
 
+.tagline {
+    font-size: 1.5rem;
+font-family: 'Cedarville Cursive', cursive;
+  line-height: .6; 
+  color: #354550;
+}
 
 h1, legend {
     font-size: 1.7rem;
-  font-family: 'Trocchi', serif;
-}
-
-.hero h1 {
-    font-size: 3rem;
 }
 
 h2 {
     font-size: 1.25rem;
-    font-family: 'Trocchi', serif;
-    
- }
-
-
-h2, h2 i {
-    /*color: purple;*/
-    color: #41989f;
-    color: #497c80;
-    color: #41989f;
-    color: #00a9bd;
-
 }
 
- section h2 {
-    font-size: 1.5rem;
-    color: #4C4C4C;
-    
-    
+section h2 {
+    font-size: 1.5rem;    
  }
-
-
-
 
 h3 {
-    font-size: 1.25rem;
-        font-family: 'Trocchi', serif;
+    font-size: 1.25rem; 
       }
 
-h3 i, h3 {
-    color:#7acfd6;
-    color: #6dbac0;
-    color: #00a9bd;
-    color: #00a9bd;
-
+h2, h3, h4 {   
+/*font-weight: 700;
+font-family: 'Roboto', sans-serif;*/
 }
 
-
-.tagline {
-    font-size: 1.5rem;
-                   font-family: 'Cedarville Cursive', cursive;
-  line-height: .6;
-    
+nav {
+    font-size: 1.6rem;
 }
 
-.fa-star {
-color: #ED5023;
+nav a{
+    font-family: 'Cedarville Cursive', cursive;
 }
 
 .rate-star {
@@ -81,36 +72,23 @@ color: #c9c9c9;
 
 
 .message {
-    font-family: 'Cedarville Cursive', cursive;
+    /*font-family: 'Covered By Your Grace', cursive;*/
     font-size: 1.25rem;
-    color:   #00a9bd;
+    color: #36abb5;
 }
 
 .error {
-    font-family: 'Cedarville Cursive', cursive;
+    /*font-family: 'Cedarville Cursive', cursive;*/
     font-size: 1.25rem;
-    color: #ED5023;
+    color: #fe5e51;
 }
 
 
 a {
-    color: #6dbac0;
     text-decoration: none;
-    /*color: #7acfd6;*/
-    color: #ED5023;
-  
-}
-nav a {
- 
-    text-decoration: none;
-    color: #ED5023 !important;
-
+    color: #fe5e51;
 }
 
-nav {
-    font-size: 1.6rem;
-       font-family: 'Cedarville Cursive', cursive;
-}
 
 ul {
     list-style:none;
@@ -118,10 +96,7 @@ ul {
 
 
 .handwrite {
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 1.6rem;
-    /*font-weight: 500;*/
-    line-height: .6;
+   
 }
 
 
@@ -158,10 +133,10 @@ ul {
 /*----------BACKGROUNDS----------*/
 
 .hero {
-    background: url("../images/typewriter.svg");
+    background: url("../images/pencil.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-color: white;
 }
 
@@ -299,6 +274,6 @@ ul {
 
  /*----------TESTING----------*/
 .dark {
-  background-color: #4C4C4C!important;  
-  color: #F8F8F8!important;
+background-color: #354550;
+  color: #ededed;
 } 
