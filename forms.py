@@ -25,7 +25,7 @@ class LinkForm(FlaskForm):
     topic = SelectField('Topic', validators=[InputRequired()]) #Input or Data Required?
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
-    link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
+    link_type = RadioField('Type', validators=[InputRequired()], choices=[('instruct', 'instruct'), ('practice', 'practice'), ('resource', 'resource'), ('other', 'other')])
     rate = IntegerField('Rate', validators=[])
     description = TextAreaField('Description')
     submit = SubmitField('Save')    
