@@ -57,6 +57,19 @@ nav a {
     font-family: 'Cedarville Cursive', cursive;
 }
 
+#pick--notes, #pick--links {
+    min-width: 0rem;
+}
+
+#pick--notes > a, #pick--links > a {
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+/*#pick--notes > a:hover, #pick--links > a:hover {
+    color: #717c84;
+}*/
+
+
 /*.rate-star {
     color: #ECECEC;
 }*/
@@ -89,6 +102,21 @@ ul {
 
 .italics {
     font-style: italic;
+}
+
+#pick--notes, #pick--links {
+    min-width: 0rem;
+}
+
+#pick--notes > a, #pick--links > a {
+    font-family: 'Cabin Condensed', sans-serif;
+    color:#354550;
+}
+
+#pick--notes > a:hover, #pick--links > a:hover {
+    font-family: 'Cabin Condensed', sans-serif;
+    color:black;
+    background-color:#ECECEC;
 }
 /*----------TOGGLE----------*/
 

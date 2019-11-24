@@ -17,44 +17,39 @@ $(document).ready(function () {
     //CHECK FOR DARK MODE
     function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
-            dark.prop( "checked", true );
+            dark.prop("checked", true);
             $('body').addClass('dark');
             $('li').addClass('dark');
-            
             $('li').css('border', '1px solid #717c84');
-            $('a').css('color', '#eda33e');
-            //$('a').hovercss('color', '#ECECEC');
-            //$("a").mouseover(function() {
-                //$(this).css("color","#ECECEC")
-              //});
+            $('a:not(".dropdown-item")').css('color', '#eda33e');
             $('.btn').css('color', '#eda33e');
             $('.borders-top').css('border-top', 'solid 1px #717c84');
             $('.button-style').css('color', '#354550');
             $('.button-style').css('background-color', '#ECECEC');
-            $('a').addClass('dark--hover');
+            $('a:not(".dropdown-item")').addClass('dark--hover');
 
-            
+
+
         }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
     //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
+    //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
+    //WHERE: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
 
+    
     //SET DARK MODE
     dark.change(function () {
         if (this.checked) {
             $('body').addClass('dark');
             $('li').addClass('dark');
             $('li').css('border', '1px solid #717c84');
-            $('a').css('color', '#eda33e');
-            //$('a:hover').css('color', '#ECECEC');
-            //$("a").mouseover(function() {
-                //$(this).css("color","#ECECEC")
-              //});
+            $('a:not(".dropdown-item")').css('color', '#eda33e');
             $('.btn').css('color', '#eda33e');
             $('.borders-top').css('border-top', 'solid 1px #717c84');
             $('.button-style').css('color', '#354550');
             $('.button-style').css('background-color', '#ECECEC');
-            $('a').addClass('dark--hover');
+            $('a:not(".dropdown-item")').addClass('dark--hover');
             localStorage.setItem("mode", "dark")
         } else {
             $('body').removeClass("dark");
@@ -64,8 +59,8 @@ $(document).ready(function () {
             $('li').css('border', '');
             $('a').css('color', '');
             //$("a").mouseover(function() {
-               // $(this).css("color","")
-              //});
+            // $(this).css("color","")
+            //});
             //$('a:hover').css('color', '');
             $('.btn').css('color', '');
             $('.borders-top').css('color', '');

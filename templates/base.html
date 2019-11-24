@@ -29,7 +29,7 @@
                             aria-expanded="false">
                             *notes
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="note-dropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="note-dropdownMenuLink" id="pick--links">
                             <a class="dropdown-item" href="{{ url_for('notes', language='HTML')}}">HTML</a>
                             <a class="dropdown-item" href="{{ url_for('notes', language='CSS')}}">CSS</a>
                             <a class="dropdown-item" href="{{ url_for('notes', language='JavaScript')}}">JavaScript</a>
@@ -52,7 +52,7 @@
                             aria-expanded="false">
                             *links
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="link-dropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="link-dropdownMenuLink" id="pick--links">
                             <a class="dropdown-item" href="{{ url_for('links', language='HTML')}}">HTML</a>
                             <a class="dropdown-item" href="{{ url_for('links', language='CSS')}}">CSS</a>
                             <a class="dropdown-item" href="{{ url_for('links', language='JavaScript')}}">JavaScript</a>
