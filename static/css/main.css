@@ -78,6 +78,10 @@ a, .btn {
     color: #cb4b40;
 }
 
+a:hover {
+    text-decoration: none;
+    color: #354550;
+}
 
 ul {
     list-style: none;
@@ -271,3 +275,6 @@ ul, .slider.round  {
     color: #ECECEC;
 }
 
+.dark--hover:hover {
+        color: #ECECEC!important;
+    }

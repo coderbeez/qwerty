@@ -20,12 +20,18 @@ $(document).ready(function () {
             dark.prop( "checked", true );
             $('body').addClass('dark');
             $('li').addClass('dark');
+            
             $('li').css('border', '1px solid #717c84');
             $('a').css('color', '#eda33e');
+            //$('a').hovercss('color', '#ECECEC');
+            //$("a").mouseover(function() {
+                //$(this).css("color","#ECECEC")
+              //});
             $('.btn').css('color', '#eda33e');
             $('.borders-top').css('border-top', 'solid 1px #717c84');
             $('.button-style').css('color', '#354550');
             $('.button-style').css('background-color', '#ECECEC');
+            $('a').addClass('dark--hover');
 
             
         }
@@ -40,19 +46,29 @@ $(document).ready(function () {
             $('li').addClass('dark');
             $('li').css('border', '1px solid #717c84');
             $('a').css('color', '#eda33e');
+            //$('a:hover').css('color', '#ECECEC');
+            //$("a").mouseover(function() {
+                //$(this).css("color","#ECECEC")
+              //});
             $('.btn').css('color', '#eda33e');
             $('.borders-top').css('border-top', 'solid 1px #717c84');
             $('.button-style').css('color', '#354550');
             $('.button-style').css('background-color', '#ECECEC');
+            $('a').addClass('dark--hover');
             localStorage.setItem("mode", "dark")
         } else {
             $('body').removeClass("dark");
             $('li').removeClass("dark");
+            $('a').removeClass("dark--hover");
             $('li').css('border', '');
             $('li').css('border', '');
             $('a').css('color', '');
+            //$("a").mouseover(function() {
+               // $(this).css("color","")
+              //});
+            //$('a:hover').css('color', '');
             $('.btn').css('color', '');
-            $('.border-bottom').css('color', '');
+            $('.borders-top').css('color', '');
             $('.button-style').css('color', '');
             $('.button-style').css('background-color', '');
             localStorage.clear();
