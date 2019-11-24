@@ -14,28 +14,18 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20)])
     submit = SubmitField('Login')
 
-#class PointForm(FlaskForm):
-    #ppoint_type = SelectField('Point Type', validators=[InputRequired()], choices=[('', '--select--'),('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
-    #ppoint_content= TextAreaField('Point Content', validators=[InputRequired()])
-    #psubmit = SubmitField('Save')   
 
 class NoteForm(FlaskForm):
-    #language = RadioField('Language', validators=[DataRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
     topic = SelectField('Topic', validators=[InputRequired()])
     name = StringField('Title', validators=[InputRequired()])
     content= TextAreaField('Content', validators=[InputRequired()])   
-    #points = FieldList(FormField(PointForm), min_entries=0)
-    #point_type = SelectField('Point Type', validators=[], choices=[('', '--select--'),('Description', 'Description'), ('Syntax', 'Syntax'), ('Know', 'Know'), ('Code', 'Code')])
-    #point_content= TextAreaField('Point Content', validators=[])
     submit = SubmitField('Save')
 
 class LinkForm(FlaskForm):
-    #language = RadioField('Language', validators=[InputRequired()], choices=[('HTML', 'HTML'), ('CSS', 'CSS'), ('JavaScript', 'JavaScript'), ('Python', 'Python')]) 
     topic = SelectField('Topic', validators=[InputRequired()]) #Input or Data Required?
     url = StringField('URL', validators=[InputRequired(), URL()]) 
     name = StringField('Name', validators=[InputRequired()])    
     link_type = RadioField('Type', validators=[InputRequired()], choices=[('Instruct', 'Instruct'), ('Practice', 'Practice'), ('Resource', 'Resource'), ('Other', 'Other')])
-    #rate = RadioField('Rate', validators=[InputRequired()], choices=[('1', '*'), ('2', '**'), ('3', '***'),('4', '****'), ('5', '*****')])
     rate = IntegerField('Rate', validators=[])
     description = TextAreaField('Description')
     submit = SubmitField('Save')    
