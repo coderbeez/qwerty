@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
 
-
     //GLOBAL VARIABLES
     const star1 = $("[data-star=1]");
     const star2 = $("[data-star=2]");
@@ -11,45 +10,43 @@ $(document).ready(function () {
     const rate = $("[data-star=rate]");
     const flag = $("[data-submit=flag]");
     const dark = $("[data-dark=switch]");
+    
 
-    checkStorage();
+    //DARK MODE STYLING CHANGES
+    function makeDark() {
+        $('body').addClass('dark');
+        $('li').addClass('dark');
+        $('li').css('border', '1px solid #717c84');
+        $('a:not(".dropdown-item")').css('color', '#eda33e');
+        $('.btn').css('color', '#eda33e');
+        $('.borders-top').css('border-top', 'solid 1px #717c84');
+        $('.button-style').css('color', '#354550');
+        $('.button-style').css('background-color', '#ECECEC');
+        $('a:not(".dropdown-item")').addClass('dark--hover');
+    }
+    //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
+    //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
+    //WHERE: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
+
 
     //CHECK FOR DARK MODE
     function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
             dark.prop("checked", true);
-            $('body').addClass('dark');
-            $('li').addClass('dark');
-            $('li').css('border', '1px solid #717c84');
-            $('a:not(".dropdown-item")').css('color', '#eda33e');
-            $('.btn').css('color', '#eda33e');
-            $('.borders-top').css('border-top', 'solid 1px #717c84');
-            $('.button-style').css('color', '#354550');
-            $('.button-style').css('background-color', '#ECECEC');
-            $('a:not(".dropdown-item")').addClass('dark--hover');
-
-
-
+            makeDark();
         }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
-    //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
-    //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
-    //WHERE: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
+   
 
-    
-    //SET DARK MODE
+    //RUN CHECK 4 MODE ON PAGE LOAD
+    checkStorage();
+
+
+    //RESTYLE IF MODE CHANGES
     dark.change(function () {
         if (this.checked) {
-            $('body').addClass('dark');
-            $('li').addClass('dark');
-            $('li').css('border', '1px solid #717c84');
-            $('a:not(".dropdown-item")').css('color', '#eda33e');
-            $('.btn').css('color', '#eda33e');
-            $('.borders-top').css('border-top', 'solid 1px #717c84');
-            $('.button-style').css('color', '#354550');
-            $('.button-style').css('background-color', '#ECECEC');
-            $('a:not(".dropdown-item")').addClass('dark--hover');
+            makeDark();
             localStorage.setItem("mode", "dark")
         } else {
             $('body').removeClass("dark");
@@ -58,10 +55,6 @@ $(document).ready(function () {
             $('li').css('border', '');
             $('li').css('border', '');
             $('a').css('color', '');
-            //$("a").mouseover(function() {
-            // $(this).css("color","")
-            //});
-            //$('a:hover').css('color', '');
             $('.btn').css('color', '');
             $('.borders-top').css('color', '');
             $('.button-style').css('color', '');
@@ -72,19 +65,13 @@ $(document).ready(function () {
     //WHERE:https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
 
 
-    //localStorage.getItem("mode") == "dark"
-
-    // Store
-    //localStorage.setItem("lastname", "Smith");
-    // Retrieve
-    //document.getElementById("result").innerHTML = localStorage.getItem("lastname"); 
-
-
+    //RESTYLE FLAG ICON ON CLICK
     flag.click(function () {
         flag.css("color", "#ED5023");
     })
 
 
+    //RESTYLE STARS ICONS ON CLICK
     star1.click(function () {
         star1.css("color", "#00a9bd");
         star2.css("color", "#c9c9c9");
@@ -129,12 +116,5 @@ $(document).ready(function () {
         star5.css("color", "#00a9bd");
         rate.val("5");
     })
-
-
-
-
-
-
-
 
 });
