@@ -27,14 +27,14 @@
 
       {% if loop.previtem is undefined %}
 
-      <h3 class="ml-2 border-top"><button class="btn" type="button" data-toggle="collapse"
+      <h3 class="ml-2 borders-top"><button class="btn" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
                   <i class="fas fa-angle-down"></i>
             </button>{{link.link_type}}</h3>
       {% elif loop.previtem.link_type != link.link_type %}
 
-      <h3 class="ml-2 border-top"><button class="btn" type="button" data-toggle="collapse"
+      <h3 class="ml-2 borders-top"><button class="btn" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
                   <i class="fas fa-angle-down"></i>
