@@ -72,7 +72,6 @@
             <div class="col-12 col-md-8">
 
 
-
                 <!--FLASH MESSAGE-->
                 {% with messages = get_flashed_messages(category_filter=["message"]) %}
                 <!--WHY: As message is default category used to show all but error messages.-->
@@ -80,7 +79,7 @@
                 {% if messages %}
                 {% for message in messages %}
                 <div class="mb-2">
-                    <strong class="message">{{ message }}</strong>
+                    <span class="message">{{ message }}</span>
                 </div>
                 {% endfor %}
                 {% endif %}
