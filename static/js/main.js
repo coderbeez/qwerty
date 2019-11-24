@@ -20,10 +20,10 @@ $(document).ready(function () {
             dark.prop( "checked", true );
             $('body').addClass('dark');
             $('li').addClass('dark');
-            $('li').css('border', '1px solid black');
+            $('li').css('border', '1px solid #717c84');
             $('a').css('color', '#eda33e');
             $('.btn').css('color', '#eda33e');
-            $('.border-bottom').css('color', '#eda33e');
+            $('.borders-top').css('border-top', 'solid 1px #717c84');
             $('.button-style').css('color', '#354550');
             $('.button-style').css('background-color', '#ECECEC');
 
@@ -38,10 +38,10 @@ $(document).ready(function () {
         if (this.checked) {
             $('body').addClass('dark');
             $('li').addClass('dark');
-            $('li').css('border', '1px solid black');
+            $('li').css('border', '1px solid #717c84');
             $('a').css('color', '#eda33e');
             $('.btn').css('color', '#eda33e');
-            $('.border-bottom').css('color', '');
+            $('.borders-top').css('border-top', 'solid 1px #717c84');
             $('.button-style').css('color', '#354550');
             $('.button-style').css('background-color', '#ECECEC');
             localStorage.setItem("mode", "dark")
