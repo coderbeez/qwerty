@@ -18,7 +18,7 @@ login_manager.login_message = u"Login for your notes!" #Flask Login documentatio
 
 sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
 sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
-sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}]))[0]
 sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
 quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
 
@@ -172,7 +172,7 @@ def addnote(language):
     print(topics)
     print(form.topic.choices)
     if form.validate_on_submit():
-        mongo.db.notes.insert_one({"user_id": ObjectId("5db5cc531c9d440000690ae2"), "language": language, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
+        mongo.db.notes.insert_one({"user_id": ObjectId(current_user.id), "language": language, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
         flash("Perfect - note added!")
         return redirect(url_for("notes", language=language))
     elif request.method == "GET":
