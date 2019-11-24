@@ -100,7 +100,7 @@
             <section class="d-none d-md-block col-md-4">
 
 
-                <h2>Dark Mode<label class="switch"><input type="checkbox" data-dark="switch"><span
+                <h2>Dark Mode<label class="ml-2 switch"><input type="checkbox" data-dark="switch"><span
                             class="slider round"></span></label></h2>
                 <!--WHERE: W3Schools https://www.w3schools.com/howto/howto_css_switch.asp-->
 
@@ -108,7 +108,7 @@
 
                 <h2 class="mt-5">Distraction</h2>
                 <ul class="list-group p-0">
-                   
+
                     <li class="list-group-item">
                         <h3><i class="fas fa-quote-left mr-2"></i>Quote</h3>
                         <span class="italics"> "{{quote.quote}}"</span><br>
@@ -134,12 +134,13 @@
 
                     <li class="list-group-item">
                         <h3><i class="fas fa-music mr-2"></i>music</h3>
-                        <div class="embed-responsive embed-responsive-1by1">
-                            <iframe src="https://open.spotify.com/embed/playlist/1x7knVnmdkheR1SlWq0cil" width="300"
-                                height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <div>
+                            <a href="https://open.spotify.com/playlist/1x7knVnmdkheR1SlWq0cil?si=58WdBzYpTG6N0f_ON31dHQ"
+                                target="_blank"><img src="{{ url_for('static', filename='images/playlist.JPG')}}"
+                                    class="img-fluid"></a>
                         </div>
                     </li>
-                    
+
                 </ul>
 
             </section>
