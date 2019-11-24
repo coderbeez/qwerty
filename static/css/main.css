@@ -118,6 +118,10 @@ ul {
     color:black;
     background-color:#ECECEC;
 }
+
+textarea {
+    background-color: white!important;
+}
 /*----------TOGGLE----------*/
 
 /* The switch - the box around the slider */

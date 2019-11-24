@@ -95,12 +95,12 @@
                               </form>
                               <br class="d-block d-md-none">
 
-                              <span class="ml-md-5">Report problem</span>
+                             
                               <form class="d-inline-block"
                                     action="{{url_for('flaglink', language=language, linkid=link._id)}}"
                                     method="POST" data-submit="">
-                                    <button type="submit" class="btn p-2" data-submit="">
-                                          <i class="fas fa-tools" data-flag="flag"></i></button>
+                                    <button type="submit" class="btn p-0 ml-md-5" data-submit="">
+                                    <span class="mr-1">Report problem</span><i class="fas fa-tools" data-flag="flag"></i></button>
                               </form>
                   </ul>
 
