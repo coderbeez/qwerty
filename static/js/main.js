@@ -17,12 +17,13 @@ $(document).ready(function () {
         $('body').addClass('dark');
         $('li').addClass('dark');
         $('li').css('border', '1px solid #717c84');
-        $('a:not(".dropdown-item")').css('color', '#eda33e');
-        $('.btn').css('color', '#eda33e');
+        $('.btn:not(".btn.angle")').css('color', '#eda33e');
+        $(".btn.angle").css('color', '#ECECEC');
         $('.borders-top').css('border-top', 'solid 1px #717c84');
         $('.button-style').css('color', '#354550');
         $('.button-style').css('background-color', '#ECECEC');
-        $('a:not(".dropdown-item")').addClass('dark--hover');
+        $('a:not(".dropdown-item")').css('color', '#eda33e');
+        $('a:not(".dropdown-item")').addClass('dark--hover');  
     }
     //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
     //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
