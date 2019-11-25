@@ -16,12 +16,14 @@ login_manager = LoginManager(app)
 login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authentication
 login_manager.login_message = u"Login for your notes!" #Flask Login documentation
 
+#Sample items to display in sidebar
 sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
 sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
 sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}]))[0]
 sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
 quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
 
+#SAFE URL FOR LOGIN MANAGER
 def is_safe_url(next):
     if next.startswith("/notes/"):
         return True
@@ -29,6 +31,7 @@ def is_safe_url(next):
         return False    
 
 
+#USER CLASS FOR LOGIN MANAGER
 class User(UserMixin):
     def __init__(self, username, password, email, id):
         self.username = username
@@ -47,6 +50,7 @@ class User(UserMixin):
         return User(user['user_name'], user['password'], user['email'], user['_id'])
 
 
+#LOAD USER FOR LOGIN MANAGER
 @login_manager.user_loader
 def load_user(id):
     u = User.get_user_by_id(id)
@@ -56,11 +60,13 @@ def load_user(id):
     #WHERE: How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/ & Corey
 
 
+#HOME
 @app.route("/")
 @app.route("/index")
-def index():
-       
+def index():  
+
     return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+
 
 #REGISTER
 @app.route("/register", methods=["GET", "POST"])
@@ -71,7 +77,6 @@ def register():
         #WHERE: Pretty Printed 
         if existing_email:
             flash("Oops email exists - check email or select note language to login!", "error")
-
         else: 
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
             #WHERE: Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
@@ -83,24 +88,25 @@ def register():
 
     return render_template("register.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
+
 #LOGIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.get_user(form.email.data)
-        print(user.username)
+        #print(user.username)
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
             flash("Perfect - your notes!")
             next = request.args.get("next") #WHAT: getting the argument from the url
-            print(f'next text {next}')
-            if not is_safe_url(next): #WHAT: making sure the checking the redirect is safe
+            #print(f'next text {next}')
+            if not is_safe_url(next): #WHAT: checking the redirect is safe
                 return abort(400)
-            return redirect(next or url_for('index'))
-            #WHERE: Flask Login documentation  
+            return redirect(next or url_for('index')) #WHERE: Flask Login documentation             
         else:
             flash("Oops - check email & password!", "error")    
+
     return render_template("login.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
@@ -108,10 +114,9 @@ def login():
 @app.route("/links/<language>", methods=["GET", "POST"])
 def links(language):
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
-    #create array from cursor returned
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
-    #change from cursor to array
+    
     return render_template("links.html", links=links, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
@@ -119,14 +124,13 @@ def links(language):
 @app.route("/notes/<language>")
 @login_required
 def notes(language):
-    print(current_user.id)
+    #print(current_user.id)
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
-    #create array from cursor returned
-    print(len(notes))
+    #print(len(notes))
     group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id) }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     group_topics = list(group_topics)
     #print(group_topics)
-    #change from cursor to array
+
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
@@ -136,14 +140,14 @@ def addlink(language):
     form = LinkForm()
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
     topics = document_language["topics"]
-    form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics] #slugify?
+    form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
     #WHERE: https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
     #WHERE: https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
     #print(topics)
     #print(form.topic.choices)
     if form.validate_on_submit():
         existing_link = mongo.db.links.find_one({"language": language, "url": form.url.data})
-        #in case its vaid to have the link in multiple languages... want to only search current language
+        #WHY: In case its vaid to have the link in multiple languages... want to only search current language
         #WHERE: Pretty Printed
 
         if existing_link:
@@ -156,9 +160,10 @@ def addlink(language):
             #PRODUCTION SET CHECK TO FALSE!!!
             flash("Perfect - link added!")
             return redirect(url_for("links", language=language))
-                       
-    #else:
-        #flash("Oops - check fields!", "error")
+    elif request.method == "GET":
+        pass                    
+    else:
+        flash("Oops - check fields!", "error")
     return render_template("addlink.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote) 
 
 
@@ -170,8 +175,8 @@ def addnote(language):
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
     topics = document_language["topics"]
     form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics] #slugify?
-    print(topics)
-    print(form.topic.choices)
+    #print(topics)
+    #print(form.topic.choices)
     if form.validate_on_submit():
         mongo.db.notes.insert_one({"user_id": ObjectId(current_user.id), "language": language, "topic": form.topic.data, "note_name": form.name.data, "content": form.content.data })
         flash("Perfect - note added!")
@@ -188,7 +193,6 @@ def addnote(language):
 @login_required
 def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
-    #no list as want to return single object
     form = NoteForm()
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
     topics = document_language["topics"]
@@ -205,7 +209,7 @@ def editnote(language, noteid):
         form.content.data = note["content"]
     else:
         flash("Oops - check fields!", "error") 
-    print(note)    
+    #print(note)    
     return render_template("editnote.html", form=form, note=note, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
@@ -214,7 +218,6 @@ def editnote(language, noteid):
 @login_required
 def deletenote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
-    #no list as want to return single object
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
     flash("Perfect - note deleted!") 
     return redirect(url_for("notes", language=language))
@@ -224,10 +227,9 @@ def deletenote(language, noteid):
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
 def flaglink(language, linkid):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
-    #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
     flash("Perfect - problem reported!")
-    sleep(2)
+    sleep(1)
     #WHERE: https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
     #WHY: Allow user to see star color change before redirect.
     return redirect(url_for("links", language=language))
@@ -237,10 +239,9 @@ def flaglink(language, linkid):
 @app.route("/ratelink/<language>/<linkid>/<rating>", methods=["POST"])
 def ratelink(language, linkid, rating):
     link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
-    #no list as want to return single object
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
     flash("Perfect - link rated!")
-    sleep(2)
+    sleep(1)
     return redirect(url_for("links", language=language))  
 
 
