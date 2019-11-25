@@ -318,3 +318,8 @@ ul, .slider.round  {
 .lineheight--tsearch {
     line-height: 1!important;
 }
+
+.height--tsearch {
+    /*height: 3rem!important;
+    border: 0!important;*/
+}
