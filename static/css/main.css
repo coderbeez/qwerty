@@ -310,3 +310,11 @@ ul, .slider.round  {
 .dark--hover:hover {
         color: #ECECEC!important;
     }
+
+.width--tsearch {
+    width: 150px !important;
+}
+
+.lineheight--tsearch {
+    line-height: 1!important;
+}
