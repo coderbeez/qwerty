@@ -26,12 +26,24 @@
       {% if link.topic == group_topic._id %}
 
       {% if loop.previtem is undefined %}
+      <!--WHY: First in the loop.-->
+      <h3 class="ml-2 borders-top"><button class="btn angle" type="button" data-toggle="collapse"
+                  data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
+                  aria-controls="collapsePoints">
+                  <i class="fas fa-angle-down"></i>
+            </button>{{link.link_type}}</h3>
+
+      <!--WHY: First in the group topic.-->
+      {% elif loop.previtem.topic != group_topic._id %}
+      <!--and loop.previtem.link_type != link.link_type %}-->
 
       <h3 class="ml-2 borders-top"><button class="btn angle" type="button" data-toggle="collapse"
                   data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
                   aria-controls="collapsePoints">
                   <i class="fas fa-angle-down"></i>
             </button>{{link.link_type}}</h3>
+
+      <!--WHY: First in a new link type for that group topic.-->
       {% elif loop.previtem.link_type != link.link_type %}
 
       <h3 class="ml-2 borders-top"><button class="btn angle" type="button" data-toggle="collapse"
@@ -44,17 +56,17 @@
       <!--WHAT: Level 2 Collapse - LINK TYPE-->
       <div id="id{{ group_topic._id}}-{{link.link_type}}" class="collapse">
             <p class="mb-1">
-                  
+
                   <a href="{{ link.url }}" target="_blank" rel="noopener">
                         {{ link.link_name }}
-                        </a>
-                        <span class="">{{(link.ratings|sum)//(link.ratings|count)}}
-                                    <i class="fas fa-star"></i></span>
-                                    <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}"
+                  </a>
+                  <span class="">{{(link.ratings|sum)//(link.ratings|count)}}
+                        <i class="fas fa-star"></i></span>
+                  <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}"
                         aria-expanded="false" aria-controls="collapsePoints">
                         <i class="fas fa-info-circle"></i>
                   </button>
-                              
+
             </p>
 
             <!--WHAT: LEVEL 3 COLLAPSE - LINK ID-->
@@ -98,12 +110,13 @@
                               </form>
                               <br class="d-block d-lg-none">
 
-                             
+
                               <form class="d-inline-block"
-                                    action="{{url_for('flaglink', language=language, linkid=link._id)}}"
-                                    method="POST" data-submit="">
+                                    action="{{url_for('flaglink', language=language, linkid=link._id)}}" method="POST"
+                                    data-submit="">
                                     <button type="submit" class="btn p-0 ml-lg-5" data-submit="">
-                                    <span class="mr-1">Report problem</span><i class="fas fa-tools" data-flag="flag"></i></button>
+                                          <span class="mr-1">Report problem</span><i class="fas fa-tools"
+                                                data-flag="flag"></i></button>
                               </form>
                   </ul>
 
