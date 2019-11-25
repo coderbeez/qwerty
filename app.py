@@ -142,6 +142,8 @@ def notes(language, tsearch=None):
         flash(f'Notes filtered by {form.tsearch.data}')
        
         notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data}}).sort([("topic", 1),("note_name", 1)]))
+        group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data} }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
+        group_topics = list(group_topics)
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote, form=form)
 
 
