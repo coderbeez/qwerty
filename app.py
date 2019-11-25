@@ -4,8 +4,9 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user
-from forms import RegisterForm, LoginForm, NoteForm, LinkForm
+from forms import RegisterForm, LoginForm, NoteForm, LinkForm, SearchForm
 from time import sleep
+
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
@@ -121,9 +122,10 @@ def links(language):
 
 
 #VIEW NOTES
-@app.route("/notes/<language>")
+@app.route("/notes/<language>/<tsearch>", methods=["GET", "POST"] )
+@app.route("/notes/<language>", methods=["GET", "POST"] )
 @login_required
-def notes(language):
+def notes(language, tsearch=None):
     #print(current_user.id)
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     #print(len(notes))
@@ -131,7 +133,16 @@ def notes(language):
     group_topics = list(group_topics)
     #print(group_topics)
 
-    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    form = SearchForm()
+    if form.validate_on_submit():
+        mongo.db.notes.create_index([("$**", "text")], language_override="en")
+        #WHERE: https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
+        #WHERE: https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
+        print(form.tsearch.data)
+        flash(f'Notes filtered by {form.tsearch.data}')
+       
+        notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data}}).sort([("topic", 1),("note_name", 1)]))
+    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote, form=form)
 
 
 #ADD LINK

@@ -6,6 +6,27 @@
       <div class="col-12 col-md-9 col-lg-6">
             <h1 class="d-inline-block">{{ language }} Notes </h1>
       </div>
+
+      <!--<form class=""
+      action="{{url_for('notes', language=language, )}}" method="POST">
+      <input type="text" name="tsearch">
+      <button type="submit" class="btn">search</button>
+</form>-->
+
+<form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+
+            <fieldset class="form-group">
+                {{ form.tsearch }} 
+                {{ form.submit}}
+                </fieldset>
+                </form>
+
+
+
+
+
       <div class="col-12 col-md-3 col-lg-6 d-flex align-items-center justify-content-end justify-content-md-start">
             <a href="{{ url_for('addnote', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
       </div>

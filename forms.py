@@ -30,3 +30,6 @@ class LinkForm(FlaskForm):
     description = TextAreaField('Description')
     submit = SubmitField('Save')    
 
+class SearchForm(FlaskForm):
+    tsearch = StringField('Text')
+    submit = SubmitField('Search') 
