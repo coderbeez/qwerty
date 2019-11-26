@@ -10,6 +10,13 @@ $(document).ready(function () {
     const rate = $("[data-star=rate]");
     const flag = $("[data-submit=flag]");
     const dark = $("[data-dark=switch]");
+    const level1 = $("[data-level=1]");
+    const level2 = $("[data-level=2]");
+    const level3 = $("[data-level=3]");
+    const level4 = $("[data-level=4]");
+    const blevel1 = $("[data-blevel=1]");
+    const blevel2 = $("[data-blevel=2]");
+    const blevel3 = $("[data-blevel=3]");
     
 
     //DARK MODE STYLING CHANGES
@@ -117,5 +124,37 @@ $(document).ready(function () {
         star5.css("color", "#00a9bd");
         rate.val("5");
     })
+
+
+
+    //ACCORDION
+
+    blevel1.click(function() {
+        var value = $(this).attr('data-bvalue');
+        console.log(value);
+        level2.hide();
+        level3.hide();
+        level4.hide();
+        $('[data-2value="'+value+'"]').show();
+    });
+   
+
+    blevel2.click(function() {
+        var value = $(this).attr('data-bvalue');
+        console.log(value);
+        level3.hide();
+        level4.hide();
+        $('[data-3value="'+value+'"]').show();
+    });
+
+    blevel3.click(function() {
+        var value = $(this).attr('data-bvalue');
+        console.log(value);
+        level4.hide();
+        $('[data-4value="'+value+'"]').show();
+    });
+ //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
+    //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
+
 
 });
