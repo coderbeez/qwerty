@@ -11,7 +11,7 @@
       </div>
 </div>
 
-
+<div class="accordion" id="accordion-topics">
 {% for group_topic in group_topics %}
 <!--WHAT: Level 1 Collapse - TOPIC-->
 <h2> <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
@@ -20,8 +20,9 @@
       </button>{{ group_topic._id}}</h2>
 
 <!--WHY: Content want to collapse wrapped in div.-->
-<div id="id{{ group_topic._id}}" class="collapse">
+<div id="id{{ group_topic._id}}" class="collapse" data-parent="#accordion-topics">
 
+      <div class="accordion" id="accordion{{ group_topic._id}}">
       {% for link in links %}
       {% if link.topic == group_topic._id %}
 
@@ -54,7 +55,7 @@
       {% endif %}
 
       <!--WHAT: Level 2 Collapse - LINK TYPE-->
-      <div id="id{{ group_topic._id}}-{{link.link_type}}" class="collapse">
+      <div id="id{{ group_topic._id}}-{{link.link_type}}" class="collapse" data-parent="#accordion{{ group_topic._id}}">
             <p class="mb-1">
 
                   <a href="{{ link.url }}" target="_blank" rel="noopener">
@@ -126,11 +127,12 @@
 
       {% endif %}
       {% endfor %}
+</div> 
 
 </div>
 <!--END TOPIC GROUP-->
 {% endfor %}
-
+</div>
 
 
 
