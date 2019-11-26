@@ -12,109 +12,119 @@
 </div>
 
 <div class="accordion" id="accordion-topics">
-       <!--WHERE: Bootstrap accordian via data attributes https://getbootstrap.com/docs/4.3/components/collapse/#accordion-example-->
-{% for group_topic in group_topics %}
-<!--WHAT: Level 1 Collapse - TOPIC-->
-<h2> <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
-            aria-expanded="false" aria-controls="collapsePoints">
-            <i class="fas fa-angle-double-down"></i>
-      </button>{{ group_topic._id}}</h2>
+      <!--WHAT: Accordion level 1-->
+      <!--WHERE: Bootstrap accordian via data attributes https://getbootstrap.com/docs/4.3/components/collapse/#accordion-example-->
 
-<!--WHY: Content want to collapse wrapped in div.-->
-<div id="id{{ group_topic._id}}" class="collapse" data-parent="#accordion-topics">
+      {% for group_topic in group_topics %}
+      <!--LEVEL 1 COLLAPSE BUTTON: Topic list-->
+      <h2> <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{ group_topic._id}}"
+                  aria-expanded="false" aria-controls="collapsePoints">
+                  <i class="fas fa-angle-double-down"></i>
+            </button>{{ group_topic._id}}</h2>
 
-      <div class="accordion" id="accordion{{ group_topic._id}}">
-      {% for link in links %}
-      {% if link.topic == group_topic._id %}
-
-      {% if (loop.previtem is undefined) or (loop.previtem.topic != group_topic._id) or (loop.previtem.link_type != link.link_type)%}
-      <!--WHY: 1.First in the loop OR 2.First in the group topic or 3. First in a new link type for that group topic.-->
-      <h3 class="ml-2 borders-top"><button class="btn angle" type="button" data-toggle="collapse"
-                  data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
-                  aria-controls="collapsePoints">
-                  <i class="fas fa-angle-down"></i>
-            </button>{{link.link_type}}</h3>
-      {% endif %}
-
-
-      <!--WHAT: Level 2 Collapse - LINK TYPE-->
-      <div id="id{{ group_topic._id}}-{{link.link_type}}" class="collapse" data-parent="#accordion{{ group_topic._id}}">
-            <p class="mb-1">
-
-                  <a href="{{ link.url }}" target="_blank" rel="noopener">
-                        {{ link.link_name }}
-                  </a>
-                  <span class="">{{(link.ratings|sum)//(link.ratings|count)}}
-                        <i class="fas fa-star"></i></span>
-                  <button class="btn" type="button" data-toggle="collapse" data-target="#id{{link._id}}"
-                        aria-expanded="false" aria-controls="collapsePoints">
-                        <i class="fas fa-info-circle"></i>
-                  </button>
-
-            </p>
-
-            <!--WHAT: LEVEL 3 COLLAPSE - LINK ID-->
-            <div class="collapse" id="id{{link._id}}">
-                  <ul class="list-group p-0">
-                        <li class="list-group-item">{{ link.description }}<br><small>{{ link.ratings|count }} ratings
-                                    to-date.</small></li>
-
-                        <!--STAR RATING & REPORT PROBLEM-->
-                        <li class="list-group-item">
-                              <span class="">Rate</span>
-                              <form class="d-inline-block"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
-                                    method="POST" data-submit="">
-                                    <button type="submit" class="btn p-2" data-submit="">
-                                          <i class="fas fa-star rate-star" data-star="1"></i></button>
-                              </form>
-                              <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}"
-                                    method="POST" data-submit="">
-                                    <button type="submit" class="btn p-2" data-submit="">
-                                          <i class="fas fa-star rate-star" data-star="2"></i></button>
-                              </form>
-                              <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}"
-                                    method="POST" data-submit="">
-                                    <button type="submit" class="btn p-2" data-submit="">
-                                          <i class="fas fa-star rate-star" data-star="3"></i></button>
-                              </form>
-                              <form class="d-inline-block mr-2"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}"
-                                    method="POST" data-submit="">
-                                    <button type="submit" class="btn p-2" data-submit="">
-                                          <i class="fas fa-star rate-star" data-star="4"></i></button>
-                              </form>
-                              <form class="d-inline-block"
-                                    action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
-                                    method="POST" data-submit="">
-                                    <button type="submit" class="btn p-2" data-submit="">
-                                          <i class="fas fa-star rate-star" data-star="5"></i></button>
-                              </form>
-                              <br class="d-block d-lg-none">
+      <!--LEVEL 1 COLLAPSE CONTENT: Link type list-->
+      <div id="id{{ group_topic._id}}" class="collapse" data-parent="#accordion-topics">
+            <div class="accordion" id="accordion{{ group_topic._id}}">
+                  <!--WHAT: Accordion level 2 Collapse link names - revert back to link type list for that group topic header.-->
+                  {% for link in links %}
+                  {% if link.topic == group_topic._id %}
+                  {% if (loop.previtem is undefined) or (loop.previtem.topic != group_topic._id) or (loop.previtem.link_type != link.link_type)%}
+                  <!--WHY: 1.First in the loop OR 2.First in the group topic or 3. First in a new link type for that group topic.-->
+                  
+                  <!--LEVEL 2 COLLAPSE BUTTON: Link type list-->
+                  <h3 class="ml-2 borders-top"><button class="btn angle" type="button" data-toggle="collapse"
+                              data-target="#id{{ group_topic._id}}-{{link.link_type}}" aria-expanded="false"
+                              aria-controls="collapsePoints">
+                              <i class="fas fa-angle-down"></i>
+                        </button>{{link.link_type}}</h3>
+                  {% endif %}
 
 
-                              <form class="d-inline-block"
-                                    action="{{url_for('flaglink', language=language, linkid=link._id)}}" method="POST"
-                                    data-submit="">
-                                    <button type="submit" class="btn p-0 ml-lg-5" data-submit="">
-                                          <span class="mr-1">Report problem</span><i class="fas fa-tools"
-                                                data-flag="flag"></i></button>
-                              </form>
-                  </ul>
+                  <!--LEVEL 2 COLLAPSE CONTENT: Link name list-->
+                 
+                  <!--WHAT: Accordion level 2 Collapse link names - revert back to link name list for that link type header.-->
+                  <div id="id{{ group_topic._id}}-{{link.link_type}}" class="collapse"
+                        data-parent="#accordion{{ group_topic._id}}">
+                        <!--LEVEL 3 COLLAPSE BUTTON: Link name list-->
+                        
+                              <p class="mb-1">
+                                    <a href="{{ link.url }}" target="_blank" rel="noopener">
+                                          {{ link.link_name }}
+                                    </a>
+                                    <span class="">{{(link.ratings|sum)//(link.ratings|count)}}
+                                          <i class="fas fa-star"></i></span>
+                                    <button class="btn" type="button" data-toggle="collapse"
+                                          data-target="#id{{link._id}}" aria-expanded="false"
+                                          aria-controls="collapsePoints">
+                                          <i class="fas fa-info-circle"></i>
+                                    </button>
+                              </p>
+
+                              <!--LEVEL 3 COLLAPSE CONTENT: Link details-->
+                              <div class="collapse" id="id{{link._id}}"
+                                    data-parent="">
+                                    <ul class="list-group p-0">
+                                          <li class="list-group-item">
+                                                {{ link.description }}<br><small>{{ link.ratings|count }} ratings
+                                                      to-date.</small></li>
+
+                                          <!--STAR RATING & REPORT PROBLEM-->
+                                          <li class="list-group-item">
+                                                <span class="">Rate</span>
+                                                <form class="d-inline-block"
+                                                      action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
+                                                      method="POST" data-submit="">
+                                                      <button type="submit" class="btn p-2" data-submit="">
+                                                            <i class="fas fa-star rate-star" data-star="1"></i></button>
+                                                </form>
+                                                <form class="d-inline-block mr-2"
+                                                      action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}"
+                                                      method="POST" data-submit="">
+                                                      <button type="submit" class="btn p-2" data-submit="">
+                                                            <i class="fas fa-star rate-star" data-star="2"></i></button>
+                                                </form>
+                                                <form class="d-inline-block mr-2"
+                                                      action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}"
+                                                      method="POST" data-submit="">
+                                                      <button type="submit" class="btn p-2" data-submit="">
+                                                            <i class="fas fa-star rate-star" data-star="3"></i></button>
+                                                </form>
+                                                <form class="d-inline-block mr-2"
+                                                      action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}"
+                                                      method="POST" data-submit="">
+                                                      <button type="submit" class="btn p-2" data-submit="">
+                                                            <i class="fas fa-star rate-star" data-star="4"></i></button>
+                                                </form>
+                                                <form class="d-inline-block"
+                                                      action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
+                                                      method="POST" data-submit="">
+                                                      <button type="submit" class="btn p-2" data-submit="">
+                                                            <i class="fas fa-star rate-star" data-star="5"></i></button>
+                                                </form>
+                                                <br class="d-block d-lg-none">
 
 
+                                                <form class="d-inline-block"
+                                                      action="{{url_for('flaglink', language=language, linkid=link._id)}}"
+                                                      method="POST" data-submit="">
+                                                      <button type="submit" class="btn p-0 ml-lg-5" data-submit="">
+                                                            <span class="mr-1">Report problem</span><i
+                                                                  class="fas fa-tools" data-flag="flag"></i></button>
+                                                </form>
+                                    </ul>
+
+
+                              </div>
+                        </div>
+                  
+
+                  {% endif %}
+                  {% endfor %}
+            
             </div>
+
       </div>
-
-      {% endif %}
       {% endfor %}
-</div> 
-
-</div>
-<!--END TOPIC GROUP-->
-{% endfor %}
 </div>
 
 
