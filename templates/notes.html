@@ -51,7 +51,7 @@
 
 
                   <!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
-                  <p class="m-1 borders-top">
+                  <p class="m-1">
                         <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{note._id}}"
                               aria-expanded="false" aria-controls="collapsePoints">
                               <i class="fas fa-angle-down"></i>
@@ -61,15 +61,19 @@
 
                         <textarea readonly class="form-control" rows=4>{{note.content}}</textarea>
 
+                        <!--<div class="d-flex justify-content-end"></div>-->
+                       
 
-                        <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
-                              <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
-
-
-                        <button class="btn ml-5" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
+                        <div class="d-flex justify-content-end">
+                              <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
+                                    <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
+      
+                              <button class="btn ml-3" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
                               aria-expanded="false" aria-controls="collapsePoints">
                               <span class="pt-2 mr-1">Delete</span><i class="fas fa-trash-alt"></i>
-                        </button>
+                        </button></div>
+                        <!--WHY: Button wrapped in div to enable Bootstrap collapsing.-->
+            
 
                         <!--DELETE COLLAPSE-->
                         <div class="collapse" id="delete{{note._id}}">
