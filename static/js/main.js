@@ -17,7 +17,40 @@ $(document).ready(function () {
     const blevel1 = $("[data-blevel=1]");
     const blevel2 = $("[data-blevel=2]");
     const blevel3 = $("[data-blevel=3]");
-    
+
+    //ACCORDION
+    level2.hide();
+    level3.hide();
+    level4.hide();
+    //WHERE: https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working
+
+
+    blevel1.click(function () {
+        var value = $(this).attr('data-bvalue');
+        console.log(value);
+        level2.slideUp();
+        level3.slideUp();
+        level4.slideUp();
+        $('[data-2value="' + value + '"]').slideDown();
+    });
+
+
+    blevel2.click(function () {
+        var value = $(this).attr('data-bvalue');
+        console.log(value);
+        level3.slideUp();
+        level4.slideUp();
+        $('[data-3value="' + value + '"]').slideDown();
+    });
+
+    blevel3.click(function () {
+        var value = $(this).attr('data-bvalue');
+        console.log(value);
+        level4.slideUp();
+        $('[data-4value="' + value + '"]').slideDown();
+    });
+    //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
+    //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
 
     //DARK MODE STYLING CHANGES
     function makeDark() {
@@ -30,7 +63,7 @@ $(document).ready(function () {
         $('.button-style').css('color', '#354550');
         $('.button-style').css('background-color', '#ECECEC');
         $('a:not(".dropdown-item")').css('color', '#eda33e');
-        $('a:not(".dropdown-item")').addClass('dark--hover');  
+        $('a:not(".dropdown-item")').addClass('dark--hover');
     }
     //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
     //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
@@ -45,7 +78,7 @@ $(document).ready(function () {
         }
     }
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
-   
+
 
     //RUN CHECK 4 MODE ON PAGE LOAD
     checkStorage();
@@ -127,34 +160,7 @@ $(document).ready(function () {
 
 
 
-    //ACCORDION
 
-    blevel1.click(function() {
-        var value = $(this).attr('data-bvalue');
-        console.log(value);
-        level2.hide();
-        level3.hide();
-        level4.hide();
-        $('[data-2value="'+value+'"]').show();
-    });
-   
-
-    blevel2.click(function() {
-        var value = $(this).attr('data-bvalue');
-        console.log(value);
-        level3.hide();
-        level4.hide();
-        $('[data-3value="'+value+'"]').show();
-    });
-
-    blevel3.click(function() {
-        var value = $(this).attr('data-bvalue');
-        console.log(value);
-        level4.hide();
-        $('[data-4value="'+value+'"]').show();
-    });
- //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
-    //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
 
 
 });
