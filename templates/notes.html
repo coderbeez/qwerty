@@ -9,9 +9,9 @@
 
 
 
-
+<!--TEXT SEARCH-->
 <div class="row mt-3 mb-3">
-      
+
       <div class="col-auto">
             <p class="m-0">Filter by word <small><br class="d-none d-md-inline-block">(optional)</small></p>
       </div>
@@ -22,7 +22,7 @@
                   <!--WHY: form instance. hidden_tag method for security - will come back to later-->
                   {{ form.tsearch(class="form-control width--tsearch height--tsearch d-inline-block b-0 ml-3 m-md-0") }}
 
-                  {{ form.submit(class="btn button-style height--tsearch ml-2 mt-0 mb-0 mr-2 b-0")}}
+                  {{ form.submit(class="btn button-style height--tsearch ml-3 mt-0 mb-0 mr-3 b-0")}}
                   <a href="{{ url_for('notes', language=language) }}"
                         class="btn button-style height--tsearch m-0">Clear</a>
             </form>
@@ -32,52 +32,61 @@
 
 
 
+<div class="accordion" id="accordion1">
+      <!--WHERE: Bootstrap accordian via data attributes https://getbootstrap.com/docs/4.3/components/collapse/#accordion-example-->
+      {% for group_topic in group_topics %}
+      <!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
 
-{% for group_topic in group_topics %}
-<!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
-<h2><button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{group_topic._id}}"
-            aria-expanded="false" aria-controls="collapsePoints">
-            <i class="fas fa-angle-double-down"></i>
-      </button>{{ group_topic._id}}</h2>
+      <h2><button id="parent{{ group_topic._id}}" class="btn angle" type="button" data-toggle="collapse"
+                  data-target="#id{{group_topic._id}}" aria-expanded="false" aria-controls="collapsePoints">
+                  <i class="fas fa-angle-double-down"></i>
+            </button>{{ group_topic._id}}</h2>
 
-<!--WHY: Content want to collapse wrapped in div.-->
-<div id="id{{ group_topic._id}}" class="collapse">
-      {% for note in notes %}
-      {% if note.topic == group_topic._id %}
+      <!--WHY: Content want to collapse wrapped in div.-->
+      <div id="id{{ group_topic._id}}" class="collapse" data-parent="#accordion1">
 
-      <!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
-      <p class="m-1 borders-top">
-            <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{note._id}}"
-                  aria-expanded="false" aria-controls="collapsePoints">
-                  <i class="fas fa-angle-down"></i>
-            </button>
-            {{ note.note_name }}</p>
-      <div class="collapse" id="id{{note._id}}">
-
-            <textarea readonly class="form-control" rows=4>{{note.content}}</textarea>
+            <div class="accordion" id="accordion{{ group_topic._id}}">
+                  {% for note in notes %}
+                  {% if note.topic == group_topic._id %}
 
 
-            <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
-                  <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
+                  <!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
+                  <p class="m-1 borders-top">
+                        <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{note._id}}"
+                              aria-expanded="false" aria-controls="collapsePoints">
+                              <i class="fas fa-angle-down"></i>
+                        </button>
+                        {{ note.note_name }}</p>
+                  <div class="collapse" id="id{{note._id}}" data-parent="#accordion{{ group_topic._id}}">
+
+                        <textarea readonly class="form-control" rows=4>{{note.content}}</textarea>
 
 
-            <button class="btn ml-5" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
-                  aria-expanded="false" aria-controls="collapsePoints">
-                  <span class="pt-2 mr-1">Delete</span><i class="fas fa-trash-alt"></i>
-            </button>
+                        <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
+                              <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
 
-            <!--DELETE COLLAPSE-->
-            <div class="collapse" id="delete{{note._id}}">
-                  <form action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST">
-                        <input type="submit" class="mt-3 btn button-style" value="I'm sure - delete this note">
-                  </form>
+
+                        <button class="btn ml-5" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
+                              aria-expanded="false" aria-controls="collapsePoints">
+                              <span class="pt-2 mr-1">Delete</span><i class="fas fa-trash-alt"></i>
+                        </button>
+
+                        <!--DELETE COLLAPSE-->
+                        <div class="collapse" id="delete{{note._id}}">
+                              <form action="{{url_for('deletenote', language=language, noteid=note._id)}}"
+                                    method="POST">
+                                    <input type="submit" class="mt-3 btn button-style"
+                                          value="I'm sure - delete this note">
+                              </form>
+                        </div>
+                  </div>
+
+
+                  {% endif %}
+                  {% endfor %}
             </div>
       </div>
 
-      {% endif %}
       {% endfor %}
 </div>
-
-{% endfor %}
-
 {% endblock content%}
