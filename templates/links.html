@@ -12,6 +12,40 @@
 </div>
 
 
+<!--TEXT SEARCH-->
+<div class="row mt-3 mb-3">
+
+            <div class="col-auto">
+                  <p class="m-0">Filter by word <small><br class="d-none d-md-inline-block">(optional)</small></p>
+            </div>
+            <div class="col-auto p-0">
+      
+                  <form class="d-inline-block d-flex align-items-baseline" method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+                        {{ form.tsearch(class="form-control width--tsearch height--tsearch d-inline-block b-0 ml-3 m-md-0") }}
+      
+                        {{ form.submit(class="btn button-style height--tsearch ml-3 mt-0 mb-0 mr-3 b-0")}}
+                        <a href="{{ url_for('links', language=language) }}"
+                              class="btn button-style height--tsearch m-0">Clear</a>
+                  </form>
+      
+                  <!--FLASH ERROR MESSAGE-->
+                  <div>
+                              {% with messages = get_flashed_messages(category_filter=["search"]) %}
+                              <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                              {% if messages %}
+                              {% for message in messages %}
+                              <span class="message ml-3 m-md-0">{{ message }}</span>
+                              {% endfor %}
+                              {% endif %}
+                              {% endwith %}
+                          </div>
+                          <!--WHY: Search messages displayed underneath submit button verses top of page to improve visibilty after submitting.-->
+            </div>
+      
+      </div>
+
 <!--LEVEL 1: Topic list-->
 {% for group_topic in group_topics %}
 <div data-level="1">

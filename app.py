@@ -112,13 +112,29 @@ def login():
 
 
 #VIEW LINKS
+@app.route("/links/<language>/<tsearch>", methods=["GET", "POST"])
 @app.route("/links/<language>", methods=["GET", "POST"])
 def links(language):
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
+    
+    form = SearchForm()
+    if form.validate_on_submit():
+        mongo.db.links.create_index([("$**", "text")], language_override="en")
+        #WHERE: https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
+        #WHERE: https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
+        #print(form.tsearch.data)
+        links_search = list(mongo.db.links.find({"language": language, "$text": {"$search": form.tsearch.data}}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
+        if links_search == []:
+            flash(f'Sorry no results for {form.tsearch.data}', 'search')
+        else:
+            links = links_search
+            group_topics = mongo.db.links.aggregate([ {"$match": {"language": language, "$text": {"$search": form.tsearch.data} }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
+            flash(f'Links filtered by {form.tsearch.data}', 'search') 
+        
     group_topics = list(group_topics)
     
-    return render_template("links.html", links=links, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("links.html", links=links, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote, form=form)
 
 
 #VIEW NOTES
