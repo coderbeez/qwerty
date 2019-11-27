@@ -25,29 +25,43 @@ $(document).ready(function () {
     //WHERE: https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working
 
 
+    function slide(target) {
+        if (target.is(":hidden")) {
+            console.log("hidden")
+            target.slideDown();
+          }
+        else {
+            target.slideUp();
+        }         
+    }
+    //WHERE:https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
+
     blevel1.click(function () {
-        var value = $(this).attr('data-bvalue');
+        let value = $(this).attr('data-bvalue');
+        let target = $('[data-2value="' + value + '"]')
         console.log(value);
         level2.slideUp();
         level3.slideUp();
         level4.slideUp();
-        $('[data-2value="' + value + '"]').slideDown();
+        slide(target);
     });
 
 
     blevel2.click(function () {
-        var value = $(this).attr('data-bvalue');
+        let value = $(this).attr('data-bvalue');
+        let target = $('[data-3value="' + value + '"]')
         console.log(value);
         level3.slideUp();
         level4.slideUp();
-        $('[data-3value="' + value + '"]').slideDown();
+        slide(target);
     });
 
     blevel3.click(function () {
         var value = $(this).attr('data-bvalue');
+        let target = $('[data-4value="' + value + '"]')
         console.log(value);
         level4.slideUp();
-        $('[data-4value="' + value + '"]').slideDown();
+        slide(target);
     });
     //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
     //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
