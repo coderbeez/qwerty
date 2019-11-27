@@ -32,65 +32,54 @@
 
 
 
-<div class="accordion" id="accordion1">
-      <!--WHERE: Bootstrap accordian via data attributes https://getbootstrap.com/docs/4.3/components/collapse/#accordion-example-->
-      {% for group_topic in group_topics %}
-      <!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
-
-      <h2><button id="parent{{ group_topic._id}}" class="btn angle" type="button" data-toggle="collapse"
-                  data-target="#id{{group_topic._id}}" aria-expanded="false" aria-controls="collapsePoints">
-                  <i class="fas fa-angle-double-down"></i>
-            </button>{{ group_topic._id}}</h2>
-
-      <!--WHY: Content want to collapse wrapped in div.-->
-      <div id="id{{ group_topic._id}}" class="collapse" data-parent="#accordion1">
-
-            <div class="accordion" id="accordion{{ group_topic._id}}">
-                  {% for note in notes %}
-                  {% if note.topic == group_topic._id %}
 
 
-                  <!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
-                  <p class="m-1">
-                        <button class="btn angle" type="button" data-toggle="collapse" data-target="#id{{note._id}}"
-                              aria-expanded="false" aria-controls="collapsePoints">
-                              <i class="fas fa-angle-down"></i>
-                        </button>
-                        {{ note.note_name }}</p>
-                  <div class="collapse" id="id{{note._id}}" data-parent="#accordion{{ group_topic._id}}">
+{% for group_topic in group_topics %}
+<!--WHAT: LEVEL 1 COLLAPSE - TOPIC-->
 
-                        <textarea readonly class="form-control" rows=4>{{note.content}}</textarea>
-
-                        <!--<div class="d-flex justify-content-end"></div>-->
-                       
-
-                        <div class="d-flex justify-content-end">
-                              <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
-                                    <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
-      
-                              <button class="btn ml-3" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
-                              aria-expanded="false" aria-controls="collapsePoints">
-                              <span class="pt-2 mr-1">Delete</span><i class="fas fa-trash-alt"></i>
-                        </button></div>
-                        <!--WHY: Button wrapped in div to enable Bootstrap collapsing.-->
-            
-
-                        <!--DELETE COLLAPSE-->
-                        <div class="collapse" id="delete{{note._id}}">
-                              <form class="d-flex justify-content-end" action="{{url_for('deletenote', language=language, noteid=note._id)}}"
-                                    method="POST">
-                                    <input type="submit" class="mt-3 btn button-style"
-                                          value="I'm sure - delete this note">
-                              </form>
-                        </div>
-                  </div>
-
-
-                  {% endif %}
-                  {% endfor %}
-            </div>
-      </div>
-
-      {% endfor %}
+<div data-level="1">
+      <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}">
+            <i class="fas fa-angle-double-down"></i></button>
+      <h2 class="d-inline-block">{{ group_topic._id}}</h2>
 </div>
+
+{% for note in notes %}
+{% if note.topic == group_topic._id %}
+<!--WHAT: LEVEL 2 COLLAPSE - NOTE NAME-->
+<div data-level="2" data-2value="{{ group_topic._id}}">
+      <button class="btn" type="button" data-blevel="2" data-bvalue="{{note._id}}"><i
+                  class="fas fa-angle-down"></i></button>
+      <h3 class="d-inline-block">{{ note.note_name }}</h3>
+</div>
+
+<div data-level="3" data-3value="{{note._id}}">
+      <textarea readonly class="form-control" rows=4>{{note.content}}</textarea>
+
+      <div class="d-flex justify-content-end">
+            <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
+                  <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
+
+            <button class="btn ml-3" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
+                  aria-expanded="false" aria-controls="collapsePoints">
+                  <span class="pt-2 mr-1">Delete</span><i class="fas fa-trash-alt"></i>
+            </button></div>
+    
+
+
+      <!--DELETE COLLAPSE-->
+      <div class="collapse" id="delete{{note._id}}">
+            <form class="d-flex justify-content-end"
+                  action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST">
+                  <input type="submit" class="mt-3 btn button-style" value="I'm sure - delete this note">
+            </form>
+      </div>
+        <!--WHY: Form wrapped in div to enable Bootstrap collapsing.-->
+</div>
+
+
+{% endif %}
+{% endfor %}
+
+{% endfor %}
+
 {% endblock content%}
