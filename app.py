@@ -130,7 +130,7 @@ def notes(language, tsearch=None):
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     #print(len(notes))
     group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id) }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
-    group_topics = list(group_topics)
+   
     #print(group_topics)
 
     form = SearchForm()
@@ -138,12 +138,17 @@ def notes(language, tsearch=None):
         mongo.db.notes.create_index([("$**", "text")], language_override="en")
         #WHERE: https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
         #WHERE: https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
-        print(form.tsearch.data)
-        flash(f'Notes filtered by {form.tsearch.data}')
-       
-        notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data}}).sort([("topic", 1),("note_name", 1)]))
-        group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data} }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
-        group_topics = list(group_topics)
+        #print(form.tsearch.data)
+        notes_search = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data}}).sort([("topic", 1),("note_name", 1)]))
+        if notes_search == []:
+            flash(f'Sorry no results for {form.tsearch.data}', 'search')
+        else:
+            notes = notes_search
+            group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data} }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
+            flash(f'Notes filtered by {form.tsearch.data}', 'search') 
+
+    group_topics = list(group_topics)    
+
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote, form=form)
 
 
