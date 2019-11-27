@@ -31,5 +31,5 @@ class LinkForm(FlaskForm):
     submit = SubmitField('Save')    
 
 class SearchForm(FlaskForm):
-    tsearch = StringField('Text')
+    tsearch = StringField('Text', validators=[InputRequired()])
     submit = SubmitField('Search') 
