@@ -26,6 +26,19 @@
                   <a href="{{ url_for('notes', language=language) }}"
                         class="btn button-style height--tsearch m-0">Clear</a>
             </form>
+
+            <!--FLASH ERROR MESSAGE-->
+            <div>
+                        {% with messages = get_flashed_messages(category_filter=["search"]) %}
+                        <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                        {% if messages %}
+                        {% for message in messages %}
+                        <span class="message ml-3 m-md-0">{{ message }}</span>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <!--WHY: Search messages displayed underneath submit button verses top of page to improve visibilty after submitting.-->
       </div>
 
 </div>
