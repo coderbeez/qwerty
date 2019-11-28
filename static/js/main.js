@@ -71,7 +71,7 @@ $(document).ready(function () {
         $('body').addClass('dark');
         $('li').addClass('dark');
         $('li').css('border', '1px solid #717c84');
-        $('.line').css('border', '1px solid #717c84');
+        $('.line').css('border-bottom', '1px solid #717c84');
         $('.btn:not(".button-style")').css('color', '#eda33e');
         $('.btn:not(".button-style")').addClass('dark-hover--stone');
         $('a:not(".dropdown-item")').css('color', '#eda33e');
@@ -108,7 +108,7 @@ $(document).ready(function () {
             $('body').removeClass('dark');
             $('li').removeClass('dark');
             $('li').css('border', '');
-            $('.line').css('border', '');
+            $('.line').css('border-bottom', '');
             $('.btn:not(".button-style")').css('color', '');
             $('.btn:not(".button-style")').removeClass('dark-hover--stone');
             $('a:not(".dropdown-item")').css('color', '');
