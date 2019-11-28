@@ -29,10 +29,9 @@ $(document).ready(function () {
         if (target.is(":hidden")) {
             console.log("hidden")
             target.slideDown();
-          }
-        else {
+        } else {
             target.slideUp();
-        }         
+        }
     }
     //WHERE:https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
 
@@ -66,18 +65,20 @@ $(document).ready(function () {
     //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
     //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
 
+   
     //DARK MODE STYLING CHANGES
     function makeDark() {
         $('body').addClass('dark');
         $('li').addClass('dark');
         $('li').css('border', '1px solid #717c84');
-        $('.btn:not(".btn.angle")').css('color', '#eda33e');
-        $(".btn.angle").css('color', '#ECECEC');
-        $('.borders-top').css('border-top', 'solid 1px #717c84');
+        $('.line').css('border', '1px solid #717c84');
+        $('.btn:not(".button-style")').css('color', '#eda33e');
+        $('.btn:not(".button-style")').addClass('dark-hover--stone');
+        $('a:not(".dropdown-item")').css('color', '#eda33e');
+        $('a:not(".dropdown-item")').addClass('dark-hover');
         $('.button-style').css('color', '#354550');
         $('.button-style').css('background-color', '#ECECEC');
-        $('a:not(".dropdown-item")').css('color', '#eda33e');
-        $('a:not(".dropdown-item")').addClass('dark--hover');
+        $('.button-style').addClass('dark-hover--orange');
     }
     //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
     //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
@@ -104,16 +105,17 @@ $(document).ready(function () {
             makeDark();
             localStorage.setItem("mode", "dark")
         } else {
-            $('body').removeClass("dark");
-            $('li').removeClass("dark");
-            $('a').removeClass("dark--hover");
+            $('body').removeClass('dark');
+            $('li').removeClass('dark');
             $('li').css('border', '');
-            $('li').css('border', '');
-            $('a').css('color', '');
-            $('.btn').css('color', '');
-            $('.borders-top').css('color', '');
+            $('.line').css('border', '');
+            $('.btn:not(".button-style")').css('color', '');
+            $('.btn:not(".button-style")').removeClass('dark-hover--stone');
+            $('a:not(".dropdown-item")').css('color', '');
+            $('a:not(".dropdown-item")').removeClass('dark-hover');
             $('.button-style').css('color', '');
             $('.button-style').css('background-color', '');
+            $('.button-style').removeClass('dark-hover--orange');
             localStorage.clear();
         }
     })
