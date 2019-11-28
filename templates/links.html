@@ -2,14 +2,8 @@
 {% block content%}
 
 <!--HEADING-->
-<div class="row">
-      <div class="col-12 col-md-9 col-lg-6">
-            <h1 class="d-inline-block">{{ language }} Links </h1>
-      </div>
-      <div class="col-12 col-md-3 col-lg-6 d-flex align-items-center justify-content-end justify-content-md-start">
-            <a href="{{ url_for('addlink', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
-      </div>
-</div>
+<h1 class="d-inline-block mr-2 mr-md-4 mr-lg-5">{{ language }} Links </h1>
+<a href="{{ url_for('addlink', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
 
 
 <!--TEXT SEARCH-->
