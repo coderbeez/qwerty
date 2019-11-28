@@ -122,6 +122,10 @@ ul {
 textarea {
     background-color: white!important;
 }
+
+.fa-info-circle {
+    font-size: 1.25rem;
+}
 /*----------TOGGLE----------*/
 
 /* The switch - the box around the slider */
@@ -192,6 +196,8 @@ input:checked+.slider:before {
 
 /*----------BUTTONS----------*/
 
+
+
 .button-style {
     margin-top: .5rem;
     margin-bottom: 1.5rem;
@@ -205,7 +211,12 @@ input:checked+.slider:before {
 
 }
 
-
+.btn:hover{
+    color: #354550;
+}
+.button-style:hover {
+color: #9ba3a8;
+}
 
 /*----------BACKGROUNDS----------*/
 
@@ -296,20 +307,32 @@ ul, .slider.round  {
 
 /*----------TESTING----------*/
 
-.r {
-    border: 1px solid red;
+.line {
+    border-bottom: 1px solid #c2c7ca;
+   
 }
 
 
 /*----------TESTING----------*/
+
+
 .dark {
     background-color: #354550;
     color: #ECECEC;
 }
 
-.dark--hover:hover {
+.dark-hover:hover {
         color: #ECECEC!important;
     }
+
+.dark-hover--orange:hover {
+        color: #eda33e!important;
+    }
+
+    .dark-hover--stone:hover {
+        color: #ECECEC!important;
+    }
+
 
 .width--tsearch {
     width: 150px !important;
