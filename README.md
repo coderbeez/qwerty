@@ -132,7 +132,8 @@ As per Code Institute’s requirements as
 | topics | Array of Strings | Fundamentals, Dashboards, Jasmine, jQuery, Maps, SVGs |
 
 
-2. **Links Collection** CSS 
+2. **Links Collection**
+ 
 | **NAME** | **TYPE** | **SOURCE** | **VALIDATION** | **EXAMPLE** |
 | --- | --- | --- | --- | --- |
 | _id | ObjectId | Auto | - | 5ddaf9c01c9d44000092fbce |
