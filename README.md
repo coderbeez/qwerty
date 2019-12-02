@@ -124,20 +124,31 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 As per Code Institute’s requirements as 
 
 1. **Languages Collection** Using 
-![Langauges Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/languages.PNG)
+| **NAME** | **TYPE** | **EXAMPLE** |
+| --- | --- | --- |
+| _id | ObjectId | 5dbd76e01c9d440000cb52ae|
+| language | String | JavaScript |
+| topics | Array | - |
+| topics[0] | String | Fundamentals |
+| topics[1] | String | Dashboards |
+| topics[2] | String | Jasmine |
+| topics[3] | String | jQuery |
+| topics[4] | String | Maps |
+| topics[5] | String | SVGs |
+
 
 
 2. **User Collection** CSS 
-![Users Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/users.PNG)
+![Users Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/users.png)
 
 2. **Notes Collection** CSS 
-![Notes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/notes.PNG)
+![Notes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/notes.png)
 
 3. **Links Collection** The
-![Links Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/links.PNG)
+![Links Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/links.png)
 
 4. **Quote Collection** Using the
-![Quotes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/quotes.PNG)
+![Quotes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/quotes.png)
 
 
 
