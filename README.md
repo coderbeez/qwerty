@@ -30,10 +30,10 @@ https://www.color-hex.com/color-palette/81832
 # Qwerty
 
 
-![Header Image](https://github.com/coderbeez/trigg4tables/blob/master/assets/images/header.png)
+![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
 
 
-**[Qwerty](https://coderbeez.github.io/trigg4tables/)** *, a website to assist coding students save notes and share links. Developed for Code Institute Milestone 3: Data Centric Development. *
+**[Qwerty](https://coderbeez.github.io/trigg4tables/)** *a website to assist coding students save notes and share links. Developed for Code Institute Milestone 3: Data Centric Development.*
 
 
 
@@ -87,7 +87,7 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 
 3. **Dark Mode** Given the site was aimed at coders and coding students, dark mode was incorporated into the design.
 
-4. **Preparation** Balsamiq was used to generate [wireframes](https://github.com/coderbeez/trigg4tables/blob/master/assets/wireframes/wireframes.pdf) for various device sizes. The [initial proposal](https://github.com/coderbeez/trigg4tables/blob/master/assets/wireframes/proposal.pdf) document was completed using Microsoft Powerpoint. Testing during development resulted in several changes to the original design with a move away from 
+4. **Preparation** Microsoft Powerpoint was used to compile initial Balsamiq wireframes,  database collection schema and pages flow diagram, [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf). During development several changes were made to the original design to simplify notes and distractions.
 
 
 
@@ -103,7 +103,6 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 
 1. **Navbar** Trigg character images 
 
-
 2. **Dark Mode** Although the w
 
 3. **Distraction - Quote** Although the w
@@ -116,7 +115,7 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 
 7. **Distraction – Spotify** Although the w
 
-7. **Distraction – Spotify** Although the w
+8. **Distraction – Spotify** Although the w
 
 
 
@@ -172,6 +171,9 @@ This one page website was designed using a mobile first approach. In order to li
 6. [Google Fonts](https://fonts.google.com/) A library of free licensed fonts, Google Fonts was used for all fonts.
 
 7. [Font Awesome](https://fontawesome.com/) A font and icon toolkit, Font Awesome was used for all icons.
+7. [Techsini](https://techsini.com/multi-mockup/index.php) A multi device website mockup generator, Techsini was use to generate the README header image.
+
+
 
 8. [Visual Studio Code](https://code.visualstudio.com/) A source-code editor, Visual Studio Code was the IDE used.
 
