@@ -124,6 +124,7 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 As per Code Institute’s requirements as 
 
 1. **Languages Collection** Using 
+
 | **NAME** | **TYPE** | **EXAMPLE** |
 | --- | --- | --- |
 | _id | ObjectId | 5dbd76e01c9d440000cb52ae|
