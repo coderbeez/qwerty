@@ -127,15 +127,28 @@ As per Code Institute’s requirements as
 
 | **NAME** | **TYPE** | **EXAMPLE** |
 | --- | --- | --- |
-| _id | ObjectId | 5dbd76e01c9d440000cb52ae|
+| _id | ObjectId | 5dbd76e01c9d440000cb52ae |
 | language | String | JavaScript |
 | topics | Array of Strings | Fundamentals, Dashboards, Jasmine, jQuery, Maps, SVGs |
 
 
+2. **Links Collection** CSS 
+| **NAME** | **TYPE** | **SOURCE** | **VALIDATION** | **EXAMPLE** |
+| --- | --- | --- | --- | --- |
+| _id | ObjectId | Auto | - | 5ddaf9c01c9d44000092fbce |
+| language | String | User selects from dropdown | Required | JavaScript |
+| topic | String | User selects from radio buttons | Required | JavaScript |
+| url | String | User enters | Required, URL |https://www.w3schools.com/js/js_exercises.asp |
+| link_name | String | User enters | Required | W3Schools Exercises |
+| description | String | User enters | Optional | Try to solve an exercise by editing some code. Get a "hint" if you're stuck, or show the answer to see what you've done wrong. |
+| ratings | Array of Int32  | User clicks star icon | Required | W3Schools Exercises |
+| check | Boolean | Admin updates | Required - Default True | True |
+| flag | Boolean | User clicks tool icon | Required - Default False | False |
 
 
-2. **User Collection** CSS 
-![Users Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/users.png)
+
+
+
 
 2. **Notes Collection** CSS 
 ![Notes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/notes.png)
