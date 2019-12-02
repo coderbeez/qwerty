@@ -65,7 +65,7 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():  
-
+    quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
     return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
