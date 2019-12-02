@@ -85,9 +85,7 @@
                 <!--WHERE: Flask Flash documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
                 {% if messages %}
                 {% for message in messages %}
-                <div class="mb-2">
-                    <span class="message">{{ message }}</span>
-                </div>
+                <h3 class="mb-2 message">{{ message }}</h3>
                 {% endfor %}
                 {% endif %}
                 {% endwith %}

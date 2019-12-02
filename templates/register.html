@@ -3,10 +3,8 @@
 {% block content%}
 <div class="row">
     <div class="col-12 col-md-8">
-            <div class="mb-2">
-                    <strong class="message">Sign-up for notes!</strong>
-                </div>
-       
+            <h3 class="mb-2 message">Sign-up for notes!</h3>
+               
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <!--WHY: form instance. hidden_tag method for security - will come back to later-->
