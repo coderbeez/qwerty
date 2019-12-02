@@ -129,13 +129,8 @@ As per Code Institute’s requirements as
 | --- | --- | --- |
 | _id | ObjectId | 5dbd76e01c9d440000cb52ae|
 | language | String | JavaScript |
-| topics | Array | - |
-| topics[0] | String | Fundamentals |
-| topics[1] | String | Dashboards |
-| topics[2] | String | Jasmine |
-| topics[3] | String | jQuery |
-| topics[4] | String | Maps |
-| topics[5] | String | SVGs |
+| topics | Array of Strings | Fundamentals, Dashboards, Jasmine, jQuery, Maps, SVGs |
+
 
 
 
