@@ -87,7 +87,7 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 
 3. **Dark Mode** Given the site was aimed at coders and coding students, dark mode was incorporated into the design.
 
-4. **Preparation** Microsoft Powerpoint was used to compile initial Balsamiq wireframes,  database collection schema and pages flow diagram, [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf). During development several changes were made to the original design to simplify notes and distractions.
+4. **Preparation** Microsoft Powerpoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
 
 
 
@@ -97,54 +97,47 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 ### Existing Features - *Components*
 
 
-![Trig FlowChart](https://github.com/coderbeez/trigg4tables/blob/master/assets/images/features.png)
-***Website Components***
+1. **Navbar** A pared back navbar with a home button and 2 simple dropdowns, notes and links, highlights the 2 main site sections. Both dropdowns allow user to select a language passing it to the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in.
 
+2. **Image** Text over simple pencil graphic sets out the site name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
 
-1. **Navbar** Trigg character images 
+3. **Dark Mode** A toggle and slider allow the user to switch between light and dark mode. Local storage is used to keep track of users preference between pages and sessions???? CSS is used to style the slider while Jquery is used to apply and remove styles and check local storage.
 
-2. **Dark Mode** Although the w
+4. **Distraction - Quote** A MongoDB collection of coding related quotes is sampled and 1 quote displayed at the start of each site visit???
 
-3. **Distraction - Quote** Although the w
+5. **Distraction – Sample Links** The MongoDB links collection is sampled and 1 link displayed for each language at the start of each site visit??? Links that have flagged as having a problem or that have not been checked are not sampled.
 
-4. **Distraction – Sample Links** Although the w
+6. **Distraction – Inspiration** Hard coded links to four site of the day web sites are included for design inspiration.
 
-5. **Distraction – Inspiration** Although the w
+7. **Distraction – Spotify** A link to a Spotify playlist generated for the site opens in new page. The initial embedded playlist was removed as it resulted in problems with audio levels.
 
-6. **Distraction – Spotify** Although the w
+8. **Notes - Register** A sign up form with name, email, password and confirm password fields. Email rather than name is used for sign-in so that’s the only field checked against registered users. Flask-Bcrypt is used to hash passwords. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page with a message to select a language in the notes dropdown to begin creating notes. Once the user is logged in, the Register option in the notes drop down is replaced with a Logout option again managed by Flask-Login.
 
-7. **Distraction – Spotify** Although the w
-
-8. **Distraction – Spotify** Although the w
+8. **Notes - Login** Although the w
 
 
 
 
-### Existing Features - *Responsiveness*
+### Existing Features - *Database Design*
 
 
-This one page website was designed using a mobile first approach. In order to limit scrolling, the order, position and visibility of elements change depending on screen size. (1) CSS attributes and media queries, (2) Bootstrap grid system and display classes, and (3) jQuery hide and show methods are used to facilitate this responsiveness.
+As per Code Institute’s requirements as 
+
+1. **Languages Collection** Using 
+![Langauges Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/languages.PNG)
 
 
-![Bootstrap Plan]( https://github.com/coderbeez/trigg4tables/blob/master/assets/wireframes/bootstrap.PNG)
-***Bootstrap Column & Row Plan***
+2. **User Collection** CSS 
+![Users Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/users.PNG)
 
+2. **Notes Collection** CSS 
+![Notes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/notes.PNG)
 
-1. **Viewport Width** Using the [Bootstrap](https://getbootstrap.com/docs/4.3/layout/grid/) grid system, the percentage of viewport width used to display content varies from 100% on small and medium screens to 83% (10 Bootstrap columns) on large screens.
+3. **Links Collection** The
+![Links Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/links.PNG)
 
-2. **Viewport Height** CSS percentage of viewport height classes are used to ensure site fills screen, regardless of screen size and limits scrolling.
-
-3. **Element Width & Position** The [Bootstrap](https://getbootstrap.com/docs/4.3/layout/grid/) grid system is also used to change the width and position of elements on small, medium and large screens to better display content.
-
-4. **Display** Using the CSS display property, [Bootstrap](https://getbootstrap.com/docs/4.3/utilities/display/) display classes and [jQuery]( https://api.jquery.com/show/) hide and show methods, elements, rows and columns appear and disappear on this single page website.
-
-5. **Video** [Bootstrap](https://getbootstrap.com/docs/4.3/utilities/embed/#about) utility of embed-responsive is used to make the embedded iframe responsive.
-
-6. **Margins & Padding** [Bootstrap](https://getbootstrap.com/docs/4.3/utilities/spacing/) spacing utilities are used to vary margins and padding by breakpoints.
-
-7. **Font Size** Media queries are used to change font sizes depending on screen size.
-
-8. **REM** REM sizes are used throughout the website to improve responsiveness.
+4. **Quote Collection** Using the
+![Quotes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/quotes.PNG)
 
 
 
@@ -171,9 +164,8 @@ This one page website was designed using a mobile first approach. In order to li
 6. [Google Fonts](https://fonts.google.com/) A library of free licensed fonts, Google Fonts was used for all fonts.
 
 7. [Font Awesome](https://fontawesome.com/) A font and icon toolkit, Font Awesome was used for all icons.
+
 7. [Techsini](https://techsini.com/multi-mockup/index.php) A multi device website mockup generator, Techsini was use to generate the README header image.
-
-
 
 8. [Visual Studio Code](https://code.visualstudio.com/) A source-code editor, Visual Studio Code was the IDE used.
 
@@ -205,7 +197,10 @@ This one page website was designed using a mobile first approach. In order to li
 
 15. [WTForms](https://jquery.com/) A flexible forms validation and rendering library for Python web development, WTForms was used here for form input handling and validation.
 
+16. [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) A Flask extension that provides bcrypt hashing utilities, Flask-Bcrypt was used for hashing and decrypting user passwords.
+
 15. [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Providing user session management for Flask, Flask-Login was used here to manage logging in, logging out, and remembering users’ sessions.
+
 
 
 *Technology explanations from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)** or technology’s own site.*
