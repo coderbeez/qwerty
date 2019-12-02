@@ -33,24 +33,20 @@ https://www.color-hex.com/color-palette/81832
 ![Header Image](https://github.com/coderbeez/trigg4tables/blob/master/assets/images/header.png)
 
 
-**[Qwerty](https://coderbeez.github.io/trigg4tables/)** *, a website to assist coding students save notes and share links, developed for Code Institute Milestone 3: Data Centric Developement.*
+**[Qwerty](https://coderbeez.github.io/trigg4tables/)** *, a website to assist coding students save notes and share links. Developed for Code Institute Milestone 3: Data Centric Development. *
 
 
 
 ## UX
 
 
-Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages under the Code Institute’s Diploma in Full Stack Wed Development, allowing students to save notes and share links.  
+Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages under Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and/or share links under similar topic headings to Code Institute.
 
-Qwerty has been designed to address some of the limitations of similar websites and apps:
+1. **Notes** Students can register to host their own notes under familiar headings with the full range of CRUD operations. Registration and login are required for notes. 
 
-1. **Notes** Students can register to save their own notes under . 
+2. **Links** Links tagged as instruct, practice, resource and other sites are grouped under familiar headings. Students can create a new link, flag an issue with, or add a star rating to an existing link. No registration or login is required for links.
 
-2. **Links** Practice that reflects homework where a single set of times tables is selected. 
-
-3. **Distraction** Code . 
-
-4. **Dark Mode**  . 
+3. **Distraction** Inspiration and motivation is provided by coding quotes, sample links, daily award site links and a Spotify playlist for those times when stack overflow just isn’t delivering.
 
 
 
@@ -61,22 +57,22 @@ User stories for potential visitors to the website include:
 
 1. **Find Link** 
 
-I’m struggling with a topic and looking for some links for further study. Having viewed the link, I can go back and add my 5 star rating. If there’s any problem with the link, I can 
+I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of links with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
 
 
 2. **Share Link**
 
-I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack links can get lost unless they are pinned, so I open Qwerty, select Python under the links navbar and click add new link. I enter the details, selecting MongoDB for the topic, instruct fror type and giving it a 4 star rating.  Its easy and quick – I don’t need to register or login to add a link.  If the link was added by another student for this language, my rating is added and the system tells me where the link is located. 
+I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack links can get lost unless they are pinned, so I open Qwerty and select Python from the links dropdown. I click add a new link. I enter the details, selecting MongoDB for topic, instruct for type and giving it a 5 star rating. It’s easy and quick – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but the site will flag it and simply adding my star rating to the existing entry. 
 
 
 3. **Online Notes**
 
-Although I keep written notes when I’m studying at home, I want somewhere to jot down notes when I’m on the bus or having my lunch break at work. The language topic headings reflect the Code Institute’s topics, making it easy to find my notes just by heading. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this is remembered on my phone.
+Although I keep written notes when I’m studying at home, I want somewhere to jot down notes on my mobile when I’m on the commute or having a break at work. The language topic headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this is remembered on my mobile.
 
 
 4. **Break Time**
 
-With a fried brain and or a lull in motivation I head to Qwerty and go straight to the distraction sidebar. The quote is randomly picked so chances are I haven’t seen this before. I check out todays website of the day from the awwwards link – definitely my favourite awards site. As I’m on the JavaScript milestone I checkout the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
+When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. The quote is randomly picked so chances are I haven’t seen this before. I check out today’s site of the day from the awwwards link. As I’m on the JavaScript milestone, I checkout the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
 
 
 
@@ -85,11 +81,11 @@ With a fried brain and or a lull in motivation I head to Qwerty and go straight 
 
 The look and feel of Qwerty was designed for simplicity and ease of use. 
 
-1. **Simple** Given the target audience, the website was designed to be viewed primarily on a mobile phone.
+1. **Simple** The site has been designed with minimal graphics, fonts and colours and a pared back navbar.
 
-2. **Navigation** As few steps as possible to get to notes and/ or link.
+2. **Navigation** Navigation has been designed to allow as few clicks as possible to get from the home page to the desired note or link. Colour is used to identify links with links coloured red in light mode and orange in dark mode.
 
-3. **Dark Mode** A very limited colour palette was used with colours taken from Trigg’s images or chosen to complement them. Equal amounts of blue and pink ensure a gender-neutral site. Red and green convey meaning.
+3. **Dark Mode** Given the site was aimed at coders and coding students, dark mode was incorporated into the design.
 
 4. **Preparation** Balsamiq was used to generate [wireframes](https://github.com/coderbeez/trigg4tables/blob/master/assets/wireframes/wireframes.pdf) for various device sizes. The [initial proposal](https://github.com/coderbeez/trigg4tables/blob/master/assets/wireframes/proposal.pdf) document was completed using Microsoft Powerpoint. Testing during development resulted in several changes to the original design with a move away from 
 
@@ -105,40 +101,23 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 ***Website Components***
 
 
-1. **Trigg Images** Trigg character images from [VectorStock](https://www.vectorstock.com/royalty-free-vectors/vectors-by_Westamult) set the overall look of the website. jQuery is used to change the image source, alternating Trigg’s expressions and providing feedback for the child.
-
-![Trig FlowChart](https://github.com/coderbeez/trigg4tables/blob/master/assets/wireframes/triggflow.png)
-***Question & Answer Flowchart***
+1. **Navbar** Trigg character images 
 
 
-2. **Information Video** Although the website was designed to be as intuitive as possible, an instruction video was created using [Snagit](https://www.techsmith.com/screen-capture.html) with voiceover by an enthusiastic 12 year old. A dedicated YouTube channel was setup to host Trigg’s video. Given the target audience, this was deemed the most appropriate medium. Text instructions were also included for improved accessibility.
+2. **Dark Mode** Although the w
 
+3. **Distraction - Quote** Although the w
 
-3. **Keypads** Touch screen keyboard functionality and positioning was a serious problem, so the initial design was amended to include website keypads. jQuery click and JavaScript concat methods are used to enter and retrieve values from HTML buttons, radio buttons and labels. CSS styles, including active, simulate key pressing and indicate selection.
+4. **Distraction – Sample Links** Although the w
 
+5. **Distraction – Inspiration** Although the w
 
-4. **Timer** JavaScript setTimeout and clearTimeout methods are used to start the timer on go and stop on complete. Time taken to finish is shown on the report.
+6. **Distraction – Spotify** Although the w
 
+7. **Distraction – Spotify** Although the w
 
-5. **Sound** JavaScript play methods are used to provide audio feedback when an answer is missing, correct, incorrect or all complete. Sound can be turned on or off at any stage by clicking the sound or mute icons. jQuery is used to toggle between icons, adding and removing Font Awesome classes.
+7. **Distraction – Spotify** Although the w
 
-
-6. **Restart** Using the JavaScript reload method, the website can be refreshed at any stage by clicking the x icon, taking the child back to the start.
-
-
-7. **Feedback** jQuery hide, show, add and remove class methods are used to provide instructions and feedback.
-
-
-8. **Progress** jQuery is used to set the attributes for a [Bootstrap](https://getbootstrap.com/docs/4.3/components/progress/) progress bar showing the child how they are progressing.
-
-
-9. **Tables** Times tables lists are generated, randomised, marked as completed and highlighted as needing revision, using 3 JavaScript arrays: timesArray, todoArray and reviseArray.
-
-
-10. **Report** [jCanvas](https://projects.calebevans.me/jcanvas/) is used to fill and format a HTML canvas element. This canvas acts as a detailed report showing the date, tables, time taken to complete and any sums that need to be revised. As canvas content is not accessible to screen readers, the report text is also shown in a paragraph element.
-
-
-11. **Download** Clicking the download button converts the canvas report first to a blob and then to a png file which can be shared. JavaScript libraries [Canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) and [FileSaver.js](https://github.com/eligrey/FileSaver.js/) facilitate this.
 
 
 
@@ -200,6 +179,8 @@ This one page website was designed using a mobile first approach. In order to li
 
 10. [GitHub](https://github.com/) A web-based hosting service for version control using Git, GitHub was used to host the version control system and website content.
 
+15. [Heroku](https://www.heroku.com/) A cloud platform as a service (PaaS) supporting several programming languages, Heroku was used here to host.
+
 11. [HTML5](https://www.w3.org/) A document mark-up language, HTML was the language used.
 
 12. [CSS3](https://www.w3.org/) A style sheet language, CSS was the style sheet used.
@@ -210,9 +191,19 @@ This one page website was designed using a mobile first approach. In order to li
 
 15. [jQuery](https://jquery.com/) A JavaScript library designed to manipulate HTML documents, JQuery was used here by Bootstrap, jCanvas and to manipulate the DOM.
 
-15. [MongoAtlas](https://jquery.com/) A JavaScript library designed to manipulate HTML documents, JQuery was used here by Bootstrap, jCanvas and to manipulate the DOM.
+15. [Python](https://www.python.org/) An interpreted, high-level, general-purpose programming language, Python was used here as the????
 
+15. [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) A cloud based NoSQL database service, MongoDB Atlas was the database service used.
 
+15. [PyMongo](https://api.mongodb.com/python/current/) A Python distribution containing tools for working with MongoDB, PyMongo was used here to work with MongoDB from Python.
+
+15. [Flask](https://palletsprojects.com/p/flask/) A micro web framework written in Python, Flask was the web application framework used.
+
+15. [Jinja](https://palletsprojects.com/p/jinja/) A web template engine for Python and Flask’s default, Jinja was the template engine used here. 
+
+15. [WTForms](https://jquery.com/) A flexible forms validation and rendering library for Python web development, WTForms was used here for form input handling and validation.
+
+15. [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Providing user session management for Flask, Flask-Login was used here to manage logging in, logging out, and remembering users’ sessions.
 
 
 *Technology explanations from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)** or technology’s own site.*
@@ -248,7 +239,7 @@ This one page website was designed using a mobile first approach. In order to li
 
 **MANUAL TESTING**
 
-Throughout the development process Chrome developer tools were used to test for responsiveness on various screen sizes. After deployment android and iOS mobiles were used to to test for functionality and layout, and Chrome, Edge and Firefox browsers to identify bugs.
+Throughout the development process Chrome developer tools were used to test for responsiveness on various screen sizes. After deployment android and iOS mobiles were used to test for functionality and layout, and Chrome, Edge and Firefox browsers to identify bugs.
 
 
 After sign-off, structured manual testing of the site was carried out in various browsers and screens sizes following a user from start to finish. This single user path approach was adopted as users progress through the site in a very prescribed way. The detailed plan allowed for Python and Javascript code to be fully tested.
@@ -258,7 +249,6 @@ After sign-off, structured manual testing of the site was carried out in various
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
-
 | Site Load | P | P | P | P | P | P | P |
 | **DARK MODE** | --- | --- | --- | --- | --- | --- | --- |
 | Dark Mode – On | P | P | P | P | P | P | P |
@@ -386,89 +376,7 @@ N/A - Not Applicable
 1. **Touch Screen Keyboards** During development it quickly became apparent that relying on inbuilt keyboards on touch screen devices provided poor UX. Keypads were built into the website to avoid using device keyboards.
 
 
-2. **iOS Tables** Initial keypad designs relied on tables to position elements. Although no problem was encountered with android, tables did not render correctly on iOS. Keypads were redesigned using break elements and margins.
-
-
-3. **iOS Radio Buttons** To limit selection to one item from a group, radio buttons were wrapped in label elements. Labels were then styled as buttons to provide a consistent look to keypads. Although no problem was encountered with android, radio buttons remained visible on iOS. The following CSS resolved the issue. 
-
-```
-input[type="radio"] {
-  -webkit-appearance: none;
-}
-
-[type="radio"] {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-WHERE: https://www.sitepoint.com/replacing-radio-buttons-without-replacing-radio-buttons/
-```
-
-
-4. **Keyboard Verses Keypad** During initial testing children were using the device keyboard to input letters rather than numbers. Changing an input field to a label forced the use of the keypad, preventing device keyboard use. 
-
-
-5. **Enter Reloading Site** During development it was noted that pressing the enter key on a desktop would reload the page sending the user back to the start. A prevent default method resolved the issue.
-
-```
-$(document).on("keypress", function(e) {
-    if (e.which == 13) {
-      event.preventDefault();
-    }
-  });
-WHERE: https://stackoverflow.com/questions/8866053/stop-reloading-page-with-enter-key
-```
-
-
-6. **Loading Images** During initial testing on both android and iOS mobiles, Trigg images were slow to load. Changing png to svg files improved load times on android, however images were only displayed on iOS on second use. Preloading image sources in JS resolved this issue.
-
-
-7. **Closing Video** Once the instruction video was embedded it became apparent that if clicked before the video had ended, the close button used to hide did not stop play. Adding the following code to the close button click method reset the video and stopped the audio.
-
-```
-$("iframe").attr("src", "https://www.youtube.com/embed/QnvT6_Fp1B4?rel=0");
-WHERE: https://stackoverflow.com/questions/2128535/stop-a-youtube-video-with-jquery
-```
-
-
-8. **Playing Audio** During development sound clips were not always audible even though the play method was running correctly. Using the current time property in the play audio function, reset the audio clip back to the start giving consistent sound on each play. 
-
-```
-function playAudio(audio) {
-    if (sound === true) {
-      audio.play();
-      audio.currentTime = 0;
-    }
-  }
-WHERE: https://stackoverflow.com/questions/9563887/setting-html5-audio-position
-```
-
-
-9. **Firefox Audio** During development testing although all audio clips were mp3 files, in Firefox one clip would not load. Resaving the clip as a m4a file resolved this issue.
-
-
-10. **Edge toBlob** During development testing the report would not download in Edge as the browser does not support the toBlob method. Using the [Canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js) JS library resolved this issue.
-
-![toBlob Compatiblity](https://github.com/coderbeez/trigg4tables/blob/master/assets/images/toblob.PNG)
-***toBlob Compatibility [Mozilla]( https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob)***
-
-
-11. **iOS Double Tap** When using the keypad for entering numbers e.g. 11, double tapping on the 1 key can cause an iPhone or iPad to zoom in. Although this action can be turned off in device settings, no fix has been found to apply to the website.
-
-
-12. **Firefox Video** In Firefox, as you move the cursor over the YouTube video the following warning message appears in the console; “MouseEvent.mozPressure is deprecated. Use PointerEvent.pressure instead”. The video plays without an issue. 
-
-
-13. **Firefox Audio** Rewinding audio elements by setting audio.currentTime results in an abort error message in the console in Firefox as noted in [Bugzilla]( https://bugzilla.mozilla.org/show_bug.cgi?id=1507193). This error does not affect website function.
-
-
-14. **Safari Canvas-toBlob.js** [Stock Overflow]( https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob)
- revealed an error message on iOS was due to the sourceMap flag being set to false instead of true in the tsconfig.json file of [Canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js). This does not affect functionality.
+2. **iOS Tables** Initial keypad designs 
 
 
 ### Deployment
