@@ -121,9 +121,11 @@ The look and feel of Qwerty was designed for simplicity and ease of use.
 ### Existing Features - *Database Design*
 
 
-As per Code Institute’s requirements as 
+As per Code Institute’s requirements MongoDb, a document based NoSQL database, was used for this project. 
 
-1. **Languages Collection** Using 
+1. **Languages Collection**
+
+The Languages Collection was created to populate topic dropdowns for each language throughout the site. As topics are updated by Code Institute, rather than hard code lists per language this approach allows for efficient list management. Administrator completes all CRUD operations directly in MongoDd.
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
@@ -132,23 +134,26 @@ As per Code Institute’s requirements as
 | **topic** | Array Strings | N/A | N/A | Admin |
 
 
-
 2. **Links Collection**
+
+The Links Collection is a core data collection. Users can read all exisiting documents and create new documents. Their update options are limited to adding a star rating or flagging an issue with an existing document. Document deletion is limited to administrator. The Links Collection is shared amongst all users, hence the limited CRUD operations for users.
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
 | **_id** | ObjectId | N/A |  N/A | Auto |
 | **language** | String | N/A | N/A | User *(nav dropdown)* |
 | **topic** | String | Radio |Required | User |
-| **url** | String | String | Required, URL | User |
+| **url** | String | String | Required, URL, Unique| User |
 | **link_name** | String | String | Required | User |
 | **description** | String | Text Area | Optional | User |
 | **ratings** | Array Integers | Integer | Required | User |
-| **check** | Boolean | N/A | N/A | Auto*(default False)*/ Admin |
-| **flag** | Boolean | Button | N/A | Auto*(default False)*/ User/ Admin |
+| **check** | Boolean | N/A | N/A | Auto *(default False)* / Admin |
+| **flag** | Boolean | Button | N/A | Auto *(default False)* / User/ Admin |
 
 
-2. **Notes Collection** CSS 
+3. **Notes Collection**
+
+The Notes Collection is the second core collection. Users have the full range of CRUD operations for their own notes with no access to the notes of other users. Users must register and login for this section of the site. 
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
@@ -160,7 +165,9 @@ As per Code Institute’s requirements as
 | **content** | String | Text Area | Required | User |
 
 
-3. **Quotes Collection** The
+4. **Quotes Collection**
+
+The Quotes Collectin is sampled in the Distraction section of the site. Read is the only CRUD operation available to users. The collection is managed by the administrator directly through MongoDb.
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
@@ -169,7 +176,9 @@ As per Code Institute’s requirements as
 | **author** | String | N/A | N/A | Admin |
 
 
-4. **Users Collection** Using the
+5. **Users Collection**
+
+The Users Collection is used to faciliatate notes on this site. Users create a new account on register page and access existing account on login page. The remaining CRUD operations are managed by the administrator directly through MongoDb.
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
