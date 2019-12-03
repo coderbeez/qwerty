@@ -268,18 +268,18 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 ???
 
 
-### MANUAL TESTING
+### Manual Testing
 
 Throughout the development process Chrome developer tools were used to test for responsiveness on various screen sizes. After deployment android and iOS mobiles were used to test for functionality and layout, and Chrome, Edge and Firefox browsers to identify bugs.
 
 
 After sign-off, structured manual testing of the site was carried out in various browsers and screens sizes. Detailed plans were followed to ensure code was fully tested. The order and languages tested was varied to minic user paths.
 
+**Distraction & User Management**
 
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
-| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
 | Site Load | P | P | P | P | P | P | P |
 | **DISTRACTIONS** | --- | --- | --- | --- | --- | --- | --- |
 | *Test - Order* | *1* | *6* | *4* | *11* | *1* | *11* | *2* |
@@ -298,8 +298,8 @@ After sign-off, structured manual testing of the site was carried out in various
 | Register -Message| P | P | P | P | P | P | P |
 | Notes – 4 + Logout | P | P | P | P | P | P | P |
 | **NOTES - Login** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
 | *Test - Order* | *4* | *11* | *1* | *8* | *3* | *10* | *9* |
+| *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
 | Login - Register | P | P | P | P | P | P | P |
 | Login - Email | P | P | P | P | P | P | P |
 | Login - Password | P | P | P | P | P | P | P |
@@ -310,8 +310,24 @@ After sign-off, structured manual testing of the site was carried out in various
 | Login – Nav – Register + Logout | P | P | P | P | P | P | P |
 | Login – Next Language | P | P | P | P | P | P | P |
 | Login – Back Language | P | P | P | P | P | P | P |
+| **LOGIN MANAGER** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
+| Logout – Message| P | P | P | P | P | P | P |
+| Logout- Home | P | P | P | P | P | P | P |
+| Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
+
+P - Passed
+N/A - Not Applicable
+
+
+**Notes**
+
+| **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
 | *Test - Order* | *5* | *8* | *2* | *4* | *4* | *3* | *4* |
+| *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
 | Accordion - List | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
@@ -335,9 +351,19 @@ After sign-off, structured manual testing of the site was carried out in various
 | Content – Validate | P | P | P | P | P | P | P |
 | Save – Message | P | P | P | P | P | P | P |
 | Save – Saved | P | P | P | P | P | P | P |
+
+P - Passed
+N/A - Not Applicable
+
+
+**Links**
+
+| **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Language* | *CSS* | *JS* | *Python* | *HTML*| *CSS* | *JS* | *Python* |
 | *Test - Order* | *9* | *1* | *9* | *2* | *2* | *8* | *6* |
+| *Test - Language* | *CSS* | *JS* | *Python* | *HTML*| *CSS* | *JS* | *Python* |
 | Accordion - List | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
@@ -365,16 +391,9 @@ After sign-off, structured manual testing of the site was carried out in various
 | Rate– Validate | P | P | P | P | P | P | P |
 | Save– Message | P | P | P | P | P | P | P |
 | Save– Saved | P | P | P | P | P | P | P |
-| **LOGIN MANAGER** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
-| Logout – Message| P | P | P | P | P | P | P |
-| Logout- Home | P | P | P | P | P | P | P |
-| Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
-
 
 P - Passed
 N/A - Not Applicable
-
 
 
 **JavaScript**
