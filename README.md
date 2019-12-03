@@ -135,13 +135,14 @@ As per Code Institute’s requirements as
 2. **Links Collection**
 
 | **NAME** | **TYPE** | **SOURCE** | **VALIDATION** | **EXAMPLE** |
+| --- | --- | --- | --- | --- |
 | **_id** | *ObjectId* | Auto | - | 5ddaf9c01c9d44000092fbce |
 | **language** | *String* | User selects from dropdown | Required | JavaScript |
 | **topic** | *String* | User selects from radio buttons | Required | JavaScript |
-| **url** | *String* | User enters | Required, URL |https://www.w3schools.com/js/js_exercises.asp |
+| **url** | *String* | User enters | Required, URL |url |
 | **link_name** | *String* | User enters | Required | W3Schools Exercises |
 | **description** | *String* | User enters | Optional | Try to solve etc... |
-| **ratings** | *Int Array*  | User clicks star icon | Required | W3Schools Exercises |
+| **ratings** | *Int Array*  | User clicks star icon | Required | 4 |
 | **check** | *Boolean* | Admin updates | Default True | True |
 | **flag** | *Boolean* | User clicks tool icon | Default False | False |
 
