@@ -134,17 +134,17 @@ As per Code Institute’s requirements as
 
 2. **Links Collection**
 
-| **NAME** | **DB TYPE** | **Form TYPE** | **VALIDATION** | **SOURCE** |
+| **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
 | **_id** | *ObjectId* | - |  - | Auto |
-| **language** | *String* | Select |Required | User |
-| **topic** | *String* | Radio |Required | User |
-| **url** | *String* | String | Required, URL | User |
-| **link_name** | *String* | String | Required | User |
-| **description** | *String* | Text Area | Optional | User |
-| **ratings** | *Int Array* | Integer | Required | User |
-| **check** | *Boolean* | - | Default True | Admin |
-| **flag** | *Boolean* | - | Default False | Admin/User |
+| **language** | *String* | *Select* |Required | User |
+| **topic** | *String* | *Radio* |Required | User |
+| **url** | *String* | *String* | Required, URL | User |
+| **link_name** | *String* | *String* | Required | User |
+| **description** | *String* | *Text Area* | Optional | User |
+| **ratings** | *Int Array* | *Integer* | Required | User |
+| **check** | *Boolean* | - | - | Admin |
+| **flag** | *Boolean* | - | - | Admin/User |
 
 
 
