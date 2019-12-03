@@ -214,57 +214,57 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 ### Development Tools
 
-- [Visual Studio Code](https://code.visualstudio.com/) Visual Studio Code was the IDE used.
+- [Visual Studio Code](https://code.visualstudio.com/) IDE used.
 
-- [Git](https://git-scm.com/) Git was used to track changes in Visual Studio Code during development.
+- [Git](https://git-scm.com/) Used to track changes in Visual Studio Code during development.
 
-- [GitHub](https://github.com/) GitHub was used to host the version control system and website content before deployment to Heroku????.
+- [GitHub](https://github.com/) Used to host the version control system and website content before deployment to Heroku????.
 
 
 ### Hosting Platforms & Database
 
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) MongoDB Atlas was the cloud based database service used.
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) Cloud based database service used.
 
-- [Heroku](https://www.heroku.com/) Heroku was the cloud based hosting service used. 
+- [Heroku](https://www.heroku.com/) Cloud based hosting service used. 
 
 
 ### Frontend Resources
 
-- [Google Fonts](https://fonts.google.com/) Google Fonts was used for all fonts.
+- [Google Fonts](https://fonts.google.com/) Used for all fonts.
 
-- [Font Awesome](https://fontawesome.com/) Font Awesome was used for all icons.
+- [Font Awesome](https://fontawesome.com/) Used for all icons.
 
-- [Bootstrap4](https://getbootstrap.com/) Bootstrap was used for responsive layout and styling.
+- [Bootstrap4](https://getbootstrap.com/) Used for responsive layout and styling.
 
-- [jQuery](https://jquery.com/) JQuery was used for DOM manipulation providing the accordion and dark-mode functionality.
+- [jQuery](https://jquery.com/) Used for DOM manipulation enabling accordion dark-mode functionality.
 
 
 ### Backend Resources
 
-- [pip](https://pypi.org/project/pip/) pip was used to install Python modules.
+- [pip](https://pypi.org/project/pip/) Used to install Python modules.
 
-- [PyMongo](https://api.mongodb.com/python/current/) PyMongo was used to allow communication between Python and MongoDB.
+- [PyMongo](https://api.mongodb.com/python/current/) Used to allow communication between Python and MongoDB.
 
-- [Flask](https://palletsprojects.com/p/flask/) Flask was the web application framework used. 
+- [Flask](https://palletsprojects.com/p/flask/) Web application framework used. 
 
-- [Jinja](https://palletsprojects.com/p/jinja/) Jinja was the web template engine used. 
+- [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
 
-- [WTForms](https://jquery.com/) WTForms was used for form rendering and validation???.
+- [WTForms](https://jquery.com/) Used for form rendering and validation???.
 
-- [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Flask-Bcrypt was used for hashing user passwords.
+- [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Used for hashing user passwords.
 
-- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Flask-Login was used for user session management.
+- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Used for user session management.
 
 
 ### Design Tools
 
-- [Balsamiq](https://balsamiq.com/) Balsamiq was used to develop wireframes for the website.
+- [Balsamiq](https://balsamiq.com/) Used to develop wireframes for the website.
 
-- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Microsoft PowerPoint was used to develop the initial webiste proposal.
+- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Used to develop the initial webiste proposal.
 
-- [Affinity Designer](https://affinity.serif.com/en-gb/) Affinity Designer was used to edit images and identify hex colours for fonts and backgrounds.
+- [Affinity Designer](https://affinity.serif.com/en-gb/) Used to edit images and identify hex colours for fonts and backgrounds.
 
-- [Techsini](https://techsini.com/multi-mockup/index.php) Techsini was use to generate the README header image.
+- [Techsini](https://techsini.com/multi-mockup/index.php) Used to generate the README header image.
 
 
 
