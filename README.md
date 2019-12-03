@@ -270,10 +270,10 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 ### Manual Testing
 
-Throughout the development process Chrome developer tools were used to test for responsiveness on various screen sizes. After deployment android and iOS mobiles were used to test for functionality and layout, and Chrome, Edge and Firefox browsers to identify bugs.
+Throughout the development process Chrome was used to test for functionality and Chrome developer tools for layout and responsiveness on various screen sizes. Once deployed, the site was also tested on Edge, Firefox and Safari browers and on both android and iOS mobiles. 
 
+After sign-off, structured manual testing of the site was carried out on various browsers and screens sizes. Detailed plans were followed to ensure code was thoroughly tested. The order and languages tested was varied to minic user paths and ensure UX user stories were covered.
 
-After sign-off, structured manual testing of the site was carried out in various browsers and screens sizes. Detailed plans were followed to ensure code was fully tested. The order and languages tested was varied to minic user paths.
 
 **Distraction & User Management**
 
@@ -287,34 +287,30 @@ After sign-off, structured manual testing of the site was carried out in various
 | Sample Links | P | P | P | P | P | P | P |
 | Inspiration | P | P | P | P | P | P | P |
 | Music | P | P | P | P | P | P | P |
-| **NOTES - Register** | --- | --- | --- | --- | --- | --- | --- |
+| **REGISTER** | --- | --- | --- | --- | --- | --- | --- |
 | *Test - Order* | *2* | *4* | *6* | *1* | *10* | *1* | *3* |
 | Nav – 4 + Register | P | P | P | P | P | P | P |
 | Name - Validate| P | P | P | P | P | P | P |
 | Email - Validate | P | P | P | P | P | P | P |
 | Password - Validate | P | P | P | P | P | P | P |
 | Confirm - Validate | P | P | P | P | P | P | P |
-| Register -Home | P | P | P | P | P | P | P |
-| Register -Message| P | P | P | P | P | P | P |
-| Notes – 4 + Logout | P | P | P | P | P | P | P |
-| **NOTES - Login** | --- | --- | --- | --- | --- | --- | --- |
+| Register - Home Page | P | P | P | P | P | P | P |
+| Register - Message| P | P | P | P | P | P | P |
+| Nav – 4 + Logout | P | P | P | P | P | P | P |
+| **LOGIN** | --- | --- | --- | --- | --- | --- | --- |
 | *Test - Order* | *4* | *11* | *1* | *8* | *3* | *10* | *9* |
 | *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
-| Login - Register | P | P | P | P | P | P | P |
-| Login - Email | P | P | P | P | P | P | P |
-| Login - Password | P | P | P | P | P | P | P |
-| Login – Incorrect Message | P | P | P | P | P | P | P |
-| Login – Correct Message | P | P | P | P | P | P | P |
-| Login – Correct Language | P | P | P | P | P | P | P |
-| Login – Correct Notes | P | P | P | P | P | P | P |
-| Login – Nav – Register + Logout | P | P | P | P | P | P | P |
-| Login – Next Language | P | P | P | P | P | P | P |
-| Login – Back Language | P | P | P | P | P | P | P |
-| **LOGIN MANAGER** | --- | --- | --- | --- | --- | --- | --- |
+| Register - Link | P | P | P | P | P | P | P |
+| Email - Validate | P | P | P | P | P | P | P |
+| Password - Validate | P | P | P | P | P | P | P |
+| Login - Notes Page | P | P | P | P | P | P | P |
+| Login - Message | P | P | P | P | P | P | P |
+| Nav – 4 + Logout | P | P | P | P | P | P | P |
+| **LOGOUT** | --- | --- | --- | --- | --- | --- | --- |
 | *Test - Order* | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
-| Logout – Message| P | P | P | P | P | P | P |
-| Logout- Home | P | P | P | P | P | P | P |
-| Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
+| Logout - Home Page | P | P | P | P | P | P | P |
+| Logout - Message | P | P | P | P | P | P | P |
+| Nav – 4 + Register | P | P | P | P | P | P | P |
 
 P - Passed
 N/A - Not Applicable
