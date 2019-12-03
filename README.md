@@ -136,15 +136,15 @@ As per Code Institute’s requirements as
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
-| **_id** | *ObjectId* | - |  - | Auto |
+| **_id** | *ObjectId* | *N/A* |  N/A | Auto |
 | **language** | *String* | *Select* |Required | User |
 | **topic** | *String* | *Radio* |Required | User |
 | **url** | *String* | *String* | Required, URL | User |
 | **link_name** | *String* | *String* | Required | User |
 | **description** | *String* | *Text Area* | Optional | User |
 | **ratings** | *Int Array* | *Integer* | Required | User |
-| **check** | *Boolean* | - | - | Admin |
-| **flag** | *Boolean* | - | - | Admin/User |
+| **check** | *Boolean* | *N/A* | N/A | Admin |
+| **flag** | *Boolean* | *Button* | N/A | Admin/User |
 
 
 
