@@ -457,11 +457,11 @@ N/A - Not Applicable
 
 ## Deployment
 
-The website was developed in Visual Studio Code using a virtual environment.
+The website was developed in Visual Studio Code using a virtual environment and deployed to Heroku via GitHub.
 
 The following instructions to clone and deploy assume the user has:
 - IDE
-- Python
+- Python 3
 - Pip
 - Virtual Environment
 - GitHub Account
@@ -473,12 +473,12 @@ The following instructions to clone and deploy assume the user has:
 
 The following instructions were taken from [GitHib Help]( https://help.github.com/en/articles/cloning-a-repository).
 1. Open the [qwerty](https://github.com/coderbeez/qwerty) repository.
-2. Click the *clone or download* button.
-3. In the *clone with HTTPs* pop-up, click the copy icon.
-4. Open *git bash*.
+2. Click the **clone or download** button.
+3. In the **clone with HTTPs** pop-up, click the **copy icon**.
+4. Open **git bash**.
 5. Change the current working directory to where you want the cloned directory to be made.
-6. Type *git clone* and paste the URL copied earlier.
-7. Press *enter*. 
+6. Type **git clone** and paste the URL copied earlier.
+7. Press **enter**. 
 
 
 ### Create MongoDB Atlas Database
@@ -489,11 +489,14 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 4. Under **cluster/ overview** click **connect**.
 5. Click **connect your application**.
 6. Select **Python** as the **driver** and select the **version**.
-7. Copy the connection string `mongodb+srv://root:<password>@mysecondcluster-xkuqo.azure.mongodb.net/test?retryWrites=true&w=majority`
-8. Replace `<password>` with your **password** and `test` with your **database name**.
-9. Paste the string into your IDE environment file for local deployment. You will also need this for Heroku deployment.
+7. Copy the connection string `mongodb+srv://root:<password>@mysecondcluster-xkuqo.azure.mongodb.net/test?retryWrites=true&w=majority`.
 
 
+### IDE
+
+1. Add the `MONGO_URI` to your environment file for local deployment. Replace `<password>` with your **password** and `test` with your **database name**.
+2. Add a `SECRET_KEY` to your environment file.
+3. Use `pip install -r requirements.txt` to install requirements.
 
 
 ### Deploy to Heroku 
