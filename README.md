@@ -133,18 +133,18 @@ As per Code Institute’s requirements as
 
 
 2. **Links Collection**
- 
+
 | **NAME** | **TYPE** | **SOURCE** | **VALIDATION** | **EXAMPLE** |
 | --- | --- | --- | --- | --- |
-| _id | ObjectId | Auto | - | 5ddaf9c01c9d44000092fbce |
-| language | String | User selects from dropdown | Required | JavaScript |
-| topic | String | User selects from radio buttons | Required | JavaScript |
-| url | String | User enters | Required, URL |https://www.w3schools.com/js/js_exercises.asp |
-| link_name | String | User enters | Required | W3Schools Exercises |
-| description | String | User enters | Optional | Try to solve an exercise by editing some code. Get a "hint" if you're stuck, or show the answer to see what you've done wrong. |
-| ratings | Array of Int32  | User clicks star icon | Required | W3Schools Exercises |
-| check | Boolean | Admin updates | Required - Default True | True |
-| flag | Boolean | User clicks tool icon | Required - Default False | False |
+| **_id** | *ObjectId* | Auto | - | 5ddaf9c01c9d44000092fbce |
+| **language** | *String* | User selects from dropdown | Required | JavaScript |
+| **topic** | *String* | User selects from radio buttons | Required | JavaScript |
+| **url** | *String* | User enters | Required, URL |https://www.w3schools.com/js/js_exercises.asp |
+| **link_name** | *String* | User enters | Required | W3Schools Exercises |
+| **description** | *String* | User enters | Optional | Try to solve etc... |
+| **ratings** | *Int Array*  | User clicks star icon | Required | W3Schools Exercises |
+| **check** | *Boolean* | Admin updates | Default True | True |
+| **flag** | *Boolean* | User clicks tool icon | Default False | False |
 
 
 
@@ -409,6 +409,47 @@ To following steps were taken to deploy to GitHub:
 5. Clicked the *settings* tab.
 3. Under *github pages* selected *master branch* as *source*.
 5. *”Your site is published at (https://coderbeez.github.io/trigg4tables/)”* became visible in the *github pages* header after approximately 5 minutes.
+
+
+
+Readme
+Heroku Deploy 
+- 
+- 
+- Create a new app on heroku
+- Link to github (verses push directly to heroku) Go to Heroku site/Deploy/Github/
+- Choose manual or automatic deployment
+- Heroku site/Settings - shows URL
+TERMINAL ENV 
+1. heroku
+2. heroku login
+3. not prompted for email & password???
+press any key to open browser - enter username & password in browser
+return to terminal when prompted
+4. heroku apps (lists all apps)
+5. python -m pip freeze --local > requirements.txt       Create requirements.txt  
+6. echo web: python app.py > Procfile        Create Procfile
+7. Ensure UTF-8
+
+Add runtime.txt file to select correct python version during deployment (python-3.7.4)
+
+8. Push requirements.txt and Procfile runtime.txt to github
+
+browser - 
+
+9. heroku ps:scale web=1 -a coderbeez-qwerty
+
+- Set config vars on heroku
+Heroku Site/Settings/Config Vars/ 
+key is IP value is 0.0.0.0 
+Add key is Port value is 5000/key
+Add mongo uri key and value
+Add secret key key and value
+
+- Final steps to deploy
+
+Heroku site - manual deploy
+
 
 
 
