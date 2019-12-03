@@ -244,7 +244,7 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 ## Testing
 
 
-### Validation & Manual Testing
+### Validation
 
 
 **HTML**
@@ -259,22 +259,114 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 [Autoprefixer CSS](https://autoprefixer.github.io/) Used to ensure all relevant vendor prefixes included.
 
 
-**JAVASCRIPT**
+**JavaScript**
 
 [JSHint](https://jshint.com/) Used to test the validity of JavaScript functions – no errors found.
 
 
-**PYTHON**
+**Python**
 ???
 
 
-**MANUAL TESTING**
+### MANUAL TESTING
 
 Throughout the development process Chrome developer tools were used to test for responsiveness on various screen sizes. After deployment android and iOS mobiles were used to test for functionality and layout, and Chrome, Edge and Firefox browsers to identify bugs.
 
 
-After sign-off, structured manual testing of the site was carried out in various browsers and screens sizes following a user from start to finish. This single user path approach was adopted as users progress through the site in a very prescribed way. The detailed plan allowed for Python and Javascript code to be fully tested.
+After sign-off, structured manual testing of the site was carried out in various browsers and screens sizes. Detailed plans were followed to ensure code was fully tested. The order and languages tested was varied to minic user paths.
 
+
+| **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
+| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
+| Site Load | P | P | P | P | P | P | P |
+| **DISTRACTIONS** | *1* | *6* | *4* | *11* | *1* | *11* | *2* |
+| Quote | P | P | P | P | P | P | P |
+| Sample Links | P | P | P | P | P | P | P |
+| Inspiration | P | P | P | P | P | P | P |
+| Music | P | P | P | P | P | P | P |
+| **NOTES - Register** | *2* | *4* | *6* | *1* | *10* | *1* | *3* |
+| Nav – 4 + Register | P | P | P | P | P | P | P |
+| Name - Validate| P | P | P | P | P | P | P |
+| Email - Validate | P | P | P | P | P | P | P |
+| Password - Validate | P | P | P | P | P | P | P |
+| Confirm - Validate | P | P | P | P | P | P | P |
+| Register -Home | P | P | P | P | P | P | P |
+| Register -Message| P | P | P | P | P | P | P |
+| Notes – 4 + Logout | P | P | P | P | P | P | P |
+| **NOTES - Login** | *4* | *11* | *1* | *8* | *3* | *10* | *9* |
+| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
+| Login - Register | P | P | P | P | P | P | P |
+| Login - Email | P | P | P | P | P | P | P |
+| Login - Password | P | P | P | P | P | P | P |
+| Login – Incorrect Message | P | P | P | P | P | P | P |
+| Login – Correct Message | P | P | P | P | P | P | P |
+| Login – Correct Language | P | P | P | P | P | P | P |
+| Login – Correct Notes | P | P | P | P | P | P | P |
+| Login – Nav – Register + Logout | P | P | P | P | P | P | P |
+| Login – Next Language | P | P | P | P | P | P | P |
+| Login – Back Language | P | P | P | P | P | P | P |
+| **NOTES - READ** | *5* | *8* | *2* | *4* | *4* | *3* | *4* |
+| Accordion - List | P | P | P | P | P | P | P |
+| Search Results – Message | P | P | P | P | P | P | P |
+| Search Results – List | P | P | P | P | P | P | P |
+| Search No Results – Message | P | P | P | P | P | P | P |
+| Search Clear – Message | P | P | P | P | P | P | P |
+| Search Clear – List | P | P | P | P | P | P | P |
+| **NOTES - EDIT** | *6* | *7* | *8* | *9* | *6* | *4* | *5* |
+| Edit | Topic | Title | Content | All | Topic | Title | Content |
+| Message | P | P | P | P | P | P | P |
+| Changed | P | P | P | P | P | P | P |
+| **NOTES - DELETE** | *7* | *9* | *3* | *10* | *11* | *5* | *11* |
+| Message | P | P | P | P | P | P | P |
+| Deleted | P | P | P | P | P | P | P |
+| **NOTES - CREATE** | *8* | *5* | *7* | *5* | *8* | *2* | *10*|
+| Topic – List | P | P | P | P | P | P | P |
+| Topic – Validate | P | P | P | P | P | P | P |
+| Title – Validate | P | P | P | P | P | P | P |
+| Content – Validate | P | P | P | P | P | P | P |
+| Save – Message | P | P | P | P | P | P | P |
+| Save – Saved | P | P | P | P | P | P | P |
+| **LINKS - READ** | *9* | *1* | *9* | *2* | *2* | *8* | *6* |
+| Language | CSS | JS | Python | HTML| CSS | JS | Python |
+| Accordion - List | P | P | P | P | P | P | P |
+| Search Results – Message | P | P | P | P | P | P | P |
+| Search Results – List | P | P | P | P | P | P | P |
+| Search No Results – Message | P | P | P | P | P | P | P |
+| Search Clear – Message | P | P | P | P | P | P | P |
+| Search Clear – List | P | P | P | P | P | P | P |
+| **LINKS - EDIT** | *10* | *2* | *10*  | *3* | *5* | *9* | *7* |
+| Rate - Hover | P | P | P | P | P | P | P |
+| Rate – Time Delay | P | P | P | P | P | P | P |
+| Rate – Message | P | P | P | P | P | P | P |
+| Rate – Average & Total | P | P | P | P | P | P | P |
+| Flag - Hover | P | P | P | P | P | P | P |
+| Flag – Time Delay | P | P | P | P | P | P | P |
+| Flag – Message | P | P | P | P | P | P | P |
+| Flag – MongoDB | P | P | P | P | P | P | P |
+| **LINKS - ADD** | *11* | *3* | *11* | *6* | *7* | *7* | *1* |
+| Topic– List | P | P | P | P | P | P | P |
+| Topic– List | P | P | P | P | P | P | P |
+| Type – Validate | P | P | P | P | P | P | P |
+| URL – Validate | P | P | P | P | P | P | P |
+| Name – Validate | P | P | P | P | P | P | P |
+| Description– Validate | P | P | P | P | P | P | P |
+| Rate– Validate | P | P | P | P | P | P | P |
+| Save– Message | P | P | P | P | P | P | P |
+| Save– Saved | P | P | P | P | P | P | P |
+| **LOGIN MANAGER** | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
+| Logout – Message| P | P | P | P | P | P | P |
+| Logout- Home | P | P | P | P | P | P | P |
+| Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
+
+*Italics* - Order
+P - Passed
+N/A - Not Applicable
+
+
+
+**JavaScript**
 
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -314,105 +406,15 @@ After sign-off, structured manual testing of the site was carried out in various
 | Accordion – Level 3 | P | P | P | P | P | P | P |
 | Accordion – Visible Target | P | P | P | P | P | P | P |
 | **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
-| Rate - Hover | P | P | P | P | P | P | P |
+| Rate - Hover | N/A | N/A | N/A | P | P | P | P |
 | Rate – Click | P | P | P | P | P | P | P |
-| Flag - Hover | P | P | P | P | P | P | P |
+| Flag - Hover | N/A | N/A | N/A | P | P | P | P |
 | Flag – Click | P | P | P | P | P | P | P |
 
-
-
-| **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
-| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
-| Site Load | P | P | P | P | P | P | P |
-| **DISTRACTIONS** | --- | --- | --- | --- | --- | --- | --- |
-| Quote | P | P | P | P | P | P | P |
-| Sample Links | P | P | P | P | P | P | P |
-| Inspiration | P | P | P | P | P | P | P |
-| Music | P | P | P | P | P | P | P |
-| **NOTES - Register** | --- | --- | --- | --- | --- | --- | --- |
-| Nav – 4 + Register | P | P | P | P | P | P | P |
-| Name - Validate| P | P | P | P | P | P | P |
-| Email - Validate | P | P | P | P | P | P | P |
-| Password - Validate | P | P | P | P | P | P | P |
-| Confirm - Validate | P | P | P | P | P | P | P |
-| Register -Home | P | P | P | P | P | P | P |
-| Register -Message| P | P | P | P | P | P | P |
-| Notes – Blank | P | P | P | P | P | P | P |
-| Notes – Logout | P | P | P | P | P | P | P |
-| **NOTES - Login** | --- | --- | --- | --- | --- | --- | --- |
-| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
-| Login - Register | P | P | P | P | P | P | P |
-| Login - Email | P | P | P | P | P | P | P |
-| Login - Password | P | P | P | P | P | P | P |
-| Login – Incorrect Message | P | P | P | P | P | P | P |
-| Login – Correct Message | P | P | P | P | P | P | P |
-| Login – Correct Language | P | P | P | P | P | P | P |
-| Login – Correct Notes | P | P | P | P | P | P | P |
-| Login – Nav – Register + Logout | P | P | P | P | P | P | P |
-| Login – Next Language | P | P | P | P | P | P | P |
-| Login – Back Language | P | P | P | P | P | P | P |
-| **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
-| Accordion - List | P | P | P | P | P | P | P |
-| Search Results – Message | P | P | P | P | P | P | P |
-| Search Results – List | P | P | P | P | P | P | P |
-| Search No Results – Message | P | P | P | P | P | P | P |
-| Search Clear – Message | P | P | P | P | P | P | P |
-| Search Clear – List | P | P | P | P | P | P | P |
-| **NOTES - EDIT** | --- | --- | --- | --- | --- | --- | --- |
-| Edit | Topic | Title | Content | All | Topic | Title | Content |
-| Message | P | P | P | P | P | P | P |
-| Changed | P | P | P | P | P | P | P |
-| **NOTES - DELETE** | --- | --- | --- | --- | --- | --- | --- |
-| Message | P | P | P | P | P | P | P |
-| Deleted | P | P | P | P | P | P | P |
-| **NOTES - CREATE** | --- | --- | --- | --- | --- | --- | --- |
-| Topic – List | P | P | P | P | P | P | P |
-| Topic – Validate | P | P | P | P | P | P | P |
-| Title – Validate | P | P | P | P | P | P | P |
-| Content – Validate | P | P | P | P | P | P | P |
-| Save – Message | P | P | P | P | P | P | P |
-| Save – Saved | P | P | P | P | P | P | P |
-| **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
-| Language | CSS | JS | Python | HTML| CSS | JS | Python |
-| Accordion - List | P | P | P | P | P | P | P |
-| Search Results – Message | P | P | P | P | P | P | P |
-| Search Results – List | P | P | P | P | P | P | P |
-| Search No Results – Message | P | P | P | P | P | P | P |
-| Search Clear – Message | P | P | P | P | P | P | P |
-| Search Clear – List | P | P | P | P | P | P | P |
-| **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
-| Rate - Hover | P | P | P | P | P | P | P |
-| Rate – Time Delay | P | P | P | P | P | P | P |
-| Rate – Message | P | P | P | P | P | P | P |
-| Rate – Average & Total | P | P | P | P | P | P | P |
-| Flag - Hover | P | P | P | P | P | P | P |
-| Flag – Time Delay | P | P | P | P | P | P | P |
-| Flag – Message | P | P | P | P | P | P | P |
-| Flag – MongoDB | P | P | P | P | P | P | P |
-| **LINKS - ADD** | --- | --- | --- | --- | --- | --- | --- |
-| Topic– List | P | P | P | P | P | P | P |
-| Topic– List | P | P | P | P | P | P | P |
-| Type – Validate | P | P | P | P | P | P | P |
-| URL – Validate | P | P | P | P | P | P | P |
-| Name – Validate | P | P | P | P | P | P | P |
-| Description– Validate | P | P | P | P | P | P | P |
-| Rate– Validate | P | P | P | P | P | P | P |
-| Save– Message | P | P | P | P | P | P | P |
-| Save– Saved | P | P | P | P | P | P | P |
-| **LOGIN MANAGER** | --- | --- | --- | --- | --- | --- | --- |
-| Logout – Message| P | P | P | P | P | P | P |
-| Logout- Home | P | P | P | P | P | P | P |
-| Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
-
-
-
-*Italics* - Console Log 
-
 P - Passed
-
 N/A - Not Applicable
+
+
 
 ***11 12 13 14*** - Please see **Bug Log**
 
