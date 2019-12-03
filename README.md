@@ -241,34 +241,30 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 ### Backend Resources
 
-- [PyMongo](https://api.mongodb.com/python/current/) PyMongo was used to allow communication to MongoDB through Python.
+- [pip](https://pypi.org/project/pip/) pip was used to install Python modules.
 
+- [PyMongo](https://api.mongodb.com/python/current/) PyMongo was used to allow communication between Python and MongoDB.
 
 - [Flask](https://palletsprojects.com/p/flask/) Flask was the web application framework used. 
 
-
 - [Jinja](https://palletsprojects.com/p/jinja/) Jinja was the web template engine used. 
-
 
 - [WTForms](https://jquery.com/) WTForms was used for form rendering and validation???.
 
 - [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Flask-Bcrypt was used for hashing user passwords.
 
-
 - [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Flask-Login was used for user session management.
+
 
 ### Design Tools
 
 - [Balsamiq](https://balsamiq.com/) Balsamiq was used to develop wireframes for the website.
 
-- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Microsoft PowerPoint was used to develop the initial proposal.
+- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Microsoft PowerPoint was used to develop the initial webiste proposal.
 
 - [Affinity Designer](https://affinity.serif.com/en-gb/) Affinity Designer was used to edit images and identify hex colours for fonts and backgrounds.
 
 - [Techsini](https://techsini.com/multi-mockup/index.php) Techsini was use to generate the README header image.
-
-
-
 
 
 
