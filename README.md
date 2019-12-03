@@ -135,7 +135,6 @@ As per Code Institute’s requirements as
 2. **Links Collection**
 
 | **NAME** | **TYPE** | **SOURCE** | **VALIDATION** | **EXAMPLE** |
-| --- | --- | --- | --- | --- |
 | **_id** | *ObjectId* | Auto | - | 5ddaf9c01c9d44000092fbce |
 | **language** | *String* | User selects from dropdown | Required | JavaScript |
 | **topic** | *String* | User selects from radio buttons | Required | JavaScript |
