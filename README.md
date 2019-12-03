@@ -201,69 +201,42 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 ## Technologies & Programmes Used
 
-### Languages
-
+**Languages**
 - [HTML5](https://www.w3.org/)
-
 - [CSS3](https://www.w3.org/)
-
 - [JavaScript](http://www.ecma-international.org/)
-
 - [Python](https://www.python.org/)
 
-
-### Development Tools
-
+**Development Tools**
 - [Visual Studio Code](https://code.visualstudio.com/) IDE used.
-
 - [Git](https://git-scm.com/) Used to track changes in Visual Studio Code during development.
-
 - [GitHub](https://github.com/) Used to host the version control system and website content before deployment to Heroku????.
 
-
-### Hosting Platforms & Database
-
+**Hosting Platforms & Database**
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) Cloud based database service used.
-
 - [Heroku](https://www.heroku.com/) Cloud based hosting service used. 
 
 
-### Frontend Resources
-
+**Frontend Resources**
 - [Google Fonts](https://fonts.google.com/) Used for all fonts.
-
 - [Font Awesome](https://fontawesome.com/) Used for all icons.
-
 - [Bootstrap4](https://getbootstrap.com/) Used for responsive layout and styling.
-
 - [jQuery](https://jquery.com/) Used for DOM manipulation enabling accordion dark-mode functionality.
 
-
-### Backend Resources
-
+**Backend Resources**
 - [pip](https://pypi.org/project/pip/) Used to install Python modules.
-
 - [PyMongo](https://api.mongodb.com/python/current/) Used to allow communication between Python and MongoDB.
-
 - [Flask](https://palletsprojects.com/p/flask/) Web application framework used. 
-
 - [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
-
 - [WTForms](https://jquery.com/) Used for form rendering and validation???.
-
 - [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Used for hashing user passwords.
-
 - [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Used for user session management.
 
 
-### Design Tools
-
+**Design Tools**
 - [Balsamiq](https://balsamiq.com/) Used to develop wireframes for the website.
-
 - [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Used to develop the initial webiste proposal.
-
 - [Affinity Designer](https://affinity.serif.com/en-gb/) Used to edit images and identify hex colours for fonts and backgrounds.
-
 - [Techsini](https://techsini.com/multi-mockup/index.php) Used to generate the README header image.
 
 
@@ -306,8 +279,6 @@ After sign-off, structured manual testing of the site was carried out in various
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
-| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
-| Site Load | P | P | P | P | P | P | P |
 | **DARK MODE** | --- | --- | --- | --- | --- | --- | --- |
 | Dark Mode – On | P | P | P | P | P | P | P |
 | Background - Grey | P | P | P | P | P | P | P |
@@ -328,6 +299,33 @@ After sign-off, structured manual testing of the site was carried out in various
 | Link Hover - Stone | P | P | P | P | P | P | P |
 | Button – Stone + Grey Font | P | P | P | P | P | P | P |
 | Button Hover - Orange Font| P | P | P | P | P | P | P |
+| *Test Language* | *HTML* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* |
+| **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
+| Accordion - List | P | P | P | P | P | P | P |
+| Accordion – Level 1 | P | P | P | P | P | P | P |
+| Accordion – Level 2 | P | P | P | P | P | P | P |
+| Accordion – Level 3 | P | P | P | P | P | P | P |
+| Accordion – Visible Target | P | P | P | P | P | P | P |
+| *Test Language* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* | *Python* |
+| **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
+| Accordion - List | P | P | P | P | P | P | P |
+| Accordion – Level 1 | P | P | P | P | P | P | P |
+| Accordion – Level 2 | P | P | P | P | P | P | P |
+| Accordion – Level 3 | P | P | P | P | P | P | P |
+| Accordion – Visible Target | P | P | P | P | P | P | P |
+| **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
+| Rate - Hover | P | P | P | P | P | P | P |
+| Rate – Click | P | P | P | P | P | P | P |
+| Flag - Hover | P | P | P | P | P | P | P |
+| Flag – Click | P | P | P | P | P | P | P |
+
+
+
+| **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
+| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
+| Site Load | P | P | P | P | P | P | P |
 | **DISTRACTIONS** | --- | --- | --- | --- | --- | --- | --- |
 | Quote | P | P | P | P | P | P | P |
 | Sample Links | P | P | P | P | P | P | P |
@@ -357,10 +355,6 @@ After sign-off, structured manual testing of the site was carried out in various
 | Login – Back Language | P | P | P | P | P | P | P |
 | **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
 | Accordion - List | P | P | P | P | P | P | P |
-| Accordion – Level 1 | P | P | P | P | P | P | P |
-| Accordion – Level 2 | P | P | P | P | P | P | P |
-| Accordion – Level 3 | P | P | P | P | P | P | P |
-| Accordion – Visible Target | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
 | Search No Results – Message | P | P | P | P | P | P | P |
@@ -383,10 +377,6 @@ After sign-off, structured manual testing of the site was carried out in various
 | **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
 | Language | CSS | JS | Python | HTML| CSS | JS | Python |
 | Accordion - List | P | P | P | P | P | P | P |
-| Accordion – Level 1 | P | P | P | P | P | P | P |
-| Accordion – Level 2 | P | P | P | P | P | P | P |
-| Accordion – Level 3 | P | P | P | P | P | P | P |
-| Accordion – Visible Target | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
 | Search No Results – Message | P | P | P | P | P | P | P |
@@ -415,7 +405,7 @@ After sign-off, structured manual testing of the site was carried out in various
 | Logout – Message| P | P | P | P | P | P | P |
 | Logout- Home | P | P | P | P | P | P | P |
 | Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
-| **DARK MODE** | --- | --- | --- | --- | --- | --- | --- |
+
 
 
 *Italics* - Console Log 
