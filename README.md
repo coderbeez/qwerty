@@ -201,16 +201,6 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 ## Technologies & Programmes Used
 
-
-### Development Tools
-
-- [Visual Studio Code](https://code.visualstudio.com/) A source-code editor, Visual Studio Code was the IDE used.
-
-- [Git](https://git-scm.com/) A distributed version-control system for tracking changes in code during development, Git was used to track changes in Visual Studio Code.
-
-- [GitHub](https://github.com/) A web-based hosting service for version control using Git, GitHub was used to host the version control system and website content before deployment to Heroku????.
-
-
 ### Languages
 
 - [HTML5](https://www.w3.org/)
@@ -222,55 +212,63 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 - [Python](https://www.python.org/)
 
 
-## Hosting Platforms & Database
+### Development Tools
 
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) A cloud based NoSQL database service, MongoDB Atlas was the database service used.
+- [Visual Studio Code](https://code.visualstudio.com/) Visual Studio Code was the IDE used.
 
-- [Heroku](https://www.heroku.com/) A cloud platform as a service (PaaS) supporting several programming languages, Heroku was used to host the site.
+- [Git](https://git-scm.com/) Git was used to track changes in Visual Studio Code during development.
+
+- [GitHub](https://github.com/) GitHub was used to host the version control system and website content before deployment to Heroku????.
+
+
+### Hosting Platforms & Database
+
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) MongoDB Atlas was the cloud based database service used.
+
+- [Heroku](https://www.heroku.com/) Heroku was the cloud based hosting service used. 
 
 
 ### Frontend Resources
 
-- [Google Fonts](https://fonts.google.com/) A library of free licensed fonts, Google Fonts was used for all fonts.
+- [Google Fonts](https://fonts.google.com/) Google Fonts was used for all fonts.
 
-- [Font Awesome](https://fontawesome.com/) A font and icon toolkit, Font Awesome was used for all icons.
+- [Font Awesome](https://fontawesome.com/) Font Awesome was used for all icons.
 
-- [Bootstrap4](https://getbootstrap.com/) A CSS framework directed at responsive, mobile-first front-end web development, Bootstrap was used for layout and styling.
+- [Bootstrap4](https://getbootstrap.com/) Bootstrap was used for responsive layout and styling.
 
-- [jQuery](https://jquery.com/) A JavaScript library designed to manipulate HTML documents, JQuery was used to manipulate the DOM.
+- [jQuery](https://jquery.com/) JQuery was used for DOM manipulation providing the accordion and dark-mode functionality.
 
 
 ### Backend Resources
 
-- [PyMongo](https://api.mongodb.com/python/current/) A Python distribution containing tools for working with MongoDB, PyMongo was used to work with MongoDB from Python.
+- [PyMongo](https://api.mongodb.com/python/current/) PyMongo was used to allow communication to MongoDB through Python.
 
 
-- [Flask](https://palletsprojects.com/p/flask/) A micro web framework written in Python, Flask was the web application framework used.
+- [Flask](https://palletsprojects.com/p/flask/) Flask was the web application framework used. 
 
 
-- [Jinja](https://palletsprojects.com/p/jinja/) A web template engine for Python and Flask’s default, Jinja was the template engine used. 
+- [Jinja](https://palletsprojects.com/p/jinja/) Jinja was the web template engine used. 
 
 
-- [WTForms](https://jquery.com/) A flexible forms validation and rendering library for Python web development, WTForms was used here for form input handling and validation.
+- [WTForms](https://jquery.com/) WTForms was used for form rendering and validation???.
 
-- [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) A Flask extension that provides bcrypt hashing utilities, Flask-Bcrypt was used for hashing user passwords.
+- [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Flask-Bcrypt was used for hashing user passwords.
 
 
-- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Providing user session management for Flask, Flask-Login was used to manage logging in, out, and user sessions.
-
+- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Flask-Login was used for user session management.
 
 ### Design Tools
 
-- [Balsamiq](https://balsamiq.com/) A web based gui mock-up and website wireframe building application, Balsamiq was used to develop wireframes for the website.
+- [Balsamiq](https://balsamiq.com/) Balsamiq was used to develop wireframes for the website.
 
-- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) A presentation programme, Microsoft PowerPoint was used to develop the initial proposal.
+- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Microsoft PowerPoint was used to develop the initial proposal.
 
-- [Affinity Designer](https://affinity.serif.com/en-gb/) A vector graphics editor, Affinity Designer was used to edit images and identify hex colours for fonts and backgrounds.
+- [Affinity Designer](https://affinity.serif.com/en-gb/) Affinity Designer was used to edit images and identify hex colours for fonts and backgrounds.
 
-- [Techsini](https://techsini.com/multi-mockup/index.php) A multi device website mockup generator, Techsini was use to generate the README header image.
+- [Techsini](https://techsini.com/multi-mockup/index.php) Techsini was use to generate the README header image.
 
 
-*Technology explanations from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)** or technology’s own site.*
+
 
 
 
