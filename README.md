@@ -455,11 +455,18 @@ N/A - Not Applicable
 2. **iOS Tables** Initial keypad designs 
 
 
-### Deployment
-
+## Deployment
 
 The website was developed in Visual Studio Code using a virtual environment.
 
+The following instructions to clone and deploy assume the user has:
+- IDE
+- Python
+- Pip
+- Virtual Environment
+- GitHub Account
+- MongDB Atlas Account
+- Heroku Account
 
 
 ### Clone in GitHub
@@ -476,23 +483,33 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ### Create MongoDB Atlas Database
 
+1. On the MongoDB site log into your account.
+2. Under **cluster/ collections** click **create database** and enter a **database name** and **collection name**.
+3. Click **create collection** to add more collections as per the database design above.
+4. Under **cluster/ overview** click **connect**.
+5. Click **connect your application**.
+6. Select **Python** as the **driver** and select the **version**.
+7. Copy the connection string `mongodb+srv://root:<password>@mysecondcluster-xkuqo.azure.mongodb.net/test?retryWrites=true&w=majority`
+8. Replace `<password>` with your **password** and `test` with your **database name**.
+9. Paste the string into your IDE environment file for local deployment. You will also need this for Heroku deployment.
+
 
 
 
 ### Deploy to Heroku 
 
-1. On the Heroku site log into your Heroku account.
+1. On the Heroku site log into your account.
 2. Click **new** and **create new app**.
 3. Give your app a **name** (it must be unique), select a **region** and click **create app**.
 4. Under **deployment method** click **GitHub**.
 5. Under **connect to GitHub** select your **repository**, enter the **repo-name** and click **search**.
 6. Click the **connect** button that appears under your repository and repo-name.
-7. Under **settings/config vars** click **reveal vars**.
+7. Under **settings/ config vars** click **reveal vars**.
 8. Enter **IP** for key, **0.0.0.0** for value and click **add**.
 10. Enter **MONGO_URI** for key, **your uri** for value and click **add**.
 11. Enter **SECRET_KEY** for key, **your secret key** for value and click **add**.
 12. Under **deploy/ manual deploy** click **deploy branch**.
-13. Under **resources/ free dynos** click **edit/ confirm**. 
+13. Under **resources/ free dynos** click **edit** and **confirm**. 
 
 
 ## Credits
