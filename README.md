@@ -472,7 +472,7 @@ The following instructions to clone and deploy assume the user has:
 ### Clone in GitHub
 
 The following instructions were taken from [GitHib Help]( https://help.github.com/en/articles/cloning-a-repository).
-1. Open the [qwerty](https://github.com/coderbeez/qwerty) repository.
+1. Open the [Qwerty](https://github.com/coderbeez/qwerty) repository.
 2. Click the **clone or download** button.
 3. In the **clone with HTTPs** pop-up, click the **copy icon**.
 4. Open **git bash**.
@@ -483,7 +483,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ### Create MongoDB Atlas Database
 
-1. On the MongoDB site log into your account.
+1. On the [MongoDB](https://cloud.mongodb.com/user#/atlas/login) website log into your Atlas account.
 2. Under **cluster/ collections** click **create database** and enter a **database name** and **collection name**.
 3. Click **create collection** to add more collections as per the database design above.
 4. Under **cluster/ overview** click **connect**.
@@ -492,7 +492,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 7. Copy the connection string `mongodb+srv://root:<password>@mysecondcluster-xkuqo.azure.mongodb.net/test?retryWrites=true&w=majority`.
 
 
-### IDE
+### IDE Development Setup
 
 1. Add the `MONGO_URI` to your environment file for local deployment. Replace `<password>` with your **password** and `test` with your **database name**.
 2. Add a `SECRET_KEY` to your environment file.
@@ -501,7 +501,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ### Deploy to Heroku 
 
-1. On the Heroku site log into your account.
+1. On the [Heroku](https://id.heroku.com/login) website log into your account.
 2. Click **new** and **create new app**.
 3. Give your app a **name** (it must be unique), select a **region** and click **create app**.
 4. Under **deployment method** click **GitHub**.
@@ -535,42 +535,27 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 
 ### Code
-* JS stop reloading page with enter key from [Stack Overflow](https://stackoverflow.com/questions/8866053/stop-reloading-page-with-enter-key).
+* JS On page load event from [Stack Overflow](https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working).
 
-* JS audio set current time from [Stack Overflow](https://stackoverflow.com/questions/9563887/setting-html5-audio-position).
+* JS Check if an element is hidden from [Stack Overflow](https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery).
 
-* JS random array sorting from [w3schools](https://www.w3schools.com/js/js_array_sort.asp).
+* JS Show hide elements by data attributes from [Stack Overflow](https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute).
 
-* JS timer based on code from [Codepad](https://codepad.co/snippet/javascript-stopwatch-using-javascript-and-css).
+* JS Get data attributes in jquery from [Code Project](https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery).
 
-* JS short date format from [Stack Overflow](https://stackoverflow.com/questions/8398897/how-to-get-current-date-in-jquery).
+* JS Check and uncheck inputs or radios from [Learn jQuery](https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/).
 
-* JS canvas to blob and blob to png from [Stack Overflow](https://stackoverflow.com/questions/48054723/saving-canvas-as-blob-and-then-blob-as-file).
+* JS Define css hover in jquery from [Stack Overfow](https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector).
 
-* JS value from selected radio button from [Stack Overflow](https://stackoverflow.com/questions/8622336/jquery-get-value-of-selected-radio-button).
+* JS Not class selector in jquery from [Stack Overfow](https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery).
 
-* JS refresh page from [Stack Overflow](https://stackoverflow.com/questions/5404839/how-can-i-refresh-a-page-with-jquery).
+* JS Read value local storage on load from [Stack Overfow](https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready).
 
-* JS stop YouTube video with jQuery [Stack Overflow](https://stackoverflow.com/questions/2128535/stop-a-youtube-video-with-jquery).
+* JS Clear local storage from [Stack Overfow](https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data).
 
-* JS check element does not have class with jQuery [Stack Overflow](https://stackoverflow.com/questions/7841048/how-to-check-if-an-element-does-not-have-a-specific-class).
 
-* JS multiple values in data element [Stack Overflow](https://stackoverflow.com/questions/34455085/can-i-have-multiple-values-in-one-html-data-element).
-* JS preload images [thonky](https://www.thonky.com/javascript-and-css-guide/javascript-image-preload).
 
-* JS unit test a document ready function using Jasmine [Stack Overflow](https://stackoverflow.com/questions/29153733/how-to-unit-test-a-document-ready-function-using-jasmine).
 
-* JS calling an inner function [Stack Overflow](https://stackoverflow.com/questions/13218472/calling-a-function-defined-inside-another-function-in-javascript).
-
-* CSS text shadow from [designshack](https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/).
-* CSS box shadow from [codepen](https://codepen.io/sdthornton/pen/wBZdXq).
-* CSS colours from [color hex](https://www.color-hex.com/color/cfb4b2).
-* CSS button press formatting [Stack Overflow](https://stackoverflow.com/questions/38377062/how-to-make-html-button-look-pressed-in-using-css).
-* CSS iOS styling input field fix from [daretothink](https://www.daretothink.co.uk/stop-ios-styling-your-input-fields-and-buttons).
-
-* CSS iOS styling radio buttons fix from [sitepoint](https://www.sitepoint.com/replacing-radio-buttons-without-replacing-radio-buttons/).
-
-* HTML disable related videos on YouTube embed from [YouTube](https://www.youtube.com/watch?v=ZUTzJG212Vo).
 
 
 
