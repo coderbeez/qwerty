@@ -457,6 +457,7 @@ N/A - Not Applicable
 
 ### Deployment
 
+**GitHub**
 
 The website was developed in Visual Studio Code, stored in Git and pushed to the hosting platform GitHub.
 To following steps were taken to deploy to GitHub:
@@ -465,51 +466,7 @@ To following steps were taken to deploy to GitHub:
 3. Ensured the *html page* was named *index.html*.
 4. Ensured the *readme.md* had some text.
 5. Clicked the *settings* tab.
-3. Under *github pages* selected *master branch* as *source*.
-5. *”Your site is published at (https://coderbeez.github.io/trigg4tables/)”* became visible in the *github pages* header after approximately 5 minutes.
-
-
-
-Readme
-Heroku Deploy 
-- 
-- 
-- Create a new app on heroku
-- Link to github (verses push directly to heroku) Go to Heroku site/Deploy/Github/
-- Choose manual or automatic deployment
-- Heroku site/Settings - shows URL
-TERMINAL ENV 
-1. heroku
-2. heroku login
-3. not prompted for email & password???
-press any key to open browser - enter username & password in browser
-return to terminal when prompted
-4. heroku apps (lists all apps)
-5. python -m pip freeze --local > requirements.txt       Create requirements.txt  
-6. echo web: python app.py > Procfile        Create Procfile
-7. Ensure UTF-8
-
-Add runtime.txt file to select correct python version during deployment (python-3.7.4)
-
-8. Push requirements.txt and Procfile runtime.txt to github
-
-browser - 
-
-9. heroku ps:scale web=1 -a coderbeez-qwerty
-
-- Set config vars on heroku
-Heroku Site/Settings/Config Vars/ 
-key is IP value is 0.0.0.0 
-Add key is Port value is 5000/key
-Add mongo uri key and value
-Add secret key key and value
-
-- Final steps to deploy
-
-Heroku site - manual deploy
-
-
-
+6. Under *github pages* selected *master branch* as *source*.
 
 ### Cloning 
 
@@ -523,6 +480,31 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 6. Type *git clone* and paste the URL copied earlier.
 7. Press *enter*. 
 
+### Deploy to Heroku 
+
+1. On the Heroku site log into your Heroku account.
+2. Click **new** and **create new app**.
+3. Give your app a **name** (it must be unique), select a **region** and click **create app**.
+4. Under **deployment method** click **GitHub**.
+5. Under **connect to GitHub** select your **repository**, enter the **repo-name** and click **search**.
+6. Click the **connect** button that appears under your repository and repo-name.
+7. Under **settings/config vars** click **reveal vars**.
+8. Enter **IP** for key, **0.0.0.0** for value and click **add**.
+9. Enter **Port** for key, **5000** for value and click **add**.
+10. Enter **MONGO_URI** for key, **your uri** for value and click **add**.
+11. Enter **SECRET_KEY** for key, **your secret key** for value and click **add**.
+12. Open a terminal window in your virtual environment and type `heroku login??`.
+13. As per prompt press any key to open a browser. 
+14. Enter your **username** and **password** in the browser.
+15. Return to your terminal when prompted.
+16. Type `heroku apps` to list all apps.
+17. Type `python -m pip freeze --local > requirements.txt` to create a requirements file.
+18. Type `echo web: python app.py > Procfile` to create a procfile (ensure UTF-8).
+19. Create a **runtime.txt** file to select the correct Python version during deployment, eg `python-3.7.8`.
+20. Push requirements, procfile and runtime to GitHub.
+21. Ensure set to `app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)` in your app.py file during development.
+22. Type `heroku ps:scale web=1 -a your-app-name` in your terminal.
+23. Under **deply/ manual deploy** click **deploy branch**.
 
 
 ## Credits
