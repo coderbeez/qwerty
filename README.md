@@ -125,11 +125,12 @@ As per Code Institute’s requirements as
 
 1. **Languages Collection** Using 
 
-| **NAME** | **TYPE** | **EXAMPLE** |
-| --- | --- | --- |
-| _id | ObjectId | 5dbd76e01c9d440000cb52ae |
-| language | String | JavaScript |
-| topics | Array of Strings | Fundamentals, Dashboards, Jasmine, jQuery, Maps, SVGs |
+| **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
+| --- | --- | --- | --- | --- |
+| **_id** | ObjectId | N/A |  N/A | Auto |
+| **language** | String | N/A | N/A | Admin |
+| **topic** | Array Strings | N/A | N/A | Admin |
+
 
 
 2. **Links Collection**
@@ -137,28 +138,46 @@ As per Code Institute’s requirements as
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
 | **_id** | ObjectId | N/A |  N/A | Auto |
-| **language** | String | Select |Required | User |
+| **language** | String | N/A | N/A | User *(nav dropdown)* |
 | **topic** | String | Radio |Required | User |
 | **url** | String | String | Required, URL | User |
 | **link_name** | String | String | Required | User |
 | **description** | String | Text Area | Optional | User |
-| **ratings** | Array Ints | Integer | Required | User |
-| **check** | Boolean | N/A | N/A | Admin |
-| **flag** | Boolean | Button | N/A | Admin/User |
-
-
-
-
+| **ratings** | Array Integers | Integer | Required | User |
+| **check** | Boolean | N/A | N/A | Auto*(default False)*/ Admin |
+| **flag** | Boolean | Button | N/A | Auto*(default False)*/ User/ Admin |
 
 
 2. **Notes Collection** CSS 
-![Notes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/notes.png)
 
-3. **Links Collection** The
-![Links Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/links.png)
+| **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
+| --- | --- | --- | --- | --- |
+| **_id** | ObjectId | N/A |  N/A | Auto |
+| **user_id** | ObjectId | N/A | N/A | User *(login)* |
+| **language** | String | N/A | N/A | User *(nav dropdown)* |
+| **topic** | String | Radio | Required | User |
+| **note_name** | String | String | Required | User |
+| **content** | String | Text Area | Required | User |
 
-4. **Quote Collection** Using the
-![Quotes Collection Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/quotes.png)
+
+3. **Quotes Collection** The
+
+| **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
+| --- | --- | --- | --- | --- |
+| **_id** | ObjectId | N/A |  N/A | Auto |
+| **quote** | String | N/A | N/A | Admin |
+| **author** | String | N/A | N/A | Admin |
+
+
+4. **Users Collection** Using the
+
+| **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
+| --- | --- | --- | --- | --- |
+| **_id** | ObjectId | N/A |  N/A | Auto |
+| **user_name** | String | String |Required, Length 2-20 | User |
+| **email** | String | String |Required, Email, Unique | User |
+| **password** | String (hashed) | Password | Required, Length 6-10, Match Confirm | User |
+
 
 
 
