@@ -202,54 +202,76 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 ## Technologies & Programmes Used
 
 
-1. [Balsamiq](https://balsamiq.com/) A web based gui mock-up and website wireframe building application, Balsamiq was used to develop wireframes for the website.
+###Development Tools###
 
-2. [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) A presentation programme, Microsoft PowerPoint was used to develop the initial proposal.
+- [Visual Studio Code](https://code.visualstudio.com/) A source-code editor, Visual Studio Code was the IDE used.
 
-3. [Microsoft Publisher](https://www.microsoft.com/en-ie/p/publisher/cfq7ttc0k7c3?=&OCID=AID737190_SEM_et3dNWB5&MarinID=set3dNWB5|340720498529|microsoft+publisher|e|c||62634787164|aud-312771920869:kwd-11150981&lnkd=Google_O365SMB_Mixed&gclid=EAIaIQobChMIrN6k04Kh4gIVxrDtCh0N7QGzEAAYASAAEgJqDfD_BwE&activetab=pivot%3Aoverviewtab) A desktop publishing application, Microsoft Publisher was used to create the README header image, Bootstrap plan and flow diagram.
+- [Git](https://git-scm.com/) A distributed version-control system for tracking changes in code during development, Git was used to track changes in Visual Studio Code.
 
-4. [Affinity Designer](https://affinity.serif.com/en-gb/) A vector graphics editor, Affinity Designer was used to edit images and identify hex colours for icons and backgrounds.
+- [GitHub](https://github.com/) A web-based hosting service for version control using Git, GitHub was used to host the version control system and website content before deployment to Heroku.
 
-6. [Google Fonts](https://fonts.google.com/) A library of free licensed fonts, Google Fonts was used for all fonts.
 
-7. [Font Awesome](https://fontawesome.com/) A font and icon toolkit, Font Awesome was used for all icons.
 
-7. [Techsini](https://techsini.com/multi-mockup/index.php) A multi device website mockup generator, Techsini was use to generate the README header image.
+###Languages###
 
-8. [Visual Studio Code](https://code.visualstudio.com/) A source-code editor, Visual Studio Code was the IDE used.
+- [HTML5](https://www.w3.org/)
 
-9. [Git](https://git-scm.com/) A distributed version-control system for tracking changes in code during development, Git was used to track changes in Visual Studio Code.
+- [CSS3](https://www.w3.org/)
 
-10. [GitHub](https://github.com/) A web-based hosting service for version control using Git, GitHub was used to host the version control system and website content.
+- [JavaScript](http://www.ecma-international.org/)
 
-15. [Heroku](https://www.heroku.com/) A cloud platform as a service (PaaS) supporting several programming languages, Heroku was used here to host.
+- [Python](https://www.python.org/)
 
-11. [HTML5](https://www.w3.org/) A document mark-up language, HTML was the language used.
 
-12. [CSS3](https://www.w3.org/) A style sheet language, CSS was the style sheet used.
+##Hosting Platforms & Database###
 
-14. [Bootstrap4](https://getbootstrap.com/) A CSS framework directed at responsive, mobile-first front-end web development, Bootstrap was used primarily for layout and styling.
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) A cloud based NoSQL database service, MongoDB Atlas was the database service used.
 
-13. [JavaScript](http://www.ecma-international.org/) A high-level, interpreted programming language that conforms to the ECMAScript specification, Javascript was used to provide interactivity.
+Hosting Platform
+- [Heroku](https://www.heroku.com/) A cloud platform as a service (PaaS) supporting several programming languages, Heroku was used to host the site.
 
-15. [jQuery](https://jquery.com/) A JavaScript library designed to manipulate HTML documents, JQuery was used here by Bootstrap, jCanvas and to manipulate the DOM.
 
-15. [Python](https://www.python.org/) An interpreted, high-level, general-purpose programming language, Python was used here as the????
+###Frontend Resources###
 
-15. [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) A cloud based NoSQL database service, MongoDB Atlas was the database service used.
+- [Google Fonts](https://fonts.google.com/) A library of free licensed fonts, Google Fonts was used for all fonts.
 
-15. [PyMongo](https://api.mongodb.com/python/current/) A Python distribution containing tools for working with MongoDB, PyMongo was used here to work with MongoDB from Python.
+- [Font Awesome](https://fontawesome.com/) A font and icon toolkit, Font Awesome was used for all icons.
 
-15. [Flask](https://palletsprojects.com/p/flask/) A micro web framework written in Python, Flask was the web application framework used.
+- [Bootstrap4](https://getbootstrap.com/) A CSS framework directed at responsive, mobile-first front-end web development, Bootstrap was used primarily for layout and styling.
 
-15. [Jinja](https://palletsprojects.com/p/jinja/) A web template engine for Python and Flask’s default, Jinja was the template engine used here. 
+- [jQuery](https://jquery.com/) A JavaScript library designed to manipulate HTML documents, JQuery was used here by Bootstrap, jCanvas and to manipulate the DOM.
 
-15. [WTForms](https://jquery.com/) A flexible forms validation and rendering library for Python web development, WTForms was used here for form input handling and validation.
 
-16. [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) A Flask extension that provides bcrypt hashing utilities, Flask-Bcrypt was used for hashing and decrypting user passwords.
+###Backend Resources###
 
-15. [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Providing user session management for Flask, Flask-Login was used here to manage logging in, logging out, and remembering users’ sessions.
+- [PyMongo](https://api.mongodb.com/python/current/) A Python distribution containing tools for working with MongoDB, PyMongo was used here to work with MongoDB from Python.
 
+
+- [Flask](https://palletsprojects.com/p/flask/) A micro web framework written in Python, Flask was the web application framework used.
+
+
+- [Jinja](https://palletsprojects.com/p/jinja/) A web template engine for Python and Flask’s default, Jinja was the template engine used here. 
+
+
+- [WTForms](https://jquery.com/) A flexible forms validation and rendering library for Python web development, WTForms was used here for form input handling and validation.
+
+- [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) A Flask extension that provides bcrypt hashing utilities, Flask-Bcrypt was used for hashing user passwords.
+
+
+- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Providing user session management for Flask, Flask-Login was used here to manage logging in, logging out, and remembering users’ sessions.
+
+
+###Design Tools###
+
+- [Balsamiq](https://balsamiq.com/) A web based gui mock-up and website wireframe building application, Balsamiq was used to develop wireframes for the website.
+
+- [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) A presentation programme, Microsoft PowerPoint was used to develop the initial proposal.
+
+- [Microsoft Publisher](https://www.microsoft.com/en-ie/p/publisher/cfq7ttc0k7c3?=&OCID=AID737190_SEM_et3dNWB5&MarinID=set3dNWB5|340720498529|microsoft+publisher|e|c||62634787164|aud-312771920869:kwd-11150981&lnkd=Google_O365SMB_Mixed&gclid=EAIaIQobChMIrN6k04Kh4gIVxrDtCh0N7QGzEAAYASAAEgJqDfD_BwE&activetab=pivot%3Aoverviewtab) A desktop publishing application, Microsoft Publisher was used to create the README header image, Bootstrap plan and flow diagram.
+
+- [Affinity Designer](https://affinity.serif.com/en-gb/) A vector graphics editor, Affinity Designer was used to edit images and identify hex colours for icons and backgrounds.
+
+- [Techsini](https://techsini.com/multi-mockup/index.php) A multi device website mockup generator, Techsini was use to generate the README header image.
 
 
 *Technology explanations from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)** or technology’s own site.*
