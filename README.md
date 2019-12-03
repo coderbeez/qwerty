@@ -457,28 +457,27 @@ N/A - Not Applicable
 
 ### Deployment
 
-**GitHub**
 
-The website was developed in Visual Studio Code, stored in Git and pushed to the hosting platform GitHub.
-To following steps were taken to deploy to GitHub:
-1. Opened the qwerty *repository*.
-2. Ensured the *master branch* was present.
-3. Ensured the *html page* was named *index.html*.
-4. Ensured the *readme.md* had some text.
-5. Clicked the *settings* tab.
-6. Under *github pages* selected *master branch* as *source*.
+The website was developed in Visual Studio Code using a virtual environment.
 
-### Cloning 
 
+
+### Clone in GitHub
 
 The following instructions were taken from [GitHib Help]( https://help.github.com/en/articles/cloning-a-repository).
-1. Open the [trigg4tables](https://github.com/coderbeez/trigg4tables) repository.
+1. Open the [qwerty](https://github.com/coderbeez/qwerty) repository.
 2. Click the *clone or download* button.
 3. In the *clone with HTTPs* pop-up, click the copy icon.
 4. Open *git bash*.
 5. Change the current working directory to where you want the cloned directory to be made.
 6. Type *git clone* and paste the URL copied earlier.
 7. Press *enter*. 
+
+
+### Create MongoDB Atlas Database
+
+
+
 
 ### Deploy to Heroku 
 
@@ -490,21 +489,10 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 6. Click the **connect** button that appears under your repository and repo-name.
 7. Under **settings/config vars** click **reveal vars**.
 8. Enter **IP** for key, **0.0.0.0** for value and click **add**.
-9. Enter **Port** for key, **5000** for value and click **add**.
 10. Enter **MONGO_URI** for key, **your uri** for value and click **add**.
 11. Enter **SECRET_KEY** for key, **your secret key** for value and click **add**.
-12. Open a terminal window in your virtual environment and type `heroku login??`.
-13. As per prompt press any key to open a browser. 
-14. Enter your **username** and **password** in the browser.
-15. Return to your terminal when prompted.
-16. Type `heroku apps` to list all apps.
-17. Type `python -m pip freeze --local > requirements.txt` to create a requirements file.
-18. Type `echo web: python app.py > Procfile` to create a procfile (ensure UTF-8).
-19. Create a **runtime.txt** file to select the correct Python version during deployment, eg `python-3.7.8`.
-20. Push requirements, procfile and runtime to GitHub.
-21. Ensure set to `app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)` in your app.py file during development.
-22. Type `heroku ps:scale web=1 -a your-app-name` in your terminal.
-23. Under **deply/ manual deploy** click **deploy branch**.
+12. Under **deploy/ manual deploy** click **deploy branch**.
+13. Under **resources/ free dynos** click **edit/ confirm**. 
 
 
 ## Credits
