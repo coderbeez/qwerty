@@ -281,12 +281,14 @@ After sign-off, structured manual testing of the site was carried out in various
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
 | Site Load | P | P | P | P | P | P | P |
-| **DISTRACTIONS** | *1* | *6* | *4* | *11* | *1* | *11* | *2* |
+| **DISTRACTIONS** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *1* | *6* | *4* | *11* | *1* | *11* | *2* |
 | Quote | P | P | P | P | P | P | P |
 | Sample Links | P | P | P | P | P | P | P |
 | Inspiration | P | P | P | P | P | P | P |
 | Music | P | P | P | P | P | P | P |
-| **NOTES - Register** | *2* | *4* | *6* | *1* | *10* | *1* | *3* |
+| **NOTES - Register** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *2* | *4* | *6* | *1* | *10* | *1* | *3* |
 | Nav – 4 + Register | P | P | P | P | P | P | P |
 | Name - Validate| P | P | P | P | P | P | P |
 | Email - Validate | P | P | P | P | P | P | P |
@@ -295,8 +297,9 @@ After sign-off, structured manual testing of the site was carried out in various
 | Register -Home | P | P | P | P | P | P | P |
 | Register -Message| P | P | P | P | P | P | P |
 | Notes – 4 + Logout | P | P | P | P | P | P | P |
-| **NOTES - Login** | *4* | *11* | *1* | *8* | *3* | *10* | *9* |
-| Test Language | HTML | CSS | JS | Python| HTML | CSS | JS |
+| **NOTES - Login** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
+| *Test - Order* | *4* | *11* | *1* | *8* | *3* | *10* | *9* |
 | Login - Register | P | P | P | P | P | P | P |
 | Login - Email | P | P | P | P | P | P | P |
 | Login - Password | P | P | P | P | P | P | P |
@@ -307,36 +310,42 @@ After sign-off, structured manual testing of the site was carried out in various
 | Login – Nav – Register + Logout | P | P | P | P | P | P | P |
 | Login – Next Language | P | P | P | P | P | P | P |
 | Login – Back Language | P | P | P | P | P | P | P |
-| **NOTES - READ** | *5* | *8* | *2* | *4* | *4* | *3* | *4* |
+| **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *5* | *8* | *2* | *4* | *4* | *3* | *4* |
 | Accordion - List | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
 | Search No Results – Message | P | P | P | P | P | P | P |
 | Search Clear – Message | P | P | P | P | P | P | P |
 | Search Clear – List | P | P | P | P | P | P | P |
-| **NOTES - EDIT** | *6* | *7* | *8* | *9* | *6* | *4* | *5* |
-| Edit | Topic | Title | Content | All | Topic | Title | Content |
+| **NOTES - EDIT** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *6* | *7* | *8* | *9* | *6* | *4* | *5* |
+| *Test - Edit* | *Topic* | *Title* | *Content* | *All* | *Topic* | *Title* | *Content* |
 | Message | P | P | P | P | P | P | P |
 | Changed | P | P | P | P | P | P | P |
-| **NOTES - DELETE** | *7* | *9* | *3* | *10* | *11* | *5* | *11* |
+| **NOTES - DELETE** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *7* | *9* | *3* | *10* | *11* | *5* | *11* |
 | Message | P | P | P | P | P | P | P |
 | Deleted | P | P | P | P | P | P | P |
-| **NOTES - CREATE** | *8* | *5* | *7* | *5* | *8* | *2* | *10*|
+| **NOTES - CREATE** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *8* | *5* | *7* | *5* | *8* | *2* | *10*|
 | Topic – List | P | P | P | P | P | P | P |
 | Topic – Validate | P | P | P | P | P | P | P |
 | Title – Validate | P | P | P | P | P | P | P |
 | Content – Validate | P | P | P | P | P | P | P |
 | Save – Message | P | P | P | P | P | P | P |
 | Save – Saved | P | P | P | P | P | P | P |
-| **LINKS - READ** | *9* | *1* | *9* | *2* | *2* | *8* | *6* |
-| Language | CSS | JS | Python | HTML| CSS | JS | Python |
+| **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Language* | *CSS* | *JS* | *Python* | *HTML*| *CSS* | *JS* | *Python* |
+| *Test - Order* | *9* | *1* | *9* | *2* | *2* | *8* | *6* |
 | Accordion - List | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
 | Search No Results – Message | P | P | P | P | P | P | P |
 | Search Clear – Message | P | P | P | P | P | P | P |
 | Search Clear – List | P | P | P | P | P | P | P |
-| **LINKS - EDIT** | *10* | *2* | *10*  | *3* | *5* | *9* | *7* |
+| **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *10* | *2* | *10*  | *3* | *5* | *9* | *7* |
 | Rate - Hover | P | P | P | P | P | P | P |
 | Rate – Time Delay | P | P | P | P | P | P | P |
 | Rate – Message | P | P | P | P | P | P | P |
@@ -345,7 +354,8 @@ After sign-off, structured manual testing of the site was carried out in various
 | Flag – Time Delay | P | P | P | P | P | P | P |
 | Flag – Message | P | P | P | P | P | P | P |
 | Flag – MongoDB | P | P | P | P | P | P | P |
-| **LINKS - ADD** | *11* | *3* | *11* | *6* | *7* | *7* | *1* |
+| **LINKS - ADD** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *11* | *3* | *11* | *6* | *7* | *7* | *1* |
 | Topic– List | P | P | P | P | P | P | P |
 | Topic– List | P | P | P | P | P | P | P |
 | Type – Validate | P | P | P | P | P | P | P |
@@ -355,12 +365,13 @@ After sign-off, structured manual testing of the site was carried out in various
 | Rate– Validate | P | P | P | P | P | P | P |
 | Save– Message | P | P | P | P | P | P | P |
 | Save– Saved | P | P | P | P | P | P | P |
-| **LOGIN MANAGER** | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
+| **LOGIN MANAGER** | --- | --- | --- | --- | --- | --- | --- |
+| *Test - Order* | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
 | Logout – Message| P | P | P | P | P | P | P |
 | Logout- Home | P | P | P | P | P | P | P |
 | Notes Navbar – 4 + Register| P | P | P | P | P | P | P |
 
-*Italics* - Order
+
 P - Passed
 N/A - Not Applicable
 
@@ -391,14 +402,14 @@ N/A - Not Applicable
 | Link Hover - Stone | P | P | P | P | P | P | P |
 | Button – Stone + Grey Font | P | P | P | P | P | P | P |
 | Button Hover - Orange Font| P | P | P | P | P | P | P |
-| *Test Language* | *HTML* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* |
+| *Test - Language* | *HTML* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* |
 | **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
 | Accordion - List | P | P | P | P | P | P | P |
 | Accordion – Level 1 | P | P | P | P | P | P | P |
 | Accordion – Level 2 | P | P | P | P | P | P | P |
 | Accordion – Level 3 | P | P | P | P | P | P | P |
 | Accordion – Visible Target | P | P | P | P | P | P | P |
-| *Test Language* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* | *Python* |
+| *Test - Language* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* | *Python* |
 | **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
 | Accordion - List | P | P | P | P | P | P | P |
 | Accordion – Level 1 | P | P | P | P | P | P | P |
