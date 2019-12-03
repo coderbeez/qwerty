@@ -134,17 +134,17 @@ As per Code Institute’s requirements as
 
 2. **Links Collection**
 
-| **NAME** | **TYPE** | **SOURCE** | **VALIDATION** | **EXAMPLE** |
+| **NAME** | **DB TYPE** | **Form TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
-| **_id** | *ObjectId* | Auto | - | 5ddaf9c01c9d44000092fbce |
-| **language** | *String* | User selects from dropdown | Required | JavaScript |
-| **topic** | *String* | User selects from radio buttons | Required | JavaScript |
-| **url** | *String* | User enters | Required, URL |url |
-| **link_name** | *String* | User enters | Required | W3Schools Exercises |
-| **description** | *String* | User enters | Optional | Try to solve etc... |
-| **ratings** | *Int Array*  | User clicks star icon | Required | 4 |
-| **check** | *Boolean* | Admin updates | Default True | True |
-| **flag** | *Boolean* | User clicks tool icon | Default False | False |
+| **_id** | *ObjectId* | - |  - | Auto |
+| **language** | *String* | Select |Required | User |
+| **topic** | *String* | Radio |Required | User |
+| **url** | *String* | String | Required, URL | User |
+| **link_name** | *String* | String | Required | User |
+| **description** | *String* | Text Area | Optional | User |
+| **ratings** | *Int Array* | Integer | Required | User |
+| **check** | *Boolean* | - | Default True | Admin |
+| **flag** | *Boolean* | - | Default False | Admin/User |
 
 
 
