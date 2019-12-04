@@ -67,7 +67,7 @@
 
 <div data-level="3" data-3value="{{note._id}}">
       <textarea readonly class="form-control" rows=4>{{note.content}}</textarea>
-
+<!--WHERE: Readonly from https://stackoverflow.com/questions/12831092/textarea-without-input-functionality).-->
       <div class="d-flex justify-content-end">
             <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
                   <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
