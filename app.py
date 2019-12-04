@@ -251,11 +251,11 @@ def editnote(language, noteid):
 @app.route("/deletenote/<language>/<noteid>", methods=["GET","POST"]) #just post???
 @login_required
 def deletenote(language, noteid):
-    note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid)})
+    note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
     flash("Perfect - note deleted!") 
     return redirect(url_for("notes", language=language))
-
+#WHY: user_id added as notes filter to ensure only the owner can delete a note.
 
 #FLAG LINK    
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
