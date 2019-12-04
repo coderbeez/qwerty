@@ -535,23 +535,67 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 
 ### Code
-* JS On page load event from [Stack Overflow](https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working).
 
-* JS Check if an element is hidden from [Stack Overflow](https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery).
+**CSS**
+- CSS Creating a switch in CSS from [W3Schools](https://www.w3schools.com/howto/howto_css_switch.asp).
 
-* JS Show hide elements by data attributes from [Stack Overflow](https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute).
 
-* JS Get data attributes in jquery from [Code Project](https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery).
+**JavaScript jQuery**
+- On page load event from [Stack Overflow](https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working).
+- Check if an element is hidden from [Stack Overflow](https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery).
+- Show hide elements by data attributes from [Stack Overflow](https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute).
+- Get data attributes in jquery from [Code Project](https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery).
+- Check and uncheck inputs or radios from [Learn jQuery](https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/).
+- Define css hover in jquery from [Stack Overfow](https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector).
+- Not class selector in jquery from [Stack Overfow](https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery).
+- Read value local storage on load from [Stack Overfow](https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready).
+- Clear local storage from [Stack Overfow](https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data).
 
-* JS Check and uncheck inputs or radios from [Learn jQuery](https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/).
 
-* JS Define css hover in jquery from [Stack Overfow](https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector).
+**Python** 
+*Database*
+- [Maximilian Schwarzmüller - Udemy MongoDB The Complete Developer's Guide](https://www.udemy.com/course/mongodb-the-complete-developers-guide/learn/lecture/11850844?start=300#overview).
+- [Flask-PyMongo Documentation](https://flask-pymongo.readthedocs.io/en/latest/).
+- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/).
+- [PyMongo Documentation](https://api.mongodb.com/python/current/).
+- [Pretty Printed - YouTube Flask MongoDB Series](https://www.youtube.com/playlist?list=PLXmMXHVSvS-Db9KK1LA7lifcyZm4c-rwj).
+- Text search from [Stack Overflow](https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search).
+- Text search language override from [Stack Overflow](https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index).
 
-* JS Not class selector in jquery from [Stack Overfow](https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery).
+*Forms*
+- [WTForms Documentation](https://wtforms.readthedocs.io/en/stable/).
+- [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
+- [Pretty Printed - YouTube Flask WTForms](https://www.youtube.com/playlist?list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
+- Setting data attributes on WTForms field from [Stack Overfow](https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field).
 
-* JS Read value local storage on load from [Stack Overfow](https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready).
+*User Sessions*
+- [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/).
+- [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
+- [Corey Schafer - YouTube Python Classes Series](https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s).
+- [Pretty Printed - YouTube Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
+- [Running Code Blog](https://boh717.github.io/post/flask-login-and-mongodb).
 
-* JS Clear local storage from [Stack Overfow](https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data).
+*User Passwords*
+- [Flask-Bcrypt Documentation](https://flask-bcrypt.readthedocs.io/en/latest/).
+- [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
+- [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
+
+*Messages*
+- [Flask Message Flashing Documentation](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/).
+- [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
+
+*Templating*
+- [Jinja Documentation](https://jinja.palletsprojects.com/en/2.10.x/).
+- [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
+
+
+
+
+
+
+
+
+
 
 
 
