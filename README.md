@@ -1,32 +1,3 @@
-Milestone 3
-
-Code Help
-using url_for with subfolders https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for
-
-https://stackoverflow.com/questions/45845427/styling-an-integerfield-to-make-it-a-star-rating-system
-
-https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
-
-Yes https://stackoverflow.com/questions/12831092/textarea-without-input-functionality
-
-Yes https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
-
-Yes  https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
-Yes https://www.goodreads.com/quotes/tag/programming?page=1
-https://dzone.com/articles/more-inspirational-quotes-for-software-developers
-https://dzone.com/articles/best-programming-jokes-amp-quotes
-https://www.journaldev.com/240/my-25-favorite-programming-quotes-that-are-funny-too
-https://twitter.com/CodeWisdom
-
-https://www.canva.com/learn/100-color-combinations/
-
-Photo by Yoann Siloine on Unsplash
-
-<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@siloine?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Yoann Siloine"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Yoann Siloine</span></a>
-
-
-https://www.color-hex.com/color-palette/81832
-
 # Qwerty
 
 
@@ -520,24 +491,27 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ### Content
 
-* Site concept and design by website developer.
-
-* Language topics reflect Code Institute’s Diploma in Full Stack Web Development.
+- Site concept and design by website developer.
+- Language topics reflect Code Institute’s Diploma in Full Stack Web Development.
+- Links collected by site developer during studies and from Code Institute's Diploma Slack channel.
 
 
 
 ### Media
 
-* Pencil image from [Unsplash](https://pixabay.com/users/Elionas-2345468/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1314467).
-
-* Embedded YouTube by developer with video voiceover by Jack.
+- Pencil image by Yoann Siloine from [Unsplash](https://unsplash.com/photos/dyaxQ-aoGWY).
+- Spotify image adapted from [Spotify](https://www.spotify.com/ie/).
+- Quotes from [CodeWisdom](https://twitter.com/CodeWisdom), [DZone - Programming Quores](https://dzone.com/articles/best-programming-jokes-amp-quotes), [DZone - Software Developer Quotes](https://dzone.com/articles/more-inspirational-quotes-for-software-developers),[GoodReads](https://www.goodreads.com/quotes/tag/programming?page=1), [JournalDev](https://www.journaldev.com/240/my-25-favorite-programming-quotes-that-are-funny-too).
 
 
 
 ### Code
 
+**HTML**
+- Set textarea to display only from [Stack Overflow](https://stackoverflow.com/questions/12831092/textarea-without-input-functionality).
+
 **CSS**
-- CSS Creating a switch in CSS from [W3Schools](https://www.w3schools.com/howto/howto_css_switch.asp).
+- Creating a switch in CSS from [W3Schools](https://www.w3schools.com/howto/howto_css_switch.asp).
 
 
 **JavaScript jQuery**
@@ -553,6 +527,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 
 **Python** 
+
 *Database*
 - [Maximilian Schwarzmüller - Udemy MongoDB The Complete Developer's Guide](https://www.udemy.com/course/mongodb-the-complete-developers-guide/learn/lecture/11850844?start=300#overview).
 - [Flask-PyMongo Documentation](https://flask-pymongo.readthedocs.io/en/latest/).
@@ -565,14 +540,14 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 *Forms*
 - [WTForms Documentation](https://wtforms.readthedocs.io/en/stable/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
-- [Pretty Printed - YouTube Flask WTForms](https://www.youtube.com/playlist?list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
+- [Pretty Printed - YouTube Flask WTForms Series](https://www.youtube.com/playlist?list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
 - Setting data attributes on WTForms field from [Stack Overfow](https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field).
 
 *User Sessions*
 - [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Corey Schafer - YouTube Python Classes Series](https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s).
-- [Pretty Printed - YouTube Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
+- [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
 - [Running Code Blog](https://boh717.github.io/post/flask-login-and-mongodb).
 
 *User Passwords*
@@ -587,20 +562,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 *Templating*
 - [Jinja Documentation](https://jinja.palletsprojects.com/en/2.10.x/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Using url_for with static files from [Stack Overflow](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for).
 
 
 ### Acknowledgements
