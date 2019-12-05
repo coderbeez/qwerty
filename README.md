@@ -50,22 +50,33 @@ When my brain is fried, motivation has dipped or its simply time for a coffee, I
 ### Design
 
 
-The look and feel of Qwerty was designed for simplicity and ease of use. 
-
-1. **Navigation** The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, notes and links, highlighted by the pared back navbar *home, notes, links* and the tagline text *save notes, share links*. Users access either section by selecting a language from the section navbar dropdown.
-
-As links are not associated with accounts, users selecting a links language are immediately routed to the read links page for their chosen language. From here users can access the add link page, or use the bespoke accordion or word search to find and edit existing links. With 4 levels, the links accordion allows for efficient filtering. Again focused on efficiency, the word search searches all 4 levels simultaneously. 
-
- Users that select a language from notes are routed to the login page, if not already logged in, before being routed to the read notes page for their chosen language.  Following a consistent design, users can again access the add note page, or use the accordion and word serach to find and edit existing notes. Once logged in, users remain logged in until they select logout or end their session. New uses caA register again following the mantra of only showing the user what they need, when they need it.
+Qwerty's look and flow was designed for simplicity and ease of use. 
 
 
-1. **Simple** Following on from the simplified navigation, the site has been designed with minimal graphics, fonts and colours. In either normal or dark mode, the colour scheme is limited to a background colour, a text color and a colours. Normal mode colours or stone background, white and charcoal text were taken from the main image. In dark mode charcoal becomes the background and stone the text. One color chosen in each mode to identify links. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. 
+**Navigation**
+
+The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, **notes** and **links**, highlighted by the pared back navbar *home, notes, links* and the tagline text *save notes, share links*. Users access either section by selecting a language from the section navbar dropdown.
+
+As links are not associated with accounts, users selecting a links language are immediately routed to the read links page for their chosen language. From here users can access the add link page, or use the bespoke accordion or word search to find and edit existing links. With four levels, the links accordion allows for efficient filtering. Again focusing on efficiency, the word search searches all four levels simultaneously. 
+
+Users that select a language from notes are routed to the login page, if not already logged in, before being routed to the read notes page for their chosen language.  Following a consistent design, users can again access the add note page,or use the accordion and word serach to find and edit existing notes. Once logged in, users remain logged in until they select logout or end their session. New users can choose register directly from the notes dropdown or link from the login page. After registering, users are automatically logged in. The notes dropdown register option changes to logout once logged in following the mantra of only showing the user what they need, when they need it.
+
+
+**Colours & Fonts**
+
+Following on from simplified navigation, the site has been designed with minimal graphics, fonts and colours. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, which identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. 
 
 ![Colours Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/colours.png)
 
-3. **Dark Mode** Given the conversation around dark mode on Slack, 
 
-4. **Preparation** Microsoft Powerpoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
+**Dark Mode**
+
+Given dark mode is often discussed on Code Institute's Diploma Slack channel, it was incorporated as an option for users. A user's selection is saved in local storage so perference is remembered on return visits. 
+
+
+**Preparation**
+
+Microsoft Powerpoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
 
 
 
@@ -87,7 +98,7 @@ As links are not associated with accounts, users selecting a links language are 
 
 6. **Distraction – Inspiration** Hard coded links to four site of the day web sites are included for design inspiration.
 
-7. **Distraction – Spotify** A link to a Spotify playlist generated for the site opens in new page. The initial embedded playlist was removed as it resulted in problems with audio levels.
+7. **Distraction – Spotify** A link to a Spotify playlist generated for the site opens in new page. The initial embedded playlist was removed as it resulted in problems with headphone audio levels.
 
 8. **Notes - Register** A sign up form with name, email, password and confirm password fields. Email rather than name is used for sign-in so that’s the only field checked against registered users. Flask-Bcrypt is used to hash passwords. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page with a message to select a language in the notes dropdown to begin creating notes. Once the user is logged in, the Register option in the notes drop down is replaced with a Logout option again managed by Flask-Login.
 
