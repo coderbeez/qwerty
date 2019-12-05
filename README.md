@@ -4,7 +4,7 @@
 ![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
 
 
-**[Qwerty](https://coderbeez.github.io/trigg4tables/)** *a website to assist coding students save notes and share links. Developed for Code Institute Milestone 3: Data Centric Development.*
+**[Qwerty](https://coderbeez.github.io/trigg4tables/)** *a website to assist coding students save notes and share links. Developed for Code Institute's Milestone 3: Data Centric Development.*
 
 
 
@@ -52,11 +52,18 @@ When my brain is fried, motivation has dipped or its simply time for a coffee, I
 
 The look and feel of Qwerty was designed for simplicity and ease of use. 
 
-1. **Simple** The site has been designed with minimal graphics, fonts and colours and a pared back navbar.
+1. **Navigation** The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, notes and links, highlighted by the pared back navbar *home, notes, links* and the tagline text *save notes, share links*. Users access either section by selecting a language from the section navbar dropdown.
 
-2. **Navigation** Navigation has been designed to allow as few clicks as possible to get from the home page to the desired note or link. Colour is used to identify links with links coloured red in light mode and orange in dark mode.
+As links are not associated with accounts, users selecting a links language are immediately routed to the read links page for their chosen language. From here users can access the add link page, or use the bespoke accordion or word search to find and edit existing links. With 4 levels, the links accordion allows for efficient filtering. Again focused on efficiency, the word search searches all 4 levels simultaneously. 
 
-3. **Dark Mode** Given the site was aimed at coders and coding students, dark mode was incorporated into the design.
+ Users that select a language from notes are routed to the login page, if not already logged in, before being routed to the read notes page for their chosen language.  Following a consistent design, users can again access the add note page, or use the accordion and word serach to find and edit existing notes. Once logged in, users remain logged in until they select logout or end their session. New uses caA register again following the mantra of only showing the user what they need, when they need it.
+
+
+1. **Simple** Following on from the simplified navigation, the site has been designed with minimal graphics, fonts and colours. In either normal or dark mode, the colour scheme is limited to a background colour, a text color and a colours. Normal mode colours or stone background, white and charcoal text were taken from the main image. In dark mode charcoal becomes the background and stone the text. One color chosen in each mode to identify links. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. 
+
+![Colours Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/colours.png)
+
+3. **Dark Mode** Given the conversation around dark mode on Slack, 
 
 4. **Preparation** Microsoft Powerpoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
 
@@ -494,6 +501,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - Site concept and design by website developer.
 - Language topics reflect Code Institute’s Diploma in Full Stack Web Development.
 - Links collected by site developer during studies and from Code Institute's Diploma Slack channel.
+- Quotes from [CodeWisdom](https://twitter.com/CodeWisdom), [DZone - Programming Quores](https://dzone.com/articles/best-programming-jokes-amp-quotes), [DZone - Software Developer Quotes](https://dzone.com/articles/more-inspirational-quotes-for-software-developers), [GoodReads](https://www.goodreads.com/quotes/tag/programming?page=1), [JournalDev](https://www.journaldev.com/240/my-25-favorite-programming-quotes-that-are-funny-too).
 
 
 
@@ -501,8 +509,6 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 - Pencil image by Yoann Siloine from [Unsplash](https://unsplash.com/photos/dyaxQ-aoGWY).
 - Spotify image adapted from [Spotify](https://www.spotify.com/ie/).
-- Quotes from [CodeWisdom](https://twitter.com/CodeWisdom), [DZone - Programming Quores](https://dzone.com/articles/best-programming-jokes-amp-quotes), [DZone - Software Developer Quotes](https://dzone.com/articles/more-inspirational-quotes-for-software-developers),[GoodReads](https://www.goodreads.com/quotes/tag/programming?page=1), [JournalDev](https://www.journaldev.com/240/my-25-favorite-programming-quotes-that-are-funny-too).
-
 
 
 ### Code
@@ -514,7 +520,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - Creating a switch in CSS from [W3Schools](https://www.w3schools.com/howto/howto_css_switch.asp).
 
 
-**JavaScript jQuery**
+**JavaScript**
 - On page load event from [Stack Overflow](https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working).
 - Check if an element is hidden from [Stack Overflow](https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery).
 - Show hide elements by data attributes from [Stack Overflow](https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute).
@@ -548,7 +554,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Corey Schafer - YouTube Python Classes Series](https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s).
 - [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
-- [Running Code Blog](https://boh717.github.io/post/flask-login-and-mongodb).
+- [Running Codes - Blog PyMongo with Flask-Login](https://boh717.github.io/post/flask-login-and-mongodb).
 
 *User Passwords*
 - [Flask-Bcrypt Documentation](https://flask-bcrypt.readthedocs.io/en/latest/).
@@ -567,5 +573,5 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ### Acknowledgements
 
-  * Many thanks to my mentor Ali Ashik and ***all*** on Slack who take the time to share useful links for their fellow students.
+  - Many thanks to my mentor Ali Ashik and ***all*** on Slack who take the time to share useful links for their fellow students.
 
