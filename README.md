@@ -53,18 +53,23 @@ When my brain is fried, motivation has dipped or its simply time for a coffee, I
 Qwerty's look and flow was designed for simplicity and ease of use. 
 
 
+**Name**
+
+Qwerty was chosen as it would be memorable for the target audience of coding students.
+
+
 **Navigation**
 
-The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, **notes** and **links**, highlighted by the pared back navbar *home, notes, links* and the tagline text *save notes, share links*. Users access either section by selecting a language from the section navbar dropdown.
+The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, **notes** and **links**, highlighted by the pared back navbar home, notes, links and the tagline text save notes, share links. Users access either section by selecting a language from the section navbar dropdown.
 
 As links are not associated with accounts, users selecting a links language are immediately routed to the read links page for their chosen language. From here users can access the add link page, or use the bespoke accordion or word search to find and edit existing links. With four levels, the links accordion allows for efficient filtering. Again focusing on efficiency, the word search searches all four levels simultaneously. 
 
-Users that select a language from notes are routed to the login page, if not already logged in, before being routed to the read notes page for their chosen language.  Following a consistent design, users can again access the add note page,or use the accordion and word serach to find and edit existing notes. Once logged in, users remain logged in until they select logout or end their session. New users can choose register directly from the notes dropdown or link from the login page. After registering, users are automatically logged in. The notes dropdown register option changes to logout once logged in following the mantra of only showing the user what they need, when they need it.
+Users that select a notes language are routed to the login page, if not already logged in, before being routed to the read notes page for their chosen language.  Following a consistent design, users can again access the add note page, or use the accordion and word search to find and edit existing notes. Users remain logged in until they select logout or end their session. New users can choose register directly from the notes dropdown or link from the login page. After registering, users are automatically logged in. The notes dropdown register option changes to logout once a user registers or logs in, following the mantra of only showing the user what they need, when they need it.
 
 
 **Colours & Fonts**
 
-Following on from simplified navigation, the site has been designed with minimal graphics, fonts and colours. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, which identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. 
+Following on from simplified navigation, Qwerty has been designed with minimal graphics, fonts and colours. A simple pencil image, to reflect note taking, is used on the home page and repeated on the playlist. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. 
 
 ![Colours Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/colours.png)
 
@@ -86,23 +91,42 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 ### Existing Features - *Components*
 
 
-1. **Navbar** A pared back navbar with a home button and 2 simple dropdowns, notes and links, highlights the 2 main site sections. Both dropdowns allow user to select a language passing it to the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in.
+1. **Navbar** A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
 
-2. **Image** Text over simple pencil graphic sets out the site name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
+2. **Image, Title, Tagline** The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
 
-3. **Dark Mode** A toggle and slider allow the user to switch between light and dark mode. Local storage is used to keep track of users preference between pages and sessions???? CSS is used to style the slider while Jquery is used to apply and remove styles and check local storage.
+3. **Dark Mode** A slider allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
 
-4. **Distraction - Quote** A MongoDB collection of coding related quotes is sampled and 1 quote displayed at the start of each site visit???
+4. **Distraction - Quote** A MongoDB quotes collection of coding related quotes is sampled and one displayed at the start of each site visit???
 
-5. **Distraction – Sample Links** The MongoDB links collection is sampled and 1 link displayed for each language at the start of each site visit??? Links that have flagged as having a problem or that have not been checked are not sampled.
+5. **Distraction – Sample Links** The MongoDB links collection is sampled and one displayed for each language at the start of each site visit??? Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling.
 
 6. **Distraction – Inspiration** Hard coded links to four site of the day web sites are included for design inspiration.
 
-7. **Distraction – Spotify** A link to a Spotify playlist generated for the site opens in new page. The initial embedded playlist was removed as it resulted in problems with headphone audio levels.
+7. **Distraction – Spotify** A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
 
-8. **Notes - Register** A sign up form with name, email, password and confirm password fields. Email rather than name is used for sign-in so that’s the only field checked against registered users. Flask-Bcrypt is used to hash passwords. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page with a message to select a language in the notes dropdown to begin creating notes. Once the user is logged in, the Register option in the notes drop down is replaced with a Logout option again managed by Flask-Login.
+8. **Notes - Register Page** New users access the Register page from the notes dropdown or link from the Login page. The form consists of name, email, password and confirm password fields together with relevant. Email rather than name was chosen for sign-in as the developer finds it easier to remember email rather that username used. Users are free to use any name as its only the email field is checked for duplicates against registered users. Users passwords are hashed using Flask-Bcrypt. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown. Users are guided through the process of registering with Flash Messages.
 
-8. **Notes - Login** Although the w
+9. **Notes - Login Page** On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to check the user email and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until the user selects logs out or ends their session.
+
+10. **Notes - Read/Delete Page** 
+
+11. **Notes - Add Page** Although the w
+
+12. **Notes - Edit Page** Although the w
+
+13. **Links - Read/Edit Page** Although the w
+
+14. **Links - Add Page** Although the w
+
+Templating
+
+User Session Management
+
+Forms
+
+Messages
+
 
 
 
