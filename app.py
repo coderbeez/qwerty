@@ -253,7 +253,7 @@ def editnote(language, noteid):
 @app.route("/deletenote/<language>/<noteid>", methods=["GET","POST"]) #just post???
 @login_required
 def deletenote(language, noteid):
-    note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})
+    mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
     flash("Perfect - note deleted!") 
     return redirect(url_for("notes", language=language))
@@ -263,7 +263,7 @@ def deletenote(language, noteid):
 #FLAG LINK    
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
 def flaglink(language, linkid):
-    link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
+    mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
     flash("Perfect - problem reported!")
     sleep(1)
@@ -275,7 +275,7 @@ def flaglink(language, linkid):
 #RATE LINK
 @app.route("/ratelink/<language>/<linkid>/<rating>", methods=["POST"])
 def ratelink(language, linkid, rating):
-    link = mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
+    mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
     flash("Perfect - link rated!")
     sleep(1)
