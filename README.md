@@ -26,22 +26,22 @@ Qwerty is a website developed to assist coding students studying HTML, CSS, Java
 
 User stories for potential visitors to the website include:
 
-1. **Find Link** 
+**Find Link** 
 
 I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of links with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
 
 
-2. **Share Link**
+**Share Link**
 
 I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack links can get lost unless they are pinned, so I open Qwerty and select Python from the links dropdown. I click add a new link. I enter the details, selecting MongoDB for topic, instruct for type and giving it a 5 star rating. It’s easy and quick – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but the site will flag it and simply adding my star rating to the existing entry. 
 
 
-3. **Online Notes**
+**Online Notes**
 
 Although I keep written notes when I’m studying at home, I want somewhere to jot down notes on my mobile when I’m on the commute or having a break at work. The language topic headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this is remembered on my mobile.
 
 
-4. **Break Time**
+**Break Time**
 
 When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. The quote is randomly picked so chances are I haven’t seen this before. I check out today’s site of the day from the awwwards link. As I’m on the JavaScript milestone, I checkout the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
 
@@ -91,25 +91,78 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 ### Existing Features - *Components*
 
 
-1. **Navbar** A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
+**Navbar**
 
-2. **Image, Title, Tagline** The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
+A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
 
-3. **Dark Mode** A slider allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
 
-4. **Distraction - Quote** A MongoDB quotes collection of coding related quotes is sampled and one displayed at the start of each site visit???
+**Image, Title, Tagline**
 
-5. **Distraction – Sample Links** The MongoDB links collection is sampled and one displayed for each language at the start of each site visit??? Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling.
+The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
 
-6. **Distraction – Inspiration** Hard coded links to four site of the day web sites are included for design inspiration.
 
-7. **Distraction – Spotify** A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
+**Dark Mode**
 
-8. **Notes - Register Page** New users access the Register page from the notes dropdown or link from the Login page. The form consists of name, email, password and confirm password fields together with relevant. Email rather than name was chosen for sign-in as the developer finds it easier to remember email rather that username used. Users are free to use any name as its only the email field is checked for duplicates against registered users. Users passwords are hashed using Flask-Bcrypt. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown. Users are guided through the process of registering with Flash Messages.
+A slider, on the home page for mobile devices and sidebar on mediuma and large screens, allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
 
-9. **Notes - Login Page** On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to check the user email and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until the user selects logs out or ends their session.
 
-10. **Notes - Read/Delete Page** Logged in users are redirected to the Notes page. Both the MongoDB find and aggregate ???? use `{"language": language, "user_id": ObjectId(current_user.id)}` for filter/match criteria???. The language argument is passed from the notes dropdown selected and the user from ????? The aggregate ??? is used to create a distinct list of user specific note language topics, only topics which that user has previously assigned to notes are displayed. Language topics are closesly aligned to Codes Institute's lesson headings.
+
+
+**Distraction**
+
+A distraction sidebar on medium and large screens, On mobile devices, visible under the pencil image on the home page.
+
+*Quote*
+A MongoDB quotes collection of coding related quotes is sampled and one displayed at the start of each site visit???
+
+*Sample Links*
+The MongoDB links collection is sampled and one displayed for each language at the start of each site visit??? Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling.
+
+*Inspiration*
+Hard coded links to four site of the day web sites are included for design inspiration.
+
+*Spotify*
+A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
+
+
+**Notes - Register Page**
+
+*Access*
+New users access the Register page from the notes dropdown or link from the Login page. 
+
+*Form*
+The RegisterForm defined and validated using WTForms and rendered using Jinja. The form consists of name, email, password and confirm password fields together with relevant requirment text. Email rather than name was chosen for sign-in as the developer finds it easier to remember email rather that username used. Users are free to use any name as its only the email field is checked for duplicates against registered users. Users passwords are hashed using Flask-Bcrypt. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown. Users are guided through the process of registering with Flash Messages.
+
+```{{ form.hidden_tag() }}
+            <!--WHY: form instance. hidden_tag method for security - will come back to later-->```
+
+*Flash Messages*
+```<!--INPUT EMAIL-->
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control") }}
+                    {% endif %}
+                </div>
+```
+Jinja templating is used to render fields and field names. If else loops, change formating and dispaly Flash Messages where inputs fail validation. Bootstrap classes of form-control-label, form-control, is-inavlid and invalid-feedback are used for styling. ???? DOES THIS NEED TO CHANGE FOR ACCESSIBILITY Flash messages guide a user through the add note process.
+
+**Notes - Login Page** 
+
+*Access*
+On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to check the user email and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until the user selects logs out or ends their session.
+
+
+**Notes - Read/Delete Page**
+
+Logged in users are redirected to the Notes page. Both the MongoDB find and aggregate ???? use `{"language": language, "user_id": ObjectId(current_user.id)}` for filter/match criteria???. The language argument is passed from the notes dropdown selected and the user from ????? The aggregate ??? is used to create a distinct list of user specific note language topics, only topics which that user has previously assigned to notes are displayed. Language topics are closesly aligned to Codes Institute's lesson headings.
 
 
 *Accordion*
@@ -131,9 +184,9 @@ An on click function was created for each level in the accordion allows a button
         level4.slideUp();
         slide(target);
     });
+```    
 
 ```{% for group_topic in group_topics %}
-<!--WHAT: LEVEL 1 ACCORDION - TOPIC-->
 <div data-level="1">
       <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}">
             <i class="fas fa-angle-double-down"></i></button>
@@ -142,7 +195,6 @@ An on click function was created for each level in the accordion allows a button
 
 {% for note in notes %}
 {% if note.topic == group_topic._id %}
-<!--WHAT: LEVEL 2 ACCORDION - NOTE NAME-->
 <div data-level="2" data-2value="{{ group_topic._id}}">
       <button class="btn" type="button" data-blevel="2" data-bvalue="{{note._id}}">
             <i class="fas fa-angle-down"></i></button>
@@ -167,7 +219,8 @@ A link is provided to the editnote route on level three of the accordion to the 
 *Add*
 A link is provided near the page header to the addnote route using url_for and passing the current language as an argument `href="{{ url_for('addnote', language=language) }}"`.
 
-11. **Notes - Add Page** 
+
+**Notes - Add Page** 
 
 *User session*
 The Login_Manager `@login_required` decorator ensure access to this route is limited to logged in users.
@@ -204,11 +257,23 @@ Jinja templates are used to render fields and field names. If else loops, change
 
 
 
-12. **Notes - Edit Page** Although the w
+**Notes - Edit Page** 
 
-13. **Links - Read/Edit Page** Although the w
+*Access*
+Users access the edit page through a links on accordion level 3, notes page uisng noteid. The Edit page route checks the current user is the owner of the note id.????
 
-14. **Links - Add Page** Although the w
+*User Management*
+Again....
+
+*Form*
+The NoteForm used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id A MongoDB. The WTForm validates any data changes and valid changes are submitted to the notes collection using a update` mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set"` and the user redirected to the notes page for that language. Flash messages guide the user through the edit note process.
+
+
+
+
+**Links - Read/Edit Page** Although the w
+
+**Links - Add Page** Although the w
 
 
 
@@ -291,9 +356,9 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 ### Future Features 
 
 
-1. **Password Reset** Facility to reset password.
+**Password Reset** Facility to reset password.
 
-2. **Language** Addition of Django and milestone 4 topics. 
+**Language** Addition of Django and milestone 4 topics. 
 
 
 
@@ -323,12 +388,12 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 **Backend Resources**
 - [pip](https://pypi.org/project/pip/) Used to install Python modules.
-- [PyMongo](https://api.mongodb.com/python/current/) Used to allow communication between Python and MongoDB.
 - [Flask](https://palletsprojects.com/p/flask/) Web application framework used. 
-- [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
-- [WTForms](https://jquery.com/) Used for form rendering and validation???.
+- [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) Used to allow communication between Python and MongoDB.
 - [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Used for hashing user passwords.
 - [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Used for user session management.
+- [WTForms](https://jquery.com/) Used to define and validate forms???.
+- [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
 
 
 **Design Tools**
