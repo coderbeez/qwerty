@@ -56,7 +56,7 @@ $(document).ready(function () {
     });
 
     blevel3.click(function () {
-        var value = $(this).attr('data-bvalue');
+        let value = $(this).attr('data-bvalue');
         let target = $('[data-4value="' + value + '"]')
         console.log(value);
         level4.slideUp();
