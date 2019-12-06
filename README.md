@@ -128,13 +128,42 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 **Notes - Register Page**
 
 *Access*
-New users access the Register page from the notes dropdown or link from the Login page. 
+New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page. 
 
 *Form*
-The RegisterForm defined and validated using WTForms and rendered using Jinja. The form consists of name, email, password and confirm password fields together with relevant requirment text. Email rather than name was chosen for sign-in as the developer finds it easier to remember email rather that username used. Users are free to use any name as its only the email field is checked for duplicates against registered users. Users passwords are hashed using Flask-Bcrypt. If a user is successfully registered, Flask-Login is used to automatically log the user in and they are redirected to the home page. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown. Users are guided through the process of registering with Flash Messages.
+WTForms is used to define the RegisterForm fields and validators saved in forms.py.
+```class RegisterForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20)])
+    confirm = PasswordField('Confirm Password', validators=[DataRequired(), Length(min=6, max=20), EqualTo('password')])
+    submit = SubmitField('Register')
+```
+In HTML the form ???? `{{ form.hidden_tag() }}` . RegisterForm's name, email, password, confirm password and submit fields and field names are rendered using Jinga. Jinga if else loops are also used to vary formating and display Flash Messages depending on input validation. The Bootstrap form-control-label, form-control, is-invalid and invalid-feedback classes are used to format fields and field names.
+```<!--INPUT EMAIL-->
+  <div class="form-group">
+    {{ form.email.label(class="form-control-label") }}
+      {% if form.email.errors %}
+        {{ form.email(class="form-control is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+      {% else %}
+        {{ form.email(class="form-control") }}
+      {% endif %}
+  </div>
+```
+As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates `mongo.db.users.find_one({"email": form.email.data})`. All other validation is specified in RegisterForm using WTForms Validators. 
 
-```{{ form.hidden_tag() }}
-            <!--WHY: form instance. hidden_tag method for security - will come back to later-->```
+
+ Flask-Bcrypt is used to hash users passwords are hashed using ???? `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`.
+ 
+ *Redirect*
+ If a user is successfully registered, Flask-Login is used to automatically login and the user is redirected to the home page. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown. Users are guided through the process of registering with Flash Messages.
+
+
 
 *Flash Messages*
 ```<!--INPUT EMAIL-->
@@ -152,7 +181,6 @@ The RegisterForm defined and validated using WTForms and rendered using Jinja. T
                     {% endif %}
                 </div>
 ```
-Jinja templating is used to render fields and field names. If else loops, change formating and dispaly Flash Messages where inputs fail validation. Bootstrap classes of form-control-label, form-control, is-inavlid and invalid-feedback are used for styling. ???? DOES THIS NEED TO CHANGE FOR ACCESSIBILITY Flash messages guide a user through the add note process.
 
 **Notes - Login Page** 
 
