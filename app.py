@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, url_for, flash, redirect, request
+from flask import Flask, render_template, url_for, flash, redirect, request, abort
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
@@ -114,7 +114,7 @@ def login():
 #VIEW LINKS
 @app.route("/links/<language>/<tsearch>", methods=["GET", "POST"])
 @app.route("/links/<language>", methods=["GET", "POST"])
-def links(language):
+def links(language, tsearch=None):
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     
