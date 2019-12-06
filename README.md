@@ -109,9 +109,100 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 
 9. **Notes - Login Page** On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to check the user email and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until the user selects logs out or ends their session.
 
-10. **Notes - Read/Delete Page** 
+10. **Notes - Read/Delete Page** Logged in users are redirected to the Notes page. Both the MongoDB find and aggregate ???? use `{"language": language, "user_id": ObjectId(current_user.id)}` for filter/match criteria???. The language argument is passed from the notes dropdown selected and the user from ????? The aggregate ??? is used to create a distinct list of user specific note language topics, only topics which that user has previously assigned to notes are displayed. Language topics are closesly aligned to Codes Institute's lesson headings.
 
-11. **Notes - Add Page** Although the w
+
+*Accordion*
+and form the fist level in a three level accordion. Having Bootstrap accordion component??? didn't give the functionality required, own accordion was built using jQuery. The `slide(target)` function was created to check current state of an accordion target, hiding a visible target and revealing a hidden target.
+```function slide(target) {
+        if (target.is(":hidden")) {
+            target.slideDown();
+        } else {
+            target.slideUp();
+        }
+    }
+```
+An on click function was created for each level in the accordion allows a button click to result in a target slide. Data attribute values allow the associate a button to a target. 
+```blevel1.click(function () {
+        let value = $(this).attr('data-bvalue');
+        let target = $('[data-2value="' + value + '"]')
+        level2.slideUp();
+        level3.slideUp();
+        level4.slideUp();
+        slide(target);
+    });
+
+```{% for group_topic in group_topics %}
+<!--WHAT: LEVEL 1 ACCORDION - TOPIC-->
+<div data-level="1">
+      <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}">
+            <i class="fas fa-angle-double-down"></i></button>
+      <h2 class="d-inline-block">{{ group_topic._id}}</h2>
+</div>
+
+{% for note in notes %}
+{% if note.topic == group_topic._id %}
+<!--WHAT: LEVEL 2 ACCORDION - NOTE NAME-->
+<div data-level="2" data-2value="{{ group_topic._id}}">
+      <button class="btn" type="button" data-blevel="2" data-bvalue="{{note._id}}">
+            <i class="fas fa-angle-down"></i></button>
+      <h3 class="d-inline-block">{{ note.note_name }}</h3>
+</div>
+```
+For notes 3 accordion levels are Topic, Note Name and Note ID.
+
+PLACEHOLDER FOR VIDEO OF ACCORDION
+
+*Word Search*
+Users can opt to view their full list of notes, or filter their notes using a word search. The WTForms SearchForm is used to define and validate the word stringfield and submit button. For the word search functionality, a MongoDB index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all fields in the notes collection. A `"$text": {"$search": form.tsearch.data}` search ??? is then added to the find notes ??? and group_topics aggregrate. A clear button with `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
+
+
+*Delete*
+A delete note icon on level three of the accordion. Once clicked, a Bootstrap collapse ??? is used to display a confirm delete button. If clicked `action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST"` the id is passed to the deletenote route. Both the note and user id are passed to a MongoDB find one or 404 WHY 404????? `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})`
+
+
+*Edit*
+A link is provided to the editnote route on level three of the accordion to the allow user to edit a specific note `href="{{url_for('editnote', language=language, noteid=note._id)}}"`.
+
+*Add*
+A link is provided near the page header to the addnote route using url_for and passing the current language as an argument `href="{{ url_for('addnote', language=language) }}"`.
+
+11. **Notes - Add Page** 
+
+*User session*
+The Login_Manager `@login_required` decorator ensure access to this route is limited to logged in users.
+
+*Form*
+WTForms NoteForm is used to define and validate the topic, name and content fields. The select topic list displayed is language specific with a default `-select-` option.
+``` document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+topics = document_language["topics"]
+form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
+```
+???Hidden Tag
+```<form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+```            
+
+*Flash Messages*
+```<!--INPUT TOPIC-->
+                <div class="form-group">
+                    {{ form.topic.label(class="form-control-label") }}
+                    {% if form.topic.errors %}
+                    {{ form.topic(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.topic.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.topic(class="form-control") }}
+                    {% endif %}
+                </div>
+```
+Jinja templates are used to render fields and field names. If else loops, change formating and dispaly Flash Messages where inputs fail validation. Bootstrap classes of form-control-label, form-control, is-inavlid and invalid-feedback are used for styling. ???? DOES THIS NEED TO CHANGE FOR ACCESSIBILITY Flash messages guide a user through the add note process.
+
+
 
 12. **Notes - Edit Page** Although the w
 
@@ -119,13 +210,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 
 14. **Links - Add Page** Although the w
 
-Templating
 
-User Session Management
-
-Forms
-
-Messages
 
 
 
