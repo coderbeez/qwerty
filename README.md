@@ -139,7 +139,7 @@ WTForms is used to define the RegisterForm fields and validators saved in forms.
     confirm = PasswordField('Confirm Password', validators=[DataRequired(), Length(min=6, max=20), EqualTo('password')])
     submit = SubmitField('Register')
 ```
-In HTML the form ???? `{{ form.hidden_tag() }}` . RegisterForm's name, email, password, confirm password and submit fields and field names are rendered using Jinga. Jinga if else loops are also used to vary formating and display Flash Messages depending on input validation. The Bootstrap form-control-label, form-control, is-invalid and invalid-feedback classes are used to format fields and field names.
+In HTML the form ???? `{{ form.hidden_tag() }}` . RegisterForm's name, email, password, confirm password and submit fields and field names are rendered using Jinga. Jinga if else loops are also used to vary formating and display Flash Messages depending on input validation. 
 ```<!--INPUT EMAIL-->
   <div class="form-group">
     {{ form.email.label(class="form-control-label") }}
@@ -154,7 +154,7 @@ In HTML the form ???? `{{ form.hidden_tag() }}` . RegisterForm's name, email, pa
         {{ form.email(class="form-control") }}
       {% endif %}
   </div>
-```
+``` The Bootstrap form-control-label, form-control, is-invalid and invalid-feedback classes are used to format these fields and field names.
 As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates `mongo.db.users.find_one({"email": form.email.data})`. All other validation is specified in RegisterForm using WTForms Validators. 
 
 
@@ -165,27 +165,12 @@ As email rather than name is used for login, users are free to use any name when
 
 
 
-*Flash Messages*
-```<!--INPUT EMAIL-->
-                <div class="form-group">
-                    {{ form.email.label(class="form-control-label") }}
-                    {% if form.email.errors %}
-                    {{ form.email(class="form-control is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.email.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.email(class="form-control") }}
-                    {% endif %}
-                </div>
-```
+
 
 **Notes - Login Page** 
 
 *Access*
-On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to check the user email and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until the user selects logs out or ends their session.
+On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until they select logout or end their session.
 
 
 **Notes - Read/Delete Page**
