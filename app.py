@@ -114,7 +114,7 @@ def login():
 #VIEW LINKS
 @app.route("/links/<language>/<tsearch>", methods=["GET", "POST"])
 @app.route("/links/<language>", methods=["GET", "POST"])
-def links(language, tsearch=None): #WHERE: parameter defaulted to none, do I need 2nd route????
+def links(language, tsearch=None): #WHERE: parameter defaulted to none, 
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     
@@ -141,7 +141,7 @@ def links(language, tsearch=None): #WHERE: parameter defaulted to none, do I nee
 @app.route("/notes/<language>/<tsearch>", methods=["GET", "POST"] )
 @app.route("/notes/<language>", methods=["GET", "POST"] )
 @login_required
-def notes(language, tsearch=None): #WHERE: parameter defaulted to none, do I need 2nd route????
+def notes(language, tsearch=None): #WHERE: parameter defaulted to none,
     #print(current_user.id)
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     #print(len(notes))
@@ -217,7 +217,7 @@ def addnote(language):
         flash("Perfect - note added!")
         return redirect(url_for("notes", language=language))
     elif request.method == "GET":
-        pass   #???? is this right? 
+        pass  #WHAT: Load form
     else:
         flash("Oops - check fields!", "error")
     return render_template("addnote.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
@@ -228,7 +228,7 @@ def addnote(language):
 @login_required
 def editnote(language, noteid):
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid),"user_id": ObjectId(current_user.id)})
-    #WHY: user id added to ensure current user is owner??????
+    #WHY: user id added to ensure current user is owner
     form = NoteForm()
     document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
     topics = document_language["topics"]
@@ -236,7 +236,7 @@ def editnote(language, noteid):
     if form.validate_on_submit():
         #print("valid")
         mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set": {"topic": form.topic.data, "note_name": form.name.data ,"content": form.content.data}})
-        #using note.update_one throws an error???
+        #MENTOR using note.update_one throws an error???
         flash("Perfect - note updated!")
         return redirect(url_for("notes", language=language))
     elif request.method == "GET":
