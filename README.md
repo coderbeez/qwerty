@@ -127,103 +127,27 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 
 **Notes - Register Page**
 
-*Access*
-New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page. 
-
-*Form*
-WTForms is used to define the RegisterForm fields and validators saved in forms.py.
-```class RegisterForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20)])
-    confirm = PasswordField('Confirm Password', validators=[DataRequired(), Length(min=6, max=20), EqualTo('password')])
-    submit = SubmitField('Register')
-```
-In HTML the form ???? `{{ form.hidden_tag() }}` . RegisterForm's name, email, password, confirm password and submit fields and field names are rendered using Jinga. Jinga if else loops are also used to vary formating and display Flash Messages depending on input validation. 
-```<!--INPUT EMAIL-->
-  <div class="form-group">
-    {{ form.email.label(class="form-control-label") }}
-      {% if form.email.errors %}
-        {{ form.email(class="form-control is-invalid") }}
-        <div class="invalid-feedback">
-          {% for error in form.email.errors %}
-            <span>{{ error }}</span>
-          {% endfor %}
-        </div>
-      {% else %}
-        {{ form.email(class="form-control") }}
-      {% endif %}
-  </div>
-``` The Bootstrap form-control-label, form-control, is-invalid and invalid-feedback classes are used to format these fields and field names.
-As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates `mongo.db.users.find_one({"email": form.email.data})`. All other validation is specified in RegisterForm using WTForms Validators. 
-
-
- Flask-Bcrypt is used to hash users passwords are hashed using ???? `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`.
- 
- *Redirect*
- If a user is successfully registered, Flask-Login is used to automatically login and the user is redirected to the home page. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown. Users are guided through the process of registering with Flash Messages.
-
-
-
+New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page. In the forms.py file, WTForms is used to define the Register form's name, email, password, confirm password and submit fields. In HTML these form fields and field names are rendered using Jinga. Jinga if else loops are also used to display Flash Messages and apply Bootstrap classes, varying the formating and user feedback depending on input validation.  As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`. Flask-Bcrypt is used to hash users passwords `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`. All other validation is specified using WTForms Validators. If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the home page. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of registering with Flash Messages.
 
 
 **Notes - Login Page** 
 
-*Access*
-On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is also swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until they select logout or end their session.
+On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until they select logout or end their session.
 
 
 **Notes - Read/Delete Page**
 
-Logged in users are redirected to the Notes page. Both the MongoDB find and aggregate ???? use `{"language": language, "user_id": ObjectId(current_user.id)}` for filter/match criteria???. The language argument is passed from the notes dropdown selected and the user from ????? The aggregate ??? is used to create a distinct list of user specific note language topics, only topics which that user has previously assigned to notes are displayed. Language topics are closesly aligned to Codes Institute's lesson headings.
+Users access the notes page by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
 
-
-*Accordion*
-and form the fist level in a three level accordion. Having Bootstrap accordion component??? didn't give the functionality required, own accordion was built using jQuery. The `slide(target)` function was created to check current state of an accordion target, hiding a visible target and revealing a hidden target.
-```function slide(target) {
-        if (target.is(":hidden")) {
-            target.slideDown();
-        } else {
-            target.slideUp();
-        }
-    }
-```
-An on click function was created for each level in the accordion allows a button click to result in a target slide. Data attribute values allow the associate a button to a target. 
-```blevel1.click(function () {
-        let value = $(this).attr('data-bvalue');
-        let target = $('[data-2value="' + value + '"]')
-        level2.slideUp();
-        level3.slideUp();
-        level4.slideUp();
-        slide(target);
-    });
-```    
-
-```{% for group_topic in group_topics %}
-<div data-level="1">
-      <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}">
-            <i class="fas fa-angle-double-down"></i></button>
-      <h2 class="d-inline-block">{{ group_topic._id}}</h2>
-</div>
-
-{% for note in notes %}
-{% if note.topic == group_topic._id %}
-<div data-level="2" data-2value="{{ group_topic._id}}">
-      <button class="btn" type="button" data-blevel="2" data-bvalue="{{note._id}}">
-            <i class="fas fa-angle-down"></i></button>
-      <h3 class="d-inline-block">{{ note.note_name }}</h3>
-</div>
-```
-For notes 3 accordion levels are Topic, Note Name and Note ID.
+Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. Level two of the accordion reveals a list of sorted note names, whilst three reveals the contents, edit and delete buttons for an individual note.  The accordion, built using jQquery, uses a `slide(target)` function to check the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to result in a target slide. Data attribute values associate a button to a target when the template is rendered.
 
 PLACEHOLDER FOR VIDEO OF ACCORDION
 
-*Word Search*
-Users can opt to view their full list of notes, or filter their notes using a word search. The WTForms SearchForm is used to define and validate the word stringfield and submit button. For the word search functionality, a MongoDB index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all fields in the notes collection. A `"$text": {"$search": form.tsearch.data}` search ??? is then added to the find notes ??? and group_topics aggregrate. A clear button with `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
 
+Users can opt to view the full list or filter the accordion using a word search. The word search functionality is enabled by the search form created using WTForms and MongoDB's text index and $text operator. Firstly a text index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all string fields in the notes collection. Then the `"$text": {"$search": form.tsearch.data}` text operator is added to both the aggregrate topics and the find notes methods filtering the accordion by the `tsearch` word. A clear button with link `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
 
 *Delete*
-A delete note icon on level three of the accordion. Once clicked, a Bootstrap collapse ??? is used to display a confirm delete button. If clicked `action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST"` the id is passed to the deletenote route. Both the note and user id are passed to a MongoDB find one or 404 WHY 404????? `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})`
+To delete a note, users first click the delete note icon on level three of the accordion. Bootstrap collapse is then trriggered revealing a confirm delete button. Once clicked, the note id is passed to the deletenote route `action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST"`. As an added security measure, MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the delete_one operation.
 
 
 *Edit*
