@@ -33,6 +33,7 @@ $(document).ready(function () {
             target.slideUp();
         }
     }
+    //WHY: Created to check current state of an accordion target, hiding a visible target and revealing a hidden target.
     //WHERE:https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
 
     blevel1.click(function () {
@@ -62,8 +63,11 @@ $(document).ready(function () {
         level4.slideUp();
         slide(target);
     });
+    //WHY: Created for each level in the accordion allowing a button click to result in a target slide.
+    //WHY: Data attribute values allow the association of a button to a target when the template is rendered.
     //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
     //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
+
 
    
     //DARK MODE STYLING CHANGES
