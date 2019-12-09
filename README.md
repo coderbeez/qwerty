@@ -126,7 +126,7 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 
 ### Notes Register
 
-![Notes Register Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png)
+![Notes Register Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png | height=200)
 
 
 New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page. In the forms.py file, WTForms is used to define the Register form's name, email, password, confirm password and submit fields. In HTML these form fields and field names are rendered using Jinga. Jinga if else loops are also used to display Flash Messages and apply Bootstrap classes, varying the formating and user feedback depending on input validation.  As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`. Flask-Bcrypt is used to hash users passwords `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`. All other validation is specified using WTForms Validators. If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the home page. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of registering with Flash Messages.
@@ -135,7 +135,7 @@ New users access the Register page either by selecting Register from the notes d
 
 ### Notes Login
 
-![Notes Login Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png)
+![Notes Login Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png | height=300)
 
 
 On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until they select logout or end their session.
@@ -178,7 +178,7 @@ To add a note, users click the add note icon at the top of the page which links 
 
 ### Add Note
 
-![Add Note Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png)
+![Add Note Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png | height=500)
 
 
 A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.  WTForms Note Form is used to define and validate the topic, name, content and submit fields. The select topic list displayed is language specific with a default `-select-` option.
@@ -230,7 +230,7 @@ To add a note, users click the add link icon at the top of the page which links 
 
 ### Add Links
 
-![Add Link Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png)
+![Add Link Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png | height=600)
 
 ### Future Features 
 
