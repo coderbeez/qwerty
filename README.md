@@ -142,8 +142,6 @@ Users access notes pages by selecting a language from the notes dropdown. If a u
 *Read*
 Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. Level two of the accordion reveals a list of sorted note names, whilst three reveals the contents, edit and delete buttons for an individual note.  The accordion, built using jQquery, uses a `slide(target)` function to check the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to result in a target slide. Data attribute values associate a button to a target when the template is rendered.
 
-PLACEHOLDER FOR VIDEO OF ACCORDION
-
 Users can opt to view the full list or filter the accordion using a word search. The word search functionality is enabled by the search form created using WTForms and MongoDB's text index and $text operator. Firstly a text index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all string fields in the notes collection. Then the `"$text": {"$search": form.tsearch.data}` text operator is added to both the aggregrate topics and the find notes methods filtering the accordion by the `tsearch` word. A clear button with link `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
 
 *Delete*
@@ -176,7 +174,7 @@ A Login_Manager `@login_required` decorator ensures access to this route is limi
 
 Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
 
-![Links Page Video]( https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif)
+![Links Page Video]( https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif | height=400)
 
 *Read*
 Within the language links page, links are grouped by topic and type, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a four level accordion. Level two of the accordion groups language topics by one of four types, i.e. instruct, practice, resource and other. The third accordion level reveals a list of sorted link names and average ratings, whilst the fourth reveals the description, total ratings to date, add rating and report problem buttons for an individual link.  Jinga is used to calculate this average rating `{{(link.ratings|sum)//(link.ratings|count)}}` based on the link document's array of rating integers. The accordion, also used for the Notes page, is built using jQquery. A `slide(target)` function checks the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to slide a target. Data attribute values associate a button to a target when the template is rendered.
