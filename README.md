@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header.png">
+  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header2.png">
 </p>
 
 
@@ -7,7 +7,7 @@
 
 
 
-## UX
+# UX
 
 
 Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages for Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and/or share links for each language.
@@ -20,44 +20,39 @@ Qwerty is a website developed to assist coding students studying HTML, CSS, Java
 
 
 
-### User Stories
+## User Stories
 
 
 User stories for potential visitors to the website include:
 
-**Find Link** 
+### Find Link
 
 I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
 
 
-**Share Link**
+### Share Link
 
 I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links can get lost unless pinned, so I open Qwerty and select Python from the links dropdown. I click add a new link. I enter the details, selecting MongoDB for topic, instruct for type and giving it a 5 star rating. I could add a description but its optional so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
 
 
-**Online Notes**
+### Online Notes
 
 Although I keep written notes when I’m studying at home, I want somewhere to jot down notes on my mobile when I’m on commuting or having a break at work. The language topic headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this preference is remembered on my mobile.
 
 
-**Break Time**
+### Break Time
 
 When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected coding quote. I check out today’s site of the day from the awwwards link. As I’m on the JavaScript milestone, I visit the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
 
 
 
-### Design
+## Design
 
 
-Qwerty's look and flow was designed for simplicity and ease of use. 
+Qwerty was chosen as a memorable name for the target audience of coding students. Qwerty's look and flow was designed for simplicity and ease of use. 
 
 
-**Name**
-
-Qwerty was chosen as a memorable name for the target audience of coding students.
-
-
-**Navigation**
+### Navigation
 
 The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, **notes** and **links**, highlighted by the pared back navbar home, notes, links and the tagline text save notes, share links. Users access either section by selecting a language from the section navbar dropdown.
 
@@ -66,28 +61,31 @@ As links are not associated with accounts, users selecting a links language are 
 Users that select a notes language are routed to the login page, if not already logged in, before being routed to the read notes page for their chosen language.  Following a consistent design, users can again access the add note page, or use the accordion and word search to find and edit existing notes. Users remain logged in until they select logout or end their session. New users can choose register directly from the notes dropdown or link from the login page. After registering, users are automatically logged in. The notes dropdown register option changes to logout once a user registers or logs in, following the mantra of only showing the user what they need, when they need it.
 
 
-**Colours & Fonts**
+### Colours & Fonts
 
 Following on from simplified navigation, Qwerty has been designed with minimal graphics, fonts and colours. A simple pencil image, to reflect note taking, is used on the home page and repeated on the playlist. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. 
 
 ![Colours Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/colours.png)
+<p align="center">
+  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header2.png">
+</p>
 
 
-**Dark Mode**
+### Dark Mode
 
 Given dark mode is often discussed on Code Institute's Diploma Slack channel, it was incorporated as an option for users. A user's selection is saved in local storage so perference is remembered on return visits. 
 
 
-**Preparation**
+### Preparation
 
 Microsoft Powerpoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
 
 
 
-## Pages
+# Pages
 
 
-### Home Page
+## Home Page
 ![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
 
 - A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
@@ -108,8 +106,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 - A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
 
 
-
-### Register Page (Notes Only)
+## Register Page (Notes Only)
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png">
 
@@ -130,9 +127,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 - Users are guided through the process of registering with Flash Messages.
 
 
-
-
-### Login Page (Notes Only)
+## Login Page (Notes Only)
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png">
 
@@ -155,10 +150,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 - Flask-Login manages the user until they select logout or end their session.
 
 
-
-
-### Notes Page
-
+## Notes Page
 
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
@@ -183,9 +175,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 - To add a note, users click the add note icon at the top of the page which links to the add note page for that language using url_for.
 
 
-
-
-### Add Note Page
+## Add Note Page
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
 
@@ -206,11 +196,9 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 - Once a note is sucessfully added, the user is redirected to the language Notes page. 
 
 - Flash Messages guide the user through the add note process.
-        
+  
 
-
-
-### Edit Note Page
+## Edit Note Page
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
 
@@ -229,9 +217,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 - Flash Messages guide the user through the edit note process.
 
 
-
-
-### Links Page
+## Links Page
 
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
@@ -255,10 +241,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 - To add a note, users click the add link icon at the top of the page which links to the add link page for that language using url_for.
 
-
-
-
-### Add Link Page
+## Add Link Page
 
 <img align="right" height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
 
@@ -285,10 +268,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 - Flash Messages guide the user through the add link process.
 
 
-
-
-### Future Features 
-
+## Future Features 
 
 **Password Reset** Facility to reset password.
 
@@ -296,12 +276,12 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 
 
-## Database Design
+# Database Design
 
 
 As per Code Institute’s requirements MongoDb, a document based NoSQL database, was used for this project. 
 
-### Languages Collection
+## Languages Collection
 
 The Languages Collection was created to populate topic dropdowns for each language throughout the site. As topics are updated by Code Institute, rather than hard code lists per language this approach allows for efficient list management. Administrator completes all CRUD operations directly in MongoDd.
 
@@ -312,7 +292,7 @@ The Languages Collection was created to populate topic dropdowns for each langua
 | **topic** | Array Strings | N/A | N/A | Admin |
 
 
-### Links Collection
+## Links Collection
 
 The Links Collection is a core data collection. Users can read all exisiting documents and create new documents. Their update options are limited to adding a star rating or flagging an issue with an existing document. Document deletion is limited to administrator. The Links Collection is shared amongst all users, hence the limited CRUD operations for users.
 
@@ -329,7 +309,7 @@ The Links Collection is a core data collection. Users can read all exisiting doc
 | **flag** | Boolean | Button | N/A | Auto *(default False)* / User/ Admin |
 
 
-### Notes Collection
+## Notes Collection
 
 The Notes Collection is the second core collection. Users have the full range of CRUD operations for their own notes with no access to the notes of other users. Users must register and login for this section of the site. 
 
@@ -343,7 +323,7 @@ The Notes Collection is the second core collection. Users have the full range of
 | **content** | String | Text Area | Required | User |
 
 
-### Quotes Collection
+## Quotes Collection
 
 The Quotes Collectin is sampled in the Distraction section of the site. Read is the only CRUD operation available to users. The collection is managed by the administrator directly through MongoDb.
 
@@ -354,7 +334,7 @@ The Quotes Collectin is sampled in the Distraction section of the site. Read is 
 | **author** | String | N/A | N/A | Admin |
 
 
-### Users Collection
+## Users Collection
 
 The Users Collection is used to faciliatate notes on this site. Users create a new account on register page and access existing account on login page. The remaining CRUD operations are managed by the administrator directly through MongoDb.
 
@@ -367,32 +347,32 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 
 
-## Technologies & Programmes Used
+# Technologies & Programmes Used
 
-### Languages
+## Languages
 - [HTML5](https://www.w3.org/)
 - [CSS3](https://www.w3.org/)
 - [JavaScript](http://www.ecma-international.org/)
 - [Python](https://www.python.org/)
 
-### Development Tools
+## Development Tools
 - [Visual Studio Code](https://code.visualstudio.com/) IDE used.
 - [Git](https://git-scm.com/) Used to track changes in Visual Studio Code during development.
 - [GitHub](https://github.com/) Used to host the version control system and website content before deployment to Heroku????.
 
-### Hosting Platforms & Database
+## Hosting Platforms & Database
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) Cloud based database service used.
 - [Heroku](https://www.heroku.com/) Cloud based hosting service used. 
 
 
-### Frontend Resources
+## Frontend Resources
 - [Google Fonts](https://fonts.google.com/) Used for all fonts.
 - [Font Awesome](https://fontawesome.com/) Used for all icons.
 - [Bootstrap4](https://getbootstrap.com/) Used for responsive layout and styling.
 - [jQuery](https://jquery.com/) Used for DOM manipulation enabling accordion dark-mode functionality.
 
 
-### Backend Resources
+## Backend Resources
 - [pip](https://pypi.org/project/pip/) Used to install Python modules.
 - [Flask](https://palletsprojects.com/p/flask/) Web application framework used. 
 - [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) Used to allow communication between Python and MongoDB.
@@ -402,7 +382,7 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 - [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
 
 
-### Design Tools
+## Design Tools
 - [Balsamiq](https://balsamiq.com/) Used to develop wireframes for the website.
 - [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Used to develop the initial webiste proposal.
 - [Affinity Designer](https://affinity.serif.com/en-gb/) Used to edit images and identify hex colours for fonts and backgrounds.
@@ -410,37 +390,37 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 
 
-## Testing
+# Testing
 
 
-### Validation
+## Validation
 
 
-**HTML**
+### HTML
 
 [W3C Validation Service](https://validator.w3.org/) Used to test the validity of HTML – no errors found.
 
 
-**CSS**
+### CSS
 
 [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) Used to test the validity of CSS – no errors found.
 
 [Autoprefixer CSS](https://autoprefixer.github.io/) Used to ensure all relevant vendor prefixes included.
 
 
-**JavaScript**
+### JavaScript
 
 [JSHint](https://jshint.com/) Used to test the validity of JavaScript functions – no errors found.
 
 
-### Manual Testing
+## Manual Testing
 
 Throughout the development process Chrome was used to test for functionality and Chrome developer tools for layout and responsiveness on various screen sizes. Once deployed, the site was also tested on Edge, Firefox and Safari browers and on both android and iOS mobiles. 
 
 After sign-off, structured manual testing of the site was carried out on various browsers and screens sizes. Detailed plans were followed to ensure code was thoroughly tested. The order and languages tested was varied to minic user paths and ensure UX user stories were covered.
 
 
-**Distraction & User Management**
+### Distraction & User Management
 
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -481,7 +461,7 @@ P - Passed
 N/A - Not Applicable
 
 
-**Notes**
+### Notes
 
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -517,7 +497,7 @@ P - Passed
 N/A - Not Applicable
 
 
-**Links**
+### Links
 
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -557,7 +537,7 @@ P - Passed
 N/A - Not Applicable
 
 
-**JavaScript**
+### JavaScript
 
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -611,7 +591,7 @@ N/A - Not Applicable
 
 
 
-### Bug Log
+## Bug Log
 
 
 1. **Touch Screen Keyboards** During development it quickly became apparent that relying on inbuilt keyboards on touch screen devices provided poor UX. Keypads were built into the website to avoid using device keyboards.
@@ -620,7 +600,7 @@ N/A - Not Applicable
 2. **iOS Tables** Initial keypad designs 
 
 
-## Deployment
+# Deployment
 
 The website was developed in Visual Studio Code using a virtual environment and deployed to Heroku via GitHub.
 
@@ -634,7 +614,7 @@ The following instructions to clone and deploy assume the user has:
 - Heroku Account
 
 
-### Clone in GitHub
+## Clone in GitHub
 
 The following instructions were taken from [GitHib Help]( https://help.github.com/en/articles/cloning-a-repository).
 1. Open the [Qwerty](https://github.com/coderbeez/qwerty) repository.
@@ -646,7 +626,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 7. Press **enter**. 
 
 
-### Create MongoDB Atlas Database
+## Create MongoDB Atlas Database
 
 1. On the [MongoDB](https://cloud.mongodb.com/user#/atlas/login) website log into your Atlas account.
 2. Under **cluster/ collections** click **create database** and enter a **database name** and **collection name**.
@@ -657,14 +637,14 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 7. Copy the connection string `mongodb+srv://root:<password>@mysecondcluster-xkuqo.azure.mongodb.net/test?retryWrites=true&w=majority`.
 
 
-### IDE Development Setup
+## IDE Development Setup
 
 1. Add the `MONGO_URI` to your environment file for local deployment. Replace `<password>` with your **password** and `test` with your **database name**.
 2. Add a `SECRET_KEY` to your environment file.
 3. Use `pip install -r requirements.txt` to install requirements.
 
 
-### Deploy to Heroku 
+## Deploy to Heroku 
 
 1. On the [Heroku](https://id.heroku.com/login) website log into your account.
 2. Click **new** and **create new app**.
@@ -680,10 +660,10 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 13. Under **resources/ free dynos** click **edit** and **confirm**. 
 
 
-## Credits
+# Credits
 
 
-### Content
+## Content
 
 - Site concept and design by website developer.
 - Language topics reflect Code Institute’s Diploma in Full Stack Web Development.
@@ -692,22 +672,22 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 
 
-### Media
+## Media
 
 - Pencil image by Yoann Siloine from [Unsplash](https://unsplash.com/photos/dyaxQ-aoGWY).
 - Spotify image adapted from [Spotify](https://www.spotify.com/ie/).
 
 
-### Code
+## Code
 
-**HTML**
+### HTML
 - Set textarea to display only from [Stack Overflow](https://stackoverflow.com/questions/12831092/textarea-without-input-functionality).
 
-**CSS**
+### CSS
 - Creating a switch in CSS from [W3Schools](https://www.w3schools.com/howto/howto_css_switch.asp).
 
 
-**JavaScript**
+### JavaScript
 - On page load event from [Stack Overflow](https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working).
 - Check if an element is hidden from [Stack Overflow](https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery).
 - Show hide elements by data attributes from [Stack Overflow](https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute).
@@ -719,9 +699,9 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - Clear local storage from [Stack Overfow](https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data).
 
 
-**Python** 
+### Python
 
-*Database*
+#### Database
 - [Maximilian Schwarzmüller - Udemy MongoDB The Complete Developer's Guide](https://www.udemy.com/course/mongodb-the-complete-developers-guide/learn/lecture/11850844?start=300#overview).
 - [Flask-PyMongo Documentation](https://flask-pymongo.readthedocs.io/en/latest/).
 - [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/).
@@ -730,13 +710,13 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - Text search from [Stack Overflow](https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search).
 - Text search language override from [Stack Overflow](https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index).
 
-*Forms*
+#### Forms
 - [WTForms Documentation](https://wtforms.readthedocs.io/en/stable/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Pretty Printed - YouTube Flask WTForms Series](https://www.youtube.com/playlist?list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
 - Setting data attributes on WTForms field from [Stack Overfow](https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field).
 
-*User Sessions*
+#### User Sessions
 - [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Corey Schafer - YouTube Python Classes Series](https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s).
@@ -748,17 +728,17 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
 
-*Messages*
+#### Messages
 - [Flask Message Flashing Documentation](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 
-*Templating*
+#### Templating
 - [Jinja Documentation](https://jinja.palletsprojects.com/en/2.10.x/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - Using url_for with static files from [Stack Overflow](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for).
 
 
-### Acknowledgements
+## Acknowledgements
 
   - Many thanks to my mentor Ali Ashik and ***all*** on Slack who take the time to share useful links for their fellow students.
 
