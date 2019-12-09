@@ -55,7 +55,7 @@ Qwerty's look and flow was designed for simplicity and ease of use.
 
 **Name**
 
-Qwerty was chosen as it would be memorable for the target audience of coding students.
+Qwerty was chosen as a memorable name for the target audience of coding students.
 
 
 **Navigation**
@@ -174,7 +174,7 @@ A Login_Manager `@login_required` decorator ensures access to this route is limi
 
 Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
 
-![Links Page Video](https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif | width=600)
+![Links Page Video](https://github.com/coderbeez/qwerty/blob/master/static/readme/links2.gif)
 
 
 <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif" alt="Links Page Video" width="600"/>
