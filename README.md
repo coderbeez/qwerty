@@ -192,7 +192,15 @@ As well as the data from the form fields, a MongoDB insert_one method takes the 
 
 ### Edit Note
 
-![Edit Note Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png)
+<p align="center">
+  <img height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
+</p>
+<p align="center">
+  <img height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
+</p>
+<p align="center">
+  <img height="400" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
+</p>
 
 A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Edit Note Page from a link on level three of the language Notes Page accordion.  Both the language and note id arguments are passed from Notes to Edit Notes pages. The Note Form created using WTForms and used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id. WTForm Validators verify data changes and valid changes are submitted to the notes collection using a MongoDB update_one method. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the update_one operation is performed. Once sucessfully edited, the user is redirected to the language Notes page. Flash Messages guide the user through the edit note process.
 
@@ -230,10 +238,6 @@ To add a note, users click the add link icon at the top of the page which links 
 
 ### Add Links
 
-![Add Link Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png | height=600)
-<p align="center">
-  <img height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
-</p>
 <p align="center">
   <img height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
 </p>
