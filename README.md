@@ -176,6 +176,8 @@ Users access links pages by selecting a language from the links dropdown. Links 
 
 ![Links Page Video](https://github.com/coderbeez/qwerty/blob/master/static/readme/links2.gif)
 
+![Links Page Video](https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif)
+
 
 <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif" alt="Links Page Video" width="600"/>
 
