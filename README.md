@@ -137,80 +137,60 @@ On selecting a language from the notes dropdown, users not already logged in, ar
 
 **Notes - Read/Delete Page**
 
-Users access the notes page by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
+Users access notes pages by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
 
+*Read*
 Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. Level two of the accordion reveals a list of sorted note names, whilst three reveals the contents, edit and delete buttons for an individual note.  The accordion, built using jQquery, uses a `slide(target)` function to check the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to result in a target slide. Data attribute values associate a button to a target when the template is rendered.
 
 PLACEHOLDER FOR VIDEO OF ACCORDION
 
-
 Users can opt to view the full list or filter the accordion using a word search. The word search functionality is enabled by the search form created using WTForms and MongoDB's text index and $text operator. Firstly a text index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all string fields in the notes collection. Then the `"$text": {"$search": form.tsearch.data}` text operator is added to both the aggregrate topics and the find notes methods filtering the accordion by the `tsearch` word. A clear button with link `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
 
 *Delete*
-To delete a note, users first click the delete note icon on level three of the accordion. Bootstrap collapse is then trriggered revealing a confirm delete button. Once clicked, the note id is passed to the deletenote route `action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST"`. As an added security measure, MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the delete_one operation.
+To delete a note, users first click the delete note icon on level three of the accordion. Bootstrap collapse is then trriggered revealing the form submit button, confirm delete. Once confirm is clicked, the note id is passed to the deletenote route. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the delete_one operation is performed.
 
 
 *Edit*
-A link is provided to the editnote route on level three of the accordion to the allow user to edit a specific note `href="{{url_for('editnote', language=language, noteid=note._id)}}"`.
+To edit a note, users click the edit note icon on level three of the accordion which links to the edit note page for that note id using url_for.
 
 *Add*
-A link is provided near the page header to the addnote route using url_for and passing the current language as an argument `href="{{ url_for('addnote', language=language) }}"`.
+To add a note, users click the add note icon at the top of the page which links to the add note page for that language using url_for.
 
 
-**Notes - Add Page** 
-
-*User session*
-The Login_Manager `@login_required` decorator ensure access to this route is limited to logged in users.
-
-*Form*
-WTForms NoteForm is used to define and validate the topic, name and content fields. The select topic list displayed is language specific with a default `-select-` option.
+**Notes - Add Note Page** 
+A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.  WTForms Note Form is used to define and validate the topic, name, content and submit fields. The select topic list displayed is language specific with a default `-select-` option.
 ``` document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
 topics = document_language["topics"]
 form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 ```
-???Hidden Tag
-```<form method="POST" action="">
-            {{ form.hidden_tag() }}
-            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
-```            
-
-*Flash Messages*
-```<!--INPUT TOPIC-->
-                <div class="form-group">
-                    {{ form.topic.label(class="form-control-label") }}
-                    {% if form.topic.errors %}
-                    {{ form.topic(class="form-control is-invalid")}}
-                    <div class="invalid-feedback">
-                        {% for error in form.topic.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.topic(class="form-control") }}
-                    {% endif %}
-                </div>
-```
-Jinja templates are used to render fields and field names. If else loops, change formating and dispaly Flash Messages where inputs fail validation. Bootstrap classes of form-control-label, form-control, is-inavlid and invalid-feedback are used for styling. ???? DOES THIS NEED TO CHANGE FOR ACCESSIBILITY Flash messages guide a user through the add note process.
-
+As well as the data from the form fields, a MongoDB insert_one method takes the language from language argument and the user id from `current_user.id`. Once a note is sucessfully added, the user is redirected to the language Notes page. Flash Messages guide the user through the add note process.
+        
 
 
 **Notes - Edit Page** 
 
-*Access*
-Users access the edit page through a links on accordion level 3, notes page uisng noteid. The Edit page route checks the current user is the owner of the note id.????
-
-*User Management*
-Again....
-
-*Form*
-The NoteForm used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id A MongoDB. The WTForm validates any data changes and valid changes are submitted to the notes collection using a update` mongo.db.notes.update_one({"_id": ObjectId(noteid)},{"$set"` and the user redirected to the notes page for that language. Flash messages guide the user through the edit note process.
+A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Edit Note Page from a link on level three of the language Notes Page accordion.  Both the language and note id arguments are passed from Notes to Edit Notes pages. The Note Form created using WTForms and used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id. WTForm Validators verify data changes and valid changes are submitted to the notes collection using a MongoDB update_one method. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the update_one operation is performed. Once sucessfully edited, the user is redirected to the language Notes page. Flash Messages guide the user through the edit note process.
 
 
+**Links - Read/Edit Page** 
 
+Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
 
-**Links - Read/Edit Page** Although the w
+*Read*
+Within the language links page, links are first grouped by topic, then by type, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a four level accordion. Level two of the accordion groups language topics by one of four types, i.e. instruct, practice, resource other. The third accordion level reveals a list of sorted link names, whilst the fourth reveals the description, add rating and flag problem buttons for an individual link.  The accordion also used for the Notes page and built using jQquery, uses a `slide(target)` function to check the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to result in a target slide. Data attribute values associate a button to a target when the template is rendered.
 
-**Links - Add Page** Although the w
+*Delete*
+There is no facility for users to delete a link. Any deletions are performed by the administrator only connecting directly to MongoDB.
+
+When links are added, a check field is defaulted to false in the database document. This is overwritten by the Administrator after the link is verified. If users encounter a problem with a link, they can unotify the administrator by 
+
+*Edit*
+Users can add edit a links document by adding a rating or reporting a problem for a specific link id. Star and tool icons are located on the fouth accordion level. Users click the relevant star icon to add a 1, 2, 3, 4 or 5 star rating or the tool icon to report a problem. As form submit buttons....... JQuery is used to recolour icons once selected and a sleep method to delay submission. Once successfully submitted users are redirected to the language Links page. Flash messages guide the user through the edit process.
+
+*Add*
+To add a note, users click the add link icon at the top of the page which links to the add link page for that language using url_for.
+
+**Links - Add Page** 
 
 
 
