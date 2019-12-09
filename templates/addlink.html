@@ -72,7 +72,7 @@
 
                 <!--INPUT DESCRIPTION-->
                 <div class="form-group">
-                    {{ form.description.label(class="form-control-label") }}
+                    {{ form.description.label(class="form-control-label") }} <small>(optional)</small>
                     {% if form.description.errors %}
                     {{ form.description(class="form-control is-invalid")}}
                     <div class="invalid-feedback">
