@@ -178,8 +178,15 @@ To add a note, users click the add note icon at the top of the page which links 
 
 ### Add Note
 
-![Add Note Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png | height=500)
-
+<p align="center">
+  <img height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
+</p>
+<p align="center">
+  <img height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
+</p>
+<p align="center">
+  <img height="400" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
+</p>
 
 A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.  WTForms Note Form is used to define and validate the topic, name, content and submit fields. The select topic list displayed is language specific with a default `-select-` option.
 ``` document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
