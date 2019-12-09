@@ -1,7 +1,8 @@
 # Qwerty
 
-
-![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
+<p align="center">
+  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header.png">
+</p>
 
 
 **[Qwerty](https://coderbeez.github.io/trigg4tables/)** *a website to assist coding students save notes and share links. Developed for Code Institute's Milestone 3: Data Centric Development.*
@@ -186,7 +187,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 
 
 
-### Add Note
+### Add Note Page
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
 
@@ -211,7 +212,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 
 
-### Edit Note
+### Edit Note Page
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
 
