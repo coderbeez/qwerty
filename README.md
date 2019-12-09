@@ -88,40 +88,26 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 ## Pages
 
 
-### Home
+### Home Page
 ![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
 
+- A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
 
-**Navbar**
+- The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
 
-A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
-
-
-**Image, Title, Tagline**
-
-The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
+- A slider, on the home page for mobile devices and sidebar on mediuma and large screens, allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
 
 
-**Dark Mode**
+- A distraction sidebar on medium and large screens, On mobile devices, visible under the pencil image on the home page.
 
-A slider, on the home page for mobile devices and sidebar on mediuma and large screens, allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
+- A MongoDB quotes collection of coding related quotes is sampled and one displayed at the start of each site visit???
 
+- The MongoDB links collection is sampled and one displayed for each language at the start of each site visit??? Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling.
 
-**Distraction**
+- Hard coded links to four site of the day web sites are included for design inspiration.
 
-A distraction sidebar on medium and large screens, On mobile devices, visible under the pencil image on the home page.
+- A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
 
-*Quote*
-A MongoDB quotes collection of coding related quotes is sampled and one displayed at the start of each site visit???
-
-*Sample Links*
-The MongoDB links collection is sampled and one displayed for each language at the start of each site visit??? Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling.
-
-*Inspiration*
-Hard coded links to four site of the day web sites are included for design inspiration.
-
-*Spotify*
-A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
 
 
 ### Register Page (Notes Only)
@@ -146,6 +132,7 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 
 
 
+
 ### Login Page (Notes Only)
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png">
@@ -167,6 +154,7 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 - Users are guided through the process of logging in with Flash Messages.
 
 - Flask-Login manages the user until they select logout or end their session.
+
 
 
 
@@ -197,6 +185,7 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 
 
 
+
 ### Add Note
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
@@ -221,6 +210,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
         
 
 
+
 ### Edit Note
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
@@ -238,6 +228,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 - Once sucessfully edited, the user is redirected to the language Notes page.
 
 - Flash Messages guide the user through the edit note process.
+
 
 
 
@@ -267,9 +258,10 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 
 
+
 ### Add Link Page
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
+<img align="right" height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
 
 - Users access the Add Link Page from a link on the language Links Page, passing the language argument from Links to Add Links.
 
