@@ -258,7 +258,7 @@ def deletenote(language, noteid):
     flash("Perfect - note deleted!") 
     return redirect(url_for("notes", language=language))
 #WHY: user_id added as notes filter to ensure only the owner can delete a note.
-#do i need something for the 404?????
+
 
 #FLAG LINK    
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
