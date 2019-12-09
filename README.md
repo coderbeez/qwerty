@@ -198,21 +198,25 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 - Flash Messages guide the user through the add note process.
         
----
+
 
 ### Edit Note
 
-<p align="center">
-  <img height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
-</p>
-<p align="center">
-  <img height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
-</p>
-<p align="center">
-  <img height="400" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
-</p>
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
 
-A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Edit Note Page from a link on level three of the language Notes Page accordion.  Both the language and note id arguments are passed from Notes to Edit Notes pages. The Note Form created using WTForms and used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id. WTForm Validators verify data changes and valid changes are submitted to the notes collection using a MongoDB update_one method. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the update_one operation is performed. Once sucessfully edited, the user is redirected to the language Notes page. Flash Messages guide the user through the edit note process.
+- A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users.
+
+- Users access the Edit Note Page from a link on level three of the language Notes Page accordion.
+
+- Both the language and note id arguments are passed from Notes to Edit Notes pages.
+
+- The Note Form created using WTForms and used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id. WTForm Validators verify data changes and valid changes are submitted to the notes collection using a MongoDB update_one method.
+
+- As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the update_one operation is performed.
+
+- Once sucessfully edited, the user is redirected to the language Notes page.
+
+- Flash Messages guide the user through the edit note process.
 
 
 
