@@ -178,24 +178,18 @@ To add a note, users click the add note icon at the top of the page which links 
 
 ### Add Note
 
-
-| **Add Note** | **DB TYPE** |
-| --- | --- |
-| <img height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png"> | A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.  WTForms Note Form is used to define and validate the topic, name, content and submit fields. The select topic list displayed is language specific with a default `-select-` option.
-``` document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
-topics = document_language["topics"]
-form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
-```
-As well as the data from the form fields, a MongoDB insert_one method takes the language from language argument and the user id from `current_user.id`. Once a note is sucessfully added, the user is redirected to the language Notes page. Flash Messages guide the user through the add note process. |
-
-
   <img align="left" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
-A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.  WTForms Note Form is used to define and validate the topic, name, content and submit fields. The select topic list displayed is language specific with a default `-select-` option.
+- A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users.
+- Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.
+- WTForms Note Form is used to define and validate the topic, name, content and submit fields.
+- The select topic list displayed is language specific with a default `-select-` option.
 ``` document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
 topics = document_language["topics"]
 form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 ```
-As well as the data from the form fields, a MongoDB insert_one method takes the language from language argument and the user id from `current_user.id`. Once a note is sucessfully added, the user is redirected to the language Notes page. Flash Messages guide the user through the add note process.
+- As well as the data from the form fields, a MongoDB insert_one method takes the language from language argument and the user id from `current_user.id`.
+- Once a note is sucessfully added, the user is redirected to the language Notes page. 
+- Flash Messages guide the user through the add note process.
         
 ---
 
