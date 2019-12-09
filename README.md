@@ -231,6 +231,11 @@ To add a note, users click the add link icon at the top of the page which links 
 ### Add Links
 
 ![Add Link Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png | height=600)
+<p align="center">
+  <img height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
+</p>
+
+
 
 ### Future Features 
 
