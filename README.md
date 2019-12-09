@@ -10,11 +10,11 @@
 # UX
 
 
-Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages for Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and/or share links for each language.
+Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages for Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and share links for each language.
 
-1. **Notes** Students can register to host their own language notes using familiar topic headings with a full range of CRUD operations. Registration and login are required for notes. 
+1. **Notes** Students can register to host their own language notes using familiar topic headings with a full range of CRUD operations. Registration and login are required for Notes. 
 
-2. **Links** Language links are again grouped under familiar topic headings and categorised by type, i.e instruct, practice, resource and other. Students can create a new link, add a star rating or report a problem with an existing link. No registration or login is required for links.
+2. **Links** Language links are again grouped under familiar topic headings and categorised by type, i.e instruct, practice, resource and other. Students can create a new link, add a star rating or report a problem with an existing link. No registration or login is required for Links.
 
 3. **Distraction** Inspiration and motivation is provided by coding quotes, suggested language links, daily award site links and a Spotify playlist for those times when stack overflow just isn’t delivering.
 
@@ -25,19 +25,19 @@ Qwerty is a website developed to assist coding students studying HTML, CSS, Java
 
 User stories for potential visitors to the website include:
 
-### Find Link
+### Find A Link
 
-I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
-
-
-### Share Link
-
-I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links can get lost unless pinned, so I open Qwerty and select Python from the links dropdown. I click add a new link. I enter the details, selecting MongoDB for topic, instruct for type and giving it a 5 star rating. I could add a description but its optional so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
+I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select *JavaScript* from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select *Jasmine*. A list of link types opens – I select *instruct*. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
 
 
-### Online Notes
+### Share A Link
 
-Although I keep written notes when I’m studying at home, I want somewhere to jot down notes on my mobile when I’m on commuting or having a break at work. The language topic headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this preference is remembered on my mobile.
+I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select *Python* from the links dropdown. I click *Add New*. I enter the details, selecting *MongoDB* for topic, *instruct* for type and giving it a 5 *star rating*. I could add a *description* but its optional so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
+
+
+### Create & Read Notes
+
+As study needs to fit around home and work life, I need a central home for my notes accessible from my home desktop, mobile and work laptop. Having read an article on the mobile on my work commute, I want to jot down some notes relating to Flask. I select *Python* from the notes dropdown. I'm asked to login using my *email* and *password*. Once logged in I'm directed to my Python notes page with all *topic* headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional *word search* facility to pull notes covering more than 1 topic. I click *Add New* to create a new note filling out the Having to login means I know my notes are kept secure. I’m a dark mode fan and this preference is remembered on my mobile.
 
 
 ### Break Time
@@ -84,6 +84,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 
 # Pages
 
+Introduction text about flask rendering templates & jinja.
 
 ## Home Page
 ![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
@@ -281,7 +282,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 As per Code Institute’s requirements MongoDb, a document based NoSQL database, was used for this project. 
 
-## Languages Collection
+### Languages Collection
 
 The Languages Collection was created to populate topic dropdowns for each language throughout the site. As topics are updated by Code Institute, rather than hard code lists per language this approach allows for efficient list management. Administrator completes all CRUD operations directly in MongoDd.
 
@@ -292,7 +293,7 @@ The Languages Collection was created to populate topic dropdowns for each langua
 | **topic** | Array Strings | N/A | N/A | Admin |
 
 
-## Links Collection
+### Links Collection
 
 The Links Collection is a core data collection. Users can read all exisiting documents and create new documents. Their update options are limited to adding a star rating or flagging an issue with an existing document. Document deletion is limited to administrator. The Links Collection is shared amongst all users, hence the limited CRUD operations for users.
 
@@ -309,7 +310,7 @@ The Links Collection is a core data collection. Users can read all exisiting doc
 | **flag** | Boolean | Button | N/A | Auto *(default False)* / User/ Admin |
 
 
-## Notes Collection
+### Notes Collection
 
 The Notes Collection is the second core collection. Users have the full range of CRUD operations for their own notes with no access to the notes of other users. Users must register and login for this section of the site. 
 
@@ -323,7 +324,7 @@ The Notes Collection is the second core collection. Users have the full range of
 | **content** | String | Text Area | Required | User |
 
 
-## Quotes Collection
+### Quotes Collection
 
 The Quotes Collectin is sampled in the Distraction section of the site. Read is the only CRUD operation available to users. The collection is managed by the administrator directly through MongoDb.
 
@@ -334,7 +335,7 @@ The Quotes Collectin is sampled in the Distraction section of the site. Read is 
 | **author** | String | N/A | N/A | Admin |
 
 
-## Users Collection
+### Users Collection
 
 The Users Collection is used to faciliatate notes on this site. Users create a new account on register page and access existing account on login page. The remaining CRUD operations are managed by the administrator directly through MongoDb.
 
@@ -349,30 +350,30 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 # Technologies & Programmes Used
 
-## Languages
+### Languages
 - [HTML5](https://www.w3.org/)
 - [CSS3](https://www.w3.org/)
 - [JavaScript](http://www.ecma-international.org/)
 - [Python](https://www.python.org/)
 
-## Development Tools
+### Development Tools
 - [Visual Studio Code](https://code.visualstudio.com/) IDE used.
 - [Git](https://git-scm.com/) Used to track changes in Visual Studio Code during development.
 - [GitHub](https://github.com/) Used to host the version control system and website content before deployment to Heroku????.
 
-## Hosting Platforms & Database
+### Hosting Platforms & Database
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) Cloud based database service used.
 - [Heroku](https://www.heroku.com/) Cloud based hosting service used. 
 
 
-## Frontend Resources
+### Frontend Resources
 - [Google Fonts](https://fonts.google.com/) Used for all fonts.
 - [Font Awesome](https://fontawesome.com/) Used for all icons.
 - [Bootstrap4](https://getbootstrap.com/) Used for responsive layout and styling.
 - [jQuery](https://jquery.com/) Used for DOM manipulation enabling accordion dark-mode functionality.
 
 
-## Backend Resources
+### Backend Resources
 - [pip](https://pypi.org/project/pip/) Used to install Python modules.
 - [Flask](https://palletsprojects.com/p/flask/) Web application framework used. 
 - [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) Used to allow communication between Python and MongoDB.
@@ -382,7 +383,7 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 - [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
 
 
-## Design Tools
+### Design Tools
 - [Balsamiq](https://balsamiq.com/) Used to develop wireframes for the website.
 - [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Used to develop the initial webiste proposal.
 - [Affinity Designer](https://affinity.serif.com/en-gb/) Used to edit images and identify hex colours for fonts and backgrounds.
@@ -723,7 +724,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
 - [Running Codes - Blog PyMongo with Flask-Login](https://boh717.github.io/post/flask-login-and-mongodb).
 
-*User Passwords*
+#### User Passwords
 - [Flask-Bcrypt Documentation](https://flask-bcrypt.readthedocs.io/en/latest/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
