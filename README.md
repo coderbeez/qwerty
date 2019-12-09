@@ -176,6 +176,9 @@ Users access links pages by selecting a language from the links dropdown. Links 
 
 ![Links Page Video](https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif | width=400)
 
+
+<img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif" alt="Links Page Video" width="400"/>
+
 *Read*
 Within the language links page, links are grouped by topic and type, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a four level accordion. Level two of the accordion groups language topics by one of four types, i.e. instruct, practice, resource and other. The third accordion level reveals a list of sorted link names and average ratings, whilst the fourth reveals the description, total ratings to date, add rating and report problem buttons for an individual link.  Jinga is used to calculate this average rating `{{(link.ratings|sum)//(link.ratings|count)}}` based on the link document's array of rating integers. The accordion, also used for the Notes page, is built using jQquery. A `slide(target)` function checks the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to slide a target. Data attribute values associate a button to a target when the template is rendered.
 
