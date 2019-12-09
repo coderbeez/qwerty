@@ -124,55 +124,76 @@ Hard coded links to four site of the day web sites are included for design inspi
 A link to a Spotify playlist of upbeat songs with a strong Irish bias was generated for the site. An initial embedded Spotify playlist was removed as it resulted in problems with audio levels in headphones.
 
 
-### Notes Register
+### Register Page (Notes Only)
 
-![Notes Register Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png | height=200)
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png">
+
+- New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page.
+
+- In the forms.py file, WTForms is used to define the Register form's name, email, password, confirm password and submit fields.
+
+- In HTML these form fields and field names are rendered using Jinga. Jinga if else loops are also used to display Flash Messages and apply Bootstrap classes, varying the formating and user feedback depending on input validation.
+
+- As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`.
+
+- Flask-Bcrypt is used to hash users passwords `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`. All other validation is specified using WTForms Validators.
+
+- If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the home page.
+
+- Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga.
+
+- Users are guided through the process of registering with Flash Messages.
 
 
-New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page. In the forms.py file, WTForms is used to define the Register form's name, email, password, confirm password and submit fields. In HTML these form fields and field names are rendered using Jinga. Jinga if else loops are also used to display Flash Messages and apply Bootstrap classes, varying the formating and user feedback depending on input validation.  As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`. Flask-Bcrypt is used to hash users passwords `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`. All other validation is specified using WTForms Validators. If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the home page. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of registering with Flash Messages.
+
+### Login Page (Notes Only)
+
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png">
+
+- On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`.
+
+- A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes.
+
+- The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga.
+
+- For new users, a link is provided to the Register page.
+
+- Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password.
+
+- If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not.
+
+- Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga.
+
+- Users are guided through the process of logging in with Flash Messages.
+
+- Flask-Login manages the user until they select logout or end their session.
 
 
 
-### Notes Login
-
-![Notes Login Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png | height=300)
-
-
-On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`. A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes. The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga. For new users, a link is provided to the Register page. Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password. If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of logging in with Flash Messages. Flask-Login manages the user until they select logout or end their session.
-
-
-
-### Notes
+### Notes Page
 
 
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
 </p>
 
+- Users access notes pages by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
 
-Users access notes pages by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
+- Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion.
 
+- The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. 
 
-**Read**
+- Level two of the accordion reveals a list of sorted note names, whilst three reveals the contents, edit and delete buttons for an individual note.
 
-Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. Level two of the accordion reveals a list of sorted note names, whilst three reveals the contents, edit and delete buttons for an individual note.  The accordion, built using jQquery, uses a `slide(target)` function to check the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to result in a target slide. Data attribute values associate a button to a target when the template is rendered.
+- The accordion, built using jQquery, uses a `slide(target)` function to check the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to result in a target slide. Data attribute values associate a button to a target when the template is rendered.
 
-Users can opt to view the full list or filter the accordion using a word search. The word search functionality is enabled by the search form created using WTForms and MongoDB's text index and $text operator. Firstly a text index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all string fields in the notes collection. Then the `"$text": {"$search": form.tsearch.data}` text operator is added to both the aggregrate topics and the find notes methods filtering the accordion by the `tsearch` word. A clear button with link `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
+- Users can opt to view the full list or filter the accordion using a word search. The word search functionality is enabled by the search form created using WTForms and MongoDB's text index and $text operator. Firstly a text index is created `mongo.db.notes.create_index([("$**", "text")], language_override="en")` indexing all string fields in the notes collection. Then the `"$text": {"$search": form.tsearch.data}` text operator is added to both the aggregrate topics and the find notes methods filtering the accordion by the `tsearch` word. A clear button with link `href="{{ url_for('notes', language=language) }}` reloads the page for the language, clearing the word search. Flash Messages guide the user through the word search process.
 
+- To delete a note, users first click the delete note icon on level three of the accordion. Bootstrap collapse is then trriggered revealing the form submit button, confirm delete. Once confirm is clicked, the note id is passed to the deletenote route. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the delete_one operation is performed.
 
-**Delete**
+- To edit a note, users click the edit note icon on level three of the accordion which links to the edit note page for that note id using url_for.
 
-To delete a note, users first click the delete note icon on level three of the accordion. Bootstrap collapse is then trriggered revealing the form submit button, confirm delete. Once confirm is clicked, the note id is passed to the deletenote route. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the delete_one operation is performed.
-
-
-**Edit**
-
-To edit a note, users click the edit note icon on level three of the accordion which links to the edit note page for that note id using url_for.
-
-
-**Add**
-
-To add a note, users click the add note icon at the top of the page which links to the add note page for that language using url_for.
+- To add a note, users click the add note icon at the top of the page which links to the add note page for that language using url_for.
 
 
 
@@ -220,44 +241,57 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 
 
-### Links
+### Links Page
 
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
 </p>
 
-Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
+- Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
 
+- Within the language links page, links are grouped by topic and type, sorted by name, and presented in a bespoke accordion.
 
-**Read**
+- The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a four level accordion. 
 
-Within the language links page, links are grouped by topic and type, sorted by name, and presented in a bespoke accordion. The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a four level accordion. Level two of the accordion groups language topics by one of four types, i.e. instruct, practice, resource and other. The third accordion level reveals a list of sorted link names and average ratings, whilst the fourth reveals the description, total ratings to date, add rating and report problem buttons for an individual link.  Jinga is used to calculate this average rating `{{(link.ratings|sum)//(link.ratings|count)}}` based on the link document's array of rating integers. The accordion, also used for the Notes page, is built using jQquery. A `slide(target)` function checks the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to slide a target. Data attribute values associate a button to a target when the template is rendered.
+- Level two of the accordion groups language topics by one of four types, i.e. instruct, practice, resource and other. The third accordion level reveals a list of sorted link names and average ratings, whilst the fourth reveals the description, total ratings to date, add rating and report problem buttons for an individual link.
 
+- Jinga is used to calculate this average rating `{{(link.ratings|sum)//(link.ratings|count)}}` based on the link document's array of rating integers.
 
-**Delete**
+- The accordion, also used for the Notes page, is built using jQquery. A `slide(target)` function checks the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to slide a target. Data attribute values associate a button to a target when the template is rendered.
 
-There is no facility for users to delete a link. Any deletions are performed by the administrator connecting directly to MongoDB.
+- There is no facility for users to delete a link. Any deletions are performed by the administrator connecting directly to MongoDB.
 
+- Users can add edit a links document by adding a rating or reporting a problem for a specific link id. Star and tool icons are located on the fouth accordion level. Users click the relevant star icon to add a 1, 2, 3, 4 or 5 star rating or the tool icon to report a problem. As form submit buttons, these icons post to the ratelink or flaglink routes using url_for. A MongoDB find_one_or_404 method ensures the link id can be found before an update_one method is performed. JQuery is used to reformat icons once selected and a sleep method to delay submission allowing users to see the updated formatting. Once successfully submitted the language Links page is reloaded. An added rating is reflected in links average star ratings and ratings count. Flagged problems are not  show in the Flash messages guide the user through the edit process. 
 
-**Edit**
-
-Users can add edit a links document by adding a rating or reporting a problem for a specific link id. Star and tool icons are located on the fouth accordion level. Users click the relevant star icon to add a 1, 2, 3, 4 or 5 star rating or the tool icon to report a problem. As form submit buttons, these icons post to the ratelink or flaglink routes using url_for. A MongoDB find_one_or_404 method ensures the link id can be found before an update_one method is performed. JQuery is used to reformat icons once selected and a sleep method to delay submission allowing users to see the updated formatting. Once successfully submitted the language Links page is reloaded. An added rating is reflected in links average star ratings and ratings count. Flagged problems are not  show in the Flash messages guide the user through the edit process. 
-
-
-**Add**
-
-To add a note, users click the add link icon at the top of the page which links to the add link page for that language using url_for.
+- To add a note, users click the add link icon at the top of the page which links to the add link page for that language using url_for.
 
 
 
-### Add Links
+### Add Link Page
 
-<p align="center">
-  <img height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
-</p>
-<p align="center">
-  <img height="400" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
-</p>
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
+
+- Users access the Add Link Page from a link on the language Links Page, passing the language argument from Links to Add Links.
+
+- WTForms Link Form is used to define and validate the topic, name, content and submit fields.
+
+- The select topic list displayed is language specific with a default `-select-` option.
+``` document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+topics = document_language["topics"]
+form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
+```
+
+- As well as the data from the form fields, a MongoDB insert_one method takes the language from language argument.
+
+- To avoid duplicates, new urls are checked against existing links for that language. If already present, the new rating is added to the existing document and a Flash Message informs the user of the link details.
+```if existing_link:
+            mongo.db.links.update_one({"_id": ObjectId(existing_link["_id"])},{"$push": {"ratings": int(form.rate.data)}})
+            flash(f'Link exists: {existing_link["topic"]} - {existing_link["link_type"]} - {existing_link["link_name"]}. Your rating was added!')
+```           
+
+- Once a link is sucessfully added, the user is redirected to the language links page. 
+
+- Flash Messages guide the user through the add link process.
 
 
 
