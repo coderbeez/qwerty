@@ -1,5 +1,3 @@
-# Qwerty
-
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header.png">
 </p>
