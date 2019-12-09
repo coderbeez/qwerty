@@ -125,7 +125,8 @@ A link to a Spotify playlist of upbeat songs with a strong Irish bias was genera
 
 
 ### Notes Register
-![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
+
+![Notes Register Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png)
 
 
 New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page. In the forms.py file, WTForms is used to define the Register form's name, email, password, confirm password and submit fields. In HTML these form fields and field names are rendered using Jinga. Jinga if else loops are also used to display Flash Messages and apply Bootstrap classes, varying the formating and user feedback depending on input validation.  As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`. Flask-Bcrypt is used to hash users passwords `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`. All other validation is specified using WTForms Validators. If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the home page. Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga. Users are guided through the process of registering with Flash Messages.
@@ -133,6 +134,7 @@ New users access the Register page either by selecting Register from the notes d
 
 
 ### Notes Login
+
 ![Notes Login Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png)
 
 
@@ -174,8 +176,9 @@ To add a note, users click the add note icon at the top of the page which links 
 
 
 
-### Add Notes
-![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
+### Add Note
+
+![Add Note Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png)
 
 
 A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.  WTForms Note Form is used to define and validate the topic, name, content and submit fields. The select topic list displayed is language specific with a default `-select-` option.
@@ -187,16 +190,15 @@ As well as the data from the form fields, a MongoDB insert_one method takes the 
         
 
 
-### Edit Notes
-![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
+### Edit Note
+
+![Edit Note Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png)
 
 A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users. Users access the Edit Note Page from a link on level three of the language Notes Page accordion.  Both the language and note id arguments are passed from Notes to Edit Notes pages. The Note Form created using WTForms and used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id. WTForm Validators verify data changes and valid changes are submitted to the notes collection using a MongoDB update_one method. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the update_one operation is performed. Once sucessfully edited, the user is redirected to the language Notes page. Flash Messages guide the user through the edit note process.
 
 
 
 ### Links
-
-![Links Page Video](https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif)
 
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
@@ -228,7 +230,7 @@ To add a note, users click the add link icon at the top of the page which links 
 
 ### Add Links
 
-![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
+![Add Link Page](https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png)
 
 ### Future Features 
 
