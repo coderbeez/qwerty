@@ -11,13 +11,13 @@
 ## UX
 
 
-Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages under Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and/or share links under similar topic headings to Code Institute.
+Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages for Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and/or share links for each language.
 
-1. **Notes** Students can register to host their own notes under familiar headings with the full range of CRUD operations. Registration and login are required for notes. 
+1. **Notes** Students can register to host their own language notes using familiar topic headings with a full range of CRUD operations. Registration and login are required for notes. 
 
-2. **Links** Links tagged as instruct, practice, resource and other sites are grouped under familiar headings. Students can create a new link, flag an issue with, or add a star rating to an existing link. No registration or login is required for links.
+2. **Links** Language links are again grouped under familiar topic headings and categorised by type, i.e instruct, practice, resource and other. Students can create a new link, add a star rating or report a problem with an existing link. No registration or login is required for links.
 
-3. **Distraction** Inspiration and motivation is provided by coding quotes, sample links, daily award site links and a Spotify playlist for those times when stack overflow just isn’t delivering.
+3. **Distraction** Inspiration and motivation is provided by coding quotes, suggested language links, daily award site links and a Spotify playlist for those times when stack overflow just isn’t delivering.
 
 
 
@@ -28,22 +28,22 @@ User stories for potential visitors to the website include:
 
 **Find Link** 
 
-I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of links with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
+I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
 
 
 **Share Link**
 
-I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack links can get lost unless they are pinned, so I open Qwerty and select Python from the links dropdown. I click add a new link. I enter the details, selecting MongoDB for topic, instruct for type and giving it a 5 star rating. It’s easy and quick – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but the site will flag it and simply adding my star rating to the existing entry. 
+I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links can get lost unless pinned, so I open Qwerty and select Python from the links dropdown. I click add a new link. I enter the details, selecting MongoDB for topic, instruct for type and giving it a 5 star rating. I could add a description but its optional so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
 
 
 **Online Notes**
 
-Although I keep written notes when I’m studying at home, I want somewhere to jot down notes on my mobile when I’m on the commute or having a break at work. The language topic headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this is remembered on my mobile.
+Although I keep written notes when I’m studying at home, I want somewhere to jot down notes on my mobile when I’m on commuting or having a break at work. The language topic headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional word search facility to pull notes covering more than 1 topic. Having to login means I know my notes are kept secure. I’m a dark mode fan and this preference is remembered on my mobile.
 
 
 **Break Time**
 
-When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. The quote is randomly picked so chances are I haven’t seen this before. I check out today’s site of the day from the awwwards link. As I’m on the JavaScript milestone, I checkout the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
+When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected coding quote. I check out today’s site of the day from the awwwards link. As I’m on the JavaScript milestone, I visit the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
 
 
 
