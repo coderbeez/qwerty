@@ -18,11 +18,23 @@ login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authenticati
 login_manager.login_message = u"Login for your notes!" #Flask Login documentation
 
 #Sample items to display in sidebar
-sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
-sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
-sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}]))[0]
-sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
-quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
+@app.before_first_request
+def sidebar():
+    global sample1
+    global sample2
+    global sample3
+    global sample4
+    global quote
+    sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+    sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+    sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}]))[0]
+    sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
+    quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
+    print("This function will run once")
+
+#WHERE: https://pythonise.com/series/learning-flask/python-before-after-request
+#WHERE: https://www.geeksforgeeks.org/global-local-variables-python/    
+
 
 #SAFE URL FOR LOGIN MANAGER
 def is_safe_url(next):
@@ -65,7 +77,7 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():  
-    quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
+    #quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
     return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
