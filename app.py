@@ -122,9 +122,8 @@ def login():
 
 
 #VIEW LINKS
-@app.route("/links/<language>/<tsearch>", methods=["GET", "POST"])
 @app.route("/links/<language>", methods=["GET", "POST"])
-def links(language, tsearch=None): #WHERE: parameter defaulted to none, 
+def links(language):  
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     
@@ -148,10 +147,9 @@ def links(language, tsearch=None): #WHERE: parameter defaulted to none,
 
 
 #VIEW NOTES
-@app.route("/notes/<language>/<tsearch>", methods=["GET", "POST"] )
 @app.route("/notes/<language>", methods=["GET", "POST"] )
 @login_required
-def notes(language, tsearch=None): #WHERE: parameter defaulted to none,
+def notes(language): #WHERE: parameter defaulted to none,
     #print(current_user.id)
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     #print(len(notes))
