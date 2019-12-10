@@ -20,7 +20,6 @@ login_manager.login_message = u"Login for your notes!" #Flask Login documentatio
 #Sample items to display in sidebar
 @app.before_request
 def sidebar():
-    print(session)
     global sample1
     global sample2
     global sample3
