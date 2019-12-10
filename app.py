@@ -20,6 +20,7 @@ login_manager.login_message = u"Login for your notes!" #Flask Login documentatio
 #Sample items to display in sidebar
 @app.before_request
 def sidebar():
+    print(session)
     global sample1
     global sample2
     global sample3
@@ -30,8 +31,6 @@ def sidebar():
     sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}]))[0]
     sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}]))[0]
     quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}]))[0]
-    print("This function will run once")
-
 #WHERE: https://pythonise.com/series/learning-flask/python-before-after-request
 #WHERE: https://www.geeksforgeeks.org/global-local-variables-python/    
 
