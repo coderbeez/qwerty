@@ -3,12 +3,10 @@
 </p>
 
 
-**[Qwerty](http://coderbeez-qwerty.herokuapp.com/index)** *a website to assist coding students save notes and share links. Developed for Code Institute's Milestone 3: Data Centric Development.*
-
+**[Qwerty](http://coderbeez-qwerty.herokuapp.com/index)** *, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone.*
 
 
 # UX
-
 
 Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages for Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and share links for each language.
 
@@ -19,9 +17,7 @@ Qwerty is a website developed to assist coding students studying HTML, CSS, Java
 3. **Distraction** Inspiration and motivation is provided by coding quotes, suggested language links, daily award site links and a Spotify playlist for those times when stack overflow just isn’t delivering.
 
 
-
 ## User Stories
-
 
 User stories for potential visitors to the website include:
 
@@ -37,7 +33,7 @@ I’ve come across a great YouTube video for PyMongo which I’d like to share w
 
 ### Create & Read Notes
 
-As study needs to fit around home and work life, I need a central home for my notes accessible from my home desktop, mobile and work laptop. Having read an article on the mobile on my work commute, I want to jot down some notes relating to Flask. I select *Python* from the notes dropdown. I'm asked to login using my *email* and *password*. Once logged in I'm directed to my Python notes page with all *topic* headings reflect Code Institute’s topics, making it easy to find my notes. I use the optional *word search* facility to pull notes covering more than 1 topic. I click *Add New* to create a new note filling out the Having to login means I know my notes are kept secure. I’m a dark mode fan and this preference is remembered on my mobile.
+As study needs to fit around home and work life, notes must be accessible from multiple devices. Having come accross an article on Flask Login during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in *Dark Mode* as it's remebered my preference. I select *Python* from the notes dropdown. I'm asked to login using my *email* and *password*. My Python notes page opens. When I use the *word search* facility to see if I've saved loggin notes for Python already, it tells me there are no results. I click *Add New* to create a new note selecting *Flask* for the topic, and entering a *name* and some note *contents*. With a few minutes to spare, I return to the home page and check out today's Awwwards site for inspiration for my next milestone.
 
 
 ### Break Time
@@ -737,9 +733,10 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Jinja Documentation](https://jinja.palletsprojects.com/en/2.10.x/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - Using url_for with static files from [Stack Overflow](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for).
+- Using Jinja super blocks [Real Python](https://realpython.com/primer-on-jinja-templating/#super-blocks).
 
 
 ## Acknowledgements
 
-  - Many thanks to my mentor Ali Ashik and ***all*** on Slack who take the time to share useful links for their fellow students.
+  - Many thanks to my mentor Ali Ashik and ***all*** on Slack who take the time to share useful links for their fellow students. 
 
