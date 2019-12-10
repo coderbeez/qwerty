@@ -18,7 +18,7 @@ login_manager.login_view = "login" #WHERE: Corey Schafer Flask User Authenticati
 login_manager.login_message = u"Login for your notes!" #Flask Login documentation
 
 #Sample items to display in sidebar
-@app.before_first_request
+@app.before_request
 def sidebar():
     global sample1
     global sample2
