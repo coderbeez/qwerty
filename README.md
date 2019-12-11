@@ -717,7 +717,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/).
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Corey Schafer - YouTube Python Classes Series](https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s).
-- [Pretty Printed - YouTube Intro to Flask-Login](https://www.youtube.com/watch?v=2dEM-s3mRLE).
+- [Pretty Printed - YouTube Create User Login System with Flask PyMongo](https://www.youtube.com/watch?v=vVx1737auSE&list=PLXmMXHVSvS-Db9KK1LA7lifcyZm4c-rwj&index=6&t=0s).
 - [Running Codes - Blog PyMongo with Flask-Login](https://boh717.github.io/post/flask-login-and-mongodb).
 
 #### User Passwords
@@ -734,6 +734,11 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - Using url_for with static files from [Stack Overflow](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for).
 - Using Jinja super blocks [Real Python](https://realpython.com/primer-on-jinja-templating/#super-blocks).
+
+#### Other
+- Before request decorator [Pythonise](https://pythonise.com/series/learning-flask/python-before-after-request).
+- Global variables [Geeks For Geeks](https://www.geeksforgeeks.org/global-local-variables-python/).   
+
 
 
 ## Acknowledgements
