@@ -17,9 +17,9 @@
                   <form class="d-inline-block d-flex align-items-baseline" method="POST" action="">
                         {{ form.hidden_tag() }}
                         <!--WHY: form instance. hidden_tag method for security - will come back to later-->
-                        {{ form.tsearch(class="form-control width--tsearch height--tsearch d-inline-block b-0 ml-3 m-md-0") }}
+                        {{ form.tsearch(class="form-control width--tsearch d-inline-block b-0 ml-3 m-md-0") }}
       
-                        {{ form.submit(class="btn button-style height--tsearch ml-3 mt-0 mb-0 mr-3 b-0")}}
+                        {{ form.submit(class="btn button-style ml-3 mt-0 mb-0 mr-3 b-0")}}
                         <a href="{{ url_for('links', language=language) }}"
                               class="btn button-style height--tsearch m-0">Clear</a>
                   </form>
