@@ -116,7 +116,7 @@
                 <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
                 {% if errors %}
                 {% for error in errors %}
-                <strong class="error"><br>{{ error }}</strong>
+                <span class="error ml-3">{{ error }}</span>
                 {% endfor %}
                 {% endif %}
                 {% endwith %}
