@@ -75,10 +75,10 @@ ul {
 }
 /*WHY: Remove bullet points.*/
 
-/*textarea {
+textarea {
     background-color: white!important;
-}*/
-/*WHY: Important used to ensure textarea stays white in dark mode????*/
+}
+/*WHY: Important used to ensure overwrite Bootstrap background color on notes page./
 
 
 /*----------NAVBAR & LINKS----------*/
