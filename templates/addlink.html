@@ -87,6 +87,7 @@
 
                 <!--INPUT RATE-->
                 {{ form.rate.label }}
+                
                 {{ form.rate (data_star="rate", type="hidden")}}
                 <!--WHERE: https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field-->
 <!--WHERE: https://www.w3schools.com/tags/att_input_type_hidden.asp-->
@@ -102,6 +103,11 @@
                     <i class="fas fa-star rate-star" data-star="4"></i></button>
                 <button type="button" class="btn p-2">
                     <i class="fas fa-star rate-star" data-star="5"></i></button>
+                    {% if form.rate.errors %}
+                        {% for error in form.rate.errors %}
+                        <p class="error">Please select a star rating.</p>
+                        {% endfor %}
+                        {% endif %}
 
             </fieldset>
             <!--WHAT: Bootstrap class form-group-->
