@@ -111,7 +111,7 @@ $(document).ready(function () {
         } else {
             $('body').removeClass('dark');
             $('li').removeClass('dark');
-            $('ul.dark-ul>li').css('');
+            $('ul.dark-ul>li').css('border', '');
             $('.line').css('border-bottom', '');
             $('.btn:not(".button-style")').css('color', '');
             $('.btn:not(".button-style")').removeClass('dark-hover--stone');
