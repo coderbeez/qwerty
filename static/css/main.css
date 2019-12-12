@@ -59,12 +59,10 @@ h3 {
 }
 /*WHAT: Formatting for negative Flask Messages.*/
 
-
-
 .fa-info-circle {
     font-size: 1.25rem;
 }
-/*WHY: Info circle appears smaller than other icons. Size increased to improve readablity.*/
+/*WHY: Size increased as icon used as a button.*/
 
 .italics {
     font-style: italic;
