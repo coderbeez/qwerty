@@ -53,14 +53,14 @@
                 <div class="form-group">
                     {{ form.content.label(class="form-control-label") }}
                     {% if form.content.errors %}
-                    {{ form.content(class="form-control is-invalid")}}
+                    {{ form.content(class="form-control is-invalid", rows=6)}}
                     <div class="invalid-feedback">
                         {% for error in form.content.errors %}
                         <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                     {% else %}
-                    {{ form.content(class="form-control") }}
+                    {{ form.content(class="form-control", rows=6) }}
                     {% endif %}
                 </div>
 

@@ -74,14 +74,14 @@
                 <div class="form-group">
                     {{ form.description.label(class="form-control-label") }} <small>(optional)</small>
                     {% if form.description.errors %}
-                    {{ form.description(class="form-control is-invalid")}}
+                    {{ form.description(class="form-control is-invalid", rows=4)}}
                     <div class="invalid-feedback">
                         {% for error in form.description.errors %}
                         <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                     {% else %}
-                    {{ form.description(class="form-control") }}
+                    {{ form.description(class="form-control", rows=4) }}
                     {% endif %}
                 </div>
 
