@@ -26,7 +26,7 @@ def sidebar():
         session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
         session["sample3"] = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
         session["sample4"] = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-        session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "_id": 0}}]))[0]
+        session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
     #print(session)
 #WHERE: https://pythonise.com/series/learning-flask/python-before-after-request
 #WHERE: https://www.geeksforgeeks.org/global-local-variables-python/
