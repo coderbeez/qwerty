@@ -30,15 +30,15 @@
                 <div class="form-group">
                     {{ form.link_type.label(class="") }}
                     {% if form.link_type.errors %}
-                    {{ form.link_type(class="") }}
+                    {{ form.link_type(class="type-radio") }}
                     {% for error in form.link_type.errors %}
                     <span class="oops">{{ error }}</span>
                     {% endfor %}
                     {% else %}
-                    {{ form.link_type(class="") }}
+                    {{ form.link_type(class="type-radio") }}
                     {% endif %}
                 </div>
-                <!--? BOOTSTRAP WITH RADIO-->
+                <!--WHY:Bootstrap not used here as WITH RADIO-->
 
                 <!--INPUT URL-->
                 <div class="form-group">

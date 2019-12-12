@@ -74,7 +74,7 @@ $(document).ready(function () {
     function makeDark() {
         $('body').addClass('dark');
         $('li').addClass('dark');
-        $('li').css('border', '1px solid #717c84');
+        $('ul.dark-ul>li').css('border', '1px solid #717c84');
         $('.line').css('border-bottom', '1px solid #717c84');
         $('.btn:not(".button-style")').css('color', '#eda33e');
         $('.btn:not(".button-style")').addClass('dark-hover--stone');
@@ -111,7 +111,7 @@ $(document).ready(function () {
         } else {
             $('body').removeClass('dark');
             $('li').removeClass('dark');
-            $('li').css('border', '');
+            $('ul.dark-ul>li').css('');
             $('.line').css('border-bottom', '');
             $('.btn:not(".button-style")').css('color', '');
             $('.btn:not(".button-style")').removeClass('dark-hover--stone');

@@ -75,6 +75,7 @@ ul {
 }
 /*WHY: Remove bullet points.*/
 
+
 textarea {
     background-color: white!important;
 }
@@ -244,7 +245,7 @@ input:checked+.slider:before {
     min-height: 90vh;
 }
 
-ul, .slider.round  {
+ul:not(.type-radio), .slider.round  {
     box-shadow: 0 1.5px 3px rgba(53, 69, 80, 0.16), 0 1.5px 3px rgba(53, 69, 80, 0.23);
 }
 
