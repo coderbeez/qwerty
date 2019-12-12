@@ -231,7 +231,7 @@ input:checked+.slider:before {
 /*----------BACKGROUNDS & SHADOWS----------*/
 
 .hero {
-    background: url("../images/pencil.png");
+    background: url("../images/pencil.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
