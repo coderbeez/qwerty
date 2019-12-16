@@ -99,7 +99,10 @@ def register():
             login_user(user)
             flash("Perfect - select a notes language!")
             return redirect(url_for('index'))
-
+    elif request.method == "GET":
+        pass                    
+    else:
+        flash("Oops - check fields!", "error")      
     return render_template("register.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
@@ -119,8 +122,11 @@ def login():
                 return abort(400)
             return redirect(next or url_for('index')) #WHERE: Flask Login documentation             
         else:
-            flash("Oops - check email & password!", "error")    
-
+            flash("Oops - check email & password!", "error")
+    elif request.method == "GET":
+        pass                    
+    else:
+        flash("Oops - check fields!", "error")        
     return render_template("login.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
 
 
