@@ -3,7 +3,7 @@
 </p>
 
 
-**[Qwerty](http://coderbeez-qwerty.herokuapp.com/index)** *, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone.*
+**[Qwerty](https://coderbeez-qwerty.herokuapp.com/index)** *, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone project.*
 
 
 # UX
@@ -14,7 +14,7 @@ Qwerty is a website developed to assist coding students studying HTML, CSS, Java
 
 2. **Links** Language links are again grouped under familiar topic headings and categorised by type, i.e instruct, practice, resource and other. Students can create a new link, add a star rating or report a problem with an existing link. No registration or login is required for Links.
 
-3. **Distraction** Inspiration and motivation is provided by coding quotes, suggested language links, daily award site links and a Spotify playlist for those times when stack overflow just isn’t delivering.
+3. **Distraction** Inspiration and motivation is provided by coding quotes, suggested language links, daily award site links and a Spotify playlist for those times when Stack Overflow just isn’t delivering.
 
 
 ## User Stories
@@ -28,29 +28,29 @@ I’m struggling with the JavaScript automated testing topic and looking for som
 
 ### Share A Link
 
-I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select *Python* from the links dropdown. I click *Add New*. I enter the details, selecting *MongoDB* for topic, *instruct* for type and giving it a 5 *star rating*. I could add a *description* but its optional so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word pymongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
+I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select *Python* from the links dropdown. I click *Add New*. I enter the details, selecting *MongoDB* for topic, *instruct* for type and giving it a 5 *star rating*. I could add a *description* but its optional, so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word PyMongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
 
 
 ### Create & Read Notes
 
-As study needs to fit around home and work life, notes must be accessible from multiple devices. Having come accross an article on Flask Login during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in *Dark Mode* as it's remebered my preference. I select *Python* from the notes dropdown. I'm asked to login using my *email* and *password*. My Python notes page opens. When I use the *word search* facility to see if I've saved loggin notes for Python already, it tells me there are no results. I click *Add New* to create a new note selecting *Flask* for the topic, and entering a *name* and some note *contents*. With a few minutes to spare, I return to the home page and check out today's Awwwards site for inspiration for my next milestone.
+As study needs to fit around home and work life, notes must be accessible from multiple devices - my personal laptop, work desktop and mobile. Having come accross an article on Flask Bcrypt during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in *Dark Mode* as it's remebered my preference. I select *Python* from the notes dropdown. I'm asked to login using *email* and *password*. My Python notes page opens. When I use the *word search* facility to see if I've saved Bcrypt notes already, it tells me there are no results. I click *Add New* to create a new note selecting *Flask* for the topic, and entering a note *name* and some *contents*. With a few minutes to spare, I return to the home page and check out today's Awwwards site for inspiration for my next milestone.
 
 
 ### Break Time
 
-When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected coding quote. I check out today’s site of the day from the awwwards link. As I’m on the JavaScript milestone, I visit the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
+When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected coding quote. I check out today’s site of the day from the Awwwards link. As I’m on the JavaScript milestone, I visit the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
 
 
 
 ## Design
 
 
-Qwerty was chosen as a memorable name for the target audience of coding students. Qwerty's look and flow was designed for simplicity and ease of use. 
+Qwerty was chosen as a simple but memorable name for the target audience of coding students. The look and flow of the site was designed for simplicity and ease of use. 
 
 
 ### Navigation
 
-The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, **notes** and **links**, highlighted by the pared back navbar home, notes, links and the tagline text save notes, share links. Users access either section by selecting a language from the section navbar dropdown.
+The key driver of site design was navigation, allowing the user to find the desired location with as few clicks as possible.  The site was divided into two distinct sections, **notes** and **links**, highlighted by the pared back navbar **home, notes, links** and the tagline text **save notes, share links**. Users access either section by selecting a language from the section navbar dropdown.
 
 As links are not associated with accounts, users selecting a links language are immediately routed to the read links page for their chosen language. From here users can access the add link page, or use the bespoke accordion or word search to find and edit existing links. With four levels, the links accordion allows for efficient filtering. Again focusing on efficiency, the word search searches all four levels simultaneously. 
 
@@ -591,10 +591,11 @@ N/A - Not Applicable
 ## Bug Log
 
 
-1. **Touch Screen Keyboards** During development it quickly became apparent that relying on inbuilt keyboards on touch screen devices provided poor UX. Keypads were built into the website to avoid using device keyboards.
+1. **Heroku timeout** During development it quickly became apparent that relying on inbuilt keyboards on touch screen devices provided poor UX. Keypads were built into the website to avoid using device keyboards.
 
 
-2. **iOS Tables** Initial keypad designs 
+2. **Heroku css update** Initial keypad designs 
+2. **Select Chrome emulator** Initial keypad designs 
 
 
 # Deployment
@@ -737,8 +738,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 #### Other
 - Before request decorator [Pythonise](https://pythonise.com/series/learning-flask/python-before-after-request).
-- Global variables [Geeks For Geeks](https://www.geeksforgeeks.org/global-local-variables-python/).   
-
+- Heroku CSS not updating [Stack Overflow](https://stackoverflow.com/questions/11266849/heroku-css-file-not-updating).
 
 
 ## Acknowledgements
