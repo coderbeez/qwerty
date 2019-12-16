@@ -94,7 +94,7 @@ def register():
             mongo.db.users.insert_one({"user_name": form.name.data, "email": form.email.data, "password": hashed_password })
             user = User.get_user(form.email.data)
             login_user(user)
-            flash("Perfect - select note language!")
+            flash("Perfect - select a notes language!")
             return redirect(url_for('index'))
 
     return render_template("register.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
@@ -153,6 +153,9 @@ def notes(language): #WHERE: parameter defaulted to none,
     #print(current_user.id)
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     #print(len(notes))
+    if notes == []:
+        flash(f'Click Add New + to add your first {language} note.', 'first')
+        
     group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id) }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
    
     #print(group_topics)
