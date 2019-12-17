@@ -58,7 +58,7 @@ $(document).ready(function () {
     dark.change(function () {
         if (this.checked) {
             makeDark();
-            localStorage.setItem("mode", "dark")
+            localStorage.setItem("mode", "dark");
         } else {
             $('body').removeClass('dark');
             $('li').removeClass('dark');
@@ -73,7 +73,7 @@ $(document).ready(function () {
             $('.button-style').removeClass('dark-hover--orange');
             localStorage.clear();
         }
-    })
+    });
     //WHERE:https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
 
 
@@ -100,7 +100,7 @@ $(document).ready(function () {
     //ACCORDION - Level Clicks
     blevel1.click(function () {
         let value = $(this).attr('data-bvalue');
-        let target = $('[data-2value="' + value + '"]')
+        let target = $('[data-2value="' + value + '"]');
         level2.slideUp();
         level3.slideUp();
         level4.slideUp();
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
     blevel2.click(function () {
         let value = $(this).attr('data-bvalue');
-        let target = $('[data-3value="' + value + '"]')
+        let target = $('[data-3value="' + value + '"]');
         level3.slideUp();
         level4.slideUp();
         slide(target);
@@ -117,7 +117,7 @@ $(document).ready(function () {
 
     blevel3.click(function () {
         let value = $(this).attr('data-bvalue');
-        let target = $('[data-4value="' + value + '"]')
+        let target = $('[data-4value="' + value + '"]');
         level4.slideUp();
         slide(target);
     });
@@ -135,7 +135,7 @@ $(document).ready(function () {
         star4.css("color", "#c9c9c9");
         star5.css("color", "#c9c9c9");
         rate.val("1");
-    })
+    });
 
     star2.click(function () {
         star1.css("color", "#00a9bd");
@@ -144,7 +144,7 @@ $(document).ready(function () {
         star4.css("color", "#c9c9c9");
         star5.css("color", "#c9c9c9");
         rate.val("2");
-    })
+    });
 
     star3.click(function () {
         star1.css("color", "#00a9bd");
@@ -153,7 +153,7 @@ $(document).ready(function () {
         star4.css("color", "#c9c9c9");
         star5.css("color", "#c9c9c9");
         rate.val("3");
-    })
+    });
 
     star4.click(function () {
         star1.css("color", "#00a9bd");
@@ -162,7 +162,7 @@ $(document).ready(function () {
         star4.css("color", "#00a9bd");
         star5.css("color", "#c9c9c9");
         rate.val("4");
-    })
+    });
 
     star5.click(function () {
         star1.css("color", "#00a9bd");
@@ -171,7 +171,7 @@ $(document).ready(function () {
         star4.css("color", "#00a9bd");
         star5.css("color", "#00a9bd");
         rate.val("5");
-    })
+    });
     //WHY: Change colour of stars once clicked to better indicate star rating selected.
 
 });
