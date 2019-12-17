@@ -33,7 +33,7 @@
                             aria-expanded="false">
                             *notes
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="note-dropdownMenuLink" id="pick--links">
+                        <div class="dropdown-menu" aria-labelledby="note-dropdownMenuLink" id="pick--notes">
                             <a class="dropdown-item" href="{{ url_for('notes', language='HTML')}}">HTML</a>
                             <a class="dropdown-item" href="{{ url_for('notes', language='CSS')}}">CSS</a>
                             <a class="dropdown-item" href="{{ url_for('notes', language='JavaScript')}}">JavaScript</a>
@@ -63,6 +63,8 @@
                         </div>
                     </div>
                     <!--WHERE: Bootstrap dropdown menu & item classes.-->
+
+                </div>
             </nav>
         </div>
     </div>
@@ -118,7 +120,7 @@
 
                     <!--SAMPLE LINKS-->
                     <li class="list-group-item">
-                        <h3><i class="fas fa-link mr-2"></i></i>Sample Links</h3>
+                        <h3><i class="fas fa-link mr-2"></i>Sample Links</h3>
                         <a class="d-block" href="{{ sample1.url }}" target="_blank" rel="noopener">{{ sample1.language}}
                             - {{ sample1.link_name }}</a>
                         <a class="d-block mt-2" href="{{ sample2.url }}" target="_blank"
@@ -138,6 +140,7 @@
                             <a href="https://cssdesignawards.com/" target="_blank" rel="noopener">cssda</a>
                             <a href="https://www.csswinner.com/" target="_blank" rel="noopener">csswinner</a>
                             <a href="https://thefwa.com/" target="_blank" rel="noopener">fwa</a>
+                        </div>
                     </li>
 
                     <!--SPOTIFY PLAYLIST-->
