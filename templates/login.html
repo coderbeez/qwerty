@@ -3,13 +3,13 @@
 {% block content%}
 <div class="row">
     <div class="col-12 col-md-8">
+<!--WHY: Bootstrap rows & columns used to limit width of form on md & lg devices.-->
 
-        <form method="POST" action="">
+        <form method="POST">
             {{ form.hidden_tag() }}
-            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+            <!--WHY: hidden_tag method for security.-->
             <fieldset class="form-group">
-                <h1 class="">Login</h1>
-                <!--?Can I use h1 instead of legend-->
+                <legend>Login</legend>
                 
                 <!--INPUT EMAIL-->
                 <div class="form-group">
@@ -40,18 +40,16 @@
                     {{ form.password(class="form-control") }}
                     {% endif %}
                 </div>
-
             </fieldset>
-            <!--WHAT: Bootstrap class form-group-->
-            <!--WHAT: Fieldset element groups data in a form-->
-            <!--WHAT: Legend element label for fieldset-->
-            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+            <!--WHAT: Bootstrap classes used for formatting all fields and labels.-->
+            <!--WHAT: Fieldset element used to group data in the form-->
+            <!--WHAT: Legend element used as label for fieldset-->
 
             <!--SUBMIT BUTTON & FLASH MESSAGE-->
             <div class="form-group m-0">
                 {{ form.submit(class="btn button-style") }}
                 {% with errors = get_flashed_messages(category_filter=["error"]) %}
-                <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                <!--WHERE: Using categories from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
                 {% if errors %}
                 {% for error in errors %}
                 <span class="error ml-3">{{ error }}</span>
@@ -60,11 +58,10 @@
                 {% endwith %}
             </div>
             <!--WHY: Error message displayed next to button verses top of page to improve visibilty after submitting.-->
-
-
-
         </form>
+
         <p class="">Not registered? <a href="{{ url_for('register') }}">Register</a></p>
+
     </div>
 </div>
 

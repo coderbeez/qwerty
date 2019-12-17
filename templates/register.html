@@ -3,20 +3,18 @@
 {% block content%}
 <div class="row">
     <div class="col-12 col-md-8">
-            <h3 class="mb-2 message">Sign-up for notes!</h3>
-               
-        <form method="POST" action="">
+        <!--WHY: Bootstrap rows & columns used to limit width of form on md & lg devices.-->
+        <h3 class="mb-2 message">Sign-up for notes!</h3>
+
+        <form method="POST">
             {{ form.hidden_tag() }}
-            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+            <!--WHY: hidden_tag method for security - will come back to later-->
             <fieldset class="form-group">
-                <h1 class="">Register</h1>
-                <!--?Can I use h1 instead of legend-->
-                
+                <legend>Register</legend>
 
                 <!--INPUT NAME-->
                 <div class="form-group">
                     {{ form.name.label(class="form-control-label") }} <small> (min 2 characters)</small>
-                    <!--WHAT: Bootstrap clases passed as an argument-->
                     {% if form.name.errors %}
                     {{ form.name(class="form-control is-invalid") }}
                     <div class="invalid-feedback">
@@ -59,7 +57,7 @@
                     {% endif %}
                 </div>
 
-                <!--INPUT CONFIRM-->
+                <!--INPUT CONFIRM PASSWORD-->
                 <div class="form-group">
                     {{ form.confirm.label(class="form-control-label") }}
                     {% if form.confirm.errors %}
@@ -73,12 +71,10 @@
                     {{ form.confirm(class="form-control") }}
                     {% endif %}
                 </div>
-
             </fieldset>
-            <!--WHAT: Bootstrap class form-group-->
-            <!--WHAT: Fieldset element groups data in a form-->
-            <!--WHAT: Legend element label for fieldset-->
-            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+            <!--WHAT: Bootstrap classes used for formatting all fields and labels.-->
+            <!--WHAT: Fieldset element used to group data in the form-->
+            <!--WHAT: Legend element used as label for fieldset-->
 
             <!--SUBMIT BUTTON & FLASH MESSAGE-->
             <div class="form-group m-0">
@@ -93,9 +89,10 @@
                 {% endwith %}
             </div>
             <!--WHY: Error message displayed next to button verses top of page to improve visibilty after submitting.-->
-
         </form>
-        <p>Already registered - select a notes language to login!</p>
+
+        <p>Already registered? Select a notes language to login!</p>
+
     </div>
 </div>
 

@@ -3,10 +3,11 @@
 
 <div class="row">
     <div class="col-12 col-md-10">
+    <!--WHY: Bootstrap rows & columns used to limit width of form on md & lg devices.-->
 
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+            <!--WHY: hidden_tag method for security.-->
 
             <fieldset class="form-group">
                 <legend class="">{{ language }} Notes - Edit </legend>
@@ -26,7 +27,6 @@
                     {% endif %}
                 </div>
 
-
                 <!--INPUT NAME-->
                 <div class="form-group">
                     {{ form.name.label(class="form-control-label") }}
@@ -42,13 +42,6 @@
                     {% endif %}
                 </div>
 
-
-
-
-
-
-
-
                 <!--INPUT CONTENT-->
                 <div class="form-group">
                     {{ form.content.label(class="form-control-label") }}
@@ -63,26 +56,16 @@
                     {{ form.content(class="form-control", rows=6) }}
                     {% endif %}
                 </div>
-
-
-
-
-
-
-
-
-
             </fieldset>
-            <!--WHAT: Bootstrap class form-group-->
-            <!--WHAT: Fieldset element groups data in a form-->
-            <!--WHAT: Legend element label for fieldset-->
-            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+            <!--WHAT: Bootstrap classes used for formatting all fields and labels.-->
+            <!--WHAT: Fieldset element used to group data in the form-->
+            <!--WHAT: Legend element used as label for fieldset-->
 
             <!--SUBMIT BUTTON & FLASH MESSAGE-->
             <div class="form-group">
                 {{ form.submit(class="btn button-style") }}
                 {% with errors = get_flashed_messages(category_filter=["error"]) %}
-                <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                <!--WHERE: Using category filters from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
                 {% if errors %}
                 {% for error in errors %}
                 <span class="error ml-3">{{ error }}</span>
@@ -92,12 +75,8 @@
             </div>
             <!--WHY: Error message displayed next to button verses top of page to improve visibilty after submitting.-->
 
-
-
         </form>
-
     </div>
 </div>
-
 
 {% endblock content%}

@@ -3,10 +3,11 @@
 
 <div class="row">
     <div class="col-12 col-md-10">
+    <!--WHY: Bootstrap rows & columns used to limit width of form on md & lg devices.-->
 
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+            <!--WHY: hidden_tag method for security-->
 
             <fieldset class="form-group">
                 <legend class="">{{ language }} Links - <br class="d-md-none">Add New </legend>
@@ -28,7 +29,7 @@
 
                 <!--INPUT TYPE-->
                 <div class="form-group">
-                    {{ form.link_type.label(class="") }}
+                    {{ form.link_type.label }}
                     {% if form.link_type.errors %}
                     {{ form.link_type(class="type-radio") }}
                     {% for error in form.link_type.errors %}
@@ -38,7 +39,7 @@
                     {{ form.link_type(class="type-radio") }}
                     {% endif %}
                 </div>
-                <!--WHY:Bootstrap not used here as WITH RADIO-->
+                <!--WHY: Bootstrap not used here as radio field. -->
 
                 <!--INPUT URL-->
                 <div class="form-group">
@@ -87,12 +88,9 @@
 
                 <!--INPUT RATE-->
                 {{ form.rate.label }}
-                
                 {{ form.rate (data_star="rate", type="hidden")}}
                 <!--WHERE: https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field-->
-<!--WHERE: https://www.w3schools.com/tags/att_input_type_hidden.asp-->
-                
-                
+                <!--WHERE: https://www.w3schools.com/tags/att_input_type_hidden.asp-->
                 <button type="button" class="btn p-2">
                     <i class="fas fa-star rate-star" data-star="1"></i></button>
                 <button type="button" class="btn p-2">
@@ -103,23 +101,22 @@
                     <i class="fas fa-star rate-star" data-star="4"></i></button>
                 <button type="button" class="btn p-2">
                     <i class="fas fa-star rate-star" data-star="5"></i></button>
-                    {% if form.rate.errors %}
-                        {% for error in form.rate.errors %}
-                        <p class="error">Please select a star rating.</p>
-                        {% endfor %}
-                        {% endif %}
+                {% if form.rate.errors %}
+                {% for error in form.rate.errors %}
+                <p class="error">Please select a star rating.</p>
+                {% endfor %}
+                {% endif %}
 
             </fieldset>
-            <!--WHAT: Bootstrap class form-group-->
-            <!--WHAT: Fieldset element groups data in a form-->
-            <!--WHAT: Legend element label for fieldset-->
-            <!--WHAT: Note how to add classes to variables. Pass in a class argument.-->
+            <!--WHAT: Bootstrap classes used for formatting all fields and labels bar radios.-->
+            <!--WHAT: Fieldset element used to group data in the form-->
+            <!--WHAT: Legend element used as label for fieldset-->
 
             <!--SUBMIT BUTTON & FLASH MESSAGE-->
             <div class="form-group">
                 {{ form.submit(class="btn button-style") }}
                 {% with errors = get_flashed_messages(category_filter=["error"]) %}
-                <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                <!--WHERE: Using category filters from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
                 {% if errors %}
                 {% for error in errors %}
                 <span class="error ml-3">{{ error }}</span>
@@ -129,10 +126,7 @@
             </div>
             <!--WHY: Error message displayed next to button verses top of page to improve visibilty after submitting.-->
 
-
-
         </form>
-
     </div>
 </div>
 

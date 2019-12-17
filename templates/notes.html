@@ -1,36 +1,32 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<!--HEADING-->
-
+<!--PAGE HEADING-->
 <h1 class="d-inline-block mr-2 mr-md-4 mr-lg-5">{{ language }} Notes </h1>
 <a href="{{ url_for('addnote', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
 
 
-
-
-<!--TEXT SEARCH-->
+<!--WORD SEARCH - HEADING-->
 <div class="row mt-2 mt-md-4 mb-2 pb-2 pb-md-3 line">
-
       <div class="col-auto">
             <p class="m-0">Filter by word <small><br class="d-none d-md-inline-block">(optional)</small></p>
       </div>
+
+      <!--WORD SEARCH - FORM-->
       <div class="col-auto p-0">
-
-            <form class="d-inline-block d-flex align-items-baseline" method="POST" action="">
+            <form class="d-inline-block d-flex align-items-baseline" method="POST">
                   {{ form.hidden_tag() }}
-                  <!--WHY: form instance. hidden_tag method for security - will come back to later-->
+                  <!--hidden_tag method for security.-->
                   {{ form.tsearch(class="form-control width--tsearch d-inline-block b-0 ml-3 m-md-0") }}
-
                   {{ form.submit(class="btn button-style ml-3 mt-0 mb-0 mr-3 b-0")}}
                   <a href="{{ url_for('notes', language=language) }}"
                         class="btn button-style height--tsearch m-0">Clear</a>
             </form>
 
-            <!--FLASH NO RESULTS MESSAGE-->
+            <!--WORD SEARCH - NO RESULTS FLASH MESSAGE-->
             <div>
                   {% with messages = get_flashed_messages(category_filter=["search"]) %}
-                  <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                  <!--WHERE: Using categories from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
                   {% if messages %}
                   {% for message in messages %}
                   <span class="message ml-3 m-md-0">{{ message }}</span>
@@ -44,10 +40,10 @@
 </div>
 
 
-<!--FLASH FIRST MESSAGE-->
+<!--NO NOTES - FLASH MESSAGE-->
 <div>
       {% with messages = get_flashed_messages(category_filter=["first"]) %}
-      <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+      <!--WHERE: Using categories from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
       {% if messages %}
       {% for message in messages %}
       <span class="message ml-3 m-md-0">{{ message }}</span>
@@ -55,55 +51,53 @@
       {% endif %}
       {% endwith %}
 </div>
-<!--WHAT: Message displayed when When no notes exist for language.-->
+<!--WHAT: Message displayed when no notes exist for language.-->
 
-
+<!--ACCORDION LEVEL 1: Topic List-->
 {% for group_topic in group_topics %}
-<!--WHAT: LEVEL 1 ACCORDION - TOPIC-->
 <div data-level="1">
       <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}">
             <i class="fas fa-angle-double-down"></i></button>
       <h2 class="d-inline-block">{{ group_topic._id}}</h2>
 </div>
 
+<!--ACCORDION LEVEL 2: Note Name List-->
 {% for note in notes %}
 {% if note.topic == group_topic._id %}
-<!--WHAT: LEVEL 2 ACCORDION - NOTE NAME-->
 <div class="ml-md-2" data-level="2" data-2value="{{ group_topic._id}}">
       <button class="btn" type="button" data-blevel="2" data-bvalue="{{note._id}}"><i
                   class="fas fa-angle-down"></i></button>
       <h3 class="d-inline-block">{{ note.note_name }}</h3>
 </div>
 
-<!--WHAT: LEVEL 3 ACCORDION - NOTE ID-->
+<!--ACCORDION LEVEL 3: Note Content, Edit & Delete-->
 <div data-level="3" data-3value="{{note._id}}">
       <textarea readonly class="form-control" rows=6>{{note.content}}</textarea>
       <!--WHERE: Readonly from https://stackoverflow.com/questions/12831092/textarea-without-input-functionality).-->
+
+      <!--NOTE EDIT-->
       <div class="d-flex justify-content-end">
             <a class="btn" href="{{url_for('editnote', language=language, noteid=note._id)}}">
                   <span class="pt-2 mr-1">Edit</span><i class="fas fa-edit"></i></a>
 
+            <!--NOTE DELETE-->
             <button class="btn ml-3" type="button" data-toggle="collapse" data-target="#delete{{note._id}}"
                   aria-expanded="false" aria-controls="collapsePoints">
                   <span class="pt-2 mr-1">Delete</span><i class="fas fa-trash-alt"></i>
-            </button></div>
-
-
-
-      <!--DELETE COLLAPSE-->
+            </button>
+      </div>
       <div class="collapse" id="delete{{note._id}}">
             <form class="d-flex justify-content-end"
                   action="{{url_for('deletenote', language=language, noteid=note._id)}}" method="POST">
                   <input type="submit" class="mt-3 btn button-style" value="I'm sure - delete this note">
             </form>
       </div>
-      <!--WHY: Form wrapped in div to enable Bootstrap collapsing.-->
+      <!--WHY: Delete confirm button to reduce chance of notes being deleted by mistake.-->
+      <!--WHY: Delete form wrapped in div to enable Bootstrap collapsing.-->
 </div>
-
 
 {% endif %}
 {% endfor %}
-
 {% endfor %}
 
 {% endblock content%}

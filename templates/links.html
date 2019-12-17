@@ -1,74 +1,73 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<!--HEADING-->
+<!--PAGE HEADING-->
 <h1 class="d-inline-block mr-2 mr-md-4 mr-lg-5">{{ language }} Links </h1>
 <a href="{{ url_for('addlink', language=language) }}">Add New <i class="fas fa-plus-circle"></i></a>
 
-
-<!--TEXT SEARCH-->
+<!--WORD SEARCH - HEADING-->
 <div class="row mt-2 mt-md-4 mb-2 pb-2 pb-md-3 line">
-
-            <div class="col-auto">
-                  <p class="m-0">Filter by word <small><br class="d-none d-md-inline-block">(optional)</small></p>
-            </div>
-            <div class="col-auto p-0">
-      
-                  <form class="d-inline-block d-flex align-items-baseline" method="POST" action="">
-                        {{ form.hidden_tag() }}
-                        <!--WHY: form instance. hidden_tag method for security - will come back to later-->
-                        {{ form.tsearch(class="form-control width--tsearch d-inline-block b-0 ml-3 m-md-0") }}
-      
-                        {{ form.submit(class="btn button-style ml-3 mt-0 mb-0 mr-3 b-0")}}
-                        <a href="{{ url_for('links', language=language) }}"
-                              class="btn button-style height--tsearch m-0">Clear</a>
-                  </form>
-      
-                  <!--FLASH ERROR MESSAGE-->
-                  <div>
-                              {% with messages = get_flashed_messages(category_filter=["search"]) %}
-                              <!--WHERE: Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
-                              {% if messages %}
-                              {% for message in messages %}
-                              <span class="message ml-3 m-md-0">{{ message }}</span>
-                              {% endfor %}
-                              {% endif %}
-                              {% endwith %}
-                          </div>
-                          <!--WHY: Search messages displayed underneath submit button verses top of page to improve visibilty after submitting.-->
-            </div>
-      
+      <div class="col-auto">
+            <p class="m-0">Filter by word <small><br class="d-none d-md-inline-block">(optional)</small></p>
       </div>
 
-<!--LEVEL 1: Topic list-->
+      <!--WORD SEARCH - FORM-->
+      <div class="col-auto p-0">
+            <form class="d-inline-block d-flex align-items-baseline" method="POST">
+                  {{ form.hidden_tag() }}
+                  <!--WHY: hidden_tag method for security.-->
+                  {{ form.tsearch(class="form-control width--tsearch d-inline-block b-0 ml-3 m-md-0") }}
+
+                  {{ form.submit(class="btn button-style ml-3 mt-0 mb-0 mr-3 b-0")}}
+                  <a href="{{ url_for('links', language=language) }}"
+                        class="btn button-style height--tsearch m-0">Clear</a>
+            </form>
+
+            <!--WORD SEARCH - NO RESULTS FLASH MESSAGE-->
+            <div>
+                  {% with messages = get_flashed_messages(category_filter=["search"]) %}
+                  <!--WHERE: Using categories from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
+                  {% if messages %}
+                  {% for message in messages %}
+                  <span class="message ml-3 m-md-0">{{ message }}</span>
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+            </div>
+            <!--WHY: Search messages displayed underneath submit button verses top of page to improve visibilty after submitting.-->
+      </div>
+</div>
+
+<!--ACCORDION LEVEL 1: Topic List-->
 {% for group_topic in group_topics %}
 <div data-level="1">
-      <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}"><i class="fas fa-angle-double-down"></i></button>
+      <button class="btn" type="button" data-blevel="1" data-bvalue="{{ group_topic._id}}"><i
+                  class="fas fa-angle-double-down"></i></button>
       <h2 class="d-inline-block">{{ group_topic._id}}</h2>
 </div>
 
-<!--LEVEL 2: Type list-->
-
+<!--ACCORDION LEVEL 2: Type List-->
 {% for link in links %}
 {% if link.topic == group_topic._id %}
 {% if (loop.previtem is undefined) or (loop.previtem.topic != group_topic._id) or (loop.previtem.link_type != link.link_type)%}
 <!--WHY: 1.First in the loop OR 2.First in the group topic or 3. First in a new link type for that group topic.-->
 <div class="ml-md-2" data-level="2" data-2value="{{ group_topic._id}}">
-      <button class="btn" type="button" data-blevel="2" data-bvalue="{{ group_topic._id}}-{{link.link_type}}"><i class="fas fa-angle-down"></i></button>
+      <button class="btn" type="button" data-blevel="2" data-bvalue="{{ group_topic._id}}-{{link.link_type}}"><i
+                  class="fas fa-angle-down"></i></button>
       <h3 class="d-inline-block">{{link.link_type}}</h3>
 </div>
 {% endif %}
 
-
-<!--LEVEL 3: Link name list-->
+<!--ACCORDION LEVEL 3: Link Name List-->
 <div class="ml-md-4" data-level="3" data-3value="{{ group_topic._id}}-{{link.link_type}}">
       <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.link_name }}</a>
       <span>{{(link.ratings|sum)//(link.ratings|count)}}<i class="fas fa-star"></i></span>
-      <button class="btn" type="button" data-blevel="3" data-bvalue="{{link._id}}"><i class="fas fa-info-circle"></i></button>
+      <button class="btn" type="button" data-blevel="3" data-bvalue="{{link._id}}"><i
+                  class="fas fa-info-circle"></i></button>
 </div>
 <!--WHY: Bootstrap margin left only applied to md and lg devices as fitting items on line deemed more important than spacing.-->
 
-<!--LEVEL 4 COLLAPSE CONTENT: Link details-->
+<!--ACCORDION LEVEL 4: Link Details-->
 <ul class="list-group p-0 dark-ul" data-level="4" data-4value="{{link._id}}">
       <li class="list-group-item">
             {{ link.description }}
@@ -76,51 +75,47 @@
             <!--WHY: Bootstrap class d-block used to ensure small tag is on new line.-->
       </li>
 
-      <!--STAR RATING & REPORT PROBLEM-->
+      <!--INPUT - STAR RATING-->
       <li class="list-group-item">
             <span class="">Rate</span>
             <form class="d-inline-block" action="{{url_for('ratelink', language=language, linkid=link._id, rating=1)}}"
-                  method="POST" data-submit="">
-                  <button type="submit" class="btn p-2" data-submit="">
+                  method="POST">
+                  <button type="submit" class="btn p-2">
                         <i class="fas fa-star rate-star" data-star="1"></i></button>
             </form>
             <form class="d-inline-block mr-2"
-                  action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}" method="POST"
-                  data-submit="">
-                  <button type="submit" class="btn p-2" data-submit="">
+                  action="{{url_for('ratelink', language=language, linkid=link._id, rating=2)}}" method="POST">
+                  <button type="submit" class="btn p-2">
                         <i class="fas fa-star rate-star" data-star="2"></i></button>
             </form>
             <form class="d-inline-block mr-2"
-                  action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}" method="POST"
-                  data-submit="">
-                  <button type="submit" class="btn p-2" data-submit="">
+                  action="{{url_for('ratelink', language=language, linkid=link._id, rating=3)}}" method="POST">
+                  <button type="submit" class="btn p-2">
                         <i class="fas fa-star rate-star" data-star="3"></i></button>
             </form>
             <form class="d-inline-block mr-2"
-                  action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}" method="POST"
-                  data-submit="">
-                  <button type="submit" class="btn p-2" data-submit="">
+                  action="{{url_for('ratelink', language=language, linkid=link._id, rating=4)}}" method="POST">
+                  <button type="submit" class="btn p-2">
                         <i class="fas fa-star rate-star" data-star="4"></i></button>
             </form>
             <form class="d-inline-block" action="{{url_for('ratelink', language=language, linkid=link._id, rating=5)}}"
-                  method="POST" data-submit="">
-                  <button type="submit" class="btn p-2" data-submit="">
+                  method="POST">
+                  <button type="submit" class="btn p-2">
                         <i class="fas fa-star rate-star" data-star="5"></i></button>
             </form>
             <br class="d-block d-lg-none">
+            <!--WHY: Bootstrap display classes used to keep star rating and report problem on same line on lg devices only.-->
 
-
+            <!--INPUT - REPORT PROBLEM-->
             <form class="d-inline-block" action="{{url_for('flaglink', language=language, linkid=link._id)}}"
-                  method="POST" data-submit="">
-                  <button type="submit" class="btn p-0 ml-lg-5" data-submit="">
-                        <span class="mr-1">Report problem</span><i class="fas fa-tools" data-flag="flag"></i></button>
+                  method="POST">
+                  <button type="submit" class="btn p-0 ml-lg-5">
+                        <span class="mr-1">Report problem</span><i class="fas fa-tools"></i></button>
             </form>
 </ul>
-
 
 {% endif %}
 {% endfor %}
 {% endfor %}
-
 
 {% endblock content %}
