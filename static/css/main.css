@@ -62,6 +62,11 @@ h3 {
     color: #fe5e51;
 }
 
+.error--validate{
+    font-size: 1rem;
+    color: #fe5e51; 
+}
+
 /*WHAT: Formatting for negative Flask Messages.*/
 
 .fa-info-circle {

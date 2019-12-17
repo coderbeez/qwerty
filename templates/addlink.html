@@ -35,7 +35,7 @@
                     {% if form.link_type.errors %}
                     {{ form.link_type(class="type-radio") }}
                     {% for error in form.link_type.errors %}
-                    <span class="oops">{{ error }}</span>
+                    <span class="error--validate">{{ error }}</span>
                     {% endfor %}
                     {% else %}
                     {{ form.link_type(class="type-radio") }}
@@ -107,7 +107,7 @@
                     <i class="fas fa-star rate-star" data-star="5"></i></button>
                 {% if form.rate.errors %}
                 {% for error in form.rate.errors %}
-                <p class="error">Please select a star rating.</p>
+                <p class="error--validate">Please select a star rating.</p>
                 {% endfor %}
                 {% endif %}
 
