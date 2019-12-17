@@ -1,16 +1,11 @@
 $(document).ready(function () {
 
 
-    //GLOBAL VARIABLES
-    const star1 = $("[data-star=1]");
-    const star2 = $("[data-star=2]");
-    const star3 = $("[data-star=3]");
-    const star4 = $("[data-star=4]");
-    const star5 = $("[data-star=5]");
-    const rate = $("[data-star=rate]");
-    const flag = $("[data-submit=flag]");
+    //GLOBAL VARIABLES - Dark Mode
     const dark = $("[data-dark=switch]");
-    const level1 = $("[data-level=1]");
+
+
+    //GLOBAL VARIABLES - Accordion
     const level2 = $("[data-level=2]");
     const level3 = $("[data-level=3]");
     const level4 = $("[data-level=4]");
@@ -18,59 +13,17 @@ $(document).ready(function () {
     const blevel2 = $("[data-blevel=2]");
     const blevel3 = $("[data-blevel=3]");
 
-    //ACCORDION
-    level2.hide();
-    level3.hide();
-    level4.hide();
-    //WHERE: https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working
+
+    //GLOBAL VARIABLES - Star Rating
+    const star1 = $("[data-star=1]");
+    const star2 = $("[data-star=2]");
+    const star3 = $("[data-star=3]");
+    const star4 = $("[data-star=4]");
+    const star5 = $("[data-star=5]");
+    const rate = $("[data-star=rate]");
 
 
-    function slide(target) {
-        if (target.is(":hidden")) {
-            console.log("hidden")
-            target.slideDown();
-        } else {
-            target.slideUp();
-        }
-    }
-    //WHY: Created to check current state of an accordion target, hiding a visible target and revealing a hidden target.
-    //WHERE:https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
-
-    blevel1.click(function () {
-        let value = $(this).attr('data-bvalue');
-        let target = $('[data-2value="' + value + '"]')
-        console.log(value);
-        level2.slideUp();
-        level3.slideUp();
-        level4.slideUp();
-        slide(target);
-    });
-
-
-    blevel2.click(function () {
-        let value = $(this).attr('data-bvalue');
-        let target = $('[data-3value="' + value + '"]')
-        console.log(value);
-        level3.slideUp();
-        level4.slideUp();
-        slide(target);
-    });
-
-    blevel3.click(function () {
-        let value = $(this).attr('data-bvalue');
-        let target = $('[data-4value="' + value + '"]')
-        console.log(value);
-        level4.slideUp();
-        slide(target);
-    });
-    //WHY: Created for each level in the accordion allowing a button click to result in a target slide.
-    //WHY: Data attribute values allow the association of a button to a target when the template is rendered.
-    //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
-    //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
-
-
-   
-    //DARK MODE STYLING CHANGES
+    //DARK MODE - Styling Changes
     function makeDark() {
         $('body').addClass('dark');
         $('li').addClass('dark');
@@ -89,21 +42,19 @@ $(document).ready(function () {
     //WHERE: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
 
 
-    //CHECK FOR DARK MODE
+    //DARK MODE - Check for Dark Mode on Page Load
     function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
             dark.prop("checked", true);
             makeDark();
         }
     }
+
+    checkStorage();
     //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
 
 
-    //RUN CHECK 4 MODE ON PAGE LOAD
-    checkStorage();
-
-
-    //RESTYLE IF MODE CHANGES
+    //DARK MODE - Restyle if Mode Changes
     dark.change(function () {
         if (this.checked) {
             makeDark();
@@ -126,13 +77,57 @@ $(document).ready(function () {
     //WHERE:https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
 
 
-    //RESTYLE FLAG ICON ON CLICK
-    flag.click(function () {
-        flag.css("color", "#ED5023");
-    })
+    //ACCORDION - Hide on Load
+    level2.hide();
+    level3.hide();
+    level4.hide();
+    //WHY: Close accordion levels 2 to 4 on page load.
+    //WHERE: https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working
 
 
-    //RESTYLE STARS ICONS ON CLICK
+    //ACCORDION - Slide Target
+    function slide(target) {
+        if (target.is(":hidden")) {
+            target.slideDown();
+        } else {
+            target.slideUp();
+        }
+    }
+    //WHY: Check current state of an accordion target, hide a visible target and reveal a hidden target.
+    //WHERE:https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
+
+
+    //ACCORDION - Level Clicks
+    blevel1.click(function () {
+        let value = $(this).attr('data-bvalue');
+        let target = $('[data-2value="' + value + '"]')
+        level2.slideUp();
+        level3.slideUp();
+        level4.slideUp();
+        slide(target);
+    });
+
+    blevel2.click(function () {
+        let value = $(this).attr('data-bvalue');
+        let target = $('[data-3value="' + value + '"]')
+        level3.slideUp();
+        level4.slideUp();
+        slide(target);
+    });
+
+    blevel3.click(function () {
+        let value = $(this).attr('data-bvalue');
+        let target = $('[data-4value="' + value + '"]')
+        level4.slideUp();
+        slide(target);
+    });
+    //WHY: For each level in the accordion allow a button click to result in a target slide.
+    //WHY: Data attribute values allow the association of a button to a target when the template is rendered.
+    //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
+    //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
+
+
+    //STAR RATING - Restyle Stars on Click
     star1.click(function () {
         star1.css("color", "#00a9bd");
         star2.css("color", "#c9c9c9");
@@ -177,10 +172,6 @@ $(document).ready(function () {
         star5.css("color", "#00a9bd");
         rate.val("5");
     })
-
-
-
-
-
+    //WHY: Change colour of stars once clicked to better indicate star rating selected.
 
 });
