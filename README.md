@@ -63,7 +63,6 @@ Users that select a notes language are routed to the login page, if not already 
 
 Following on from simplified navigation, Qwerty has been designed with minimal graphics, fonts and colours. A simple pencil image, to reflect note taking, is used on the home page and repeated on the playlist. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. 
 
-![Colours Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/colours.png)
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/colours.png">
 </p>
@@ -85,7 +84,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 Introduction text about flask rendering templates & jinja.
 
 ## Home Page
-![Header Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/header.jpg)
+![Home Page Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/home.png)
 
 - A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
 
