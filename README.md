@@ -5,6 +5,8 @@
 
 **[Qwerty](https://coderbeez-qwerty.herokuapp.com/index)** *, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone project.*
 
+name tester
+password testUser
 
 # UX
 
@@ -23,29 +25,29 @@ User stories for potential visitors to the website include:
 
 ### Find A Link
 
-I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select *JavaScript* from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select *Jasmine*. A list of link types opens – I select *instruct*. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
+I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select **JavaScript** from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select **Jasmine**. A list of link types opens – I select **Instruct**. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
 
 
 ### Share A Link
 
-I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select *Python* from the links dropdown. I click *Add New*. I enter the details, selecting *MongoDB* for topic, *instruct* for type and giving it a 5 *star rating*. I could add a *description* but its optional, so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word PyMongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
+I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select **Python** from the links dropdown. I click **Add New**. I enter the details, selecting **MongoDB** for topic, *instruct* for type and giving it a 5 *star rating*. I could add a **Description** but its optional, so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word PyMongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
 
 
 ### Create & Read Notes
 
-As study needs to fit around home and work life, notes must be accessible from multiple devices - my personal laptop, work desktop and mobile. Having come accross an article on Flask Bcrypt during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in *Dark Mode* as it's remebered my preference. I select *Python* from the notes dropdown. I'm asked to login using *email* and *password*. My Python notes page opens. When I use the *word search* facility to see if I've saved Bcrypt notes already, it tells me there are no results. I click *Add New* to create a new note selecting *Flask* for the topic, and entering a note *name* and some *contents*. With a few minutes to spare, I return to the home page and check out today's Awwwards site for inspiration for my next milestone.
+As study needs to fit around home and work life, notes must be accessible from multiple devices - my personal laptop, work desktop and mobile. Having come accross an article on Flask Bcrypt during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in **Dark Mode** as it's remebered my preference. I select **Python** from the notes dropdown. I'm asked to login using **Email** and **Password**. My Python notes page opens. When I use the **Word Search** facility to see if I've saved Bcrypt notes already, it tells me there are no results. I click **Add New** to create a new note selecting **Flask** for the topic, and entering a note **Name** and some **Contents**. With a few minutes to spare, I return to the home page and check out today's Awwwards site under **Distraction** for inspiration for my next milestone.
 
 
 ### Break Time
 
-When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected coding quote. I check out today’s site of the day from the Awwwards link. As I’m on the JavaScript milestone, I visit the sample link for that language. I click on the Spotify link to start the playlist when I return to coding.
+When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected **coding quote**. I check out today’s site of the day from the **Awwwards** link. As I’m on the JavaScript milestone, I visit the **sample link** for that language. I click the **Spotify** link to start the playlist when I return to coding.
 
 
 
 ## Design
 
 
-Qwerty was chosen as a simple but memorable name for the target audience of coding students. The look and flow of the site was designed for simplicity and ease of use. 
+Simplicity is key to Qwerty. Qwerty was chosen as a simple but memorable name for the target audience of coding students. The look and flow of the site itself was designed for simplicity and ease of use. 
 
 
 ### Navigation
@@ -63,13 +65,13 @@ Following on from simplified navigation, Qwerty has been designed with minimal g
 
 ![Colours Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/colours.png)
 <p align="center">
-  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header2.png">
+  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/colours.png">
 </p>
 
 
 ### Dark Mode
 
-Given dark mode is often discussed on Code Institute's Diploma Slack channel, it was incorporated as an option for users. A user's selection is saved in local storage so perference is remembered on return visits. 
+Given dark mode is often discussed on the Code Institute's Diploma Slack channel, it was included as an option for users. The mode selected is saved in local storage so user perference is remembered on return visits. 
 
 
 ### Preparation
@@ -89,7 +91,7 @@ Introduction text about flask rendering templates & jinja.
 
 - The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
 
-- A slider, on the home page for mobile devices and sidebar on mediuma and large screens, allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
+- A slider, on the home page for mobile devices and sidebar on medium and large screens, allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
 
 
 - A distraction sidebar on medium and large screens, On mobile devices, visible under the pencil image on the home page.
@@ -157,7 +159,9 @@ Introduction text about flask rendering templates & jinja.
 
 - Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion.
 
-- The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. 
+- If a user hasn't added notes for a language, a flash message directs them on how to.
+
+- If a user has added language notes, a MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closely aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. 
 
 - Level two of the accordion reveals a list of sorted note names, whilst three reveals the contents, edit and delete buttons for an individual note.
 
@@ -424,13 +428,12 @@ After sign-off, structured manual testing of the site was carried out on various
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | Site Load | P | P | P | P | P | P | P |
 | **DISTRACTIONS** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *1* | *6* | *4* | *11* | *1* | *11* | *2* |
 | Quote | P | P | P | P | P | P | P |
 | Sample Links | P | P | P | P | P | P | P |
 | Inspiration | P | P | P | P | P | P | P |
 | Music | P | P | P | P | P | P | P |
+| Reload - Resample | P | P | P | P | P | P | P |
 | **REGISTER** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *2* | *4* | *6* | *1* | *10* | *1* | *3* |
 | Nav – 4 + Register | P | P | P | P | P | P | P |
 | Name - Validate| P | P | P | P | P | P | P |
 | Email - Validate | P | P | P | P | P | P | P |
@@ -440,8 +443,6 @@ After sign-off, structured manual testing of the site was carried out on various
 | Register - Message| P | P | P | P | P | P | P |
 | Nav – 4 + Logout | P | P | P | P | P | P | P |
 | **LOGIN** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *4* | *11* | *1* | *8* | *3* | *10* | *9* |
-| *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
 | Register - Link | P | P | P | P | P | P | P |
 | Email - Validate | P | P | P | P | P | P | P |
 | Password - Validate | P | P | P | P | P | P | P |
@@ -449,7 +450,6 @@ After sign-off, structured manual testing of the site was carried out on various
 | Login - Message | P | P | P | P | P | P | P |
 | Nav – 4 + Logout | P | P | P | P | P | P | P |
 | **LOGOUT** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *3* | *10* | *5* | *7* | *9* | *6* | *8* |
 | Logout - Home Page | P | P | P | P | P | P | P |
 | Logout - Message | P | P | P | P | P | P | P |
 | Nav – 4 + Register | P | P | P | P | P | P | P |
@@ -464,8 +464,6 @@ N/A - Not Applicable
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *5* | *8* | *2* | *4* | *4* | *3* | *4* |
-| *Test - Language* | *HTML* | *CSS* | *JS* | *Python*| *HTML* | *CSS* | *JS* |
 | Accordion - List | P | P | P | P | P | P | P |
 | Search Results – Message | P | P | P | P | P | P | P |
 | Search Results – List | P | P | P | P | P | P | P |
@@ -473,22 +471,18 @@ N/A - Not Applicable
 | Search Clear – Message | P | P | P | P | P | P | P |
 | Search Clear – List | P | P | P | P | P | P | P |
 | **NOTES - EDIT** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *6* | *7* | *8* | *9* | *6* | *4* | *5* |
-| *Test - Edit* | *Topic* | *Title* | *Content* | *All* | *Topic* | *Title* | *Content* |
 | Message | P | P | P | P | P | P | P |
 | Changed | P | P | P | P | P | P | P |
 | **NOTES - DELETE** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *7* | *9* | *3* | *10* | *11* | *5* | *11* |
 | Message | P | P | P | P | P | P | P |
 | Deleted | P | P | P | P | P | P | P |
 | **NOTES - CREATE** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *8* | *5* | *7* | *5* | *8* | *2* | *10*|
-| Topic – List | P | P | P | P | P | P | P |
-| Topic – Validate | P | P | P | P | P | P | P |
-| Title – Validate | P | P | P | P | P | P | P |
-| Content – Validate | P | P | P | P | P | P | P |
-| Save – Message | P | P | P | P | P | P | P |
-| Save – Saved | P | P | P | P | P | P | P |
+| Topic - List | P | P | P | P | P | P | P |
+| Topic - Validate | P | P | P | P | P | P | P |
+| Title - Validate | P | P | P | P | P | P | P |
+| Content - Validate | P | P | P | P | P | P | P |
+| Save - Message | P | P | P | P | P | P | P |
+| Save - Saved | P | P | P | P | P | P | P |
 
 P - Passed
 N/A - Not Applicable
@@ -500,35 +494,31 @@ N/A - Not Applicable
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *9* | *1* | *9* | *2* | *2* | *8* | *6* |
-| *Test - Language* | *CSS* | *JS* | *Python* | *HTML*| *CSS* | *JS* | *Python* |
 | Accordion - List | P | P | P | P | P | P | P |
-| Search Results – Message | P | P | P | P | P | P | P |
-| Search Results – List | P | P | P | P | P | P | P |
-| Search No Results – Message | P | P | P | P | P | P | P |
-| Search Clear – Message | P | P | P | P | P | P | P |
-| Search Clear – List | P | P | P | P | P | P | P |
+| Search Results - Message | P | P | P | P | P | P | P |
+| Search Results - List | P | P | P | P | P | P | P |
+| Search No Results - Message | P | P | P | P | P | P | P |
+| Search Clear - Message | P | P | P | P | P | P | P |
+| Search Clear - List | P | P | P | P | P | P | P |
 | **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *10* | *2* | *10*  | *3* | *5* | *9* | *7* |
-| Rate - Hover | P | P | P | P | P | P | P |
-| Rate – Time Delay | P | P | P | P | P | P | P |
-| Rate – Message | P | P | P | P | P | P | P |
-| Rate – Average & Total | P | P | P | P | P | P | P |
+| Rate - Hover & Click  | P | P | P | P | P | P | P |
+| Rate - Time Delay | P | P | P | P | P | P | P |
+| Rate - Message | P | P | P | P | P | P | P |
+| Rate - Average & Total | P | P | P | P | P | P | P |
 | Flag - Hover | P | P | P | P | P | P | P |
-| Flag – Time Delay | P | P | P | P | P | P | P |
-| Flag – Message | P | P | P | P | P | P | P |
-| Flag – MongoDB | P | P | P | P | P | P | P |
+| Flag - Time Delay | P | P | P | P | P | P | P |
+| Flag - Message | P | P | P | P | P | P | P |
+| Flag - MongoDB | P | P | P | P | P | P | P |
 | **LINKS - ADD** | --- | --- | --- | --- | --- | --- | --- |
-| *Test - Order* | *11* | *3* | *11* | *6* | *7* | *7* | *1* |
-| Topic– List | P | P | P | P | P | P | P |
-| Topic– List | P | P | P | P | P | P | P |
-| Type – Validate | P | P | P | P | P | P | P |
-| URL – Validate | P | P | P | P | P | P | P |
-| Name – Validate | P | P | P | P | P | P | P |
-| Description– Validate | P | P | P | P | P | P | P |
-| Rate– Validate | P | P | P | P | P | P | P |
-| Save– Message | P | P | P | P | P | P | P |
-| Save– Saved | P | P | P | P | P | P | P |
+| Topic - List | P | P | P | P | P | P | P |
+| Topic - Validate | P | P | P | P | P | P | P |
+| Type - Validate | P | P | P | P | P | P | P |
+| URL - Validate | P | P | P | P | P | P | P |
+| Name - Validate | P | P | P | P | P | P | P |
+| Description - Validate | P | P | P | P | P | P | P |
+| Rate - Validate | P | P | P | P | P | P | P |
+| Save - Message | P | P | P | P | P | P | P |
+| Save - Saved | P | P | P | P | P | P | P |
 
 P - Passed
 N/A - Not Applicable
@@ -539,45 +529,40 @@ N/A - Not Applicable
 | **BROWSER** | **iOS** | **Android** | **iOS** | **Edge** | **Chrome** | **Firefox** | **Safari** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
-| **DARK MODE** | --- | --- | --- | --- | --- | --- | --- |
-| Dark Mode – On | P | P | P | P | P | P | P |
+| **DARK MODE ON** | --- | --- | --- | --- | --- | --- | --- |
+| Switch | P | P | P | P | P | P | P |
+| Local Storage | P | P | P | P | P | P | P |
 | Background - Grey | P | P | P | P | P | P | P |
 | Font - Stone | P | P | P | P | P | P | P |
 | List Item Bdr - Grey | P | P | P | P | P | P | P |
 | List Item Bkg - Transparent | P | P | P | P | P | P | P |
 | Link - Orange | P | P | P | P | P | P | P |
 | Link Hover - Stone | P | P | P | P | P | P | P |
-| Button – Stone + Grey Font | P | P | P | P | P | P | P |
+| Button - Stone + Grey Font | P | P | P | P | P | P | P |
 | Button Hover - Orange Font| P | P | P | P | P | P | P |
-| Dark Mode – Links Page | P | P | P | P | P | P | P |
-| Dark Mode - Off | P | P | P | P | P | P | P |
-| Background - Grey | P | P | P | P | P | P | P |
-| Font - Stone | P | P | P | P | P | P | P |
-| List Item Bdr - Grey | P | P | P | P | P | P | P |
-| List Item Bkg - Transparent | P | P | P | P | P | P | P |
-| Link - Orange | P | P | P | P | P | P | P |
-| Link Hover - Stone | P | P | P | P | P | P | P |
-| Button – Stone + Grey Font | P | P | P | P | P | P | P |
-| Button Hover - Orange Font| P | P | P | P | P | P | P |
-| *Test - Language* | *HTML* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* |
+| Dark Mode - Revisit | P | P | P | P | P | P | P |
+| **DARK MODE OFF** | --- | --- | --- | --- | --- | --- | --- |
+| Local Storage | P | P | P | P | P | P | P |
+| Background - Stone | P | P | P | P | P | P | P |
+| Font - Grey | P | P | P | P | P | P | P |
+| List Item Bdr - Shadow | P | P | P | P | P | P | P |
+| List Item Bkg - White | P | P | P | P | P | P | P |
+| Link - Red | P | P | P | P | P | P | P |
+| Link Hover - Grey | P | P | P | P | P | P | P |
+| Button - Grey + Stone Font | P | P | P | P | P | P | P |
+| Button Hover - Grey Font| P | P | P | P | P | P | P |
 | **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
-| Accordion - List | P | P | P | P | P | P | P |
-| Accordion – Level 1 | P | P | P | P | P | P | P |
-| Accordion – Level 2 | P | P | P | P | P | P | P |
-| Accordion – Level 3 | P | P | P | P | P | P | P |
-| Accordion – Visible Target | P | P | P | P | P | P | P |
-| *Test - Language* | *CSS* | *JS* | *Python* | *HTML* | *CSS* | *JS* | *Python* |
+| Accordion - Level 1 | P | P | P | P | P | P | P |
+| Accordion - Level 2 | P | P | P | P | P | P | P |
+| Accordion - Level 3 | P | P | P | P | P | P | P |
 | **LINKS - READ** | --- | --- | --- | --- | --- | --- | --- |
-| Accordion - List | P | P | P | P | P | P | P |
-| Accordion – Level 1 | P | P | P | P | P | P | P |
-| Accordion – Level 2 | P | P | P | P | P | P | P |
-| Accordion – Level 3 | P | P | P | P | P | P | P |
-| Accordion – Visible Target | P | P | P | P | P | P | P |
+| Accordion - Level 1 | P | P | P | P | P | P | P |
+| Accordion - Level 2 | P | P | P | P | P | P | P |
+| Accordion - Level 3 | P | P | P | P | P | P | P |
+| Accordion - Level 4 | P | P | P | P | P | P | P |
 | **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
-| Rate - Hover | N/A | N/A | N/A | P | P | P | P |
-| Rate – Click | P | P | P | P | P | P | P |
-| Flag - Hover | N/A | N/A | N/A | P | P | P | P |
-| Flag – Click | P | P | P | P | P | P | P |
+| Star - Click | P | P | P | P | P | P | P |
+
 
 P - Passed
 N/A - Not Applicable
@@ -594,9 +579,19 @@ N/A - Not Applicable
 1. **Heroku timeout** During development it quickly became apparent that relying on inbuilt keyboards on touch screen devices provided poor UX. Keypads were built into the website to avoid using device keyboards.
 
 
-2. **Heroku css update** Initial keypad designs 
+2. **Heroku css update** Initial keypad designs `heroku restart -a coderbeez-qwerty`
 2. **Select Chrome emulator** Initial keypad designs 
 
+```@app.before_request
+def sidebar():
+    print(session)
+    if "sample1" not in session:
+        session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+        session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+        session["sample3"] = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+        session["sample4"] = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+        session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
+        ```
 
 # Deployment
 
