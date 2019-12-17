@@ -5,7 +5,7 @@
     <div class="col-12 col-md-10">
     <!--WHY: Bootstrap rows & columns used to limit width of form on md & lg devices.-->
 
-        <form method="POST" action="">
+        <form method="POST">
             {{ form.hidden_tag() }}
             <!--WHY: hidden_tag method for security-->
 
@@ -29,7 +29,9 @@
 
                 <!--INPUT TYPE-->
                 <div class="form-group">
-                    {{ form.link_type.label }}
+                    <label>Type</label>
+                    <!--WHY: label element used without for as it threw validation error...
+                    The value of the for attribute of the label element must be the ID of a non-hidden form control.-->
                     {% if form.link_type.errors %}
                     {{ form.link_type(class="type-radio") }}
                     {% for error in form.link_type.errors %}
@@ -87,7 +89,9 @@
                 </div>
 
                 <!--INPUT RATE-->
-                {{ form.rate.label }}
+                <label>Rate</label>
+                <!--WHY: label element used without for as it threw validation error...
+                The value of the for attribute of the label element must be the ID of a non-hidden form control.-->
                 {{ form.rate (data_star="rate", type="hidden")}}
                 <!--WHERE: https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field-->
                 <!--WHERE: https://www.w3schools.com/tags/att_input_type_hidden.asp-->
