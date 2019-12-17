@@ -84,7 +84,7 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 Introduction text about flask rendering templates & jinja.
 
 ## Home Page
-![Home Page Image]( https://github.com/coderbeez/qwerty/blob/master/static/images/home.png)
+![Home Page Image](https://github.com/coderbeez/qwerty/blob/master/static/readme/home.png)
 
 - A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
 
