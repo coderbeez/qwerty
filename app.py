@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, url_for, flash, redirect, request, abort
+from flask import Flask, render_template, url_for, flash, redirect, request, abort, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
@@ -75,17 +75,12 @@ def load_user(id):
 @app.route("/")
 @app.route("/index")
 def index():  
-    global sample1
-    global sample2
-    global sample3
-    global sample4
-    global quote
-    sample1 = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-    sample2 = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-    sample3 = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-    sample4 = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-    quote = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
-    return render_template("index.html", sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+    session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+    session["sample3"] = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+    session["sample4"] = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
+    session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
+    return render_template("index.html", sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 #WHERE: Global variables from https://www.geeksforgeeks.org/global-local-variables-python/
 
 
@@ -108,7 +103,7 @@ def register():
         pass                    
     else:
         flash("Oops - check fields!", "error")      
-    return render_template("register.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("register.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 #WHERE: Hashing passwords from Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
 
 
@@ -131,7 +126,7 @@ def login():
         pass                    
     else:
         flash("Oops - check fields!", "error")        
-    return render_template("login.html", form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("login.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
 #VIEW LINKS - allows all users to view and search links.
@@ -150,7 +145,7 @@ def links(language):
             group_topics = mongo.db.links.aggregate([ {"$match": {"language": language, "$text": {"$search": form.tsearch.data} }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
             flash(f'Links filtered by {form.tsearch.data}', 'search')    
     group_topics = list(group_topics)
-    return render_template("links.html", links=links, group_topics=group_topics, language=language, form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("links.html", links=links, group_topics=group_topics, language=language, form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 #WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
 # and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
 
@@ -175,7 +170,7 @@ def notes(language):
             group_topics = mongo.db.notes.aggregate([ {"$match": {"language": language, "user_id": ObjectId(current_user.id), "$text": {"$search": form.tsearch.data} }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
             flash(f'Notes filtered by {form.tsearch.data}', 'search')        
     group_topics = list(group_topics)    
-    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, form=form, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 #WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
 # and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
 
@@ -204,7 +199,7 @@ def addlink(language):
         pass                    
     else:
         flash("Oops - check fields!", "error")
-    return render_template("addlink.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote) 
+    return render_template("addlink.html", form=form, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"]) 
 #WHERE: Topics select field code from https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
 # and https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
 #WHY: Existing link check - as its valid to have the link in multiple languages, in this case only want to search current language.
@@ -226,7 +221,7 @@ def addnote(language):
         pass 
     else:
         flash("Oops - check fields!", "error")
-    return render_template("addnote.html", form=form, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("addnote.html", form=form, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
 #EDIT_NOTE - allows a user owner edit a note if they own that note.
@@ -248,12 +243,12 @@ def editnote(language, noteid):
         form.content.data = note["content"]
     else:
         flash("Oops - check fields!", "error")   
-    return render_template("editnote.html", form=form, note=note, language=language, sample1=sample1, sample2=sample2, sample3=sample3, sample4=sample4, quote=quote)
+    return render_template("editnote.html", form=form, note=note, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 #WHY: user_id added as notes filter to ensure only the owner can edit a note.
 
 
 #DELETE_NOTE - allows a user delete a note if they own that note.
-@app.route("/deletenote/<language>/<noteid>", methods=["POST"]) #just post???
+@app.route("/deletenote/<language>/<noteid>", methods=["POST"])
 @login_required
 def deletenote(language, noteid):
     mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})
