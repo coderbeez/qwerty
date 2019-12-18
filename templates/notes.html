@@ -64,14 +64,14 @@
 <!--ACCORDION LEVEL 2: Note Name List-->
 {% for note in notes %}
 {% if note.topic == group_topic._id %}
-<div class="ml-md-2" data-level="2" data-2value="{{ group_topic._id}}">
+<div class="ml-md-2 hide-start" data-level="2" data-2value="{{ group_topic._id}}">
       <button class="btn" type="button" data-blevel="2" data-bvalue="{{note._id}}"><i
                   class="fas fa-angle-down"></i></button>
       <h3 class="d-inline-block">{{ note.note_name }}</h3>
 </div>
 
 <!--ACCORDION LEVEL 3: Note Content, Edit & Delete-->
-<div data-level="3" data-3value="{{note._id}}">
+<div class="hide-start" data-level="3" data-3value="{{note._id}}">
       <textarea readonly class="form-control" rows=6>{{note.content}}</textarea>
       <!--WHERE: Readonly from https://stackoverflow.com/questions/12831092/textarea-without-input-functionality).-->
 
