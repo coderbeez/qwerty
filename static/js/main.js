@@ -78,9 +78,9 @@ $(document).ready(function () {
 
 
     //ACCORDION - Hide on Load
-    level2.hide();
-    level3.hide();
-    level4.hide();
+    //level2.hide();
+    //level3.hide();
+    //level4.hide();
     //WHY: Close accordion levels 2 to 4 on page load.
     //WHERE: https://stackoverflow.com/questions/42541274/jquery-on-page-load-event-not-working
 
