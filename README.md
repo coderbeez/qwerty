@@ -151,7 +151,7 @@ Introduction text about flask rendering templates & jinja.
 ## Notes Page
 
 <p align="center">
-  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
+  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/notes.gif">
 </p>
 
 - Users access notes pages by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
@@ -220,7 +220,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 ## Links Page
 
 <p align="center">
-  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links3.gif">
+  <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif">
 </p>
 
 - Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
@@ -378,6 +378,7 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 - [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/) Used to allow communication between Python and MongoDB.
 - [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) Used for hashing user passwords.
 - [Flask-Login](https://flask-login.readthedocs.io/en/latest/) Used for user session management.
+- [Flask-SSLify](https://github.com/kennethreitz/flask-sslify) Used to redirect all incoming requests to HTTPS.
 - [WTForms](https://jquery.com/) Used to define and validate forms???.
 - [Jinja](https://palletsprojects.com/p/jinja/) Web template engine used. 
 
@@ -387,6 +388,9 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 - [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Used to develop the initial webiste proposal.
 - [Affinity Designer](https://affinity.serif.com/en-gb/) Used to edit images and identify hex colours for fonts and backgrounds.
 - [Techsini](https://techsini.com/multi-mockup/index.php) Used to generate the README header image.
+- [Microsoft??? ] video
+- [EZgif](https://ezgif.com/) Used to edit videos for README.
+- [Chrome Developer Tools] Used to create images for README.
 
 
 
@@ -417,7 +421,7 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 Throughout the development process Chrome was used to test for functionality and Chrome developer tools for layout and responsiveness on various screen sizes. Once deployed, the site was also tested on Edge, Firefox and Safari browers and on both android and iOS mobiles. 
 
-After sign-off, structured manual testing of the site was carried out on various browsers and screens sizes. Detailed plans were followed to ensure code was thoroughly tested. The order and languages tested was varied to minic user paths and ensure UX user stories were covered.
+After sign-off, structured manual testing of the site was carried out on various browsers and screens sizes. Detailed plans were followed to ensure code was thoroughly tested and UX user stories covered.
 
 
 ### Distraction & User Management
@@ -473,6 +477,7 @@ N/A - Not Applicable
 | Message | P | P | P | P | P | P | P |
 | Changed | P | P | P | P | P | P | P |
 | **NOTES - DELETE** | --- | --- | --- | --- | --- | --- | --- |
+| Confirm | P | P | P | P | P | P | P |
 | Message | P | P | P | P | P | P | P |
 | Deleted | P | P | P | P | P | P | P |
 | **NOTES - CREATE** | --- | --- | --- | --- | --- | --- | --- |
@@ -707,6 +712,8 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Pretty Printed - YouTube Flask WTForms Series](https://www.youtube.com/playlist?list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
 - Setting data attributes on WTForms field from [Stack Overfow](https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field).
+- Prevent autocapitalise on mobile from [Stack Overflow](https://stackoverflow.com/questions/54372754/prevent-wtform-from-autocapitalizing-on-mobile) -->
+
 
 #### User Sessions
 - [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/).
@@ -737,5 +744,5 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ## Acknowledgements
 
-  - Many thanks to my mentor Ali Ashik and ***all*** on Slack who take the time to share useful links for their fellow students. 
+  - Many thanks to my mentor Ali Ashik, Sean Murphy and ***all*** on Slack who take the time to share useful links for their fellow students. 
 
