@@ -12,6 +12,7 @@
             <p class="m-0">Filter by word <small><br class="d-none d-md-inline-block">(optional)</small></p>
       </div>
 
+
       <!--WORD SEARCH - FORM-->
       <div class="col-auto p-0">
             <form method="POST">
@@ -46,7 +47,7 @@
       <!--WHERE: Using categories from Flask Flash Documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/-->
       {% if messages %}
       {% for message in messages %}
-      <span class="message ml-3 m-md-0">{{ message }}</span>
+      <span class="message ml-md-3 m-md-0">{{ message }}</span>
       {% endfor %}
       {% endif %}
       {% endwith %}
