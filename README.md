@@ -5,14 +5,12 @@
 
 **[Qwerty](https://coderbeez-qwerty.herokuapp.com/index)** *, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone project.*
 
-name tester
-password testUser
 
 # UX
 
 Qwerty is a website developed to assist coding students studying HTML, CSS, JavaScript and Python languages for Code Institute’s Diploma in Full Stack Web Development. The site allows students to save notes and share links for each language.
 
-1. **Notes** Students can register to host their own language notes using familiar topic headings with a full range of CRUD operations. Registration and login are required for Notes. 
+1. **Notes** Students can register to host their own language notes using familiar topic headings with a full range of CRUD operations. Registration and login are required for Notes. To facilitate assessment a test user has been setup with  email tester@gmail.com, password testUser, and notes created for JavaScript and Python.
 
 2. **Links** Language links are again grouped under familiar topic headings and categorised by type, i.e instruct, practice, resource and other. Students can create a new link, add a star rating or report a problem with an existing link. No registration or login is required for Links.
 
@@ -387,10 +385,10 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 - [Balsamiq](https://balsamiq.com/) Used to develop wireframes for the website.
 - [Microsoft Powerpoint](https://office.live.com/start/PowerPoint.aspx) Used to develop the initial webiste proposal.
 - [Affinity Designer](https://affinity.serif.com/en-gb/) Used to edit images and identify hex colours for fonts and backgrounds.
-- [Techsini](https://techsini.com/multi-mockup/index.php) Used to generate the README header image.
-- [Microsoft??? ] video
-- [EZgif](https://ezgif.com/) Used to edit videos for README.
-- [Chrome Developer Tools] Used to create images for README.
+- [Techsini](https://techsini.com/multi-mockup/index.php) Used to generate README header image.
+- [Microsoft Screen Recorder](https://uk.pcmag.com/operating-systems/86044/how-to-capture-video-clips-in-windows-10) Used to record README videos.
+- [EZgif](https://ezgif.com/) Used to create README gifs.
+- [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) Used to create README device images.
 
 
 
@@ -421,7 +419,7 @@ The Users Collection is used to faciliatate notes on this site. Users create a n
 
 Throughout the development process Chrome was used to test for functionality and Chrome developer tools for layout and responsiveness on various screen sizes. Once deployed, the site was also tested on Edge, Firefox and Safari browers and on both android and iOS mobiles. 
 
-After sign-off, structured manual testing of the site was carried out on various browsers and screens sizes. Detailed plans were followed to ensure code was thoroughly tested and UX user stories covered.
+After sign-off, structured manual testing of the site was carried out on various browsers and screens sizes. Detailed plans were followed to ensure code was thoroughly tested.
 
 
 ### Distraction & User Management
@@ -439,7 +437,7 @@ After sign-off, structured manual testing of the site was carried out on various
 | **REGISTER** | --- | --- | --- | --- | --- | --- | --- |
 | Nav – 4 + Register | P | P | P | P | P | P | P |
 | Name - Validate| P | P | P | P | P | P | P |
-| Email - Validate | P | P | P | P | P | P | P |
+| Email - Validate | *4* | *4* | P | P | P | P | P |
 | Password - Validate | P | P | P | P | P | P | P |
 | Confirm - Validate | P | P | P | P | P | P | P |
 | Register - Home Page | P | P | P | P | P | P | P |
@@ -447,7 +445,7 @@ After sign-off, structured manual testing of the site was carried out on various
 | Nav – 4 + Logout | P | P | P | P | P | P | P |
 | **LOGIN** | --- | --- | --- | --- | --- | --- | --- |
 | Register - Link | P | P | P | P | P | P | P |
-| Email - Validate | P | P | P | P | P | P | P |
+| Email - Validate | *4* | *4* | P | P | P | P | P |
 | Password - Validate | P | P | P | P | P | P | P |
 | Login - Notes Page | P | P | P | P | P | P | P |
 | Login - Message | P | P | P | P | P | P | P |
@@ -459,6 +457,7 @@ After sign-off, structured manual testing of the site was carried out on various
 
 P - Passed
 N/A - Not Applicable
+*4* - Please See Bug Log
 
 
 ### Notes
@@ -509,7 +508,7 @@ N/A - Not Applicable
 | Rate - Time Delay | P | P | P | P | P | P | P |
 | Rate - Message | P | P | P | P | P | P | P |
 | Rate - Average & Total | P | P | P | P | P | P | P |
-| Flag - Hover | P | P | P | P | P | P | P |
+| Flag - Hover & Click | P | P | P | P | P | P | P |
 | Flag - Time Delay | P | P | P | P | P | P | P |
 | Flag - Message | P | P | P | P | P | P | P |
 | Flag - MongoDB | P | P | P | P | P | P | P |
@@ -535,26 +534,26 @@ N/A - Not Applicable
 | **SCREEN SIZE** | **Small** | **Small** | **Medium** | **Large** | **Large** | **Large** | **Large** |
 | **DARK MODE ON** | --- | --- | --- | --- | --- | --- | --- |
 | Switch | P | P | P | P | P | P | P |
-| Local Storage | P | P | P | P | P | P | P |
+| Local Storage | N/A | N/A | N/A | P | P | P | P |
 | Background - Grey | P | P | P | P | P | P | P |
 | Font - Stone | P | P | P | P | P | P | P |
 | List Item Bdr - Grey | P | P | P | P | P | P | P |
 | List Item Bkg - Transparent | P | P | P | P | P | P | P |
 | Link - Orange | P | P | P | P | P | P | P |
-| Link Hover - Stone | P | P | P | P | P | P | P |
+| Link Hover - Stone | N/A | N/A | N/A | P | P | P | P |
 | Button - Stone + Grey Font | P | P | P | P | P | P | P |
-| Button Hover - Orange Font| P | P | P | P | P | P | P |
+| Button Hover - Orange Font| N/A | N/A | N/A | P | P | P | P |
 | Dark Mode - Revisit | P | P | P | P | P | P | P |
 | **DARK MODE OFF** | --- | --- | --- | --- | --- | --- | --- |
-| Local Storage | P | P | P | P | P | P | P |
+| Local Storage | N/A | N/A | N/A | P | P | P | P |
 | Background - Stone | P | P | P | P | P | P | P |
 | Font - Grey | P | P | P | P | P | P | P |
 | List Item Bdr - Shadow | P | P | P | P | P | P | P |
 | List Item Bkg - White | P | P | P | P | P | P | P |
 | Link - Red | P | P | P | P | P | P | P |
-| Link Hover - Grey | P | P | P | P | P | P | P |
+| Link Hover - Grey | N/A | N/A | N/A | P | P | P | P |
 | Button - Grey + Stone Font | P | P | P | P | P | P | P |
-| Button Hover - Grey Font| P | P | P | P | P | P | P |
+| Button Hover - Grey Font| N/A | N/A | N/A | P | P | P | P |
 | **NOTES - READ** | --- | --- | --- | --- | --- | --- | --- |
 | Accordion - Level 1 | P | P | P | P | P | P | P |
 | Accordion - Level 2 | P | P | P | P | P | P | P |
@@ -564,7 +563,7 @@ N/A - Not Applicable
 | Accordion - Level 2 | P | P | P | P | P | P | P |
 | Accordion - Level 3 | P | P | P | P | P | P | P |
 | Accordion - Level 4 | P | P | P | P | P | P | P |
-| **LINKS - EDIT** | --- | --- | --- | --- | --- | --- | --- |
+| **LINKS - EDIT & ADD** | --- | --- | --- | --- | --- | --- | --- |
 | Star - Click | P | P | P | P | P | P | P |
 
 
@@ -572,30 +571,16 @@ P - Passed
 N/A - Not Applicable
 
 
-
-***11 12 13 14*** - Please see **Bug Log**
-
-
-
 ## Bug Log
 
+1. **Heroku CSS Updates** During developement it became apparent that CSS updates were not being reflected in Heroku deployments. The solution from Stack Overflow was to restart Heroku in the terminal `heroku restart -a coderbeez-qwerty` .
 
-1. **Heroku timeout** During development it quickly became apparent that relying on inbuilt keyboards on touch screen devices provided poor UX. Keypads were built into the website to avoid using device keyboards.
+2. **Https to Http** After deployment to Heroku, the initial https address changed to http when navigating through the site. The solution from Sean Murphy was to install the Flask extension Flask-SSLify which redirects requests to https.
 
+3. **Sidebar Sampling** After a number of different approaches, it was decided to have the sidebar samples refresh global variables on home page load. This fitted best with users habit of not closing browsers, especially on mobile. The Heroku deployment though lost these global variables on timeout resulting in an error when the user tried to reopen a page other than home. The solution was to store the variables in the session cookie. In addition to refreshing on home page load, the sidebar samples now refresh if an `@app.before_request` determines they're not in the session cookie.
 
-2. **Heroku css update** Initial keypad designs `heroku restart -a coderbeez-qwerty`
-2. **Select Chrome emulator** Initial keypad designs 
+4. **Mobile Autocapitalise** During testing it was noted that emails were being autocapitalised on mobile devices. As mongoDB is case senstive, to ease email input, `autocapitalize="off"` was added to the email form fields in html.
 
-```@app.before_request
-def sidebar():
-    print(session)
-    if "sample1" not in session:
-        session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-        session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-        session["sample3"] = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-        session["sample4"] = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
-        session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
-        ```
 
 # Deployment
 
