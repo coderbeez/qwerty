@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Cedarville+Cursive|Trocchi&display=swap');
 
+.hide-start {
+    display: none;
+  }
+  /*WHY: Used to prevent first load flicker experienced when jQuery hide() used to hide elements at start.*/
+
 /*----------FONTS----------*/
 
 body {

@@ -51,7 +51,7 @@
 {% if link.topic == group_topic._id %}
 {% if (loop.previtem is undefined) or (loop.previtem.topic != group_topic._id) or (loop.previtem.link_type != link.link_type)%}
 <!--WHY: 1.First in the loop OR 2.First in the group topic or 3. First in a new link type for that group topic.-->
-<div class="ml-md-2" data-level="2" data-2value="{{ group_topic._id}}">
+<div class="ml-md-2 hide-start" data-level="2" data-2value="{{ group_topic._id}}">
       <button class="btn" type="button" data-blevel="2" data-bvalue="{{ group_topic._id}}-{{link.link_type}}"><i
                   class="fas fa-angle-down"></i></button>
       <h3 class="d-inline-block">{{link.link_type}}</h3>
@@ -59,7 +59,7 @@
 {% endif %}
 
 <!--ACCORDION LEVEL 3: Link Name List-->
-<div class="ml-md-4" data-level="3" data-3value="{{ group_topic._id}}-{{link.link_type}}">
+<div class="ml-md-4 hide-start" data-level="3" data-3value="{{ group_topic._id}}-{{link.link_type}}">
       <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.link_name }}</a>
       <span>{{(link.ratings|sum)//(link.ratings|count)}}<i class="fas fa-star"></i></span>
       <button class="btn" type="button" data-blevel="3" data-bvalue="{{link._id}}"><i
@@ -68,7 +68,7 @@
 <!--WHY: Bootstrap margin left only applied to md and lg devices as fitting items on line deemed more important than spacing.-->
 
 <!--ACCORDION LEVEL 4: Link Details-->
-<ul class="list-group p-0 dark-ul" data-level="4" data-4value="{{link._id}}">
+<ul class="list-group p-0 dark-ul hide-start" data-level="4" data-4value="{{link._id}}">
       <li class="list-group-item">
             {{ link.description }}
             <small class="d-block">Ratings to date: {{ link.ratings|count }}</small>
