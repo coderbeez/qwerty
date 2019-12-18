@@ -6,6 +6,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user
 from forms import RegisterForm, LoginForm, NoteForm, LinkForm, SearchForm
 from time import sleep
+from flask_sslify import SSLify
 
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
+sslify = SSLify(app)
 
 
 #LOGIN MANAGER
@@ -70,6 +72,7 @@ def load_user(id):
 # Printy Printed 
 # How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/
 
+
 # SIDEBAR SAMPLES
 def sidebar():
     session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
@@ -82,7 +85,9 @@ def sidebar():
 def sidebar_check():
     if "sample1" not in session:
         sidebar()
-#WHY:         
+#WHERE: Before request decorator https://pythonise.com/series/learning-flask/python-before-after-request  
+#WHY:        
+
 
 #HOME
 @app.route("/")
@@ -90,7 +95,6 @@ def sidebar_check():
 def index():  
     sidebar()
     return render_template("index.html", sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
-#WHERE: Global variables from https://www.geeksforgeeks.org/global-local-variables-python/
 
 
 #REGISTER - allows a user register for notes using unique email and hashed password.
@@ -302,4 +306,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)
+    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=False)
