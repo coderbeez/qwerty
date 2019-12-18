@@ -40,20 +40,26 @@ class User(UserMixin):
     @staticmethod
     def get_user(email):
         user = mongo.db.users.find_one({"email": email})
-        return User(user['user_name'], user['password'], user['email'], user['_id'])
+        if user == None:
+            return None
+        else:    
+            return User(user['user_name'], user['password'], user['email'], user['_id'])
 
     @staticmethod
     def get_user_by_id(id):
         user = mongo.db.users.find_one({"_id": ObjectId(id)})
-        return User(user['user_name'], user['password'], user['email'], user['_id'])
+        if user == None:
+            return None
+        else:
+            return User(user['user_name'], user['password'], user['email'], user['_id'])
 
 
 #LOAD USER FOR LOGIN MANAGER
 @login_manager.user_loader
 def load_user(id):
     u = User.get_user_by_id(id)
-    if not u:
-        return None
+    if u == None:
+        return None 
     return u
 
 
