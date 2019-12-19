@@ -204,8 +204,7 @@ def addlink(language):
             flash(f'Link exists: {existing_link["topic"]} - {existing_link["link_type"]} - {existing_link["link_name"]}. Your rating was added!')
             return redirect(url_for("links", language=language))
         else:    
-            mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "check": True, "flag": False,"ratings": [int(form.rate.data)] })
-            #PRODUCTION SET CHECK TO FALSE!!!
+            mongo.db.links.insert_one({"language": language, "topic": form.topic.data, "url": form.url.data, "link_name": form.name.data, "link_type": form.link_type.data, "description": form.description.data, "check": False, "flag": False,"ratings": [int(form.rate.data)] })
             flash("Perfect - link added!")
             return redirect(url_for("links", language=language))
     elif request.method == "GET":
