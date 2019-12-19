@@ -694,7 +694,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [Corey Schafer - YouTube Flask Series](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=65&t=0s).
 - [Pretty Printed - YouTube Flask WTForms Series](https://www.youtube.com/playlist?list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
 - Setting data attributes on WTForms field from [Stack Overfow](https://stackoverflow.com/questions/27779024/setting-data-attributes-on-a-wtforms-field).
-- Prevent auto capitalize on mobile from [Stack Overflow](https://stackoverflow.com/questions/54372754/prevent-wtform-from-autocapitalizing-on-mobile) -->
+- Prevent auto capitalize on mobile from [Stack Overflow](https://stackoverflow.com/questions/54372754/prevent-wtform-from-autocapitalizing-on-mobile).
 
 
 #### User Sessions
