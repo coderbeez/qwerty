@@ -68,12 +68,12 @@ def load_user(id):
 #WHERE: Login Manager approach melting pot of:
 # Flask Login documentation
 # Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
-# Corey Schafer Classes 
-# Printy Printed 
+# Corey Schafer Classes https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s
+# Printy Printed Create User Login https://www.youtube.com/watch?v=vVx1737auSE&list=PLXmMXHVSvS-Db9KK1LA7lifcyZm4c-rwj&index=6&t=0s
 # How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/
 
 
-# SIDEBAR SAMPLES
+#SIDEBAR SAMPLES - stores sample links & quote in session cookie.
 def sidebar():
     session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
     session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
@@ -81,15 +81,17 @@ def sidebar():
     session["sample4"] = list(mongo.db.links.aggregate([{"$match": {"language": "Python", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
     session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
 
+
+#SIDEBAR SAMPLES CHECK - refreshes sample links & quote if not in session cookie.
 @app.before_request
 def sidebar_check():
     if "sample1" not in session:
         sidebar()
 #WHERE: Before request decorator https://pythonise.com/series/learning-flask/python-before-after-request  
-#WHY:        
+#WHY: Used to fix bug associated with Heroku timeout.      
 
 
-#HOME
+#HOME - refreshes sidebar sample links & quote.
 @app.route("/")
 @app.route("/index")
 def index():  
@@ -142,7 +144,7 @@ def login():
     return render_template("login.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
-#VIEW LINKS - allows all users to view and search links.
+#VIEW LINKS - allows all users to view and search links for a language.
 @app.route("/links/<language>", methods=["GET", "POST"])
 def links(language):  
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
@@ -164,7 +166,6 @@ def links(language):
 
 
 #VIEW NOTES - allows a user view and search their own notes for a language.
-# Creates values for a language/user specific topic list.
 @app.route("/notes/<language>", methods=["GET", "POST"] )
 @login_required
 def notes(language):
@@ -188,8 +189,7 @@ def notes(language):
 # and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
 
 
-#ADD LINK - allows a user add a new link for a language or a rating for an existing language link.
-#Creates values for a language specific topic select field.
+#ADD LINK - allows a user add a new link for a language. If link already exits, user rating is added. 
 @app.route("/addlink/<language>", methods=["GET", "POST"])
 def addlink(language):
     form = LinkForm()
@@ -215,10 +215,10 @@ def addlink(language):
     return render_template("addlink.html", form=form, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"]) 
 #WHERE: Topics select field code from https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
 # and https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
-#WHY: Existing link check - as its valid to have the link in multiple languages, in this case only want to search current language.
+#WHY: Existing link check - as its valid to have the link in multiple languages, duplicate checks are within a langauge.
 
 
-#ADD_NOTE - allows a user add a note for a language. Creates values for a language specific topic select field.
+#ADD_NOTE - allows a user add a note for a language. 
 @app.route("/addnote/<language>", methods=["GET", "POST"])
 @login_required
 def addnote(language):
@@ -237,7 +237,7 @@ def addnote(language):
     return render_template("addnote.html", form=form, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
-#EDIT_NOTE - allows a user owner edit a note if they own that note.
+#EDIT_NOTE - allows a user edit a note if they own that note.
 @app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
 @login_required
 def editnote(language, noteid):
@@ -271,7 +271,7 @@ def deletenote(language, noteid):
 #WHY: user_id added as notes filter to ensure only the owner can delete a note.
 
 
-#FLAG LINK - allows a user report a problem with a link
+#FLAG LINK - allows a user report a problem with a link.
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
 def flaglink(language, linkid):
     mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
@@ -283,7 +283,7 @@ def flaglink(language, linkid):
 #WHY: Sleep function used to allow user see icon color change before redirect.    
 
 
-#RATE LINK - allows a user assign a 5 star rating to a link
+#RATE LINK - allows a user assign a 5 star rating to a link.
 @app.route("/ratelink/<language>/<linkid>/<rating>", methods=["POST"])
 def ratelink(language, linkid, rating):
     mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
@@ -295,7 +295,7 @@ def ratelink(language, linkid, rating):
 #WHY: Sleep function used to allow user see icon color change before redirect. 
 
 
-#LOGOUT
+#LOGOUT - allows a user log out of session.
 @app.route("/logout")
 @login_required
 def logout():
