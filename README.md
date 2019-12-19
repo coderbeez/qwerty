@@ -3,7 +3,7 @@
 </p>
 
 
-**[Qwerty](https://coderbeez-qwerty.herokuapp.com/index)** *, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone project.*
+**[Qwerty](https://coderbeez-qwerty.herokuapp.com/index)***, a website to assist coding students save notes and share links, developed for Code Institute's data centric development milestone project.*
 
 
 # UX
@@ -23,29 +23,29 @@ User stories for potential visitors to the website include:
 
 ### Find A Link
 
-I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select **JavaScript** from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select **Jasmine**. A list of link types opens – I select **Instruct**. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to login to use links.
+I’m struggling with the JavaScript automated testing topic and looking for some links for further study. I visit the Qwerty site, select JavaScript from the links dropdown. I’m presented with a familiar list of JavaScript topics – I select Jasmine. A list of link types opens – I select instruct. A list of link names with star ratings and i buttons opens. After reading the description under additional information, I click a YouTube link. Having watched the video I go back and add my rating of 4 stars. I’m registered on the site already but I haven’t had to log in to use links.
 
 
 ### Share A Link
 
-I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select **Python** from the links dropdown. I click **Add New**. I enter the details, selecting **MongoDB** for topic, *instruct* for type and giving it a 5 *star rating*. I could add a **Description** but its optional, so I skip this time. It’s quick and easy – I don’t need to register or login to add a link.  I could have done a search for the word PyMongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
+I’ve come across a great YouTube video for PyMongo which I’d like to share with my fellow students. On Slack, links tend to get lost unless pinned, so I open Qwerty and select Python from the links dropdown. I click add new. I enter the details, selecting MongoDB for topic, instruct for type and give it a 5 star rating. I could add a description but its optional, so I skip this time. It’s quick and easy – I don’t need to register or log in to add a link.  I could have done a search for the word PyMongo to check if the link already existed but Qwerty will flag it and simply add my star rating if another student has already added this url.
 
 
 ### Create & Read Notes
 
-As study needs to fit around home and work life, notes must be accessible from multiple devices - my personal laptop, work desktop and mobile. Having come accross an article on Flask Bcrypt during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in **Dark Mode** as it's remebered my preference. I select **Python** from the notes dropdown. I'm asked to login using **Email** and **Password**. My Python notes page opens. When I use the **Word Search** facility to see if I've saved Bcrypt notes already, it tells me there are no results. I click **Add New** to create a new note selecting **Flask** for the topic, and entering a note **Name** and some **Contents**. With a few minutes to spare, I return to the home page and check out today's Awwwards site under **Distraction** for inspiration for my next milestone.
+As study needs to fit around home and work life, notes must be accessible from multiple devices - my personal laptop, work desktop and mobile. Having come accross an article on Flask Bcrypt during this morning's commute, I want to review and jot down some notes. I open up Qwerty. It's already in dark mode as it's remebered my preference. I select Python from the notes dropdown. I'm asked to log in using email and password. My Python notes page opens. When I use the word search facility to see if I've saved Bcrypt notes already, it tells me there are no results. I click add new to create a new note selecting Flask for the topic, and entering a note name and some contents. With a few minutes to spare, I return to the home page and check out today's Awwwards site under distraction for inspiration for my next milestone.
 
 
 ### Break Time
 
-When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected **coding quote**. I check out today’s site of the day from the **Awwwards** link. As I’m on the JavaScript milestone, I visit the **sample link** for that language. I click the **Spotify** link to start the playlist when I return to coding.
+When my brain is fried, motivation has dipped or its simply time for a coffee, I head to Qwerty’s distraction sidebar. I always read the randomly selected coding quote. I check out today’s site of the day from the Awwwards link. As I’m on the JavaScript milestone, I visit the sample link for that language. I click the Spotify link to start the playlist when I return to coding.
 
 
 
 ## Design
 
 
-Simplicity is key to Qwerty. Qwerty was chosen as a simple but memorable name for the target audience of coding students. The look and flow of the site itself was designed for simplicity and ease of use. 
+Simplicity is key to Qwerty with the look and flow of the site designed for ease of use. 
 
 
 ### Navigation
@@ -59,16 +59,11 @@ Users that select a notes language are routed to the login page, if not already 
 
 ### Colours & Fonts
 
-Following on from simplified navigation, Qwerty has been designed with minimal graphics, fonts and colours. A simple pencil image, to reflect note taking, is used on the home page and repeated on the playlist. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. 
+Following on from simplified navigation, Qwerty has been designed with minimal graphics, fonts and colours. A simple pencil image, to reflect note taking, is used on the home page and repeated on the playlist. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, identifying everything clickable, were chosen for contrast and accessilibity. Flashed messages follow a green/red approach to notify or alert users. Given dark mode is often discussed on the Code Institute's Diploma Slack channel, it was included as an option for users. The mode selected is saved in local storage so user perference is remembered on return visits. 
 
 <p align="center">
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/colours.png">
 </p>
-
-
-### Dark Mode
-
-Given dark mode is often discussed on the Code Institute's Diploma Slack channel, it was included as an option for users. The mode selected is saved in local storage so user perference is remembered on return visits. 
 
 
 ### Preparation
@@ -79,23 +74,22 @@ Microsoft Powerpoint was used to compile initial [planning documents](https://gi
 
 # Pages
 
-Introduction text about flask rendering templates & jinja.
+Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as follows:
 
 ## Home Page
 ![Home Page Image](https://github.com/coderbeez/qwerty/blob/master/static/readme/home.png)
 
-- A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional Register option if the user is not logged in and Logout if logged in. Apart from font size, the navbar remains the same on different devices.
+- A pared back navbar with a home button and two simple dropdowns, notes and links, highlights the two main site sections. Both dropdowns allow users to select a language passing it onto the relevant routes. The notes dropdown has an additional register option if the user is not logged in and logout if logged in. Apart from font size, the navbar remains the same on different devices.
 
-- The text over a simple pencil image sets out the site's name, function (save notes, share links) and extent (HTML, CSS, JavaScript and Python).
+- The text over a simple pencil image sets out the site's name, function (save notes, share links) and languages (HTML, CSS, JavaScript and Python).
 
-- A slider, on the home page for mobile devices and sidebar on medium and large screens, allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
+- A slider allows users to switch between normal and dark mode. Local storage is used to keep track of users preference. CSS is used to style the slider while jQuery is used to check local storage for preferences, apply and remove styles.
 
+- A distraction sidebar with a coding quote and language, inspiration and music playlist links, is visible on all pages on medium and large screens. Due to space concerns, Jinja superblocks and Bootstrap display classes are used to include this sidebar on the Home Page only for small screens.
 
-- A distraction sidebar on medium and large screens, On mobile devices, visible under the pencil image on the home page.
+- A MongoDB quotes collection of coding related quotes is randomly sampled and one displayed. Saved in the session cookie, the quote is refreshed on Home Page load or Heroku timeout.
 
-- A MongoDB quotes collection of coding related quotes is sampled and one displayed at the start of each site visit???
-
-- The MongoDB links collection is sampled and one displayed for each language at the start of each site visit??? Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling.
+- A MongoDB links collection of language links is randomly sampled and one displayed for each language. Links that have been flagged as having a problem or that have added by a user but not checked by the administrator are not included in sampling. Again saved in the session cookie, links are refreshed on Home Page load or Heroku timeout.
 
 - Hard coded links to four site of the day web sites are included for design inspiration.
 
@@ -106,19 +100,19 @@ Introduction text about flask rendering templates & jinja.
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png">
 
-- New users access the Register page either by selecting Register from the notes dropdown, or by clicking the Register link on the Login page.
+- New users access the Register Page either by selecting register from the notes dropdown, or by clicking the register link on the Login Page.
 
 - In the forms.py file, WTForms is used to define the Register form's name, email, password, confirm password and submit fields.
 
 - In HTML these form fields and field names are rendered using Jinga. Jinga if else loops are also used to display Flash Messages and apply Bootstrap classes, varying the formating and user feedback depending on input validation.
 
-- As email rather than name is used for login, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`.
+- As email rather than name is used for log in, users are free to use any name when registering but their email is checked for duplicates in app.py `mongo.db.users.find_one({"email": form.email.data})`.
 
 - Flask-Bcrypt is used to hash users passwords `bcrypt.generate_password_hash(form.password.data).decode('utf-8')`. All other validation is specified using WTForms Validators.
 
-- If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the home page.
+- If a user is successfully registered, Flask-Login is used to automatically log the user in before being redirected to the Home Page.
 
-- Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga.
+- Once the user is logged in, the register option is swapped for logout in the notes dropdown using Jinga.
 
 - Users are guided through the process of registering with Flash Messages.
 
@@ -127,23 +121,23 @@ Introduction text about flask rendering templates & jinja.
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png">
 
-- On selecting a language from the notes dropdown, users not already logged in, are routed to the Login page using `login_manager.login_view = "login"`.
+- On selecting a language from the notes dropdown, users not already logged in, are routed to the Login Page using `login_manager.login_view = "login"`.
 
-- A Flask-Login `@loginrequired` decorator on read, add, edit and delete routes ensures only logged in users access notes.
+- A Flask-Login `@loginrequired` decorator on read, add, edit and delete note routes ensures only logged in users access notes.
 
-- The simple login form consists of an email and password field defined and validated using WTForms and rendered using Jinga.
+- The simple log in form consists of an email and password field defined and validated using WTForms and rendered using Jinga.
 
-- For new users, a link is provided to the Register page.
+- For new users, a link is provided to the Register Page.
 
-- Once users submit their email and password, the User class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password.
+- Once users submit their email and password, the user class `get_user(email)` static method is used to retrieve the user document and Flask-Bcrypt to check the hashed password.
 
-- If a user is successfully logged in, they are redirected to the notes page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not.
+- If a user is successfully logged in, they are redirected to the Notes Page for the language they originally selected. Flask-Login `is_safe_url(next)` checks if the page redirected to is a Qwerty page and aborts if not.
 
-- Once the user is logged in, the Register option is swapped for Logout in the notes dropdown using Jinga.
+- Once the user is logged in, the register option is swapped for logout in the notes dropdown using Jinga.
 
 - Users are guided through the process of logging in with Flash Messages.
 
-- Flask-Login manages the user until they select logout or end their session.
+- Flask-Login manages the user session until they select logout or end their session.
 
 
 ## Notes Page
@@ -152,11 +146,11 @@ Introduction text about flask rendering templates & jinja.
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/notes.gif">
 </p>
 
-- Users access notes pages by selecting a language from the notes dropdown. If a user is logged in they go directly to their language notes page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the login page before being redirected to their relevant language notes page.
+- Users access Notes Pages by selecting a language from the notes dropdown. If a user is logged in they go directly to their language Notes Page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the Login Page before being redirected to their relevant language Notes Page.
 
-- Within the language notes page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion.
+- Within the language Notes Page, notes are grouped by topic, sorted by name, and presented in a bespoke accordion.
 
-- If a user hasn't added notes for a language, a flash message directs them on how to.
+- If a user hasn't added notes for a language, a Flash Message directs them on how to.
 
 - If a user has added language notes, a MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closely aligned to Codes Institute's lesson headings, these language topics form the first level in a three level accordion. 
 
@@ -168,16 +162,16 @@ Introduction text about flask rendering templates & jinja.
 
 - To delete a note, users first click the delete note icon on level three of the accordion. Bootstrap collapse is then trriggered revealing the form submit button, confirm delete. Once confirm is clicked, the note id is passed to the deletenote route. As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the delete_one operation is performed.
 
-- To edit a note, users click the edit note icon on level three of the accordion which links to the edit note page for that note id using url_for.
+- To edit a note, users click the edit note icon on level three of the accordion which links to the Edit Note Page for that note id using url_for.
 
-- To add a note, users click the add note icon at the top of the page which links to the add note page for that language using url_for.
+- To add a note, users click the add note icon at the top of the page which links to the Add Note Page for that language using url_for.
 
 
 ## Add Note Page
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
 
-- A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users.
+- A Flask-Login `@login_required` decorator ensures access to this route is limited to logged in users.
 
 - Users access the Add Note Page from a link on the language Notes Page, passing the language argument from Notes to Add Notes.
 
@@ -191,7 +185,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 - As well as the data from the form fields, a MongoDB insert_one method takes the language from language argument and the user id from `current_user.id`.
 
-- Once a note is sucessfully added, the user is redirected to the language Notes page. 
+- Once a note is sucessfully added, the user is redirected to the language Notes Page. 
 
 - Flash Messages guide the user through the add note process.
   
@@ -200,17 +194,17 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 <img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
 
-- A Login_Manager `@login_required` decorator ensures access to this route is limited to logged in users.
+- A Flask-Login `@login_required` decorator ensures access to this route is limited to logged in users.
 
 - Users access the Edit Note Page from a link on level three of the language Notes Page accordion.
 
-- Both the language and note id arguments are passed from Notes to Edit Notes pages.
+- Both the language and note id arguments are passed from Notes to Edit Notes.
 
 - The Note Form created using WTForms and used to add a note is also used to edit a note. A get request fills the form fields with existing data for the note id. WTForm Validators verify data changes and valid changes are submitted to the notes collection using a MongoDB update_one method.
 
 - As an added security measure, a MongoDB find_one_or_404 method is filtered by both the note and user ids `mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})` ensuring the note belongs to the current user before the update_one operation is performed.
 
-- Once sucessfully edited, the user is redirected to the language Notes page.
+- Once sucessfully edited, the user is redirected to the language Notes Page.
 
 - Flash Messages guide the user through the edit note process.
 
@@ -221,9 +215,9 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
   <img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif">
 </p>
 
-- Users access links pages by selecting a language from the links dropdown. Links are not associated with a user and no login is required to access.
+- Users access Links Pages by selecting a language from the links dropdown. Links are not associated with a user and no log in is required to access.
 
-- Within the language links page, links are grouped by topic and type, sorted by name, and presented in a bespoke accordion.
+- Within the language Links Page, links are grouped by topic and type, sorted by name, and presented in a bespoke accordion.
 
 - The MongoDB aggregate collection method is used to create a distinct list of user specific langauge topics. Closesly aligned to Codes Institute's lesson headings, these language topics form the first level in a four level accordion. 
 
@@ -231,13 +225,13 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 - Jinga is used to calculate this average rating `{{(link.ratings|sum)//(link.ratings|count)}}` based on the link document's array of rating integers.
 
-- The accordion, also used for the Notes page, is built using jQquery. A `slide(target)` function checks the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to slide a target. Data attribute values associate a button to a target when the template is rendered.
+- The accordion, also used for the Notes Page, is built using jQquery. A `slide(target)` function checks the current state of an accordion target, hiding a visible target and revealing a hidden target. On click functions, created for each accordion level, allow a button click to slide a target. Data attribute values associate a button to a target when the template is rendered.
 
 - There is no facility for users to delete a link. Any deletions are performed by the administrator connecting directly to MongoDB.
 
-- Users can add edit a links document by adding a rating or reporting a problem for a specific link id. Star and tool icons are located on the fouth accordion level. Users click the relevant star icon to add a 1, 2, 3, 4 or 5 star rating or the tool icon to report a problem. As form submit buttons, these icons post to the ratelink or flaglink routes using url_for. A MongoDB find_one_or_404 method ensures the link id can be found before an update_one method is performed. JQuery is used to reformat icons once selected and a sleep method to delay submission allowing users to see the updated formatting. Once successfully submitted the language Links page is reloaded. An added rating is reflected in links average star ratings and ratings count. Flagged problems are not  show in the Flash messages guide the user through the edit process. 
+- Users can add edit a links document by adding a rating or reporting a problem for a specific link id. Star and tool icons are located on the fouth accordion level. Users click the relevant star icon to add a 1, 2, 3, 4 or 5 star rating or the tool icon to report a problem. As form submit buttons, these icons post to the ratelink or flaglink routes using url_for. A MongoDB find_one_or_404 method ensures the link id can be found before an update_one method is performed. JQuery is used to reformat icons once selected and a sleep method to delay submission allowing users to see the updated formatting. Once successfully submitted the language Links Page is reloaded. An added rating is reflected in links average star ratings and ratings count. Flagged problems are not  show in the Flash messages guide the user through the edit process. 
 
-- To add a note, users click the add link icon at the top of the page which links to the add link page for that language using url_for.
+- To add a note, users click the add link icon at the top of the page which links to the Add Link Page for that language using url_for.
 
 ## Add Link Page
 
@@ -261,7 +255,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
             flash(f'Link exists: {existing_link["topic"]} - {existing_link["link_type"]} - {existing_link["link_name"]}. Your rating was added!')
 ```           
 
-- Once a link is sucessfully added, the user is redirected to the language links page. 
+- Once a link is sucessfully added, the user is redirected to the language Links Page. 
 
 - Flash Messages guide the user through the add link process.
 
@@ -334,7 +328,7 @@ The Quotes Collectin is sampled in the Distraction section of the site. Read is 
 
 ### Users Collection
 
-The Users Collection is used to faciliatate notes on this site. Users create a new account on register page and access existing account on login page. The remaining CRUD operations are managed by the administrator directly through MongoDb.
+The Users Collection is used to faciliatate notes on this site. Users create a new account on the Register Page and access existing accounts on the Login Page. The remaining CRUD operations are managed by the administrator directly through MongoDb.
 
 | **NAME** | **DB TYPE** | **FORM TYPE** | **VALIDATION** | **SOURCE** |
 | --- | --- | --- | --- | --- |
