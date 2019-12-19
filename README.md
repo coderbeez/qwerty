@@ -448,7 +448,9 @@ After sign-off, structured manual testing of the site was carried out on various
 | Nav – 4 + Register | P | P | P | P | P | P | P |
 
 P - Passed
+
 N/A - Not Applicable
+
 *4* - Please See Bug Log
 
 
@@ -480,6 +482,7 @@ N/A - Not Applicable
 | Save - Saved | P | P | P | P | P | P | P |
 
 P - Passed
+
 N/A - Not Applicable
 
 
@@ -516,6 +519,7 @@ N/A - Not Applicable
 | Save - Saved | P | P | P | P | P | P | P |
 
 P - Passed
+
 N/A - Not Applicable
 
 
@@ -560,6 +564,7 @@ N/A - Not Applicable
 
 
 P - Passed
+
 N/A - Not Applicable
 
 
