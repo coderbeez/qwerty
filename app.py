@@ -193,7 +193,7 @@ def notes(language):
 @app.route("/addlink/<language>", methods=["GET", "POST"])
 def addlink(language):
     form = LinkForm()
-    document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+    document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
     topics = document_language["topics"]
     form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]    
     if form.validate_on_submit():
@@ -222,7 +222,7 @@ def addlink(language):
 @login_required
 def addnote(language):
     form = NoteForm()
-    document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+    document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
     topics = document_language["topics"]
     form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
     if form.validate_on_submit():
@@ -242,7 +242,7 @@ def addnote(language):
 def editnote(language, noteid):
     form = NoteForm()
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid),"user_id": ObjectId(current_user.id)})
-    document_language = mongo.db.languages.find_one({"language": language }, { "topics": 1})
+    document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
     topics = document_language["topics"]
     form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
     if form.validate_on_submit():
