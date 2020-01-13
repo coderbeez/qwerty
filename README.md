@@ -342,14 +342,14 @@ The Users Collection is used to facilitate notes on the site. Users create a new
 # Technologies & Programmes Used
 
 ### Languages
-- [HTML5](https://www.w3.org/)
-- [CSS3](https://www.w3.org/)
+- [HTML](https://www.w3.org/)
+- [CSS](https://www.w3.org/)
 - [JavaScript](http://www.ecma-international.org/)
 - [Python](https://www.python.org/)
 
 ### Development Tools
 - [Visual Studio Code](https://code.visualstudio.com/) IDE used.
-- [Git](https://git-scm.com/) Used to track changes in Visual Studio Code during development.
+- [Git](https://git-scm.com/) Used to track changes during development.
 - [GitHub](https://github.com/) Used to host the version control system and website content before deployment to Heroku.
 
 ### Hosting Platforms & Database
@@ -360,7 +360,7 @@ The Users Collection is used to facilitate notes on the site. Users create a new
 ### Frontend Resources
 - [Google Fonts](https://fonts.google.com/) Used for all fonts.
 - [Font Awesome](https://fontawesome.com/) Used for all icons.
-- [Bootstrap4](https://getbootstrap.com/) Used for responsive layout and styling.
+- [Bootstrap](https://getbootstrap.com/) Used for responsive layout and styling.
 - [jQuery](https://jquery.com/) Used for DOM manipulation, enabling accordion and dark-mode functionality.
 
 
