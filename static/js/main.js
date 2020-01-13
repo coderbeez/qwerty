@@ -126,8 +126,6 @@ $(document).ready(function () {
         let rating = $(this).attr("data-star");
         let stars = [star1, star2, star3, star4, star5];
         rate.val(rating);
-        console.log("test");
-        console.log(rating);
         stars.forEach(function (star) {
             if (stars.indexOf(star) < rating);
             star.css("color", "#00a9bd");
