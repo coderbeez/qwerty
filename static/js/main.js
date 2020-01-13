@@ -120,81 +120,18 @@ $(document).ready(function () {
 
 
     //STAR RATING - Restyle Stars on Click
-    function recolor(star) {
-        star.css("color", "#00a9bd");
-    }
 
     $("[data-star]").click(function () {
         $("[data-star]").css("color", "#c9c9c9");
         let rating = $(this).attr("data-star");
+        let stars = [star1, star2, star3, star4, star5];
         rate.val(rating);
-        if (rating == 1) {
-            recolor(star1);
-        } else if (rating == 2) {
-            recolor(star1);
-            recolor(star2);
-        } else if (rating == 3) {
-            recolor(star1);
-            recolor(star2);
-            recolor(star3);
-        } else if (rating == 4) {
-            recolor(star1);
-            recolor(star2);
-            recolor(star3);
-            recolor(star4);
-        } else {
-            recolor($("[data-star]"));
-        }
-
-
-    });
-
-
-
-    /*star1.click(function () {
-        star1.css("color", "#00a9bd");
-        star2.css("color", "#c9c9c9");
-        star3.css("color", "#c9c9c9");
-        star4.css("color", "#c9c9c9");
-        star5.css("color", "#c9c9c9");
-        rate.val("1");
-    });
-
-    star2.click(function () {
-        star1.css("color", "#00a9bd");
-        star2.css("color", "#00a9bd");
-        star3.css("color", "#c9c9c9");
-        star4.css("color", "#c9c9c9");
-        star5.css("color", "#c9c9c9");
-        rate.val("2");
-    });
-
-    star3.click(function () {
-        star1.css("color", "#00a9bd");
-        star2.css("color", "#00a9bd");
-        star3.css("color", "#00a9bd");
-        star4.css("color", "#c9c9c9");
-        star5.css("color", "#c9c9c9");
-        rate.val("3");
-    });
-
-    star4.click(function () {
-        star1.css("color", "#00a9bd");
-        star2.css("color", "#00a9bd");
-        star3.css("color", "#00a9bd");
-        star4.css("color", "#00a9bd");
-        star5.css("color", "#c9c9c9");
-        rate.val("4");
-    });
-
-    star5.click(function () {
-        star1.css("color", "#00a9bd");
-        star2.css("color", "#00a9bd");
-        star3.css("color", "#00a9bd");
-        star4.css("color", "#00a9bd");
-        star5.css("color", "#00a9bd");
-        rate.val("5");
-    });*/
+        console.log(rating);
+        stars.forEach(function (star) {
+            if (stars.indexOf(star) < rating);
+            star.css("color", "#00a9bd");
+        })
+    })
     //WHY: Change colour of stars once clicked to better indicate star rating selected.
 
 });
