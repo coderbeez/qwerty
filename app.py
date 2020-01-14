@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, url_for, flash, redirect, request, abort, session
+from flask import Flask, render_template, url_for, flash, redirect, request, \
+    abort, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_bcrypt import Bcrypt
@@ -14,24 +15,27 @@ app.secret_key = os.getenv('SECRET_KEY')
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
-sslify = SSLify(app)
+# sslify = SSLify(app)
 
 
-#LOGIN MANAGER
+# LOGIN MANAGER
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
 login_manager.login_message = u"Login for your notes!"
 
 
-#SAFE URL FOR LOGIN MANAGER
+# SAFE URL
 def is_safe_url(next):
+    '''
+    Checks url is safe for login manager.
+    '''
     if next.startswith("/notes/"):
         return True
     else:
         return False    
 
 
-#USER CLASS FOR LOGIN MANAGER
+# USER CLASS FOR LOGIN MANAGER
 class User(UserMixin):
     def __init__(self, username, password, email, id):
         self.username = username
@@ -45,7 +49,8 @@ class User(UserMixin):
         if user == None:
             return None
         else:    
-            return User(user['user_name'], user['password'], user['email'], user['_id'])
+            return User(user['user_name'], user['password'], 
+                user['email'], user['_id'])
 
     @staticmethod
     def get_user_by_id(id):
@@ -56,16 +61,19 @@ class User(UserMixin):
             return User(user['user_name'], user['password'], user['email'], user['_id'])
 
 
-#LOAD USER FOR LOGIN MANAGER
+# LOAD USER FOR LOGIN MANAGER
 @login_manager.user_loader
 def load_user(id):
+    '''
+    Load user for login manager.
+    '''
     u = User.get_user_by_id(id)
     if u == None:
         return None 
     return u
 
 
-#WHERE: Login Manager approach melting pot of:
+# WHERE: Login Manager approach melting pot of:
 # Flask Login documentation
 # Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
 # Corey Schafer Classes https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=41&t=0s
@@ -73,8 +81,11 @@ def load_user(id):
 # How to use MongoDB (and PyMongo) with Flask-Login https://boh717.github.io/post/flask-login-and-mongodb/
 
 
-#SIDEBAR SAMPLES - stores sample links & quote in session cookie.
+# SIDEBAR SAMPLES 
 def sidebar():
+    '''
+    Stores sample links & quote in session cookie.
+    '''
     session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
     session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
     session["sample3"] = list(mongo.db.links.aggregate([{"$match": {"language": "JavaScript", "check": True}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
@@ -82,26 +93,36 @@ def sidebar():
     session["quote"] = list(mongo.db.quotes.aggregate([{"$sample": {"size": 1}}, {"$project":{"quote": 1, "author": 1, "_id": 0}}]))[0]
 
 
-#SIDEBAR SAMPLES CHECK - refreshes sample links & quote if not in session cookie.
+# SIDEBAR SAMPLES CHECK
 @app.before_request
 def sidebar_check():
+    '''
+    Refreshes sample links & quote if not in session cookie.
+    WHY: Used to fix bug associated with Heroku timeout.
+    WHERE: Before request decorator https://pythonise.com/series/learning-flask/python-before-after-request
+    '''
     if "sample1" not in session:
-        sidebar()
-#WHERE: Before request decorator https://pythonise.com/series/learning-flask/python-before-after-request  
-#WHY: Used to fix bug associated with Heroku timeout.      
+        sidebar()    
 
 
-#HOME - refreshes sidebar sample links & quote.
+# HOME - 
 @app.route("/")
 @app.route("/index")
 def index():  
+    '''
+    Refreshes sidebar sample links & quote.
+    '''
     sidebar()
     return render_template("index.html", sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
-#REGISTER - allows a user register for notes using unique email and hashed password.
+# REGISTER
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    '''
+    Allows a user register for notes using unique email and hashed password.
+    WHERE: Hashing passwords from Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
+    '''
     form = RegisterForm()
     if form.validate_on_submit():
         existing_email = mongo.db.users.find_one({"email": form.email.data})
@@ -119,12 +140,14 @@ def register():
     else:
         flash("Oops - check fields!", "error")      
     return render_template("register.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
-#WHERE: Hashing passwords from Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
 
 
-#LOGIN - allows a user log in to access their notes using email and password.
+# LOGIN 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    '''
+    Allows a user log in to access their notes using email and password.
+    '''
     form = LoginForm()
     if form.validate_on_submit():
         user = User.get_user(form.email.data)
@@ -144,9 +167,14 @@ def login():
     return render_template("login.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
-#VIEW LINKS - allows all users to view and search links for a language.
+# VIEW LINKS - 
 @app.route("/links/<language>", methods=["GET", "POST"])
-def links(language):  
+def links(language): 
+    '''
+    Allows all users to view and search links for a language.
+    WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
+    and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
+    '''
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
     form = SearchForm()
@@ -161,14 +189,17 @@ def links(language):
             flash(f'Links filtered by {form.tsearch.data}', 'search')    
     group_topics = list(group_topics)
     return render_template("links.html", links=links, group_topics=group_topics, language=language, form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
-#WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
-# and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
 
 
-#VIEW NOTES - allows a user view and search their own notes for a language.
+# VIEW NOTES 
 @app.route("/notes/<language>", methods=["GET", "POST"] )
 @login_required
 def notes(language):
+    '''
+    Allows a user view and search their own notes for a language.
+    WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
+    and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
+    '''
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     if notes == []:
         flash(f'Click Add New + to add your first {language} note.', 'first')  
@@ -185,13 +216,17 @@ def notes(language):
             flash(f'Notes filtered by {form.tsearch.data}', 'search')        
     group_topics = list(group_topics)    
     return render_template("notes.html", notes=notes, group_topics=group_topics, language=language, form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
-#WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
-# and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
 
 
-#ADD LINK - allows a user add a new link for a language. If link already exits, user rating is added. 
+# ADD LINK 
 @app.route("/addlink/<language>", methods=["GET", "POST"])
 def addlink(language):
+    '''
+    Allows a user add a new link for a language. If link already exits, user rating is added.
+    WHY: Existing link check - as its valid to have the link in multiple languages, duplicate checks are within a langauge.
+    WHERE: Topics select field code from https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
+    and https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
+    '''
     form = LinkForm()
     document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
     topics = document_language["topics"]
@@ -212,15 +247,15 @@ def addlink(language):
     else:
         flash("Oops - check fields!", "error")
     return render_template("addlink.html", form=form, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"]) 
-#WHERE: Topics select field code from https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
-# and https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
-#WHY: Existing link check - as its valid to have the link in multiple languages, duplicate checks are within a langauge.
 
 
-#ADD_NOTE - allows a user add a note for a language. 
+# ADD_NOTE
 @app.route("/addnote/<language>", methods=["GET", "POST"])
 @login_required
 def addnote(language):
+    '''
+    Allows a user add a note for a language.
+    '''
     form = NoteForm()
     document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
     topics = document_language["topics"]
@@ -236,10 +271,14 @@ def addnote(language):
     return render_template("addnote.html", form=form, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
-#EDIT_NOTE - allows a user edit a note if they own that note.
+# EDIT_NOTE 
 @app.route("/editnote/<language>/<noteid>", methods=["GET", "POST"])
 @login_required
 def editnote(language, noteid):
+    '''
+    Allows a user edit a note if they own that note.
+    WHY: user_id added as notes filter to ensure only the owner can edit a note.
+    '''
     form = NoteForm()
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid),"user_id": ObjectId(current_user.id)})
     document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
@@ -256,53 +295,64 @@ def editnote(language, noteid):
     else:
         flash("Oops - check fields!", "error")   
     return render_template("editnote.html", form=form, note=note, language=language, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
-#WHY: user_id added as notes filter to ensure only the owner can edit a note.
 
 
-#DELETE_NOTE - allows a user delete a note if they own that note.
+# DELETE_NOTE 
 @app.route("/deletenote/<language>/<noteid>", methods=["POST"])
 @login_required
 def deletenote(language, noteid):
+    '''
+    Allows a user delete a note if they own that note.
+    WHY: user_id added as notes filter to ensure only the owner can delete a note.
+    '''
     mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
     flash("Perfect - note deleted!") 
     return redirect(url_for("notes", language=language))
-#WHY: user_id added as notes filter to ensure only the owner can delete a note.
 
 
-#FLAG LINK - allows a user report a problem with a link.
+# FLAG LINK
 @app.route("/flaglink/<language>/<linkid>", methods=["POST"])
 def flaglink(language, linkid):
+    '''
+    Allows a user report a problem with a link.
+    WHY: Sleep function used to allow user see icon color change before redirect.
+    WHERE: Sleep function from https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
+    '''
     mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
     flash("Perfect - problem reported!")
     sleep(1)
     return redirect(url_for("links", language=language))
-#WHERE: Sleep function from https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
-#WHY: Sleep function used to allow user see icon color change before redirect.    
+ 
 
-
-#RATE LINK - allows a user assign a 5 star rating to a link.
+# RATE LINK
 @app.route("/ratelink/<language>/<linkid>/<rating>", methods=["POST"])
 def ratelink(language, linkid, rating):
+    '''
+    Allows a user assign a 5 star rating to a link.
+    WHY: Sleep function used to allow user see icon color change before redirect.
+    WHERE: Sleep function from https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
+    '''
     mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
     flash("Perfect - link rated!")
     sleep(1)
     return redirect(url_for("links", language=language))  
-#WHERE: Sleep function from https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
-#WHY: Sleep function used to allow user see icon color change before redirect. 
 
 
-#LOGOUT - allows a user log out of session.
+# LOGOUT
 @app.route("/logout")
 @login_required
 def logout():
+    '''
+    Allows a user log out of session.
+    WHERE: Logout function from Flask Login documentation https://flask-login.readthedocs.io/en/latest/ 
+    '''
     logout_user()
     flash("Perfect - logged out!") 
-    return redirect(url_for("index"))   
-#WHERE: Logout function from Flask Login documentation https://flask-login.readthedocs.io/en/latest/      
+    return redirect(url_for("index"))     
 
 
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=False)
+    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)
