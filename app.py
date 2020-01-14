@@ -32,7 +32,7 @@ def is_safe_url(next):
     if next.startswith("/notes/"):
         return True
     else:
-        return False    
+        return False
 
 
 # USER CLASS FOR LOGIN MANAGER
@@ -48,8 +48,8 @@ class User(UserMixin):
         user = mongo.db.users.find_one({"email": email})
         if user == None:
             return None
-        else:    
-            return User(user['user_name'], user['password'], 
+        else:
+            return User(user['user_name'], user['password'],
                 user['email'], user['_id'])
 
     @staticmethod
@@ -167,7 +167,7 @@ def login():
     return render_template("login.html", form=form, sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
 
 
-# VIEW LINKS - 
+# VIEW LINKS
 @app.route("/links/<language>", methods=["GET", "POST"])
 def links(language): 
     '''
