@@ -37,6 +37,9 @@ def is_safe_url(next):
 
 # USER CLASS FOR LOGIN MANAGER
 class User(UserMixin):
+    '''
+    User class for login manager.
+    '''
     def __init__(self, username, password, email, id):
         self.username = username
         self.password = password
@@ -45,6 +48,9 @@ class User(UserMixin):
 
     @staticmethod
     def get_user(email):
+        '''
+        Get user from database by email address.
+        '''
         user = mongo.db.users.find_one({"email": email})
         if user == None:
             return None
@@ -54,6 +60,9 @@ class User(UserMixin):
 
     @staticmethod
     def get_user_by_id(id):
+        '''
+        Get user from database by id.
+        '''
         user = mongo.db.users.find_one({"_id": ObjectId(id)})
         if user == None:
             return None
@@ -84,7 +93,7 @@ def load_user(id):
 # SIDEBAR SAMPLES 
 def sidebar():
     '''
-    Stores sample links & quote in session cookie.
+    Store sample links & quote in session cookie.
     '''
     session["sample1"] = list(mongo.db.links.aggregate([{"$match": {"language": "HTML", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
     session["sample2"] = list(mongo.db.links.aggregate([{"$match": {"language": "CSS", "check": True, "flag": False}}, {"$sample": {"size": 1}}, {"$project":{"language": 1, "link_name": 1, "url": 1, "_id": 0}}]))[0]
@@ -97,20 +106,21 @@ def sidebar():
 @app.before_request
 def sidebar_check():
     '''
-    Refreshes sample links & quote if not in session cookie.
-    WHY: Used to fix bug associated with Heroku timeout.
-    WHERE: Before request decorator https://pythonise.com/series/learning-flask/python-before-after-request
+    Refresh sample links & quote if not in session cookie.
+    Used to fix bug associated with Heroku timeout.
+    Credit: Before request decorator
+    https://pythonise.com/series/learning-flask/python-before-after-request
     '''
     if "sample1" not in session:
         sidebar()    
 
 
-# HOME - 
+# HOME
 @app.route("/")
 @app.route("/index")
 def index():  
     '''
-    Refreshes sidebar sample links & quote.
+    Refresh sidebar sample links & quote.
     '''
     sidebar()
     return render_template("index.html", sample1=session["sample1"], sample2=session["sample2"], sample3=session["sample3"], sample4=session["sample4"], quote=session["quote"])
@@ -120,8 +130,10 @@ def index():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     '''
-    Allows a user register for notes using unique email and hashed password.
-    WHERE: Hashing passwords from Corey Schafer Flask User Authentication https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
+    Allow a user register for notes using unique email and hashed password.
+    Credit: Hashing passwords
+    Corey Schafer Flask User Authentication
+    https://www.youtube.com/watch?v=CSHx6eCkmv0&t=1052s
     '''
     form = RegisterForm()
     if form.validate_on_submit():
@@ -146,7 +158,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     '''
-    Allows a user log in to access their notes using email and password.
+    Allow a user log in to access their notes using email and password.
     '''
     form = LoginForm()
     if form.validate_on_submit():
@@ -171,9 +183,11 @@ def login():
 @app.route("/links/<language>", methods=["GET", "POST"])
 def links(language): 
     '''
-    Allows all users to view and search links for a language.
-    WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
-    and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
+    Allow a user to view and search links for a language.
+    Credit: Text search
+    https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
+    https://stackoverflow.com/questions/50071593/pymongo-language-override-\
+        unsupported-c-when-creating-index
     '''
     links = list(mongo.db.links.find({"language": language}).sort([("topic", 1),("link_type", 1),("link_name", 1)]))
     group_topics = mongo.db.links.aggregate([ {"$match": {"language": language }}, {"$group":{"_id" :"$topic"}}, {"$sort": { "_id": 1}}])
@@ -196,9 +210,11 @@ def links(language):
 @login_required
 def notes(language):
     '''
-    Allows a user view and search their own notes for a language.
-    WHERE: Text search from https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
-    and https://stackoverflow.com/questions/50071593/pymongo-language-override-unsupported-c-when-creating-index
+    Allow logged in user view and search their own notes for a language.
+    Credit: Text search
+    https://stackoverflow.com/questions/48371016/pymongo-how-to-use-full-text-search
+    https://stackoverflow.com/questions/50071593/pymongo-language-override-\
+        unsupported-c-when-creating-index
     '''
     notes = list(mongo.db.notes.find({"language": language, "user_id": ObjectId(current_user.id)}).sort([("topic", 1),("note_name", 1)]))
     if notes == []:
@@ -222,10 +238,11 @@ def notes(language):
 @app.route("/addlink/<language>", methods=["GET", "POST"])
 def addlink(language):
     '''
-    Allows a user add a new link for a language. If link already exits, user rating is added.
-    WHY: Existing link check - as its valid to have the link in multiple languages, duplicate checks are within a langauge.
-    WHERE: Topics select field code from https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
-    and https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
+    Allow a user add a new link for a language.
+    If link already exits within language, user rating is added.
+    Credit: Topics select field
+    https://stackoverflow.com/questions/40905579/flask-wtf-dynamic-select-field-with-an-empty-option
+    https://stackoverflow.com/questions/28133859/how-to-populate-wtform-select-field-using-mongokit-pymongo
     '''
     form = LinkForm()
     document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
@@ -254,7 +271,7 @@ def addlink(language):
 @login_required
 def addnote(language):
     '''
-    Allows a user add a note for a language.
+    Allows a logged in user add a note for a language.
     '''
     form = NoteForm()
     document_language = mongo.db.languages.find_one_or_404({"language": language }, { "topics": 1})
@@ -276,8 +293,7 @@ def addnote(language):
 @login_required
 def editnote(language, noteid):
     '''
-    Allows a user edit a note if they own that note.
-    WHY: user_id added as notes filter to ensure only the owner can edit a note.
+    Allows a logged in user edit a note if they own that note.
     '''
     form = NoteForm()
     note = mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid),"user_id": ObjectId(current_user.id)})
@@ -302,8 +318,7 @@ def editnote(language, noteid):
 @login_required
 def deletenote(language, noteid):
     '''
-    Allows a user delete a note if they own that note.
-    WHY: user_id added as notes filter to ensure only the owner can delete a note.
+    Allows a logged in user delete a note if they own that note.
     '''
     mongo.db.notes.find_one_or_404({"_id": ObjectId(noteid), "user_id": ObjectId(current_user.id)})
     mongo.db.notes.delete_one({"_id": ObjectId(noteid)})
@@ -316,8 +331,9 @@ def deletenote(language, noteid):
 def flaglink(language, linkid):
     '''
     Allows a user report a problem with a link.
-    WHY: Sleep function used to allow user see icon color change before redirect.
-    WHERE: Sleep function from https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
+    Sleep function used to allow user see icon color change before redirect.
+    Credit: Sleep function
+    https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
     '''
     mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$set": {"flag": True}})
@@ -331,8 +347,9 @@ def flaglink(language, linkid):
 def ratelink(language, linkid, rating):
     '''
     Allows a user assign a 5 star rating to a link.
-    WHY: Sleep function used to allow user see icon color change before redirect.
-    WHERE: Sleep function from https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
+    Sleep function used to allow user see icon color change before redirect.
+    Credit: Sleep function
+    https://stackoverflow.com/questions/510348/how-can-i-make-a-time-delay-in-python
     '''
     mongo.db.links.find_one_or_404({"_id": ObjectId(linkid)})
     mongo.db.links.update_one({"_id": ObjectId(linkid)},{"$push": {"ratings": int(rating)}})
@@ -347,7 +364,9 @@ def ratelink(language, linkid, rating):
 def logout():
     '''
     Allows a user log out of session.
-    WHERE: Logout function from Flask Login documentation https://flask-login.readthedocs.io/en/latest/ 
+    Credit: Logout function
+    Flask Login documentation
+    https://flask-login.readthedocs.io/en/latest/ 
     '''
     logout_user()
     flash("Perfect - logged out!") 
