@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Cedarville+Cursive|Trocchi&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed|Caveat|Trocchi&display=swap');
+
 
 .hide-start {
     display: none;
-  }
-  /*WHY: Used to prevent first load flicker experienced when jQuery hide() used to hide elements at start.*/
+}
+
+/*WHY: Used to prevent first load flicker experienced when jQuery hide() used to hide elements at start.*/
 
 /*----------FONTS----------*/
 
@@ -27,8 +29,8 @@ p {
 /*WHY: Color included to prevent dark mode dark class overwriting.*/
 
 .tagline {
-    font-size: 1.75rem;
-    font-family: 'Cedarville Cursive', cursive;
+    font-size: 2rem;
+    font-family: 'Caveat', cursive;
     line-height: .6;
     color: #354550;
 }
@@ -67,9 +69,9 @@ h3 {
     color: #fe5e51;
 }
 
-.error--validate{
+.error--validate {
     font-size: 1rem;
-    color: #fe5e51; 
+    color: #fe5e51;
 }
 
 /*WHAT: Formatting for negative Flask Messages.*/
@@ -110,11 +112,11 @@ a:hover {
 }
 
 nav {
-    font-size: 1.7rem;
+    font-size: 2rem;
 }
 
 nav a {
-    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Caveat', cursive;
 }
 
 #pick--notes,
@@ -284,7 +286,7 @@ ul:not(.type-radio),
     }
 
     .tagline {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     h1,
@@ -311,7 +313,7 @@ ul:not(.type-radio),
     }
 
     .tagline {
-        font-size: 3rem;
+        font-size: 2.25rem;
     }
 
     h1,
@@ -328,7 +330,7 @@ ul:not(.type-radio),
     }
 
     nav {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
 }
 
