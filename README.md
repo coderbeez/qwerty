@@ -1,4 +1,6 @@
-<img align="center" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header.png">
+<div align="center">
+<img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/header.png" alt="Qwerty header">
+</div>
 
 # [Qwerty](https://coderbeez-qwerty.herokuapp.com/index)
 
@@ -50,7 +52,9 @@ Users that select a notes language are routed to the login page, if not already 
 
 Following on from simplified navigation, Qwerty has been designed with minimal graphics, fonts and colours. A simple pencil image, to reflect note taking, is used on the home page and repeated on the playlist. The main font *Cabin Condensed*, a very readable condensed font, was chosen to better display lists on mobile devices. In either normal or dark mode, the core colour scheme consists of a background, text and link colour. The stone and charcoal colours, taken from the pencil image, switch between background and text, depending on mode. The link colours, identifying everything clickable, were chosen for contrast and accessibility. Flashed messages follow a green/red approach to notify or alert users. Given dark mode is often discussed on the Code Institute's Diploma Slack channel, it was included as an option for users. The mode selected is saved in local storage so user preference is remembered on return visits.
 
-<img align="center" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/colours.png">
+<div align="center">
+<img  src="https://github.com/coderbeez/qwerty/blob/master/static/readme/colours.png" alt="Qwerty colours">
+</div>
 
 ### Preparation
 
@@ -82,7 +86,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Register Page (Notes Only)
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png" alt="Qwerty register page">
 
 - New users access the Register Page either by selecting register from the notes dropdown, or by clicking the register link on the Login Page.
 
@@ -102,7 +106,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Login Page (Notes Only)
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png" alt="Qwerty login page">
 
 - On selecting a language from the notes dropdown, users not already logged in, are routed to the Login Page using `login_manager.login_view = "login"`.
 
@@ -124,7 +128,9 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Notes Page
 
-<img align="right" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/notes.gif">
+<div align="center">
+<img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/notes.gif" alt="Qwerty notes page">
+</div>
 
 - Users access the Notes Page by selecting a language from the notes dropdown. If a user is logged in they go directly to their language Notes Page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the Login Page before being redirected to their relevant language Notes Page.
 
@@ -148,7 +154,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Add Note Page
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png" alt="Qwerty add note page">
 
 - A Flask-Login `@login_required` decorator ensures access to this route is limited to logged in users.
 
@@ -171,7 +177,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
   
 ## Edit Note Page
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png" alt="Qwerty edit note page">
 
 - A Flask-Login `@login_required` decorator ensures access to this route is limited to logged in users.
 
@@ -189,7 +195,9 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 ## Links Page
 
-<img align="center" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif">
+<div align="center">
+<img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif" alt="Qwerty links page">
+</div>
 
 - Users access the Links Page by selecting a language from the links dropdown. Links are not associated with a user and no log in is required to access.
 
@@ -211,7 +219,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 ## Add Link Page
 
-<img align="right" height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png">
+<img align="right" height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png" alt="Qwerty add link page">
 
 - Users access the Add Link Page from a link on the language Links Page, passing the language argument from Links to Add Links.
 
@@ -610,6 +618,10 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - Spotify image adapted from [Spotify](https://www.spotify.com/ie/).
 
 ## Code
+
+### README
+
+- Aligning images from [Stack Overflow](https://stackoverflow.com/questions/12090472/github-readme-md-center-image).
 
 ### HTML Code
 
