@@ -79,7 +79,7 @@
                 <!--FLASH MESSAGE-->
                 {% with messages = get_flashed_messages(category_filter=["message"]) %}
                 <!--WHY: As message is the default category, used to show all but error, search and first messages.-->
-                <!--WHERE: Using categoreis from Flask Flash documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
+                <!--WHERE: Using categories from Flask Flash documentation https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
                 {% if messages %}
                 {% for message in messages %}
                 <p class="mb-2 message">{{ message }}</p>
