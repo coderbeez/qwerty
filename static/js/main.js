@@ -1,19 +1,10 @@
 $(document).ready(function () {
 
-    //GLOBAL VARIABLES - Dark Mode
-    const dark = $("[data-dark=switch]");
-
-    //GLOBAL VARIABLES - Accordion
-    const level2 = $("[data-level=2]");
-    const level3 = $("[data-level=3]");
-    const level4 = $("[data-level=4]");
-    const blevel1 = $("[data-blevel=1]");
-    const blevel2 = $("[data-blevel=2]");
-    const blevel3 = $("[data-blevel=3]");
-
     /**----------------------------------------
     * Dark Mode
     ----------------------------------------*/
+
+    const dark = $("[data-dark=switch]");
 
     /**
      * Makes styling changes for dark mode.
@@ -97,27 +88,18 @@ $(document).ready(function () {
      * Credit: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
      * Credit: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
      */
-    blevel1.click(function () {
+    $("[data-blevel]").click(function () {
+        console.log('test');
+        let blevel = $(this).attr('data-blevel');
         let value = $(this).attr('data-bvalue');
-        let target = $('[data-2value="' + value + '"]');
-        level2.slideUp();
-        level3.slideUp();
-        level4.slideUp();
-        slide(target);
-    });
-
-    blevel2.click(function () {
-        let value = $(this).attr('data-bvalue');
-        let target = $('[data-3value="' + value + '"]');
-        level3.slideUp();
-        level4.slideUp();
-        slide(target);
-    });
-
-    blevel3.click(function () {
-        let value = $(this).attr('data-bvalue');
-        let target = $('[data-4value="' + value + '"]');
-        level4.slideUp();
+        let target = $('[data-' + blevel + 'value="' + value + '"]');
+        let levels = [$("[data-level=1]"), $("[data-level=2]"), $("[data-level=3]"), $("[data-level=4]")];
+        levels.forEach(function (level) {
+            let index = levels.indexOf(level);
+            if (index >= parseInt(blevel)) {
+                level.slideUp();
+            }
+        })
         slide(target);
     });
 
@@ -134,9 +116,10 @@ $(document).ready(function () {
         let stars = [$("[data-star=1]"), $("[data-star=2]"), $("[data-star=3]"), $("[data-star=4]"), $("[data-star=5]")]
         $("[data-star=rate]").val(rating);
         stars.forEach(function (star) {
-            if (stars.indexOf(star) < rating);
-            star.css("color", "#00a9bd");
-        })
-    })
+            if (stars.indexOf(star) < parseInt(rating)) {
+                star.css("color", "#00a9bd");
+            }
+        });
+    });
 
 });
