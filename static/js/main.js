@@ -7,10 +7,11 @@ $(document).ready(function () {
     const dark = $("[data-dark=switch]");
 
     /**
-     * Makes styling changes for dark mode.
-     * Credit: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
-     * Credit: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
-     * Credit: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
+     * Apply styling changes for dark mode.
+     * Credits: 
+     * https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
+     * https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
+     * https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
      */
     function makeDark() {
         $('body').addClass('dark');
@@ -27,7 +28,7 @@ $(document).ready(function () {
     }
 
     /**
-     * Checks for Dark Mode on page load.
+     * Check for Dark Mode on page load.
      * Credit: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
      */
     function checkStorage() {
@@ -40,7 +41,7 @@ $(document).ready(function () {
     checkStorage();
 
     /**
-     * Restyles if mode changes.
+     * Restyle if mode changes.
      * Credit: https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
      */
     dark.change(function () {
@@ -68,8 +69,8 @@ $(document).ready(function () {
     ----------------------------------------*/
 
     /**
-     * Check current state of an accordion target,
-     * hides a visible target and reveals a hidden target.
+     * Check current state of an accordion target.
+     * Hides a visible target and reveals a hidden target.
      * Credit: https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
      */
     function slide(target) {
@@ -81,12 +82,10 @@ $(document).ready(function () {
     }
 
     /**
-     * For each level in the accordion
-     * allows a button click to slide a target.
-     * Data attribute values allow the association of a button
-     * to a target when the template is rendered.
+     * For each level in the accordion allows a button click to slide a target.
+     * Data attribute values allow the association of a button to a target when the template is rendered.
      * Credit: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
-     * Credit: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
+     * https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
      */
     $("[data-blevel]").click(function () {
         console.log('test');
@@ -108,7 +107,7 @@ $(document).ready(function () {
     ----------------------------------------*/
 
     /**
-     * Restyles stars on click to better indicate star rating selected.
+     * Restyle stars on click to better indicate rating selected.
      */
     $("[data-star]").click(function () {
         $("[data-star]").css("color", "#c9c9c9");
