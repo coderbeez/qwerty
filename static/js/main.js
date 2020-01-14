@@ -1,9 +1,7 @@
 $(document).ready(function () {
 
-
     //GLOBAL VARIABLES - Dark Mode
     const dark = $("[data-dark=switch]");
-
 
     //GLOBAL VARIABLES - Accordion
     const level2 = $("[data-level=2]");
@@ -13,17 +11,16 @@ $(document).ready(function () {
     const blevel2 = $("[data-blevel=2]");
     const blevel3 = $("[data-blevel=3]");
 
+    /**----------------------------------------
+    * Dark Mode
+    ----------------------------------------*/
 
-    //GLOBAL VARIABLES - Star Rating
-    const star1 = $("[data-star=1]");
-    const star2 = $("[data-star=2]");
-    const star3 = $("[data-star=3]");
-    const star4 = $("[data-star=4]");
-    const star5 = $("[data-star=5]");
-    const rate = $("[data-star=rate]");
-
-
-    //DARK MODE - Styling Changes
+    /**
+     * Makes styling changes for dark mode.
+     * Credit: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
+     * Credit: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
+     * Credit: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
+     */
     function makeDark() {
         $('body').addClass('dark');
         $('li').addClass('dark');
@@ -37,12 +34,11 @@ $(document).ready(function () {
         $('.button-style').css('background-color', '#ECECEC');
         $('.button-style').addClass('dark-hover--orange');
     }
-    //WHERE: https://learn.jquery.com/using-jquery-core/faq/how-do-i-check-uncheck-a-checkbox-input-or-radio-button/
-    //WHERE: https://stackoverflow.com/questions/21051440/how-to-define-the-css-hover-state-in-a-jquery-selector
-    //WHERE: https://stackoverflow.com/questions/4614120/not-class-selector-in-jquery
 
-
-    //DARK MODE - Check for Dark Mode on Page Load
+    /**
+     * Checks for Dark Mode on page load.
+     * Credit: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
+     */
     function checkStorage() {
         if (localStorage.getItem("mode") == "dark") {
             dark.prop("checked", true);
@@ -51,10 +47,11 @@ $(document).ready(function () {
     }
 
     checkStorage();
-    //WHERE: https://stackoverflow.com/questions/50933011/read-value-of-localstorage-on-body-load-or-document-ready
 
-
-    //DARK MODE - Restyle if Mode Changes
+    /**
+     * Restyles if mode changes.
+     * Credit: https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
+     */
     dark.change(function () {
         if (this.checked) {
             makeDark();
@@ -74,10 +71,16 @@ $(document).ready(function () {
             localStorage.clear();
         }
     });
-    //WHERE:https://stackoverflow.com/questions/10710674/how-to-remove-and-clear-all-localstorage-data
 
+    /**----------------------------------------
+    * Accordion
+    ----------------------------------------*/
 
-    //ACCORDION - Slide Target
+    /**
+     * Check current state of an accordion target,
+     * hides a visible target and reveals a hidden target.
+     * Credit: https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
+     */
     function slide(target) {
         if (target.is(":hidden")) {
             target.slideDown();
@@ -85,11 +88,15 @@ $(document).ready(function () {
             target.slideUp();
         }
     }
-    //WHY: Check current state of an accordion target, hide a visible target and reveal a hidden target.
-    //WHERE:https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
 
-
-    //ACCORDION - Level Clicks
+    /**
+     * For each level in the accordion
+     * allows a button click to slide a target.
+     * Data attribute values allow the association of a button
+     * to a target when the template is rendered.
+     * Credit: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
+     * Credit: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
+     */
     blevel1.click(function () {
         let value = $(this).attr('data-bvalue');
         let target = $('[data-2value="' + value + '"]');
@@ -113,24 +120,23 @@ $(document).ready(function () {
         level4.slideUp();
         slide(target);
     });
-    //WHY: For each level in the accordion allow a button click to result in a target slide.
-    //WHY: Data attribute values allow the association of a button to a target when the template is rendered.
-    //WHERE: https://stackoverflow.com/questions/31802861/show-hide-elements-by-data-attribute
-    //WHERE: https://www.codeproject.com/Questions/369517/how-to-get-data-attributes-in-jquery
 
+    /**----------------------------------------
+    * Star Rating
+    ----------------------------------------*/
 
-    //STAR RATING - Restyle Stars on Click
-
+    /**
+     * Restyles stars on click to better indicate star rating selected.
+     */
     $("[data-star]").click(function () {
         $("[data-star]").css("color", "#c9c9c9");
         let rating = $(this).attr("data-star");
-        let stars = [star1, star2, star3, star4, star5];
-        rate.val(rating);
+        let stars = [$("[data-star=1]"), $("[data-star=2]"), $("[data-star=3]"), $("[data-star=4]"), $("[data-star=5]")]
+        $("[data-star=rate]").val(rating);
         stars.forEach(function (star) {
             if (stars.indexOf(star) < rating);
             star.css("color", "#00a9bd");
         })
     })
-    //WHY: Change colour of stars once clicked to better indicate star rating selected.
 
 });
