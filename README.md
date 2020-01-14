@@ -58,7 +58,7 @@ Following on from simplified navigation, Qwerty has been designed with minimal g
 
 ### Preparation
 
-Microsoft PowerPoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/static/planning/planning.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
+Microsoft PowerPoint was used to compile initial [planning documents](https://github.com/coderbeez/qwerty/blob/master/wireframes/wireframes.pdf) including Balsamiq wireframes, database collections and a pages flow diagram. During development several changes were made to the original design to simplify notes and distractions.
 
 # Pages
 
