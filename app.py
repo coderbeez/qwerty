@@ -15,7 +15,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
-# sslify = SSLify(app)
+sslify = SSLify(app)
 
 
 # LOGIN MANAGER
@@ -379,4 +379,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)
+    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=False)
