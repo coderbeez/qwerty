@@ -86,7 +86,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Register Page (Notes Only)
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/register.png" alt="Qwerty register page">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/register.png" alt="Qwerty register page">
 
 - New users access the Register Page either by selecting register from the notes dropdown, or by clicking the register link on the Login Page.
 
@@ -106,7 +106,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Login Page (Notes Only)
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/login.png" alt="Qwerty login page">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/login.png" alt="Qwerty login page">
 
 - On selecting a language from the notes dropdown, users not already logged in, are routed to the Login Page using `login_manager.login_view = "login"`.
 
@@ -129,7 +129,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 ## Notes Page
 
 <div align="center">
-<img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/notes.gif" alt="Qwerty notes page">
+<img src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/notes.gif" alt="Qwerty notes page">
 </div>
 
 - Users access the Notes Page by selecting a language from the notes dropdown. If a user is logged in they go directly to their language Notes Page. A Flask-Login `@loginrequired` decorator ensures users not currently logged in, are first routed to the Login Page before being redirected to their relevant language Notes Page.
@@ -154,7 +154,7 @@ Using Flask and Jinja, a base page is used to render Qwerty's 8 site pages as fo
 
 ## Add Note Page
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addnote.png" alt="Qwerty add note page">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/addnote.png" alt="Qwerty add note page">
 
 - A Flask-Login `@login_required` decorator ensures access to this route is limited to logged in users.
 
@@ -177,7 +177,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
   
 ## Edit Note Page
 
-<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/editnote.png" alt="Qwerty edit note page">
+<img align="right" height="500" src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/editnote.png" alt="Qwerty edit note page">
 
 - A Flask-Login `@login_required` decorator ensures access to this route is limited to logged in users.
 
@@ -196,7 +196,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 ## Links Page
 
 <div align="center">
-<img src="https://github.com/coderbeez/qwerty/blob/master/static/readme/links.gif" alt="Qwerty links page">
+<img src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/links.gif" alt="Qwerty links page">
 </div>
 
 - Users access the Links Page by selecting a language from the links dropdown. Links are not associated with a user and no log in is required to access.
@@ -219,7 +219,7 @@ form.topic.choices = [("", "-select-")]+[(topic, topic) for topic in topics]
 
 ## Add Link Page
 
-<img align="right" height="600" src="https://github.com/coderbeez/qwerty/blob/master/static/readme/addlink.png" alt="Qwerty add link page">
+<img align="right" height="600" src="https://github.com/coderbeez/qwerty/blob/master/wireframes/images/addlink.png" alt="Qwerty add link page">
 
 - Users access the Add Link Page from a link on the language Links Page, passing the language argument from Links to Add Links.
 
@@ -517,4 +517,4 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ## Acknowledgements
 
-- Many thanks to my mentor Ali Ashik, Sean Murphy and ***all*** on Slack who take the time to share useful links for their fellow students.
+- Many thanks to my mentor Ali Ashik, Simen Daehlin, Sean Murphy and ***all*** on Slack who take the time to share useful links for their fellow students.
