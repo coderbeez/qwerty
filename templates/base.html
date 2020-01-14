@@ -75,7 +75,7 @@
         <div class="row">
 
             <!--LEFT COLUMN-->
-            <div class="col-12 col-md-7 col-lg-7">
+            <section class="col-12 col-md-7 col-lg-7">
                 <!--FLASH MESSAGE-->
                 {% with messages = get_flashed_messages(category_filter=["message"]) %}
                 <!--WHY: As message is the default category, used to show all but error, search and first messages.-->
@@ -95,10 +95,10 @@
                     </main>
                 </div>
 
-            </div>
+            </section>
 
             <!--RIGHT COLUMN - SIDEBAR-->
-            <section class="d-none d-md-block col-md-5 col-lg-4 offset-lg-1">
+            <aside class="d-none d-md-block col-md-5 col-lg-4 offset-lg-1">
 
                 {% block sidebar %}
 
@@ -163,7 +163,7 @@
                 {% endblock %}
                 <!--WHERE: Using Jinja super blocks https://realpython.com/primer-on-jinja-templating/#super-blocks -->
                 <!--WHY: Super block used to allow distraction base code be inserted in index page. -->
-            </section>
+            </aside>
 
         </div>
     </div>
